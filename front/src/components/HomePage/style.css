@@ -1,3 +1,66 @@
+ /* CSS POUR COMPOSANT HOMEPAGE */
 .homePage{
-   
+    display: flex;
+    width: 90%;
+    height: 90%;
+    margin:3% auto;
+    justify-content: space-between;  
+}
+ /* CSS POUR COMPOSANT DESCRIPTION */
+.description{
+    border: 1px solid #BDC3C7;
+    box-shadow: 10px 5px 5px #BDC3C7;
+    width: 60%;
+    height: 550px; 
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-between;
+}
+.description h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+.description p{
+    padding: 5%;
+    text-align: center;
+}
+.description_main p{
+    width: 50%;
+    text-align: center;
+}
+.description_main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.img_description{
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #BDC3C7;
+
+}
+/* CSS POUR COMPOSANT LASTNEWS */
+.last_news{
+    border: 1px solid #BDC3C7;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #BDC3C7;
+}
+.one_news_card{
+    border: 1px solid #BDC3C7;
+    width: 80%;
+    margin: 4% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #BDC3C7;
+}
+.img_one_news{
+    width: 100px;  
+    padding: 4%;
 }

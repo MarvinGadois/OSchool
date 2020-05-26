@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+//import { useDispatch, useSelector } from 'react-redux';
 
 //import components
 import HomePage from '../HomePage';
