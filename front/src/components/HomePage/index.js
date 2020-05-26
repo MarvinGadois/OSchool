@@ -6,14 +6,19 @@ import './style.css';
 //import components
 import Description from './Description';
 import LastNews from './LastNews';
+import Opinion from './Opinion';
 
 
 const HomePage = () => {
     return (
         <div className="homePage">
-            <Description />
-            <LastNews />
+            <div className="homePage_content">
+                <Description />
+                <LastNews />
+            </div>
+            <Opinion />
         </div>
+
     );
 };
 

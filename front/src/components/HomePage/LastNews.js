@@ -6,6 +6,7 @@ import './style.css';
 const LastNews = () => {
     return (
         <div className="last_news">
+            <h2>Dernières actualités</h2>
             <div className="one_news_card">
                 <h3>titre news</h3>
                 <img className="img_one_news" src={image_news}></img>

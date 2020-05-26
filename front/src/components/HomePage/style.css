@@ -1,5 +1,5 @@
  /* CSS POUR COMPOSANT HOMEPAGE */
-.homePage{
+.homePage_content{
     display: flex;
     width: 90%;
     height: 90%;
@@ -63,4 +63,9 @@
 .img_one_news{
     width: 100px;  
     padding: 4%;
+}
+.last_news h2 {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
 }
