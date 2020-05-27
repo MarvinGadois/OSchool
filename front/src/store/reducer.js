@@ -1,3 +1,8 @@
+import {
+    INCREMENT,
+} from './actions';
+
+
 const initialState = {
     counter: 0,
 };
@@ -5,7 +10,8 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case 'INCREMENT': {
+        case INCREMENT: {
+
             return {
                 ...state,
                 counter: state.counter + 1,
