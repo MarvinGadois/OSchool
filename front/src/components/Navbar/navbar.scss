@@ -1,0 +1,127 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 10px 10px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: top .75s ease-in;
+  background-color: #e1d2b8;
+
+  .menu {
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+
+    li a {
+      display: inline-block;
+      min-width: 75px;
+      margin: .3em 0;
+      padding: 0 10px;
+      transition: .4s all;
+      text-decoration: none;
+      font-size: 20px;
+
+      &:link,
+      &:visited {
+        color: #0d0d0d;
+      }
+
+      &:focus,
+      &:hover,
+      &:active {
+        transform: scale(1.2);
+        color: #20232d
+      }
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    width: 125px;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+
+    .navicon {
+      background: #20232d;
+      display: block;
+      height: 2px;
+      position: relative;
+      width: 1.625rem;
+
+      &:before,
+      &:after {
+        background: #20232d;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+      }
+
+      &:before {
+        top: 7px;
+      }
+
+      &:after {
+        top: -7px;
+      }
+    }
+  }
+
+  .menu-btn {
+    display: none;
+
+    &:checked~.menu {
+      max-height: 300px;
+    }
+
+    &:checked~.menu-icon .navicon {
+      background: transparent;
+
+      &:before {
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+
+    &:checked~.menu-icon:not(.steps) .navicon {
+
+      &:before,
+      &:after {
+        top: 0;
+      }
+    }
+  }
+}
+
+// DESKTOP MENU CSS
+@media (min-width: 840px) {
+  .navbar li {
+    margin: 0 10px;
+  }
+
+  .navbar .menu {
+    width: auto;
+    max-height: none;
+    flex-direction: row;
+  }
+
+  .navbar .menu-icon {
+    display: none;
+  }
+}

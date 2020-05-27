@@ -1,7 +1,20 @@
+// == Import npm
 import React from "react";
 
-function App() {
-  return <div className="App">O'School</div>;
-}
+import Navbar from "src/components/Navbar";
+import Footer from "src/components/Footer";
 
+// == Import
+
+// == Composant
+const App = () => {
+  return (
+    <div className="app">
+      <Navbar />
+      <Footer />
+    </div>
+  );
+};
+
+// == Export
 export default App;
