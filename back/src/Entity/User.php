@@ -106,6 +106,11 @@ class User implements UserInterface
      */
     private $notices_receiver;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Opinion::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $opinions;
+
 
     public function __construct()
     {
@@ -119,6 +124,7 @@ class User implements UserInterface
         $this->notices = new ArrayCollection();
         $this->notices_author = new ArrayCollection();
         $this->notices_receiver = new ArrayCollection();
+        $this->opinions = new ArrayCollection();
     }
 
 
@@ -501,6 +507,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($noticesReceiver->getReceiver() === $this) {
                 $noticesReceiver->setReceiver(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Opinion[]
+     */
+    public function getOpinions(): Collection
+    {
+        return $this->opinions;
+    }
+
+    public function addOpinion(Opinion $opinion): self
+    {
+        if (!$this->opinions->contains($opinion)) {
+            $this->opinions[] = $opinion;
+            $opinion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOpinion(Opinion $opinion): self
+    {
+        if ($this->opinions->contains($opinion)) {
+            $this->opinions->removeElement($opinion);
+            // set the owning side to null (unless already changed)
+            if ($opinion->getUser() === $this) {
+                $opinion->setUser(null);
             }
         }
 
