@@ -23,7 +23,7 @@ security:
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
         api:
-            pattern:   ^/api/protected
+            pattern:   ^/api/secured
             stateless: true
             guard:
                 authenticators:
@@ -43,8 +43,8 @@ security:
     access_control:
         - { path: ^/api/login_check,        roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/public,                    roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/protected/v1/test,                 roles: ROLE_USER }
-        - { path: ^/api/protected,                    roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/secured/v1/test,                 roles: ROLE_USER }
+        - { path: ^/api/secured,                    roles: IS_AUTHENTICATED_FULLY }
         # NOTE !!!! Comme le firewall api est là, on DOIT S'IDENTIFIER pour toute les routes qui commence par api si on met pas api devant ça marche (200 au lieu de 401)
     
     role_hierarchy:
