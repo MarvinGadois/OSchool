@@ -618,6 +618,6 @@ class AppFixtures extends Fixture
         $users[] = $tboot;
         $em->persist($tboot);
 
-        // $em->flush();
+        $em->flush();
     }
 }
