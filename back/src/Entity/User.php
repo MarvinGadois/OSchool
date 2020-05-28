@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -23,6 +24,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
+    
     private $email;
 
     /**
@@ -127,7 +129,9 @@ class User implements UserInterface
         $this->opinions = new ArrayCollection();
     }
 
-
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -157,6 +161,7 @@ class User implements UserInterface
 
     /**
      * @see UserInterface
+     * @Groups({"opinion_browse"})
      */
     public function getRoles(): array
     {
@@ -206,6 +211,9 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getLastname(): ?string
     {
         return $this->lastname;
@@ -218,6 +226,9 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getFirstname(): ?string
     {
         return $this->firstname;
@@ -230,6 +241,9 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getImage(): ?string
     {
         return $this->image;
