@@ -19,9 +19,12 @@ class OpinionController extends AbstractController
     public function browse(OpinionRepository $opinionRepository, SerializerInterface $serializer)
     {
         $opinions = $opinionRepository->getOpinionsWithRelations();
-        $arrayMovies = $serializer->normalize($opinions, null, ['groups' => 'opinion_browse']);
-        // return $this->json($opinions);
+        // $arrayMovies = $serializer->serialize($opinions, null, ['groups' => 'opinion_browse']);
 
-        dd($arrayMovies);
+        $json = $serializer->normalize(
+            $opinions,
+            'json', ['groups' => ['opinion_browse']]
+        );
+        return $this->json($json);
     }
 }
