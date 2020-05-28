@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 //Import action
 import { syncEmail, syncPassword } from 'src/store/actions';
@@ -9,6 +10,7 @@ import './styles.scss';
 
 const Login = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const emailUser = useSelector((state) => state.email);
     const passwordUser = useSelector((state) => state.password);
     return (
@@ -39,7 +41,11 @@ const Login = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button
+                    type="submit"
+                    className="btn btn-primary"
+
+                >Submit</button>
             </form>
         </div>
     )
