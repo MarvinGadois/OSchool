@@ -1,14 +1,17 @@
 import {
     SYNC_EMAIL,
     SYNC_PASSWORD,
-    INCREMENT,
+    SET_USER,
+    SET_USER_TOKEN,
 } from './actions';
 
 
 const initialState = {
+    user: {},
+    userToken: '',
     email: '',
     password: '',
-    counter: 0,
+    connected: false,
 };
 
 
@@ -26,10 +29,16 @@ export default (state = initialState, action = {}) => {
                 password: action.password,
             };
         }
-        case INCREMENT: {
+        case SET_USER: {
             return {
                 ...state,
-                counter: state.counter + 1,
+                user: action.user,
+            };
+        }
+        case SET_USER_TOKEN: {
+            return {
+                ...state,
+                userToken: action.payload,
             };
         }
         default: {
