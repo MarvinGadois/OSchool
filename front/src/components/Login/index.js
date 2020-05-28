@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 //Import action
-import { syncEmail, syncPassword } from 'src/store/actions';
+import { syncEmail, syncPassword, login } from 'src/store/actions';
 
 // Import scss
 import './styles.scss';
@@ -15,7 +15,12 @@ const Login = () => {
     const passwordUser = useSelector((state) => state.password);
     return (
         <div className="container">
-            <form>
+            <form
+                onSubmit={(evt) => {
+                    evt.preventDefault();
+                    dispatch(login(history));
+                }}
+            >
                 <div className="form-group">
                     <input
                         placeholder="Email address"
