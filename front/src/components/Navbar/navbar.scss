@@ -1,7 +1,6 @@
 .navbar {
-  position: fixed;
+  position: sticky;
   width: 100%;
-  padding: 10px 10px 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +9,7 @@
   background-color: #e1d2b8;
 
   .menu {
+    margin-right: 1em;
     list-style: none;
     overflow: hidden;
     display: flex;
@@ -45,6 +45,7 @@
   .logo {
     display: inline-block;
     width: 125px;
+    margin-left: 1em;
   }
 
   .menu-icon {

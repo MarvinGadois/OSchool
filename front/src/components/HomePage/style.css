@@ -3,15 +3,14 @@
     display: flex;
     width: 90%;
     height: 90%;
-    margin:3% auto;
+    margin:5% auto;
     justify-content: space-between;  
 }
  /* CSS POUR COMPOSANT DESCRIPTION */
 .description{
     border: 1px solid #BDC3C7;
-    box-shadow: 10px 5px 5px #BDC3C7;
+    box-shadow: 2px 2px 2px #BDC3C7;
     width: 60%;
-    height: 600px; 
     display: flex;  
     flex-direction: column;
     justify-content: space-between;
@@ -40,9 +39,15 @@
 .img_description{
     width: 40%;
     border-radius: 5px;
-    box-shadow: 10px 5px 5px #BDC3C7;
+    box-shadow: 2px 2px 2px #BDC3C7;
 
 }
+
+.icon{
+width: 8%;
+align-content: center;
+}
+
 /* CSS POUR COMPOSANT LASTNEWS */
 .last_news{
     border: 1px solid #BDC3C7;
@@ -50,8 +55,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    box-shadow: 10px 5px 5px #BDC3C7;
-}
+    box-shadow: 2px 2px 2px #BDC3C7;}
+    
 .one_news_card{
     border: 1px solid #BDC3C7;
     width: 80%;

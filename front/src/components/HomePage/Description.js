@@ -2,22 +2,45 @@ import React from 'react';
 
 // import style
 import './style.css';
+import icon1 from 'src/assets/icon-inscription.png';
+import icon2 from 'src/assets/icon-students.png';
+import icon3 from 'src/assets/icon-light.jpg';
+import logo from "src/assets/O'school.png";
+
 
 const Description = () => {
-    return (
-        <div className="description">
-            <h1>Bienvenue</h1>
-            <div className="description_main">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and .</p>
-                <img className="img_description" src={image_description}></img>
-            </div>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+  return (
+    <div className="description">
+      <div className="container">
+        <h1>Bienvenue sur <img className="logo" src={logo} alt="logo O'school" /></h1>
 
-</p>
+        <div className="description_main">
+          <p>O’school est une plateforme web facilitant les échanges en ligne entre
+            les différent parties de l’éducation.
+          </p>
         </div>
-    );
-};
+      </div>
 
-const image_description = "https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png"
+      <div>
+        <img className="icon" src={icon1} alt="icon inscription"/>
+        <p>Inscription effectuée par l’administration</p>
+
+      </div>
+      <div>
+
+      <img className="icon" src={icon2} alt="icon inscription"/>
+        <p>Accès facile et en direct de tous les documents</p>
+
+      </div>
+
+      <div>
+
+      <img className="icon" src={icon3} alt="icon inscription"/>
+        <p>Simple et intuitif</p>
+
+      </div>
+    </div>
+  );
+};
 
 export default Description;
