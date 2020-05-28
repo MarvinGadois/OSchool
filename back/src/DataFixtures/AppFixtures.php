@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
+use App\Entity\Opinion;
 use App\Entity\School;
 use App\Entity\Subject;
 use App\Entity\User;
@@ -27,7 +28,7 @@ class AppFixtures extends Fixture
         $classrooms = [];
         $subjects = [];
         $users = [];
-        $dateTime = new \DateTime();
+        $opinions = [];
 
 
         // SCHOOL
@@ -617,6 +618,27 @@ class AppFixtures extends Fixture
         $tboot->addClassroom($serdaigleA);
         $users[] = $tboot;
         $em->persist($tboot);
+
+        $opinion1 = new Opinion();
+        $opinion1->setContent("Si spectare poterat volucriter fabulae spectare multas licet flexeris nixus fabulae gyris suppetere usque nupsissent.");
+        $opinion1->setDate(new \DateTime('10/30/2019'));
+        $opinion1->setUser($oquirke);
+        $opinions[] = $opinion1;
+        $em->persist($opinion1);
+
+        $opinion2 = new Opinion();
+        $opinion2->setContent("Quarum incrementis defuisset quarum plerumque atque Fortuna Roma non venerat summitatem foedere sublimibus in dissidentes.");
+        $opinion2->setDate(new \DateTime('06/01/2020'));
+        $opinion2->setUser($hpotter);
+        $opinions[] = $opinion2;
+        $em->persist($opinion2);
+
+        $opinion3 = new Opinion();
+        $opinion3->setContent("Inpulsu funesti principem inpulsu nondum comitatum carnificis adulescens ut ex adulescens manu et et hos.");
+        $opinion3->setDate(new \DateTime('01/14/2018'));
+        $opinion3->setUser($rweasley);
+        $opinions[] = $opinion3;
+        $em->persist($opinion3);
 
         $em->flush();
     }
