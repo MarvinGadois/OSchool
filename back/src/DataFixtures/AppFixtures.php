@@ -106,7 +106,7 @@ class AppFixtures extends Fixture
         $bibine->setEmail("renee.bibine@poudlard.com");
         $bibine->setRoles(["ROLE_TEACHER"]);
         $bibine->setImage("profiles/bibine.png");
-        $bibine->setBirthday($dateTime->setDate(1940, 11, 2));
+        $bibine->setBirthday(new \DateTime('11/02/1940'));
         $bibine->setPassword($this->passwordEncoder->encodePassword($bibine, 'renee'));
         $bibine->addSchool($school);
         $bibine->addSubject($quidditch);
@@ -120,7 +120,7 @@ class AppFixtures extends Fixture
         $binns->setEmail("cuthbert.binns@poudlard.com");
         $binns->setRoles(["ROLE_TEACHER"]);
         $binns->setImage("profiles/binns.jpg");
-        $binns->setBirthday($dateTime->setDate(1955, 8, 24));
+        $binns->setBirthday(new \DateTime('08/24/1955')); 
         $binns->setPassword($this->passwordEncoder->encodePassword($binns, 'cuthbert'));
         $binns->addSchool($school);
         $binns->addSubject($histoire);
@@ -134,7 +134,7 @@ class AppFixtures extends Fixture
         $burbage->setEmail("charity.burbage@poudlard.com");
         $burbage->setRoles(["ROLE_TEACHER"]);
         $burbage->setImage("");
-        $burbage->setBirthday($dateTime->setDate(1962, 2, 17));
+        $burbage->setBirthday(new \DateTime('02/17/1962'));
         $burbage->setPassword($this->passwordEncoder->encodePassword($burbage, 'charity'));
         $burbage->addSchool($school);
         $burbage->addSubject($moldus);
@@ -148,7 +148,7 @@ class AppFixtures extends Fixture
         $chourave->setEmail("pomona.chourave@poudlard.com");
         $chourave->setRoles(["ROLE_TEACHER"]);
         $chourave->setImage("profiles/chourave.jpg");
-        $chourave->setBirthday($dateTime->setDate(1931, 5, 15));
+        $chourave->setBirthday(new \DateTime('05/15/1931'));
         $chourave->setPassword($this->passwordEncoder->encodePassword($chourave, 'pomona'));
         $chourave->addSchool($school);
         $chourave->addSubject($botanique);
@@ -162,7 +162,7 @@ class AppFixtures extends Fixture
         $flitwick->setEmail("filius.flitwick@poudlard.com");
         $flitwick->setRoles(["ROLE_TEACHER"]);
         $flitwick->setImage("profiles/flitwick.jpg");
-        $flitwick->setBirthday($dateTime->setDate(1947, 10, 17));
+        $flitwick->setBirthday(new \DateTime('10/17/1947'));
         $flitwick->setPassword($this->passwordEncoder->encodePassword($flitwick, 'filius'));
         $flitwick->addSchool($school);
         $flitwick->addSubject($sortileges);
@@ -176,7 +176,7 @@ class AppFixtures extends Fixture
         $mcgonagall->setEmail("minerva.mcgonagall@poudlard.com");
         $mcgonagall->setRoles(["ROLE_TEACHER"]);
         $mcgonagall->setImage("profiles/mcgonagall.jpg");
-        $mcgonagall->setBirthday($dateTime->setDate(1935, 10, 4));
+        $mcgonagall->setBirthday(new \DateTime('10/04/1935'));
         $mcgonagall->setPassword($this->passwordEncoder->encodePassword($mcgonagall, 'minerva'));
         $mcgonagall->addSchool($school);
         $mcgonagall->addSubject($metamarphose);
@@ -190,7 +190,7 @@ class AppFixtures extends Fixture
         $rogue->setEmail("severus.rogue@poudlard.com");
         $rogue->setRoles(["ROLE_TEACHER"]);
         $rogue->setImage("profiles/rogue.jpg");
-        $rogue->setBirthday($dateTime->setDate(1960, 1, 9));
+        $rogue->setBirthday(new \DateTime('01/09/1960'));
         $rogue->setPassword($this->passwordEncoder->encodePassword($rogue, 'severus'));
         $rogue->addSchool($school);
         $rogue->addSubject($potions);
@@ -204,7 +204,7 @@ class AppFixtures extends Fixture
         $sinistra->setEmail("aurora.sinistra@poudlard.com");
         $sinistra->setRoles(["ROLE_TEACHER"]);
         $sinistra->setImage("profiles/sinistra.jpg");
-        $sinistra->setBirthday($dateTime->setDate(1964, 7, 15));
+        $sinistra->setBirthday(new \DateTime('07/15/1964'));
         $sinistra->setPassword($this->passwordEncoder->encodePassword($sinistra, 'aurora'));
         $sinistra->addSchool($school);
         $sinistra->addSubject($astronomie);
@@ -218,7 +218,7 @@ class AppFixtures extends Fixture
         $trelawney->setEmail("sibylle.trelawney@poudlard.com");
         $trelawney->setRoles(["ROLE_TEACHER"]);
         $trelawney->setImage("profiles/trelawney.jpg");
-        $trelawney->setBirthday($dateTime->setDate(1975, 3, 9));
+        $trelawney->setBirthday(new \DateTime('03/09/1975'));
         $trelawney->setPassword($this->passwordEncoder->encodePassword($trelawney, 'sibylle'));
         $trelawney->addSchool($school);
         $trelawney->addSubject($divination);
@@ -234,7 +234,7 @@ class AppFixtures extends Fixture
         $aegwu->setEmail("andre.egwu@poudlard.com");
         $aegwu->setRoles(["ROLE_STUDENT"]);
         $aegwu->setImage("profiles/aegwu.jpg");
-        $aegwu->setBirthday($dateTime->setDate(1972, 12, 2));
+        $aegwu->setBirthday(new \DateTime('12/02/1972'));
         $aegwu->setPassword($this->passwordEncoder->encodePassword($aegwu, 'andre'));
         $aegwu->addSchool($school);
         $aegwu->addClassroom($serdaigleA);
@@ -247,7 +247,7 @@ class AppFixtures extends Fixture
         $agoldstein->setEmail("anthony.goldstein@poudlard.com");
         $agoldstein->setRoles(["ROLE_STUDENT"]);
         $agoldstein->setImage("profiles/agoldstein.png");
-        $agoldstein->setBirthday($dateTime->setDate(1979, 6, 17));
+        $agoldstein->setBirthday(new \DateTime('06/17/1979'));
         $agoldstein->setPassword($this->passwordEncoder->encodePassword($agoldstein, 'anthony'));
         $agoldstein->addSchool($school);
         $agoldstein->addClassroom($serdaigleA);
@@ -260,7 +260,7 @@ class AppFixtures extends Fixture
         $ajohnson->setEmail("angelina.johnson@poudlard.com");
         $ajohnson->setRoles(["ROLE_STUDENT"]);
         $ajohnson->setImage("profiles/ajohnson.jpg");
-        $ajohnson->setBirthday($dateTime->setDate(1977, 10, 28));
+        $ajohnson->setBirthday(new \DateTime('10/28/1977'));
         $ajohnson->setPassword($this->passwordEncoder->encodePassword($ajohnson, 'angelina'));
         $ajohnson->addSchool($school);
         $ajohnson->addClassroom($gryffondorD);
@@ -273,7 +273,7 @@ class AppFixtures extends Fixture
         $ccrivey->setEmail("colin.crivey@poudlard.com");
         $ccrivey->setRoles(["ROLE_STUDENT"]);
         $ccrivey->setImage("profiles/ccrivey.jpg");
-        $ccrivey->setBirthday($dateTime->setDate(1981, 12, 18));
+        $ccrivey->setBirthday(new \DateTime('12/18/1981'));
         $ccrivey->setPassword($this->passwordEncoder->encodePassword($ccrivey, 'colin'));
         $ccrivey->addSchool($school);
         $ccrivey->addClassroom($gryffondorD);
@@ -286,7 +286,7 @@ class AppFixtures extends Fixture
         $cchang->setEmail("cho.chang@poudlard.com");
         $cchang->setRoles(["ROLE_STUDENT"]);
         $cchang->setImage("profiles/cchang.jpg");
-        $cchang->setBirthday($dateTime->setDate(1978, 2, 14));
+        $cchang->setBirthday(new \DateTime('02/14/1978'));
         $cchang->setPassword($this->passwordEncoder->encodePassword($cchang, 'cho'));
         $cchang->addSchool($school);
         $cchang->addClassroom($serdaigleA);
@@ -299,7 +299,7 @@ class AppFixtures extends Fixture
         $cmclaggen->setEmail("cormac.mclaggen@poudlard.com");
         $cmclaggen->setRoles(["ROLE_STUDENT"]);
         $cmclaggen->setImage("profiles/cmclaggen.jpg");
-        $cmclaggen->setBirthday($dateTime->setDate(1978, 6, 17));
+        $cmclaggen->setBirthday(new \DateTime('06/17/1978'));
         $cmclaggen->setPassword($this->passwordEncoder->encodePassword($cmclaggen, 'cormac'));
         $cmclaggen->addSchool($school);
         $cmclaggen->addClassroom($gryffondorD);
@@ -312,7 +312,7 @@ class AppFixtures extends Fixture
         $dcrivey->setEmail("dennis.crivey@poudlard.com");
         $dcrivey->setRoles(["ROLE_STUDENT"]);
         $dcrivey->setImage("profiles/dcrivey.jpg");
-        $dcrivey->setBirthday($dateTime->setDate(1982, 9, 12));
+        $dcrivey->setBirthday(new \DateTime('09/12/1982'));
         $dcrivey->setPassword($this->passwordEncoder->encodePassword($dcrivey, 'dennis'));
         $dcrivey->addSchool($school);
         $dcrivey->addClassroom($gryffondorD);
@@ -325,7 +325,7 @@ class AppFixtures extends Fixture
         $eabercrombie->setEmail("euan.abercrombie@poudlard.com");
         $eabercrombie->setRoles(["ROLE_STUDENT"]);
         $eabercrombie->setImage("profiles/eabercrombie.jpg");
-        $eabercrombie->setBirthday($dateTime->setDate(1984, 10, 12));
+        $eabercrombie->setBirthday(new \DateTime('10/12/1984'));
         $eabercrombie->setPassword($this->passwordEncoder->encodePassword($eabercrombie, 'euan'));
         $eabercrombie->addSchool($school);
         $eabercrombie->addClassroom($gryffondorD);
@@ -338,7 +338,7 @@ class AppFixtures extends Fixture
         $ecarmichael->setEmail("eddie.carmichael@poudlard.com");
         $ecarmichael->setRoles(["ROLE_STUDENT"]);
         $ecarmichael->setImage("");
-        $ecarmichael->setBirthday($dateTime->setDate(1979, 6, 18));
+        $ecarmichael->setBirthday(new \DateTime('06/18/1979'));
         $ecarmichael->setPassword($this->passwordEncoder->encodePassword($ecarmichael, 'eddie'));
         $ecarmichael->addSchool($school);
         $ecarmichael->addClassroom($serdaigleA);
@@ -351,7 +351,7 @@ class AppFixtures extends Fixture
         $fweasley->setEmail("fred.weasley@poudlard.com");
         $fweasley->setRoles(["ROLE_STUDENT"]);
         $fweasley->setImage("profiles/fweasley.jpg");
-        $fweasley->setBirthday($dateTime->setDate(1978, 4, 1));
+        $fweasley->setBirthday(new \DateTime('04/01/1978'));
         $fweasley->setPassword($this->passwordEncoder->encodePassword($fweasley, 'fred'));
         $fweasley->addSchool($school);
         $fweasley->addClassroom($gryffondorD);
@@ -364,7 +364,7 @@ class AppFixtures extends Fixture
         $gweasley->setEmail("ginny.weasley@poudlard.com");
         $gweasley->setRoles(["ROLE_STUDENT"]);
         $gweasley->setImage("profiles/gweasley.jpg");
-        $gweasley->setBirthday($dateTime->setDate(1981, 8, 11));
+        $gweasley->setBirthday(new \DateTime('08/11/1981'));
         $gweasley->setPassword($this->passwordEncoder->encodePassword($gweasley, 'ginny'));
         $gweasley->addSchool($school);
         $gweasley->addClassroom($gryffondorD);
@@ -377,7 +377,7 @@ class AppFixtures extends Fixture
         $hgranger->setEmail("hermione.granger@poudlard.com");
         $hgranger->setRoles(["ROLE_STUDENT"]);
         $hgranger->setImage("profiles/hgranger.jpg");
-        $hgranger->setBirthday($dateTime->setDate(1979, 9, 19));
+        $hgranger->setBirthday(new \DateTime('09/19/1979'));
         $hgranger->setPassword($this->passwordEncoder->encodePassword($hgranger, 'hermione'));
         $hgranger->addSchool($school);
         $hgranger->addClassroom($gryffondorD);
@@ -390,7 +390,7 @@ class AppFixtures extends Fixture
         $hpotter->setEmail("harry.potter@poudlard.com");
         $hpotter->setRoles(["ROLE_STUDENT"]);
         $hpotter->setImage("profiles/hpotter.jpg");
-        $hpotter->setBirthday($dateTime->setDate(1980, 7, 31));
+        $hpotter->setBirthday(new \DateTime('07/31/1980'));
         $hpotter->setPassword($this->passwordEncoder->encodePassword($hpotter, 'harry'));
         $hpotter->addSchool($school);
         $hpotter->addClassroom($gryffondorD);
@@ -403,7 +403,7 @@ class AppFixtures extends Fixture
         $kbell->setEmail("katie.bell@poudlard.com");
         $kbell->setRoles(["ROLE_STUDENT"]);
         $kbell->setImage("profiles/hpotter.jpg");
-        $kbell->setBirthday($dateTime->setDate(1978, 5, 27));
+        $kbell->setBirthday(new \DateTime('05/21/1978'));
         $kbell->setPassword($this->passwordEncoder->encodePassword($kbell, 'katie'));
         $kbell->addSchool($school);
         $kbell->addClassroom($gryffondorD);
@@ -416,7 +416,7 @@ class AppFixtures extends Fixture
         $lbrown->setEmail("lavande.brown@poudlard.com");
         $lbrown->setRoles(["ROLE_STUDENT"]);
         $lbrown->setImage("profiles/lbrown.jpg");
-        $lbrown->setBirthday($dateTime->setDate(1980, 4, 14));
+        $lbrown->setBirthday(new \DateTime('04/14/1980'));
         $lbrown->setPassword($this->passwordEncoder->encodePassword($lbrown, 'lavande'));
         $lbrown->addSchool($school);
         $lbrown->addClassroom($gryffondorD);
@@ -429,7 +429,7 @@ class AppFixtures extends Fixture
         $ljordan->setEmail("lee.jordan@poudlard.com");
         $ljordan->setRoles(["ROLE_STUDENT"]);
         $ljordan->setImage("profiles/ljordan.jpg");
-        $ljordan->setBirthday($dateTime->setDate(1978, 9, 23));
+        $ljordan->setBirthday(new \DateTime('03/23/1978'));
         $ljordan->setPassword($this->passwordEncoder->encodePassword($ljordan, 'lee'));
         $ljordan->addSchool($school);
         $ljordan->addClassroom($gryffondorD);
@@ -442,7 +442,7 @@ class AppFixtures extends Fixture
         $llovegood->setEmail("luna.lovegood@poudlard.com");
         $llovegood->setRoles(["ROLE_STUDENT"]);
         $llovegood->setImage("profiles/llovegood.jpg");
-        $llovegood->setBirthday($dateTime->setDate(1981, 2, 13));
+        $llovegood->setBirthday(new \DateTime('02/13/1981'));
         $llovegood->setPassword($this->passwordEncoder->encodePassword($llovegood, 'luna'));
         $llovegood->addSchool($school);
         $llovegood->addClassroom($serdaigleA);
@@ -455,7 +455,7 @@ class AppFixtures extends Fixture
         $lturpin->setEmail("lisa.turpin@poudlard.com");
         $lturpin->setRoles(["ROLE_STUDENT"]);
         $lturpin->setImage("profiles/lturpin.jpg");
-        $lturpin->setBirthday($dateTime->setDate(1979, 6, 1));
+        $lturpin->setBirthday(new \DateTime('06/01/1979'));
         $lturpin->setPassword($this->passwordEncoder->encodePassword($lturpin, 'lisa'));
         $lturpin->addSchool($school);
         $lturpin->addClassroom($serdaigleA);
@@ -468,7 +468,7 @@ class AppFixtures extends Fixture
         $mbrocklehurst->setEmail("mandy.brocklehurst@poudlard.com");
         $mbrocklehurst->setRoles(["ROLE_STUDENT"]);
         $mbrocklehurst->setImage("profiles/mbrocklehurst.png");
-        $mbrocklehurst->setBirthday($dateTime->setDate(1979, 1, 19));
+        $mbrocklehurst->setBirthday(new \DateTime('01/19/1979'));
         $mbrocklehurst->setPassword($this->passwordEncoder->encodePassword($mbrocklehurst, 'mandy'));
         $mbrocklehurst->addSchool($school);
         $mbrocklehurst->addClassroom($serdaigleA);
@@ -481,7 +481,7 @@ class AppFixtures extends Fixture
         $mcorner->setEmail("michael.corner@poudlard.com");
         $mcorner->setRoles(["ROLE_STUDENT"]);
         $mcorner->setImage("profiles/mcorner.jpg");
-        $mcorner->setBirthday($dateTime->setDate(1980, 5, 17));
+        $mcorner->setBirthday(new \DateTime('05/17/1980'));
         $mcorner->setPassword($this->passwordEncoder->encodePassword($mcorner, 'michael'));
         $mcorner->addSchool($school);
         $mcorner->addClassroom($serdaigleA);
@@ -494,7 +494,7 @@ class AppFixtures extends Fixture
         $medgecombe->setEmail("marietta.edgecombe@poudlard.com");
         $medgecombe->setRoles(["ROLE_STUDENT"]);
         $medgecombe->setImage("profiles/medgecombe.jpg");
-        $medgecombe->setBirthday($dateTime->setDate(1978, 10, 23));
+        $medgecombe->setBirthday(new \DateTime('10/23/1978'));
         $medgecombe->setPassword($this->passwordEncoder->encodePassword($medgecombe, 'marietta'));
         $medgecombe->addSchool($school);
         $medgecombe->addClassroom($serdaigleA);
@@ -507,7 +507,7 @@ class AppFixtures extends Fixture
         $nlondubat->setEmail("neville.londubat@poudlard.com");
         $nlondubat->setRoles(["ROLE_STUDENT"]);
         $nlondubat->setImage("profiles/nlondubat.jpg");
-        $nlondubat->setBirthday($dateTime->setDate(1980, 7, 30));
+        $nlondubat->setBirthday(new \DateTime('07/30/1980'));
         $nlondubat->setPassword($this->passwordEncoder->encodePassword($nlondubat, 'neville'));
         $nlondubat->addSchool($school);
         $nlondubat->addClassroom($gryffondorD);
@@ -520,7 +520,7 @@ class AppFixtures extends Fixture
         $odubois->setEmail("olivier.dubois@poudlard.com");
         $odubois->setRoles(["ROLE_STUDENT"]);
         $odubois->setImage("profiles/lbrown.jpg");
-        $odubois->setBirthday($dateTime->setDate(1975, 11, 17));
+        $odubois->setBirthday(new \DateTime('11/17/1975'));
         $odubois->setPassword($this->passwordEncoder->encodePassword($odubois, 'olivier'));
         $odubois->addSchool($school);
         $odubois->addClassroom($gryffondorD);
@@ -533,7 +533,7 @@ class AppFixtures extends Fixture
         $oquirke->setEmail("orla.quirke@poudlard.com");
         $oquirke->setRoles(["ROLE_STUDENT"]);
         $oquirke->setImage("");
-        $oquirke->setBirthday($dateTime->setDate(1982, 3, 27));
+        $oquirke->setBirthday(new \DateTime('03/27/1982'));
         $oquirke->setPassword($this->passwordEncoder->encodePassword($oquirke, 'orla'));
         $oquirke->addSchool($school);
         $oquirke->addClassroom($serdaigleA);
@@ -546,7 +546,7 @@ class AppFixtures extends Fixture
         $pdeauclaire->setEmail("penelope.deauclaire@poudlard.com");
         $pdeauclaire->setRoles(["ROLE_STUDENT"]);
         $pdeauclaire->setImage("profiles/pdeauclaire.jpg");
-        $pdeauclaire->setBirthday($dateTime->setDate(1975, 1, 17));
+        $pdeauclaire->setBirthday(new \DateTime('01/17/1975'));
         $pdeauclaire->setPassword($this->passwordEncoder->encodePassword($pdeauclaire, 'penelope'));
         $pdeauclaire->addSchool($school);
         $pdeauclaire->addClassroom($serdaigleA);
@@ -559,7 +559,7 @@ class AppFixtures extends Fixture
         $ppatil->setEmail("padma.patil@poudlard.com");
         $ppatil->setRoles(["ROLE_STUDENT"]);
         $ppatil->setImage("profiles/ppatil.png");
-        $ppatil->setBirthday($dateTime->setDate(1980, 11, 12));
+        $ppatil->setBirthday(new \DateTime('11/12/1980'));
         $ppatil->setPassword($this->passwordEncoder->encodePassword($ppatil, 'padma'));
         $ppatil->addSchool($school);
         $ppatil->addClassroom($serdaigleA);
@@ -572,7 +572,7 @@ class AppFixtures extends Fixture
         $rdavies->setEmail("roger.davies@poudlard.com");
         $rdavies->setRoles(["ROLE_STUDENT"]);
         $rdavies->setImage("profiles/rdavies.jpg");
-        $rdavies->setBirthday($dateTime->setDate(1978, 10, 23));
+        $rdavies->setBirthday(new \DateTime('10/23/1978'));
         $rdavies->setPassword($this->passwordEncoder->encodePassword($rdavies, 'roger'));
         $rdavies->addSchool($school);
         $rdavies->addClassroom($serdaigleA);
@@ -585,7 +585,7 @@ class AppFixtures extends Fixture
         $rhilliard->setEmail("robert.hilliard@poudlard.com");
         $rhilliard->setRoles(["ROLE_STUDENT"]);
         $rhilliard->setImage("");
-        $rhilliard->setBirthday($dateTime->setDate(1978, 8, 14));
+        $rhilliard->setBirthday(new \DateTime('08/14/1978'));
         $rhilliard->setPassword($this->passwordEncoder->encodePassword($rhilliard, 'robert'));
         $rhilliard->addSchool($school);
         $rhilliard->addClassroom($serdaigleA);
@@ -598,7 +598,7 @@ class AppFixtures extends Fixture
         $rweasley->setEmail("ron.weasley@poudlard.com");
         $rweasley->setRoles(["ROLE_STUDENT"]);
         $rweasley->setImage("profiles/rweasley.jpg");
-        $rweasley->setBirthday($dateTime->setDate(1980, 3, 1));
+        $rweasley->setBirthday(new \DateTime('04/06/2014'));
         $rweasley->setPassword($this->passwordEncoder->encodePassword($rweasley, 'ron'));
         $rweasley->addSchool($school);
         $rweasley->addClassroom($gryffondorD);
@@ -611,7 +611,7 @@ class AppFixtures extends Fixture
         $tboot->setEmail("terry.boot@poudlard.com");
         $tboot->setRoles(["ROLE_STUDENT"]);
         $tboot->setImage("profiles/tboot.jpg");
-        $tboot->setBirthday($dateTime->setDate(1980, 8, 8));
+        $tboot->setBirthday(new \DateTime('08/08/1980'));
         $tboot->setPassword($this->passwordEncoder->encodePassword($tboot, 'terry'));
         $tboot->addSchool($school);
         $tboot->addClassroom($serdaigleA);
