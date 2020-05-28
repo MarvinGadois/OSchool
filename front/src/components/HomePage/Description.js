@@ -3,10 +3,16 @@ import React from 'react';
 // import style
 import './style.css';
 
+//test
+import { useDispatch, useSelector } from 'react-redux';
+import { incrementCounter } from 'src/store/actions';
+
 const Description = () => {
+    const dispatch = useDispatch();
+    const clickCount = useSelector((state) => state.counter);
     return (
         <div className="description">
-            <h1>Bienvenue</h1>
+            <h1 onClick={(evt) => { dispatch(incrementCounter()) }}>Bienvenue {clickCount}</h1>
             <div className="description_main">
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and .</p>
                 <img className="img_description" src={image_description}></img>
