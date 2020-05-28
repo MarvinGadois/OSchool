@@ -19,7 +19,7 @@ const Login = () => {
                         placeholder="Email address"
                         type="email"
                         className="form-control"
-                        id="exampleInputEmail1"
+                        value={emailUser}
                         onChange={(evt) => {
                             const newEmailUser = evt.target.value;
                             dispatch(syncEmail(newEmailUser));
@@ -27,8 +27,16 @@ const Login = () => {
                     />
                 </div>
                 <div className="form-group">
-
-                    <input placeholder="Password" type="password" className="form-control" id="exampleInputPassword1" />
+                    <input
+                        placeholder="Password"
+                        type="password"
+                        className="form-control"
+                        value={passwordUser}
+                        onChange={(evt) => {
+                            const newPasswordUser = evt.target.value;
+                            dispatch(syncPassword(newPasswordUser));
+                        }}
+                    />
                 </div>
 
                 <button type="submit" className="btn btn-primary">Submit</button>
