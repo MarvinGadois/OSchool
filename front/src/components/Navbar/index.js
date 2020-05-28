@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Logo from "src/assets/O'school.png";
 import "./navbar.scss";
 
+// == Router
+import { NavLink } from 'react-router-dom';
+
 class Navbar extends Component {
   render() {
     return (
@@ -15,7 +18,13 @@ class Navbar extends Component {
         </label>
         <ul className="menu">
           <li>
-            <a href="/">Accueil</a>
+            <NavLink
+              exact
+              to={"/"}
+            // activeClassName="menu-link--active"
+            >
+              Accueil
+          </NavLink>
           </li>
           <li>
             <a href="/">Pédagogie</a>
@@ -24,8 +33,17 @@ class Navbar extends Component {
             <a href="/">Vie Scolaire</a>
           </li>
           <li>
-            <a href="/">Connexion</a>
+            <NavLink
+              exact
+              to={"/login"}
+            // activeClassName="menu-link--active"
+            >
+              Connexion
+          </NavLink>
           </li>
+
+
+
         </ul>
       </nav>
     );

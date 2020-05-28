@@ -25,7 +25,7 @@ const HomePage = () => {
     }
     return (
         <div className="homePage">
-            HomePage Connected
+            <h1>HomePage Connected</h1>
         </div>
     )
 
