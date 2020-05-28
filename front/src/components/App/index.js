@@ -1,26 +1,27 @@
 // == Import npm
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Route, Redirect, Switch } from 'react-router';
+//import { useDispatch, useSelector } from 'react-redux';
+
+//import components
+import Navbar from "src/components/Navbar";
+import Footer from "src/components/Footer";
+import HomePage from '../HomePage';
 
 // == Import
-import reactLogo from './react-logo.svg';
 import './styles.css';
 
 // == Composant
 const App = () => {
-  const dispatch = useDispatch();
-  const clickCount = useSelector((state) => state.counter);
 
   return (
     <div className="app">
-      <img src={reactLogo} alt="react logo" />
-      <h1>Composant : App</h1>
-      <button
-        type="button"
-        onClick={(evt) => dispatch({ type: 'INCREMENT' })}
-      >
-        Clic-me ! ({clickCount})
-      </button>
+      <Navbar />
+      <Switch>
+        <Route exact path="/"><HomePage /></Route>
+        <Route>404</Route>
+      </Switch>
+      <Footer />
     </div>
   );
 };
