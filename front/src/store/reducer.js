@@ -7,7 +7,7 @@ import {
 
 
 const initialState = {
-    user: '',
+    user: {},
     userToken: '',
     email: '',
     password: '',
