@@ -13,6 +13,10 @@ export default (store) => (next) => (action) => {
                 })
                 .then((response) => {
                     if (response.status === 200) {
+                        localStorage.user = JSON.stringify(response.data);
+                        localStorage.userToken = JSON.stringify(response.data.token);
+                        const user = JSON.parse(localStorage.getItem('user'));
+                        const userToken = JSON.parse(localStorage.getItem('userToken'));
                         store.dispatch({ type: SET_USER, user });
                         store.dispatch({ type: SET_USER_TOKEN, payload: userToken });
                         store.dispatch(homePageConnected(action.history));
