@@ -45,6 +45,11 @@ class Opinion
     private $user;
 
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
     /**
      * @Groups({"opinion_browse"})
      */
