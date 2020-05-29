@@ -13,32 +13,35 @@ const Description = () => {
     <div className="description">
       <div className="container-head">
         <div className="last-container-head">
-          <h1>Bienvenue sur </h1><img className="logo" src={logo} alt="logo O'school" />
+          <h1>Bienvenue sur </h1>
+          <img className="logo" src={logo} alt="logo O'school" />
 
-          <div className="description_main">
-            <p>O’school est une plateforme web facilitant les échanges en ligne entre
-              les différent parties de l’éducation.
-            </p>
-          </div>
         </div>
       </div>
+
+      <div className="description_main">
+        <p>O’school est une plateforme web facilitant les échanges en ligne entre
+          les différent parties de l’éducation.
+        </p>
+      </div>
+      
 
       <div className="container-body">
         <div className="catchphrase">
 
-          <div>
+          <div className="help-view">
             <img className="icon" src={icon1} alt="icon inscription"/>
             <p>Inscription effectuée par l’administration</p>
 
           </div>
-          <div>
+          <div className="help-view">
 
             <img className="icon" src={icon2} alt="icon inscription"/>
             <p>Accès facile et en direct de tous les documents</p>
 
           </div>
 
-          <div>
+          <div className="help-view">
 
             <img className="icon" src={icon3} alt="icon inscription"/>
             <p>Simple et intuitif</p>

@@ -19,22 +19,51 @@
 }
 .opinion_container{}
 
-.last-container-head{
 
+
+.container-head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.last-container-head{
+  display: flex;
+  margin-top: 5em;
+  align-content: center;
+}
+
+
+.last-container-head img{
+  object-position: 0px -1.9em ;
+  margin-left: 1em;
+  overflow: hidden;
 }
 .container-head{
   display: flex;
+  justify-content: center;
 }
 
 .container-head h1{
     text-align: center;
     font-weight: bold;
     font-size: 2.5em;
-    margin: 20px 0;
+    margin: 1em 0;
 
 }
+
+.help-view{
+  display: flex;justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.help-view img{
+  width: 25%  
+}
+
 .description p{
-    padding: 5%;
+    padding: 1em;
     text-align: center;
     display: flex;
 }
