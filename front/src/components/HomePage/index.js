@@ -6,7 +6,7 @@ import './style.css';
 //import components
 import Description from './Description';
 import LastNews from './LastNews';
-import Opinion from './Opinion';
+import Opinion from './opinion';
 
 
 const HomePage = () => {
