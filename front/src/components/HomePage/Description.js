@@ -8,7 +8,6 @@ import icon3 from 'src/assets/icon-light.jpg';
 import logo from "src/assets/O'school.png";
 
 
-
 const Description = () => {
   return (
     <div className="description">
@@ -16,6 +15,7 @@ const Description = () => {
         <div className="last-container-head">
           <h1>Bienvenue sur </h1>
           <img className="logo" src={logo} alt="logo O'school" />
+
 
 
         </div>
