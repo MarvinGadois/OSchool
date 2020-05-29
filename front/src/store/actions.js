@@ -13,3 +13,6 @@ export const SET_USER = 'actions/SET_USER';
 export const SET_USER_TOKEN = 'actions/SET_USER_TOKEN';
 
 export const homePageConnected = (history) => ({ type: HOMEPAGE_CONNECTED, history });
+
+// action set opinion
+export const SET_OPINIONS = 'actions/SET_OPINIONS';

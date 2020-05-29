@@ -23,7 +23,7 @@ const App = () => {
         <Route exact path="/login"><Login /></Route>
         <Route>404</Route>
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
