@@ -3,6 +3,7 @@ import {
     SYNC_PASSWORD,
     SET_USER,
     SET_USER_TOKEN,
+    SET_OPINIONS,
 } from './actions';
 
 
@@ -12,6 +13,7 @@ const initialState = {
     email: '',
     password: '',
     connected: false,
+    opinions: [],
 };
 
 
@@ -39,6 +41,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 userToken: action.payload,
+            };
+        }
+        case SET_OPINIONS: {
+            return {
+                ...state,
+                opinions: action.payload,
             };
         }
         default: {

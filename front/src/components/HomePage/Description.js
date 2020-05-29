@@ -3,8 +3,8 @@ import React from 'react';
 // import style
 import './style.css';
 
-//test
-import { useDispatch, useSelector } from 'react-redux';
+
+
 
 const Description = () => {
     return (
