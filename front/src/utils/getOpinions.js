@@ -7,7 +7,9 @@ import { API_URL } from './constant';
 // Import action SET_OPINIONS
 import { SET_OPINIONS } from '../store/actions';
 
-const opinionsRequest = `${API_URL}v1/unsecured/opinion/`;
+const opinionsRequest = `${API_URL}unsecured/v1/opinion`;
+//http://ec2-54-152-201-144.compute-1.amazonaws.com/api/unsecured/v1/opinion
+
 
 const getOpinions = (url = opinionsRequest) => {
     const promise = axios.get(url);
@@ -20,5 +22,3 @@ const getOpinions = (url = opinionsRequest) => {
 
 export default getOpinions;
 
-
-//  http://ec2-54-152-201-144.compute-1.amazonaws.com/api/v1/unsecured/opinion/
