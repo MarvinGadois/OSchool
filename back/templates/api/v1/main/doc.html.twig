@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+<main class="m-4">
+
+    <h1>O'school doc</h1>
+
+
+    <section>
+        <h2>Publiques (unsecured)</h2>
+
+        <h3>Doc</h3>
+
+        <div class="card text-white bg-secondary mb-3 row">
+            <div class="card-header p-1">GET</div>
+            <div class="card-body p-1">
+                <p class="card-text">/api/v1/doc</p>
+            </div>
+        </div>
+
+        <h3>Opinion</h3>
+
+        <div class="card text-white bg-secondary mb-3 row">
+            <div class="card-header p-1">GET</div>
+            <div class="card-body p-1">
+                <p class="card-text">/api/unsecured/v1/opinion</p>
+            </div>
+        </div>
+
+        {# <h3>News</h3> #}
+    
+    </section>
+
+    <section>
+        <h2>Privées (secured)</h2>
+
+        <h3>News</h3>
+
+        <div class="card text-white bg-secondary mb-3 row">
+            <div class="card-header p-1">GET</div>
+            <div class="card-body p-1">
+                <p class="card-text">/api/secured/v1/</p>
+            </div>
+        </div>
+    
+    </section>
+
+</main>
+
+{% endblock %}
+
+
+{# <div class="card text-white bg-secondary mb-3 row">
+    <div class="card-header p-1">GET</div>
+    <div class="card-body p-1">
+        <p class="card-text">/</p>
+    </div>
+</div>
+
+<div class="card text-white bg-success mb-3 row">
+    <div class="card-header p-1">POST</div>
+    <div class="card-body p-1">
+        <p class="card-text">/</p>
+    </div>
+</div>
+
+<div class="card text-white bg-warning mb-3 row">
+    <div class="card-header p-1">PUT</div>
+    <div class="card-body p-1">
+        <p class="card-text">/</p>
+    </div>
+</div>
+
+<div class="card text-white bg-danger mb-3 row">
+    <div class="card-header p-1">DELETE</div>
+    <div class="card-body p-1">
+        <p class="card-text">/</p>
+    </div>
+</div> #}
