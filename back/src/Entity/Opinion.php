@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\OpinionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=OpinionRepository::class)
@@ -43,11 +44,23 @@ class Opinion
      */
     private $user;
 
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -60,6 +73,9 @@ class Opinion
         return $this;
     }
 
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getContent(): ?string
     {
         return $this->content;
@@ -96,6 +112,9 @@ class Opinion
         return $this;
     }
 
+    /**
+     * @Groups({"opinion_browse"})
+     */
     public function getUser(): ?User
     {
         return $this->user;

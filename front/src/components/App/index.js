@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Route, Redirect, Switch } from 'react-router';
 //import { useDispatch, useSelector } from 'react-redux';
 
 //import components
@@ -12,14 +13,14 @@ import './styles.css';
 
 // == Composant
 const App = () => {
-  //exemple
-  // const dispatch = useDispatch();
-  // const clickCount = useSelector((state) => state.counter);
 
   return (
     <div className="app">
       <Navbar />
-      <HomePage />
+      <Switch>
+        <Route exact path="/"><HomePage /></Route>
+        <Route>404</Route>
+      </Switch>
       <Footer />
     </div>
   );
