@@ -1,20 +1,52 @@
 import {
-    INCREMENT,
+    SYNC_EMAIL,
+    SYNC_PASSWORD,
+    SET_USER,
+    SET_USER_TOKEN,
+    SET_OPINIONS,
 } from './actions';
 
 
 const initialState = {
-    counter: 0,
+    user: {},
+    userToken: '',
+    email: '',
+    password: '',
+    connected: false,
+    opinions: [],
 };
 
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case INCREMENT: {
-
+        case SYNC_EMAIL: {
             return {
                 ...state,
-                counter: state.counter + 1,
+                email: action.email,
+            };
+        }
+        case SYNC_PASSWORD: {
+            return {
+                ...state,
+                password: action.password,
+            };
+        }
+        case SET_USER: {
+            return {
+                ...state,
+                user: action.user,
+            };
+        }
+        case SET_USER_TOKEN: {
+            return {
+                ...state,
+                userToken: action.payload,
+            };
+        }
+        case SET_OPINIONS: {
+            return {
+                ...state,
+                opinions: action.payload,
             };
         }
         default: {
