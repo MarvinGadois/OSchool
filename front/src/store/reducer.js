@@ -4,6 +4,9 @@ import {
     SET_USER,
     SET_USER_TOKEN,
     SET_OPINIONS,
+    CONNECTED,
+    DISCONNECTED,
+    RESET_LOGIN_INPUT,
 } from './actions';
 
 
@@ -40,13 +43,33 @@ export default (state = initialState, action = {}) => {
         case SET_USER_TOKEN: {
             return {
                 ...state,
-                userToken: action.payload,
+                userToken: action.token,
             };
         }
         case SET_OPINIONS: {
             return {
                 ...state,
-                opinions: action.payload,
+                opinions: action.opinions,
+            };
+        }
+        case CONNECTED: {
+            return {
+                ...state,
+                connected: true,
+            };
+        }
+        case DISCONNECTED: {
+            localStorage.clear();
+            return {
+                ...state,
+                connected: false,
+            };
+        }
+        case RESET_LOGIN_INPUT: {
+            return {
+                ...state,
+                email: '',
+                password: '',
             };
         }
         default: {
