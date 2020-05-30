@@ -1,25 +1,36 @@
-// == Import npm
+// Import npm
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router';
-//import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-//import components
+// Import action
+import { setUserToken, connected } from 'src/store/actions';
+
+
+// Import components
 import Navbar from "src/components/Navbar";
 import Footer from "src/components/Footer";
 import HomePage from '../HomePage';
 import Login from '../Login';
 
-// == Import
+// Import css
 import './styles.css';
 
-// == Composant
+// Composant
 const App = () => {
+
+  const userToken = JSON.parse(localStorage.getItem('userToken'));
+  const dispatch = useDispatch();
+  if (userToken) {
+    dispatch(setUserToken(userToken))
+    dispatch(connected())
+  }
 
   return (
     <div className="app">
       <Navbar />
       <Switch>
-        <Route exact path="/"><HomePage /></Route>
+        <Route exact path="/" ><HomePage /></Route>
         <Route exact path="/login"><Login /></Route>
         <Route>404</Route>
       </Switch>
@@ -28,5 +39,5 @@ const App = () => {
   );
 };
 
-// == Export
+
 export default App;

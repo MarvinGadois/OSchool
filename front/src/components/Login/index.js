@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
+// harry.potter@poudlard.com
+
 //Import action
 import { syncEmail, syncPassword, login } from 'src/store/actions';
 
