@@ -6,6 +6,7 @@ use App\Repository\ClassroomRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ClassroomRepository::class)
@@ -16,16 +17,19 @@ class Classroom
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"classroom"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"classroom"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"classroom"})
      */
     private $level;
 
@@ -54,31 +58,37 @@ class Classroom
     /**
      * @ORM\ManyToOne(targetEntity=School::class, inversedBy="classrooms")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"classroom"})
      */
     private $school;
 
     /**
      * @ORM\OneToMany(targetEntity=Schedule::class, mappedBy="classroom", orphanRemoval=true)
+     * @Groups({"classroom"})
      */
     private $schedules;
 
     /**
      * @ORM\OneToMany(targetEntity=Ressource::class, mappedBy="classroom", orphanRemoval=true)
+     * @Groups({"classroom"})
      */
     private $ressources;
 
     /**
      * @ORM\OneToMany(targetEntity=Lesson::class, mappedBy="classroom", orphanRemoval=true)
+     * @Groups({"classroom"})
      */
     private $lessons;
 
     /**
      * @ORM\OneToMany(targetEntity=Homework::class, mappedBy="classroom", orphanRemoval=true)
+     * @Groups({"classroom"})
      */
     private $homeworks;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="classrooms")
+     * @Groups({"classroom"})
      */
     private $users;
 

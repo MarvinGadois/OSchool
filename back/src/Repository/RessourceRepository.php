@@ -19,32 +19,42 @@ class RessourceRepository extends ServiceEntityRepository
         parent::__construct($registry, Ressource::class);
     }
 
-    // /**
-    //  * @return Ressource[] Returns an array of Ressource objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getRessources()
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('r');
 
-    /*
-    public function findOneBySomeField($value): ?Ressource
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            ->addSelect('c')
+            ->leftJoin('r.classroom', 'c')
         ;
+        return $qb->getQuery()->getResult();
     }
-    */
+
+    public function getRessourcesByClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb
+            ->addSelect('c')
+            ->leftJoin('r.classroom', 'c')
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getRessource($id)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb
+            ->addSelect('c')
+            ->leftJoin('r.classroom', 'r')
+            ->where('r.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

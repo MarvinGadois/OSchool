@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\RessourceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annnotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=RessourceRepository::class)
@@ -14,21 +15,25 @@ class Ressource
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"ressources"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"ressources"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"ressources"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"ressources"})
      */
     private $path;
 
@@ -45,11 +50,13 @@ class Ressource
     /**
      * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="ressources")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"ressources"})
      */
     private $classroom;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="ressources")
+     * @Groups({"ressources"})
      */
     private $user;
 
