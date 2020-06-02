@@ -19,25 +19,31 @@ class RessourcesController extends AbstractController
     {
         $ressources = $ressourceRepository->getRessources();
 
-        $array = $serializer->normalize($ressources, null, ['groups' => ['ressource', 'classroom']]);
+        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
 
         return $this->json($array);
     }
 
+    /**
+     * @Route("/classroom/{id}", name="browseByClassroom", requirements={"id":"\d+"})
+     */
     public function browseByClassroom($id, SerializerInterface $serializer, RessourceRepository $ressourceRepository)
     {
         $ressources = $ressourceRepository->getRessourcesByClassroom($id);
 
-        $array = $serializer->normalize($ressources, null, ['groups' => ['ressource', 'classroom']]);
+        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
 
         return $this->json($array);
     }
 
+    /**
+     * @Route("/{id}", name="browseById", requirements={"id":"\d+"})
+     */
     public function read($id, SerializerInterface $serializer, RessourceRepository $ressourceRepository)
     {
         $ressources = $ressourceRepository->getRessource($id);
 
-        $array = $serializer->normalize($ressources, null, ['groups' => ['ressource', 'classroom']]);
+        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
 
         return $this->json($array);
     }

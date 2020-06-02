@@ -50,7 +50,7 @@ class RessourceRepository extends ServiceEntityRepository
 
         $qb
             ->addSelect('c')
-            ->leftJoin('r.classroom', 'r')
+            ->leftJoin('r.classroom', 'c')
             ->where('r.id = :id')
             ->setParameter('id', $id)
         ;

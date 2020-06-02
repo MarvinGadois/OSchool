@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Classroom;
 use App\Entity\Opinion;
+use App\Entity\Ressource;
 use App\Entity\School;
 use App\Entity\Subject;
 use App\Entity\User;
@@ -29,6 +30,7 @@ class AppFixtures extends Fixture
         $subjects = [];
         $users = [];
         $opinions = [];
+        $ressources = [];
 
 
         // SCHOOL
@@ -599,7 +601,7 @@ class AppFixtures extends Fixture
         $rweasley->setEmail("ron.weasley@poudlard.com");
         $rweasley->setRoles(["ROLE_STUDENT"]);
         $rweasley->setImage("profiles/rweasley.jpg");
-        $rweasley->setBirthday(new \DateTime('04/06/2014'));
+        $rweasley->setBirthday(new \DateTime('03/01/1980'));
         $rweasley->setPassword($this->passwordEncoder->encodePassword($rweasley, 'ron'));
         $rweasley->addSchool($school);
         $rweasley->addClassroom($gryffondorD);
@@ -639,6 +641,24 @@ class AppFixtures extends Fixture
         $opinion3->setUser($rweasley);
         $opinions[] = $opinion3;
         $em->persist($opinion3);
+
+        $ressource1 = new Ressource();
+        $ressource1->setTitle("Boggarts lavender robes");
+        $ressource1->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail.");
+        $ressource1->setPath("");
+        $ressource1->setClassroom($serdaigleA);
+        $ressource1->setUser($binns);
+        $ressources[] = $ressource1;
+        $em->persist($ressource1);
+
+        $ressource2 = new Ressource();
+        $ressource2->setTitle("Squashy armchairs dirt on your nose brass");
+        $ressource2->setContent("Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule,");
+        $ressource2->setPath("manuels.jpeg");
+        $ressource2->setClassroom($gryffondorD);
+        $ressource2->setUser($mcgonagall);
+        $ressources[] = $ressource2;
+        $em->persist($ressource2);
 
         $em->flush();
     }
