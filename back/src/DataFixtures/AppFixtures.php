@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
+use App\Entity\News;
 use App\Entity\Opinion;
 use App\Entity\Ressource;
 use App\Entity\School;
@@ -31,6 +32,7 @@ class AppFixtures extends Fixture
         $users = [];
         $opinions = [];
         $ressources = [];
+        $news = [];
 
 
         // SCHOOL
@@ -38,6 +40,11 @@ class AppFixtures extends Fixture
         $school->setName("Poudlard");
         $schools[] = $school;
         $em->persist($school);
+      
+        $oschool = new School();
+        $oschool->setName("Oschool");
+        $schools[] = $oschool;
+        $em->persist($oschool);
 
         // CLASSROOM
         $serdaigleA = new Classroom();
@@ -659,6 +666,26 @@ class AppFixtures extends Fixture
         $ressource2->setUser($mcgonagall);
         $ressources[] = $ressource2;
         $em->persist($ressource2);
+      
+      
+        // NEWS
+
+        $news1 = new News();
+        $news1->setTitle("A quand O'shcool ?");
+        $news1->setContent("Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre frater cuperet patruelis, siquid per inprudentiam gestum est remissurus ut mitis et clemens, participemque eum suae maiestatis adscisceret, futurum laborum quoque socium, quos Arctoae provinciae diu fessae poscebant.");
+        $news1->setDate(new \DateTime('05/29/2020'));
+        $news1->setSchool($oschool);
+        $news[] = $news1;
+        $em->persist($news1);
+
+        $news2 = new News();
+        $news2->setTitle("Du nouveau !");
+        $news2->setContent("Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa decreverim, que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem quindecim dierum decrevi sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non erat exigua eadem gratulatio quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.");
+        $news2->setPath("news1.jpg");
+        $news2->setDate(new \DateTime('06/01/2020'));
+        $news2->setSchool($oschool);
+        $news[] = $news2;
+        $em->persist($news2);
 
         $em->flush();
     }
