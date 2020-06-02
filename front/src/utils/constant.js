@@ -6,3 +6,4 @@ export const LOGIN_URL = 'login_check'
 
 // Route opinions
 export const GET_OPINIONS = 'unsecured/v1/opinion';
+
