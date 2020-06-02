@@ -29,7 +29,7 @@ class NewsController extends AbstractController
 
 
     /**
-     * @Route("/school/{id}", name="browseBySchool")
+     * @Route("/school/{id}", name="browseBySchool", requirements={"id": "\d+"})
      */
     public function browseBySchool($id, SerializerInterface $serializer, NewsRepository $newsRepository)
     {
@@ -45,7 +45,7 @@ class NewsController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="read")
+     * @Route("/{id}", name="read", requirements={"id": "\d+"})
      */
     public function read($id, SerializerInterface $serializer, NewsRepository $newsRepository)
     {
