@@ -18,17 +18,20 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"infos_user"})
      */
     
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups({"infos_user"})
      */
     private $roles = [];
 
@@ -40,16 +43,19 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"infos_user"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"infos_user"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"infos_user"})
      */
     private $image;
 
@@ -79,7 +85,8 @@ class User implements UserInterface
     private $classrooms;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Subject::class, inversedBy="users")
+     * @ORM\ManyToMany(targetEntity=Subject::class, inversedBy="users")     
+     * @Groups({"infos_user"})
      */
     private $subjects;
 

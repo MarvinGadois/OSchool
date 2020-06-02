@@ -6,6 +6,7 @@ use App\Repository\ClassroomRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ClassroomRepository::class)
@@ -16,16 +17,19 @@ class Classroom
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"infos_classroom"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"infos_classroom"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Groups({"infos_classroom"})
      */
     private $level;
 
@@ -54,6 +58,7 @@ class Classroom
     /**
      * @ORM\ManyToOne(targetEntity=School::class, inversedBy="classrooms")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"infos_classroom"})
      */
     private $school;
 
