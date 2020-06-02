@@ -30,4 +30,32 @@ class LessonRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getLessonsByClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('l');
+
+        $qb
+            ->addSelect('c')
+            ->leftJoin('l.classroom', 'c')
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getLesson($id)
+    {
+        $qb = $this->createQueryBuilder('l');
+
+        $qb
+            ->addSelect('c')
+            ->leftJoin('l.classroom', 'c')
+            ->where('l.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 }

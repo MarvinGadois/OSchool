@@ -702,6 +702,42 @@ class AppFixtures extends Fixture
         $lessons[] = $lesson1;
         $em->persist($lesson1);
 
+        $lesson2 = new Lesson();
+        $lesson2->setTitle("Nightswatch maester Kingslanding Casterly rock south.");
+        $lesson2->setContent("Words are like wind. The War of the 5 kings. The wolf and the lion. A dream of Spring. More pigeon pie, please.");
+        $lesson2->setPath("manuels.jpeg");
+        $lesson2->setClassroom($serdaigleA);
+        $lesson2->setUser($binns);
+        $lessons[] = $lesson2;
+        $em->persist($lesson2);
+
+        $lesson3 = new Lesson();
+        $lesson3->setTitle("Giantsblood north Winterfell Kingslanding south.");
+        $lesson3->setContent("The North remembers. And now his watch is ended. House Tarly of Horn Hill The tourney of Ashford Meadows. The battle of the redgrass field.");
+        $lesson3->setPath("");
+        $lesson3->setClassroom($serdaigleA);
+        $lesson3->setUser($burbage);
+        $lessons[] = $lesson3;
+        $em->persist($lesson3);
+
+        $lesson4 = new Lesson();
+        $lesson4->setTitle("Riverlands warden Karstark Dorne tourney.");
+        $lesson4->setContent("Pay the iron price. The North remembers. It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters. The Dothraki do things in their own time, for their own reasons. Bastards are born of passion, aren't they? We don't despise them in Dorne.");
+        $lesson4->setPath("manuels.jpeg");
+        $lesson4->setClassroom($gryffondorD);
+        $lesson4->setUser($mcgonagall);
+        $lessons[] = $lesson4;
+        $em->persist($lesson4);
+
+        $lesson5 = new Lesson();
+        $lesson5->setTitle("Stannis in Nightswatch Dragon Dorne.");
+        $lesson5->setContent("Our Sun Shines Bright. The tourney of Ashford Meadows. The War of the 5 kings. The Knight of Lemonwood. The rains of castamere.");
+        $lesson5->setPath("manuels.jpeg");
+        $lesson5->setClassroom($gryffondorD);
+        $lesson5->setUser($flitwick);
+        $lessons[] = $lesson5;
+        $em->persist($lesson5);
+
         $em->flush();
     }
 }
