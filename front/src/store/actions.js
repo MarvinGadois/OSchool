@@ -17,13 +17,17 @@ export const DISCONNECTED = 'actions/DISCONNECTED';
 
 export const disconnected = () => ({ type: DISCONNECTED });
 
-// action HomePage
+// action HomePage connected
 export const HOMEPAGE_CONNECTED = 'actions/HOMEPAGE_CONNECTED';
-export const SET_USER = 'actions/SET_USER';
-export const SET_USER_TOKEN = 'actions/SET_USER_TOKEN';
 
-export const setUserToken = (token) => ({ type: SET_USER_TOKEN, token });
 export const homePageConnected = (history) => ({ type: HOMEPAGE_CONNECTED, history });
+
+// action set Set User
+export const SET_USER = 'actions/SET_USER';
+//export const SET_USER_TOKEN = 'actions/SET_USER_TOKEN';
+
+export const setUser = (user) => ({ type: SET_USER, user });
+export const setUserToken = (token) => ({ type: SET_USER_TOKEN, token });
 
 // action set opinion
 export const SET_OPINIONS = 'actions/SET_OPINIONS';

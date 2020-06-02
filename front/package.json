@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "jwt-decode": "^2.2.0",
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",

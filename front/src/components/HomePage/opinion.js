@@ -11,14 +11,13 @@ const Opinion = () => {
     const { opinions } = useSelector((state) => state)
     useEffect(getOpinions, []);
 
-
     const allOpinions = opinions.map((opinion) => (
         <div key={opinion.id} className="one_opinion">
             <div className="opinion_user_info">
-                <img src={opinion.avatar}></img>
+                {/* <img src={`${opinion.user.image}`}></img> */}
                 <div className="opinion_user_perso">
                     <h4>Nom: <span className="spanGrey">{opinion.user.firstname}</span></h4>
-                    <p>Role: <span className="spanGrey">{opinion.role}</span></p>
+                    <p>Role: <span className="spanGrey">{opinion.user.roles.map(role => `${role.slice(5).toLowerCase()} `)}</span></p>
                 </div>
             </div>
             <hr className="hrclasses" />
@@ -38,17 +37,5 @@ const Opinion = () => {
     );
 };
 
-// FAKE DONNEE
-// const OpinionsUser = [
-//     {
-//         id: 1, content: "j'ai vraiment apprecié utiliser ce site tres ergonomique fdhdfh dhdhf hsdhh hsdfhfds hsdhhd hhddd", avatar: 'https://dreambuilders.dk/wp-content/uploads/2015/03/myAvatar-61.png', name: 'Lionel', role: "Professeur d'anglais",
-//     },
-//     {
-//         id: 2, content: " c'est genial merci fdhdfh dhdhf hsdhh hsdfhfds hsdhhd hhddd", avatar: 'https://i.pinimg.com/originals/4b/5d/19/4b5d1954fbb5b6bad18f0ac25c4ab3c3.png', name: 'Fabienne', role: 'Eleve',
-//     },
-//     {
-//         id: 3, content: 'Tres pratique pour suivre apres les cours  fdhdfh dhdhf hsdhh hsdfhfds hsdhhd hhddd', avatar: 'https://mybluerobot.com/wp-content/uploads/2015/04/myAvatar-29.png', name: 'Tony', role: 'Professeur math',
-//     },
-// ];
 
 export default Opinion;
