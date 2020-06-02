@@ -58,7 +58,7 @@ class Classroom
     /**
      * @ORM\ManyToOne(targetEntity=School::class, inversedBy="classrooms")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"infos_classroom"})
+     * @Groups({"school_classroom"})
      */
     private $school;
 
