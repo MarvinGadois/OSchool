@@ -19,54 +19,32 @@ class NewsRepository extends ServiceEntityRepository
         parent::__construct($registry, News::class);
     }
 
-    public function getNews()
+    // /**
+    //  * @return News[] Returns an array of News objects
+    //  */
+    /*
+    public function findByExampleField($value)
     {
-        // Le createQueryBuilder à l'intérieur du Repository considére qu'on veut 
-        // forcément faire une requête à partir de la table de News
-        // donc pas besoin de préciser le from() ni le select()
-        $qb = $this->createQueryBuilder('n');
-
-        $qb
-            ->addSelect('s')
-            ->leftJoin('n.school', 's')
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('n.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
         ;
-
-        return $qb->getQuery()->getResult();
     }
+    */
 
-
-    public function getNewsBySchool($id)
+    /*
+    public function findOneBySomeField($value): ?News
     {
-        // Le createQueryBuilder à l'intérieur du Repository considére qu'on veut 
-        // forcément faire une requête à partir de la table de News
-        // donc pas besoin de préciser le from() ni le select()
-        $qb = $this->createQueryBuilder('n');
-
-        $qb
-            ->addSelect('s')
-            ->leftJoin('n.school', 's')
-            ->where('s.id = :id')
-            ->setParameter('id', $id)
+        return $this->createQueryBuilder('n')
+            ->andWhere('n.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
         ;
-
-        return $qb->getQuery()->getResult();
     }
-
-
-    public function getNew($id)
-    {
-        // Le createQueryBuilder à l'intérieur du Repository considére qu'on veut 
-        // forcément faire une requête à partir de la table de News
-        // donc pas besoin de préciser le from() ni le select()
-        $qb = $this->createQueryBuilder('n');
-
-        $qb
-            ->addSelect('s')
-            ->leftJoin('n.school', 's')
-            ->where('n.id = :id')
-            ->setParameter('id', $id)
-        ;
-
-        return $qb->getQuery()->getOneOrNullResult();
-    }
+    */
 }
