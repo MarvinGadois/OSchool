@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
+use App\Entity\Lesson;
 use App\Entity\News;
 use App\Entity\Opinion;
 use App\Entity\Ressource;
@@ -33,6 +34,7 @@ class AppFixtures extends Fixture
         $opinions = [];
         $ressources = [];
         $news = [];
+        $lessons = [];
 
 
         // SCHOOL
@@ -649,6 +651,8 @@ class AppFixtures extends Fixture
         $opinions[] = $opinion3;
         $em->persist($opinion3);
 
+        // RESSOURCES
+
         $ressource1 = new Ressource();
         $ressource1->setTitle("Boggarts lavender robes");
         $ressource1->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail.");
@@ -686,6 +690,17 @@ class AppFixtures extends Fixture
         $news2->setSchool($oschool);
         $news[] = $news2;
         $em->persist($news2);
+
+        // LESSONS
+
+        $lesson1 = new Lesson();
+        $lesson1->setTitle("North Lannister Nightswatch Kingslanding oath Stark giantsblood of.");
+        $lesson1->setContent("All men must die. All men must die. Can a man still be brave if he’s afraid? That is the only time a man can be brave.More pigeon pie, please. The North remembers. As High as Honor. The Knight of Lemonwood.");
+        $lesson1->setPath("");
+        $lesson1->setClassroom($gryffondorD);
+        $lesson1->setUser($rogue);
+        $lessons[] = $lesson1;
+        $em->persist($lesson1);
 
         $em->flush();
     }
