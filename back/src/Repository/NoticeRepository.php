@@ -24,9 +24,8 @@ class NoticeRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('n');
 
         $qb
-            ->addSelect('a')
+            ->addSelect('a', 'r')
             ->leftJoin('n.author', 'a')
-            ->addSelect('r')
             ->leftJoin('n.receiver', 'r')
         ;
         return $qb->getQuery()->getResult();
