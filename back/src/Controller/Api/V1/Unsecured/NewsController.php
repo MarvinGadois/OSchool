@@ -18,6 +18,7 @@ class NewsController extends AbstractController
     public function browseBySchool(SerializerInterface $serializer, NewsRepository $newsRepository)
     {
         $news = $newsRepository->getNewsBySchool(2);
+        
 
         // On demande au Serializer de normaliser nos films (transformer nos objets en array)
         // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
