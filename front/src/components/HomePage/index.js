@@ -11,7 +11,6 @@ import LastNews from './LastNews';
 import Opinion from './opinion';
 
 
-
 const HomePage = () => {
 
     const isAuthentified = useSelector((state) => state.connected);

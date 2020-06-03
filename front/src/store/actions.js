@@ -37,4 +37,5 @@ export const setOpinions = (opinions) => ({ type: SET_OPINIONS, opinions })
 // action reset login input
 export const RESET_LOGIN_INPUT = 'actions/RESET_LOGIN_INPUT';
 
+
 export const resetLoginInput = () => ({ type: RESET_LOGIN_INPUT });

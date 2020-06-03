@@ -17,7 +17,9 @@ const Opinion = () => {
                 {/* <img src={`${opinion.user.image}`}></img> */}
                 <div className="opinion_user_perso">
                     <h4>Nom: <span className="spanGrey">{opinion.user.firstname}</span></h4>
+
                     <p>Role: <span className="spanGrey">{opinion.user.roles.map(role => `${role.slice(5).toLowerCase()} `)}</span></p>
+
                 </div>
             </div>
             <hr className="hrclasses" />
@@ -36,6 +38,5 @@ const Opinion = () => {
         </div>
     );
 };
-
 
 export default Opinion;

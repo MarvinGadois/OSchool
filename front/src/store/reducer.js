@@ -8,6 +8,7 @@ import {
     CONNECTED,
     DISCONNECTED,
     RESET_LOGIN_INPUT,
+    SET_USER_TOKEN,
 } from './actions';
 
 // State initial
@@ -73,6 +74,12 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 email: '',
                 password: '',
+            };
+        }
+        case SET_OPINIONS: {
+            return {
+                ...state,
+                opinions: action.payload,
             };
         }
         default: {
