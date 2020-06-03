@@ -1,26 +1,89 @@
 import React from 'react';
 
-// import style
+// Import style
 import './style.css';
+import icon1 from 'src/assets/icon-inscription.png';
+import icon2 from 'src/assets/icon-students.png';
+import icon3 from 'src/assets/icon-light.jpg';
+import logo from "src/assets/O'school.png";
 
-//test
-import { useDispatch, useSelector } from 'react-redux';
+
 
 const Description = () => {
-    return (
-        <div className="description">
-            <h1>Bienvenue</h1>
-            <div className="description_main">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and .</p>
-                <img className="img_description" src={image_description}></img>
-            </div>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+  return (
+    <div className="description">
+      <div className="container-head">
+        <div className="last-container-head">
+          <h1>Bienvenue sur </h1>
+          <img className="logo" src={logo} alt="logo O'school" />
 
-</p>
+
+
         </div>
-    );
-};
+      </div>
 
-const image_description = "https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png"
+      <div className="description_main">
+        <p>O’school est une plateforme web facilitant les échanges en ligne entre
+
+        les différent parties de l’éducation.
+        </p>
+      </div>
+
+
+
+      <div className="container-body">
+        <div className="catchphrase">
+
+          <div className="help-view">
+
+            <img className="icon" src={icon1} alt="icon inscription" />
+
+            <p>Inscription effectuée par l’administration</p>
+
+          </div>
+          <div className="help-view">
+
+
+            <img className="icon" src={icon2} alt="icon inscription"/>
+            <p>Accès facile et en direct de tous les documents</p>
+
+          </div>
+
+          <div className="help-view">
+
+            <img className="icon" src={icon3} alt="icon inscription"/>
+
+            <p>Simple et intuitif</p>
+
+          </div>
+        </div>
+        <div className="paragraphs">
+
+          <div>
+            <h2>Administration</h2>
+            <p>Notre système de gestion de vie scolaire réduit le travail administratif des écoles, des enseignants, mais aussi des élèves et des parents. Notamment avec la centralisation de tous les documents liés à l’éducation.
+            </p>
+          </div>
+
+          <div>
+            <h2>Enseignants</h2>
+            <p>O’school permet la gestion des enseignants, nous fournissons une interface pour consulter les
+
+            emplois du temps, enregistrer les résultats des élèves et le cahier de correspondance.
+
+            </p>
+          </div>
+
+          <div>
+            <h2>Parents-Elèves</h2>
+            <p>Cette plateforme est une solution très appréciée par la communauté parentale. Nous assurons le suivi scolaire de leurs enfants tout en veillant au respect de la confidentialité de leurs données personnelles.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+};
 
 export default Description;

@@ -15,40 +15,22 @@
         <h3>Doc</h3>
 
         <div class="card text-white bg-secondary mb-3 row">
-            <div class="card-header py-1">GET</div>
-            <div class="card-body py-1">
+            <div class="card-header p-1">GET</div>
+            <div class="card-body p-1">
                 <p class="card-text">/api/v1/doc</p>
             </div>
-            <div class="card-footer py-1">Affiche la documentation des routes</div>
         </div>
 
         <h3>Opinion</h3>
 
         <div class="card text-white bg-secondary mb-3 row">
-            <div class="card-header py-1">GET</div>
-            <div class="card-body py-1">
+            <div class="card-header p-1">GET</div>
+            <div class="card-body p-1">
                 <p class="card-text">/api/unsecured/v1/opinion</p>
             </div>
-            <div class="card-footer py-1">Affiche la liste de tous les avis</div>
         </div>
 
-        <h3>News</h3>
-
-        <div class="card text-white bg-secondary mb-3 row">
-            <div class="card-header py-1">GET</div>
-            <div class="card-body py-1">
-                <p class="card-text">/api/unsecured/v1/news</p>
-            </div>
-            <div class="card-footer py-1">Affiche la liste de toutes les news de la platform oschool</div>
-        </div>
-
-        <div class="card text-white bg-secondary mb-3 row">
-            <div class="card-header py-1">GET</div>
-            <div class="card-body py-1">
-                <p class="card-text">/api/unsecured/v1/news/{id}</p>
-            </div>
-            <div class="card-footer py-1">Affiche une news de la platform oschool en fonction de son id</div>
-        </div>
+        {# <h3>News</h3> #}
     
     </section>
 
@@ -58,27 +40,20 @@
         <h3>News</h3>
 
         <div class="card text-white bg-secondary mb-3 row">
-            <div class="card-header py-1">GET</div>
-            <div class="card-body py-1">
-                <p class="card-text">/api/secured/v1/news</p>
+            <div class="card-header p-1">GET</div>
+            <div class="card-body p-1">
+                <p class="card-text">/api/secured/v1/</p>
             </div>
-            <div class="card-footer py-1">Affiche la liste de toutes les news</div>
         </div>
+
+        <h3>User</h3>
 
         <div class="card text-white bg-secondary mb-3 row">
             <div class="card-header py-1">GET</div>
             <div class="card-body py-1">
-                <p class="card-text">/api/secured/v1/news/school/{id}</p>
+                <p class="card-text">/api/secured/v1/user/current</p>
             </div>
-            <div class="card-footer py-1">Affiche la liste de toutes les news d'une école en fonction de l'id de l'école</div>
-        </div>
-
-        <div class="card text-white bg-secondary mb-3 row">
-            <div class="card-header py-1">GET</div>
-            <div class="card-body py-1">
-                <p class="card-text">/api/secured/v1/news/{id}</p>
-            </div>
-            <div class="card-footer py-1">Affiche une news en fonction de son id</div>
+            <div class="card-footer py-1">Récupère l'utilisateur qui est actuelement connecté</div>
         </div>
     
     </section>
@@ -89,33 +64,29 @@
 
 
 {# <div class="card text-white bg-secondary mb-3 row">
-    <div class="card-header py-1">GET</div>
-    <div class="card-body py-1">
+    <div class="card-header p-1">GET</div>
+    <div class="card-body p-1">
         <p class="card-text">/</p>
     </div>
-    <div class="card-footer py-1"></div>
 </div>
 
 <div class="card text-white bg-success mb-3 row">
-    <div class="card-header py-1">POST</div>
-    <div class="card-body py-1">
+    <div class="card-header p-1">POST</div>
+    <div class="card-body p-1">
         <p class="card-text">/</p>
     </div>
-    <div class="card-footer py-1"></div>
 </div>
 
 <div class="card text-white bg-warning mb-3 row">
-    <div class="card-header py-1">PUT</div>
-    <div class="card-body py-1">
+    <div class="card-header p-1">PUT</div>
+    <div class="card-body p-1">
         <p class="card-text">/</p>
     </div>
-    <div class="card-footer py-1"></div>
 </div>
 
 <div class="card text-white bg-danger mb-3 row">
-    <div class="card-header py-1">DELETE</div>
-    <div class="card-body py-1">
+    <div class="card-header p-1">DELETE</div>
+    <div class="card-body p-1">
         <p class="card-text">/</p>
     </div>
-    <div class="card-footer py-1"></div>
 </div> #}

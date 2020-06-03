@@ -1,18 +1,22 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-// import style
+
+// Import style
 import './style.css';
 
-//import components
+// Import components
 import Description from './Description';
 import LastNews from './LastNews';
-import Opinion from './Opinion';
+import Opinion from './opinion';
 
 
 const HomePage = () => {
-    const userToken = JSON.parse(localStorage.getItem('userToken'));
 
-    if (!userToken) {
+    const isAuthentified = useSelector((state) => state.connected);
+    console.log('authentifié:' + isAuthentified)
+
+    if (!isAuthentified) {
         return (
             <div className="homePage">
                 <div className="homePage_content">
@@ -23,12 +27,12 @@ const HomePage = () => {
             </div>
         )
     }
+
     return (
         <div className="homePage">
-            <h1>HomePage Connected</h1>
+            home page connected
         </div>
     )
-
 };
 
 export default HomePage;

@@ -19,32 +19,51 @@ class RessourceRepository extends ServiceEntityRepository
         parent::__construct($registry, Ressource::class);
     }
 
-    // /**
-    //  * @return Ressource[] Returns an array of Ressource objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getRessources()
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('r');
 
-    /*
-    public function findOneBySomeField($value): ?Ressource
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            ->addSelect('c, s, u, sub')
+            ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
         ;
+        return $qb->getQuery()->getResult();
     }
-    */
+
+    public function getRessourcesByClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb
+            ->addSelect('c, s, u, sub')
+            ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getRessource($id)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb
+            ->addSelect('c, s, u, sub')
+            ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
+            ->where('r.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }
