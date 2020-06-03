@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
+use App\Entity\Notice;
 use App\Entity\Lesson;
 use App\Entity\Opinion;
 use App\Entity\Ressource;
@@ -34,8 +35,8 @@ class AppFixtures extends Fixture
         $opinions = [];
         $ressources = [];
         $news = [];
+        $notices = [];
         $lessons = [];
-
 
 
         // SCHOOL
@@ -691,7 +692,35 @@ class AppFixtures extends Fixture
         $news2->setSchool($oschool);
         $news[] = $news2;
         $em->persist($news2);
+      
+        // NOTICES
 
+        $notice1 = new Notice();
+        $notice1->setTitle("North bastard tourney Renly bastard");
+        $notice1->setContent("Nightswatch bastard raven Tarly Nightswatch maester Wildlings Stannis of riverlands raven Tully Winterfell Stannis Littlefinger Barratheon raven Tarly Tarly duel");
+        $notice1->setStatus(0);
+        $notice1->setAuthor($mcgonagall);
+        $notice1->setReceiver($hpotter);
+        $notices[] = $notice1;
+        $em->persist($notice1);
+
+        $notice2 = new Notice();
+        $notice2->setTitle("Direwolf Stannis in Dragon Stark.");
+        $notice2->setContent("Raven Dorne Winterfell Littlefinger Kingslanding the Kingslanding oath Littlefinger raven the Kingslanding of Barratheon raven Dorne giantsblood Winterfell Tully the");
+        $notice2->setStatus(0);
+        $notice2->setAuthor($chourave);
+        $notice2->setReceiver($llovegood);
+        $notices[] = $notice2;
+        $em->persist($notice2);
+
+        $notice3 = new Notice();
+        $notice3->setTitle("Giantsblood white walkers white walkers giantsblood Dragon.");
+        $notice3->setContent("Bastard Karstark Dragon Tarly oath Renly Melisandre south maester Wildlings bastard kingsblood the Karstark white walkers Kingslanding Stannis Stark Casterly rock Kingslanding");
+        $notice3->setStatus(0);
+        $notice3->setAuthor($rogue);
+        $notice3->setReceiver($rweasley);
+        $notices[] = $notice3;
+        $em->persist($notice3);
 
         // LESSONS
 
@@ -739,7 +768,6 @@ class AppFixtures extends Fixture
         $lesson5->setUser($flitwick);
         $lessons[] = $lesson5;
         $em->persist($lesson5);
-
 
         $em->flush();
     }
