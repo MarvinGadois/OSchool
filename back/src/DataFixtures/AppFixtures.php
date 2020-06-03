@@ -4,12 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Classroom;
 use App\Entity\Lesson;
-use App\Entity\News;
 use App\Entity\Opinion;
 use App\Entity\Ressource;
 use App\Entity\School;
 use App\Entity\Subject;
 use App\Entity\User;
+use App\Entity\News;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -37,16 +37,17 @@ class AppFixtures extends Fixture
         $lessons = [];
 
 
+
         // SCHOOL
         $school = new School();
         $school->setName("Poudlard");
         $schools[] = $school;
         $em->persist($school);
-      
         $oschool = new School();
         $oschool->setName("Oschool");
         $schools[] = $oschool;
         $em->persist($oschool);
+
 
         // CLASSROOM
         $serdaigleA = new Classroom();
@@ -652,7 +653,7 @@ class AppFixtures extends Fixture
         $em->persist($opinion3);
 
         // RESSOURCES
-
+  
         $ressource1 = new Ressource();
         $ressource1->setTitle("Boggarts lavender robes");
         $ressource1->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail.");
@@ -690,6 +691,7 @@ class AppFixtures extends Fixture
         $news2->setSchool($oschool);
         $news[] = $news2;
         $em->persist($news2);
+
 
         // LESSONS
 
@@ -737,6 +739,7 @@ class AppFixtures extends Fixture
         $lesson5->setUser($flitwick);
         $lessons[] = $lesson5;
         $em->persist($lesson5);
+
 
         $em->flush();
     }

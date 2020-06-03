@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * @Route("/api/unsecured/v1/opinion", name="api_v1_public_opinion_")
+ * @Route("/api/unsecured/v1/opinion", name="api_unsecured_v1_opinion_")
  */
 class OpinionController extends AbstractController
 {

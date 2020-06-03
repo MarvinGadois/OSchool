@@ -36,32 +36,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getUserByEmail($email)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        // Le createQueryBuilder à l'intérieur du Repository considére qu'on veut 
+        // forcément faire une requête à partir de la table de News
+        // donc pas besoin de préciser le from() ni le select()
+        $qb = $this->createQueryBuilder('u');
 
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            // ->addSelect('s')
+            // ->leftJoin('n.school', 's')
+            ->where('u.email = :email')
+            ->setParameter('email', $email)
         ;
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
-    */
 }

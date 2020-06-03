@@ -20,6 +20,7 @@
     transition: max-height .2s ease-out;
 
     li a {
+      font-weight: bold;
       display: inline-block;
       min-width: 75px;
       margin: .3em 0;
@@ -37,7 +38,8 @@
       &:hover,
       &:active {
         transform: scale(1.2);
-        color: #20232d
+        color: #68c2e8;
+        //color: #20232d
       }
     }
   }
@@ -54,15 +56,15 @@
     padding: 28px 20px;
 
     .navicon {
-      background: #20232d;
+      background: #68c2e8;
       display: block;
-      height: 2px;
+      height: 4px;
       position: relative;
       width: 1.625rem;
 
       &:before,
       &:after {
-        background: #20232d;
+        background: #68c2e8;
         content: '';
         display: block;
         height: 100%;

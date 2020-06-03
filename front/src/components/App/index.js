@@ -1,4 +1,3 @@
-// Import npm
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,11 +18,11 @@ import './styles.css';
 // Composant
 const App = () => {
 
-  const userToken = JSON.parse(localStorage.getItem('userToken'));
+  const userToken = (localStorage.getItem('jwtToken'));
   const dispatch = useDispatch();
   if (userToken) {
-    dispatch(setUserToken(userToken))
     dispatch(connected())
+    //dispatch(setUserToken(userToken))
   }
 
   return (

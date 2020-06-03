@@ -18,7 +18,7 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"user"})
+     * @Groups({"infos_user"})
      */
     private $id;
 
@@ -61,6 +61,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"infos_user"})
      */
     private $birthday;
 
@@ -76,11 +77,13 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=School::class, mappedBy="users")
+     * @Groups({"school_user"})
      */
     private $schools;
 
     /**
      * @ORM\ManyToMany(targetEntity=Classroom::class, inversedBy="users")
+     * @Groups({"classrooms_user"})
      */
     private $classrooms;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import style
+// Import style
 import './style.css';
 import icon1 from 'src/assets/icon-inscription.png';
 import icon2 from 'src/assets/icon-students.png';
@@ -24,20 +24,25 @@ const Description = () => {
 
       <div className="description_main">
         <p>O’school est une plateforme web facilitant les échanges en ligne entre
-          les différent parties de l’éducation.
+
+        les différent parties de l’éducation.
         </p>
       </div>
-      
+
+
 
       <div className="container-body">
         <div className="catchphrase">
 
           <div className="help-view">
-            <img className="icon" src={icon1} alt="icon inscription"/>
+
+            <img className="icon" src={icon1} alt="icon inscription" />
+
             <p>Inscription effectuée par l’administration</p>
 
           </div>
           <div className="help-view">
+
 
             <img className="icon" src={icon2} alt="icon inscription"/>
             <p>Accès facile et en direct de tous les documents</p>
@@ -47,6 +52,7 @@ const Description = () => {
           <div className="help-view">
 
             <img className="icon" src={icon3} alt="icon inscription"/>
+
             <p>Simple et intuitif</p>
 
           </div>
@@ -62,7 +68,9 @@ const Description = () => {
           <div>
             <h2>Enseignants</h2>
             <p>O’school permet la gestion des enseignants, nous fournissons une interface pour consulter les
-              emplois du temps, enregistrer les résultats des élèves et le cahier de correspondance.
+
+            emplois du temps, enregistrer les résultats des élèves et le cahier de correspondance.
+
             </p>
           </div>
 

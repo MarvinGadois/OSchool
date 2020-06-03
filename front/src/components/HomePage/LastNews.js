@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import style
+// Import style
 import './style.css';
 
 const LastNews = () => {

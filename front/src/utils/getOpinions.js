@@ -10,11 +10,12 @@ import { setOpinions } from '../store/actions';
 const opinionsRequest = `${API_URL}${GET_OPINIONS}`;
 
 const getOpinions = (url = opinionsRequest) => {
-    const promise = axios.get(url);
-    promise.then((res) => {
-        const opinions = res.data;
-        store.dispatch(setOpinions(opinions))
-    });
+
+    axios.get(url)
+        .then((res) => {
+            const opinions = res.data;
+            store.dispatch(setOpinions(opinions))
+        });
 };
 
 export default getOpinions;
