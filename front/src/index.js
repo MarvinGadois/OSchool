@@ -1,18 +1,21 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/jsx-indent */
-// == Import : npm
-import React from 'react'; // couche 1
-import { render } from 'react-dom'; // couche 2
+import React from 'react';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-// == Import : local
-// Composants
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import jwtDecode from 'jwt-decode';
+import { setUser } from './store/actions';
+
 import App from 'src/components/App';
 import store from 'src/store';
-// == Render
-// 1. Élément React racine (celui qui contient l'ensemble de l'app)
-//    => crée une structure d'objets imbriqués (DOM virtuel)
+
+// Si token dans localStorage config automatiquement les headers des requetes axios avec le bon token pour requete avec token vers back
+if (localStorage.jwtToken) {
+    setAuthorizationToken(localStorage.jwtToken);
+    store.dispatch(setUser(jwtDecode(localStorage.jwtToken)));
+}
+
 const rootReactElement = (
     <Router>
         <Provider store={store}>
@@ -20,7 +23,7 @@ const rootReactElement = (
         </Provider>
     </Router>
 );
-// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
+
 const target = document.getElementById('root');
-// 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
+
 render(rootReactElement, target);
