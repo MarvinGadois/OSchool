@@ -7,13 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
+
 /**
  * @Route("/api/secured/v1/news", name="api_secured_v1_news_")
  */
 class NewsController extends AbstractController
 {
     /**
-     * @Route("/", name="browse")
+     * @Route("", name="browse")
      */
     public function browse(SerializerInterface $serializer, NewsRepository $newsRepository)
     {
@@ -38,9 +39,10 @@ class NewsController extends AbstractController
         // On demande au Serializer de normaliser nos films (transformer nos objets en array)
         // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
+        
 
         // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
-        return $this->json($array);
+        return $this->json($array); 
     }
 
 

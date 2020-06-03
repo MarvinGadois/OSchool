@@ -3,13 +3,14 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
-use App\Entity\News;
 use App\Entity\Notice;
+use App\Entity\Lesson;
 use App\Entity\Opinion;
 use App\Entity\Ressource;
 use App\Entity\School;
 use App\Entity\Subject;
 use App\Entity\User;
+use App\Entity\News;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -35,6 +36,7 @@ class AppFixtures extends Fixture
         $ressources = [];
         $news = [];
         $notices = [];
+        $lessons = [];
 
 
         // SCHOOL
@@ -42,11 +44,11 @@ class AppFixtures extends Fixture
         $school->setName("Poudlard");
         $schools[] = $school;
         $em->persist($school);
-      
         $oschool = new School();
         $oschool->setName("Oschool");
         $schools[] = $oschool;
         $em->persist($oschool);
+
 
         // CLASSROOM
         $serdaigleA = new Classroom();
@@ -651,6 +653,8 @@ class AppFixtures extends Fixture
         $opinions[] = $opinion3;
         $em->persist($opinion3);
 
+        // RESSOURCES
+  
         $ressource1 = new Ressource();
         $ressource1->setTitle("Boggarts lavender robes");
         $ressource1->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail.");
@@ -688,7 +692,7 @@ class AppFixtures extends Fixture
         $news2->setSchool($oschool);
         $news[] = $news2;
         $em->persist($news2);
-
+      
         // NOTICES
 
         $notice1 = new Notice();
@@ -717,6 +721,53 @@ class AppFixtures extends Fixture
         $notice3->setReceiver($rweasley);
         $notices[] = $notice3;
         $em->persist($notice3);
+
+        // LESSONS
+
+        $lesson1 = new Lesson();
+        $lesson1->setTitle("North Lannister Nightswatch Kingslanding oath Stark giantsblood of.");
+        $lesson1->setContent("All men must die. All men must die. Can a man still be brave if he’s afraid? That is the only time a man can be brave.More pigeon pie, please. The North remembers. As High as Honor. The Knight of Lemonwood.");
+        $lesson1->setPath("");
+        $lesson1->setClassroom($gryffondorD);
+        $lesson1->setUser($rogue);
+        $lessons[] = $lesson1;
+        $em->persist($lesson1);
+
+        $lesson2 = new Lesson();
+        $lesson2->setTitle("Nightswatch maester Kingslanding Casterly rock south.");
+        $lesson2->setContent("Words are like wind. The War of the 5 kings. The wolf and the lion. A dream of Spring. More pigeon pie, please.");
+        $lesson2->setPath("manuels.jpeg");
+        $lesson2->setClassroom($serdaigleA);
+        $lesson2->setUser($binns);
+        $lessons[] = $lesson2;
+        $em->persist($lesson2);
+
+        $lesson3 = new Lesson();
+        $lesson3->setTitle("Giantsblood north Winterfell Kingslanding south.");
+        $lesson3->setContent("The North remembers. And now his watch is ended. House Tarly of Horn Hill The tourney of Ashford Meadows. The battle of the redgrass field.");
+        $lesson3->setPath("");
+        $lesson3->setClassroom($serdaigleA);
+        $lesson3->setUser($burbage);
+        $lessons[] = $lesson3;
+        $em->persist($lesson3);
+
+        $lesson4 = new Lesson();
+        $lesson4->setTitle("Riverlands warden Karstark Dorne tourney.");
+        $lesson4->setContent("Pay the iron price. The North remembers. It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters. The Dothraki do things in their own time, for their own reasons. Bastards are born of passion, aren't they? We don't despise them in Dorne.");
+        $lesson4->setPath("manuels.jpeg");
+        $lesson4->setClassroom($gryffondorD);
+        $lesson4->setUser($mcgonagall);
+        $lessons[] = $lesson4;
+        $em->persist($lesson4);
+
+        $lesson5 = new Lesson();
+        $lesson5->setTitle("Stannis in Nightswatch Dragon Dorne.");
+        $lesson5->setContent("Our Sun Shines Bright. The tourney of Ashford Meadows. The War of the 5 kings. The Knight of Lemonwood. The rains of castamere.");
+        $lesson5->setPath("manuels.jpeg");
+        $lesson5->setClassroom($gryffondorD);
+        $lesson5->setUser($flitwick);
+        $lessons[] = $lesson5;
+        $em->persist($lesson5);
 
         $em->flush();
     }

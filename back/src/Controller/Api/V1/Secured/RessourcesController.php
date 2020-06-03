@@ -19,7 +19,7 @@ class RessourcesController extends AbstractController
     {
         $ressources = $ressourceRepository->getRessources();
 
-        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school_classroom', 'school', 'infos_user', 'infos_subject']]);
 
         return $this->json($array);
     }
@@ -31,7 +31,7 @@ class RessourcesController extends AbstractController
     {
         $ressources = $ressourceRepository->getRessourcesByClassroom($id);
 
-        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school_classroom', 'school', 'infos_user', 'infos_subject']]);
 
         return $this->json($array);
     }
@@ -43,7 +43,7 @@ class RessourcesController extends AbstractController
     {
         $ressources = $ressourceRepository->getRessource($id);
 
-        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($ressources, null, ['groups' => ['ressources', 'infos_classroom', 'school_classroom', 'school', 'infos_user', 'infos_subject']]);
 
         return $this->json($array);
     }

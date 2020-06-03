@@ -8,8 +8,6 @@ export default (store) => (next) => (action) => {
             break;
         }
         default: {
-            // Si le middleware n'est pas intéressé par l'action reçue,
-            // alors il laisse filer l'action vers la suite de son voyage.
             next(action);
         }
     }

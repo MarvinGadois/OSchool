@@ -19,32 +19,46 @@ class LessonRepository extends ServiceEntityRepository
         parent::__construct($registry, Lesson::class);
     }
 
-    // /**
-    //  * @return Lesson[] Returns an array of Lesson objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getLessons()
     {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('l.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('l');
 
-    /*
-    public function findOneBySomeField($value): ?Lesson
-    {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            ->addSelect('c', 's', 'u', 'sub')
+            ->leftJoin('l.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('l.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
         ;
+        return $qb->getQuery()->getResult();
     }
-    */
+
+    public function getLessonsByClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('l');
+
+        $qb
+            ->addSelect('c')
+            ->leftJoin('l.classroom', 'c')
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getLesson($id)
+    {
+        $qb = $this->createQueryBuilder('l');
+
+        $qb
+            ->addSelect('c')
+            ->leftJoin('l.classroom', 'c')
+            ->where('l.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 }
