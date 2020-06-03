@@ -24,8 +24,11 @@ class RessourceRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('r');
 
         $qb
-            ->addSelect('c')
+            ->addSelect('c, s, u, sub')
             ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
         ;
         return $qb->getQuery()->getResult();
     }
@@ -35,8 +38,11 @@ class RessourceRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('r');
 
         $qb
-            ->addSelect('c')
+            ->addSelect('c, s, u, sub')
             ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
             ->where('c.id = :id')
             ->setParameter('id', $id)
         ;
@@ -49,8 +55,11 @@ class RessourceRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('r');
 
         $qb
-            ->addSelect('c')
+            ->addSelect('c, s, u, sub')
             ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
             ->where('r.id = :id')
             ->setParameter('id', $id)
         ;
