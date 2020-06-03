@@ -7,13 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
+
 /**
  * @Route("/api/secured/v1/news", name="api_secured_v1_news_")
  */
 class NewsController extends AbstractController
 {
     /**
-     * @Route("/", name="browse")
+     * @Route("", name="browse")
      */
     public function browse(SerializerInterface $serializer, NewsRepository $newsRepository)
     {
