@@ -36,6 +36,7 @@ class School
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        
         $this->news = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->classrooms = new ArrayCollection();
