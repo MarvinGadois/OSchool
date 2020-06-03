@@ -24,8 +24,11 @@ class LessonRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('l');
 
         $qb
-            ->addSelect('c')
+            ->addSelect('c', 's', 'u', 'sub')
             ->leftJoin('l.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('l.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
         ;
         return $qb->getQuery()->getResult();
     }
