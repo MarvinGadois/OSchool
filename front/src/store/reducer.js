@@ -8,7 +8,9 @@ import {
     CONNECTED,
     DISCONNECTED,
     RESET_LOGIN_INPUT,
+
     SET_NEWS,
+
 } from './actions';
 
 // State initial
@@ -78,11 +80,13 @@ export default (state = initialState, action = {}) => {
                 password: '',
             };
         }
+
         case SET_NEWS: {
             return {
                 ...state,
                 news: action.news,
-            };
+
+  
         }
         default: {
             return state;

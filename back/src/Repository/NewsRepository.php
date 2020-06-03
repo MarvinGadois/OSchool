@@ -52,6 +52,23 @@ class NewsRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getNewsBySchoolName($name)
+    {
+        // Le createQueryBuilder à l'intérieur du Repository considére qu'on veut 
+        // forcément faire une requête à partir de la table de News
+        // donc pas besoin de préciser le from() ni le select()
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('s')
+            ->leftJoin('n.school', 's')
+            ->where('s.name = :name')
+            ->setParameter('name', $name)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
 
     public function getNew($id)
     {

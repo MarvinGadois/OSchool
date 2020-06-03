@@ -21,6 +21,7 @@ export default (store) => (next) => (action) => {
             axios({
                 method: 'post',
                 url: loginRequest,
+
                 // withCredentials: true,
                 data: {
                     username: store.getState().email,
@@ -34,6 +35,7 @@ export default (store) => (next) => (action) => {
                 .then((response) => {
                     if (response.status === 200) {
                         console.log(response.data)
+
                         localStorage.setItem('jwtToken', response.data.token);
                         setAuthorizationToken(response.data.token);
                         store.dispatch(setUser(jwtDecode(response.data.token)));
@@ -41,6 +43,7 @@ export default (store) => (next) => (action) => {
                         store.dispatch(connected());
                         store.dispatch(homePageConnected(action.history));
                         //store.dispatch(setUserToken(response.data.token));
+
                     }
                 })
                 .catch((error) => {

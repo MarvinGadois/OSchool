@@ -9,5 +9,3 @@ export const GET_OPINIONS = 'unsecured/v1/opinion';
 
 // Route news
 export const GET_NEWS = 'secured/v1/news';
-
-

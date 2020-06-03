@@ -13,7 +13,6 @@ import HomePageStudent from '../HomePage_Student';
 import HomePageTeacher from '../HomePage_Teacher';
 
 
-
 const HomePage = () => {
 
     const isAuthentified = useSelector((state) => state.connected);

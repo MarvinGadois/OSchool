@@ -7,18 +7,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
+
 /**
- * @Route("/api/unsecured/v1/news", name="api_secured_v1_news_")
+ * @Route("/api/unsecured/v1/oschool/news", name="api_unsecured_v1_oschool_news_")
  */
-class NewsController extends AbstractController
+class OschoolNewsController extends AbstractController
 {
     /**
-     * @Route("/", name="browseBySchool")
+     * @Route("", name="browse")
      */
-    public function browseBySchool(SerializerInterface $serializer, NewsRepository $newsRepository)
+    public function browse(SerializerInterface $serializer, NewsRepository $newsRepository)
     {
-        $news = $newsRepository->getNewsBySchool(2);
-
+        $news = $newsRepository->getNewsBySchoolName("Oschool");
+        
         // On demande au Serializer de normaliser nos films (transformer nos objets en array)
         // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
@@ -27,7 +28,6 @@ class NewsController extends AbstractController
         return $this->json($array);
     }
 
-
     /**
      * @Route("/{id}", name="read", requirements={"id": "\d+"})
      */
@@ -35,7 +35,7 @@ class NewsController extends AbstractController
     {
         $news = $newsRepository->getNew($id);
 
-        if($news->getSchool()->getId() == 2) {
+        if($news->getSchool()->getName() == "Oschool") {
             // On demande au Serializer de normaliser nos films (transformer nos objets en array)
             // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
             $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);

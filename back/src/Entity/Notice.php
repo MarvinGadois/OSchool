@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\NoticeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=NoticeRepository::class)
@@ -19,11 +20,13 @@ class Notice
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"notices"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"notices"})
      */
     private $content;
 
@@ -39,18 +42,21 @@ class Notice
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"notices"})
      */
     private $status;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="notices_author")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"notices"})
      */
     private $author;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="notices_receiver")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"notices"})
      */
     private $receiver;
 
