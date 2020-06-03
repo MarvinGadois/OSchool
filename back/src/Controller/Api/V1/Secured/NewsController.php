@@ -38,9 +38,10 @@ class NewsController extends AbstractController
         // On demande au Serializer de normaliser nos films (transformer nos objets en array)
         // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
+        
 
         // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
-        return $this->json($array);
+        return $this->json($array); 
     }
 
 
