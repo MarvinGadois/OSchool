@@ -1,6 +1,18 @@
 import axios from 'axios';
 
-import { LOGIN, homePageConnected, SET_USER, SET_USER_TOKEN } from 'src/store/actions';
+// Import action
+import { LOGIN, homePageConnected, setUser, setUserToken, connected, resetLoginInput } from 'src/store/actions';
+
+// Import constant
+import { API_URL, LOGIN_URL } from '../../utils/constant';
+
+// Import setAuthorisationToken
+import setAuthorizationToken from '../../utils/setAuthorizationToken';
+
+// Import jwt-decode
+import jwtDecode from 'jwt-decode';
+
+const loginRequest = `${API_URL}${LOGIN_URL}`;
 
 export default (store) => (next) => (action) => {
     console.log('MW Auth');
@@ -8,7 +20,8 @@ export default (store) => (next) => (action) => {
         case LOGIN: {
             axios({
                 method: 'post',
-                url: 'http://ec2-54-152-201-144.compute-1.amazonaws.com/api/login_check',
+                url: loginRequest,
+
                 // withCredentials: true,
                 data: {
                     username: store.getState().email,
@@ -22,13 +35,15 @@ export default (store) => (next) => (action) => {
                 .then((response) => {
                     if (response.status === 200) {
                         console.log(response.data)
-                        // localStorage.user = JSON.stringify(response.data);
-                        // localStorage.userToken = JSON.stringify(response.data.token);
-                        // const user = JSON.parse(localStorage.getItem('user'));
-                        // const userToken = JSON.parse(localStorage.getItem('userToken'));
-                        // store.dispatch({ type: SET_USER, user });
-                        // store.dispatch({ type: SET_USER_TOKEN, payload: userToken });
-                        // store.dispatch(homePageConnected(action.history));
+
+                        localStorage.setItem('jwtToken', response.data.token);
+                        setAuthorizationToken(response.data.token);
+                        store.dispatch(setUser(jwtDecode(response.data.token)));
+                        store.dispatch(resetLoginInput());
+                        store.dispatch(connected());
+                        store.dispatch(homePageConnected(action.history));
+                        //store.dispatch(setUserToken(response.data.token));
+
                     }
                 })
                 .catch((error) => {
@@ -36,7 +51,6 @@ export default (store) => (next) => (action) => {
                 });
             return;
         }
-
         default: {
             next(action);
         }

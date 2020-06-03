@@ -1,15 +1,20 @@
+// Import action
 import {
     SYNC_EMAIL,
     SYNC_PASSWORD,
     SET_USER,
-    SET_USER_TOKEN,
+    // SET_USER_TOKEN,
     SET_OPINIONS,
+    CONNECTED,
+    DISCONNECTED,
+    RESET_LOGIN_INPUT,
+    SET_USER_TOKEN,
 } from './actions';
 
-
+// State initial
 const initialState = {
     user: {},
-    userToken: '',
+    //userToken: '',
     email: '',
     password: '',
     connected: false,
@@ -37,10 +42,38 @@ export default (state = initialState, action = {}) => {
                 user: action.user,
             };
         }
-        case SET_USER_TOKEN: {
+        // case SET_USER_TOKEN: {
+        //     return {
+        //         ...state,
+        //         userToken: action.token,
+        //     };
+        // }
+        case SET_OPINIONS: {
             return {
                 ...state,
-                userToken: action.payload,
+                opinions: action.opinions,
+            };
+        }
+        case CONNECTED: {
+            return {
+                ...state,
+                connected: true,
+            };
+        }
+        case DISCONNECTED: {
+            localStorage.removeItem('jwtToken');
+            return {
+                ...state,
+                connected: false,
+                user: {},
+                // userToken: '',
+            };
+        }
+        case RESET_LOGIN_INPUT: {
+            return {
+                ...state,
+                email: '',
+                password: '',
             };
         }
         case SET_OPINIONS: {
