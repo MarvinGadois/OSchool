@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\NewsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=NewsRepository::class)
@@ -14,26 +15,31 @@ class News
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"news"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"news"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"news"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"news"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"news"})
      */
     private $path;
 
@@ -50,6 +56,7 @@ class News
     /**
      * @ORM\ManyToOne(targetEntity=School::class, inversedBy="news")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"news"})
      */
     private $school;
 
