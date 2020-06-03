@@ -8,7 +8,9 @@ import {
     CONNECTED,
     DISCONNECTED,
     RESET_LOGIN_INPUT,
-    SET_USER_TOKEN,
+
+    SET_NEWS,
+
 } from './actions';
 
 // State initial
@@ -19,6 +21,7 @@ const initialState = {
     password: '',
     connected: false,
     opinions: [],
+    news: [],
 };
 
 
@@ -66,6 +69,7 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 connected: false,
                 user: {},
+                news: [],
                 // userToken: '',
             };
         }
@@ -76,11 +80,13 @@ export default (state = initialState, action = {}) => {
                 password: '',
             };
         }
-        case SET_OPINIONS: {
+
+        case SET_NEWS: {
             return {
                 ...state,
-                opinions: action.payload,
-            };
+                news: action.news,
+
+  
         }
         default: {
             return state;
