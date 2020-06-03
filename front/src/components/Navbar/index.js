@@ -1,7 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import Logo from "src/assets/O'school.png";
+
+
 
 // Import action
 import { disconnected } from 'src/store/actions';
@@ -12,7 +15,9 @@ import "./navbar.scss";
 
 
 const Navbar = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const isAuthentified = useSelector((state) => state.connected);
   if (!isAuthentified) {
     return (
@@ -74,7 +79,7 @@ const Navbar = () => {
           <NavLink
             exact
             to={"/"}
-            onClick={() => { dispatch(disconnected()) }}
+            onClick={() => { dispatch(disconnected(history)) }}
           >
             Deconnexion
             </NavLink>

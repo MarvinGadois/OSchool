@@ -15,7 +15,7 @@ export const connected = () => ({ type: CONNECTED });
 // Action Disconnected: false
 export const DISCONNECTED = 'actions/DISCONNECTED';
 
-export const disconnected = () => ({ type: DISCONNECTED });
+export const disconnected = (history) => ({ type: DISCONNECTED, history });
 
 // action HomePage connected
 export const HOMEPAGE_CONNECTED = 'actions/HOMEPAGE_CONNECTED';
@@ -33,6 +33,11 @@ export const setUserToken = (token) => ({ type: SET_USER_TOKEN, token });
 export const SET_OPINIONS = 'actions/SET_OPINIONS';
 
 export const setOpinions = (opinions) => ({ type: SET_OPINIONS, opinions })
+
+// action set news
+export const SET_NEWS = 'actions/SET_NEWS';
+
+export const setNews = (news) => ({ type: SET_NEWS, news })
 
 // action reset login input
 export const RESET_LOGIN_INPUT = 'actions/RESET_LOGIN_INPUT';
