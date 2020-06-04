@@ -78,7 +78,7 @@ const Navbar = () => {
         <li>
           <NavLink
             exact
-            to={"/"}
+            to={""}
             onClick={() => { dispatch(disconnected(history)) }}
           >
             Deconnexion
