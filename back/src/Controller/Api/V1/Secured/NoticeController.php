@@ -19,7 +19,7 @@ class NoticeController extends AbstractController
     {
         $notices = $noticeRepository->getNotices();
 
-        $array = $serializer->normalize($notices, null, ['groups' => ['notices', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($notices, null, ['groups' => ['notices', 'infos_classroom', 'school', 'infos_user','user_subject', 'infos_subject']]);
 
         return $this->json($array);
     }

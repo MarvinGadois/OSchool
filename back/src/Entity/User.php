@@ -89,7 +89,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=Subject::class, inversedBy="users")     
-     * @Groups({"infos_user"})
+     * @Groups({"user_subject"})
      */
     private $subjects;
 

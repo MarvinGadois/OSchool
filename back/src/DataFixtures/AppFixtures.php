@@ -781,6 +781,7 @@ class AppFixtures extends Fixture
         $homework1->setPath("homework/potion-d1-ennonce.txt");
         $homework1->setClassroom($gryffondorD);
         $homework1->setUser($rogue);
+        $homework1->setSubject($potions);
         $homeworks[] = $homework1;
         $em->persist($homework1);
 
@@ -791,17 +792,19 @@ class AppFixtures extends Fixture
         $homework2->setPath("");
         $homework2->setClassroom($serdaigleA);
         $homework2->setUser($mcgonagall);
+        $homework2->setSubject($metamarphose);
         $homeworks[] = $homework2;
         $em->persist($homework2);
 
         $homework3 = new Homework();
         $homework3->setCode("P-GD-1");
         $homework3->setTitle("Devoir n°1 rendu");
-        $homework3->setStatus(2);
+        $homework3->setStatus(1);
         $homework3->setContent("Merci de corriger mon devoir Monsieur Rogue");
         $homework3->setPath("homework/potion-d1-granger.txt");
         $homework3->setClassroom($gryffondorD);
         $homework3->setUser($hgranger);
+        $homework3->setSubject($potions);
         $homeworks[] = $homework3;
         $em->persist($homework3);
 
@@ -809,7 +812,7 @@ class AppFixtures extends Fixture
         $grade1->setTitle("Devoir 1 de potion");
         $grade1->setGrade(18);
         $grade1->setHomework($homework3);
-        $homework3->setStatus(3);
+        $homework3->setStatus(2);
         $homework3->setCorrectionPath("homework/potion-d1-granger-correction.txt");
         $grades[] = $grade1;
         $em->persist($grade1);

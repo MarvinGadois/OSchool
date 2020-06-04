@@ -84,6 +84,13 @@ class Homework
      */
     private $correctionPath;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Subject::class, inversedBy="homework")
+     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"homework_subject"})
+     */
+    private $subject;
+
 
     public function __construct()
     {
@@ -225,6 +232,18 @@ class Homework
     public function setCorrectionPath(?string $correctionPath): self
     {
         $this->correctionPath = $correctionPath;
+
+        return $this;
+    }
+
+    public function getSubject(): ?Subject
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?Subject $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }
