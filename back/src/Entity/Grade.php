@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\GradeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=GradeRepository::class)
@@ -14,16 +15,19 @@ class Grade
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"grade"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"grade"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"grade"})
      */
     private $grade;
 
@@ -39,6 +43,7 @@ class Grade
 
     /**
      * @ORM\OneToOne(targetEntity=Homework::class, mappedBy="grade", cascade={"persist", "remove"})
+     * @Groups({"grade_homework"})
      */
     private $homework;
     

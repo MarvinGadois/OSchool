@@ -19,32 +19,19 @@ class HomeworkRepository extends ServiceEntityRepository
         parent::__construct($registry, Homework::class);
     }
 
-    // /**
-    //  * @return Homework[] Returns an array of Homework objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getHomework()
     {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('h.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('h');
 
-    /*
-    public function findOneBySomeField($value): ?Homework
-    {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
         ;
+
+        return $qb->getQuery()->getResult();
     }
-    */
 }
