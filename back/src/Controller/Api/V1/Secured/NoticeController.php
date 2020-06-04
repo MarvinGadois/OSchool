@@ -23,4 +23,28 @@ class NoticeController extends AbstractController
 
         return $this->json($array);
     }
+
+    /**
+     * @Route("/user/{id}", name="browseByUser", requirements={"id":"\d+"})
+     */
+    public function browseByUser($id, SerializerInterface $serializer, NoticeRepository $noticeRepository)
+    {
+        $notices = $noticeRepository->getNoticesByUserId($id);
+
+        $array = $serializer->normalize($notices, null, ['groups' => ['notices', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+
+        return $this->json($array);
+    }
+
+    /**
+     * @Route("/{id}", name="browseById", requirements={"id":"\d+"})
+     */
+    public function read($id, SerializerInterface $serializer, NoticeRepository $noticeRepository)
+    {
+        $notices = $noticeRepository->getNotice($id);
+
+        $array = $serializer->normalize($notices, null, ['groups' => ['notices', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+
+        return $this->json($array);
+    }
 }
