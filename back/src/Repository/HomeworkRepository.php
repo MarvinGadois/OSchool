@@ -34,4 +34,40 @@ class HomeworkRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getHomeworkByClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
+            ->where('h.classroom = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getHomeworkBySubject($id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
+            ->where('u.subjects = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }

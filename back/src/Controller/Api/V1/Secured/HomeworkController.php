@@ -34,4 +34,52 @@ class HomeworkController extends AbstractController
 
         return $this->json($array);
     }
+
+
+    /**
+     * @Route("/classroom/{id}", name="browseByClass")
+     */
+    public function browseByClass($id, SerializerInterface $serializer, HomeworkRepository $homeworkRepository)
+    {
+        $homework = $homeworkRepository->getHomeworkByClassroom($id);
+
+        $array = $serializer->normalize(
+            $homework, 
+            null, 
+            ['groups' => 
+                [
+                    'homework', 
+                    'homework_classroom', 'infos_classroom', 'school_classroom', 'school',
+                    'homework_grade', 'grade',
+                    'homework_user', 'infos_user', 'infos_subject'
+                ],
+            ]
+        );
+
+        return $this->json($array);
+    }
+
+
+    /**
+     * @Route("/subject/{id}", name="browseByClass")
+     */
+    public function browseBySubject($id, SerializerInterface $serializer, HomeworkRepository $homeworkRepository)
+    {
+        $homework = $homeworkRepository->getHomeworkBySubject($id);
+
+        $array = $serializer->normalize(
+            $homework, 
+            null, 
+            ['groups' => 
+                [
+                    'homework', 
+                    'homework_classroom', 'infos_classroom', 'school_classroom', 'school',
+                    'homework_grade', 'grade',
+                    'homework_user', 'infos_user', 'infos_subject'
+                ],
+            ]
+        );
+
+        return $this->json($array);
+    }
 }
