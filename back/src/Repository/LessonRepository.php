@@ -38,8 +38,11 @@ class LessonRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('l');
 
         $qb
-            ->addSelect('c')
+            ->addSelect('c', 's', 'u', 'sub')
             ->leftJoin('l.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('l.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
             ->where('c.id = :id')
             ->setParameter('id', $id)
         ;
@@ -52,8 +55,11 @@ class LessonRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('l');
 
         $qb
-            ->addSelect('c')
+            ->addSelect('c', 's', 'u', 'sub')
             ->leftJoin('l.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('l.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
             ->where('l.id = :id')
             ->setParameter('id', $id)
         ;
