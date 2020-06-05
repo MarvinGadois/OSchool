@@ -44,6 +44,7 @@ class AppFixtures extends Fixture
         $school->setName("Poudlard");
         $schools[] = $school;
         $em->persist($school);
+
         $oschool = new School();
         $oschool->setName("Oschool");
         $schools[] = $oschool;
@@ -692,6 +693,33 @@ class AppFixtures extends Fixture
         $news2->setSchool($oschool);
         $news[] = $news2;
         $em->persist($news2);
+
+        $news3 = new News();
+        $news3->setTitle("Quoi de neuf ?");
+        $news3->setContent("Praesent viverra fermentum nunc, in tempus dolor tincidunt at. Nullam tempor condimentum turpis, eget luctus arcu ornare eget. Integer ut lorem in urna vestibulum volutpat. Ut ac venenatis ipsum. Nam.");
+        $news3->setPath("news1.jpg");
+        $news3->setDate(new \DateTime('06/05/2020'));
+        $news3->setSchool($school);
+        $news[] = $news3;
+        $em->persist($news3);
+
+        $news4 = new News();
+        $news4->setTitle("Date de rentrée");
+        $news4->setContent("Vivamus auctor a ligula sit amet maximus. Curabitur congue risus quis turpis semper, et finibus sapien feugiat. Vestibulum vitae arcu eros. Donec ac dui molestie, hendrerit diam eu, blandit neque. Nunc nec scelerisque tortor. Proin congue ex est, varius mattis nulla sollicitudin eu. Sed augue.");
+        $news4->setPath("news1.jpg");
+        $news4->setDate(new \DateTime('08/24/2019'));
+        $news4->setSchool($school);
+        $news[] = $news4;
+        $em->persist($news4);
+
+        $news5 = new News();
+        $news5->setTitle("Rencontre avec le choixpeau");
+        $news5->setContent("Aliquam ornare augue ligula, et lobortis est dapibus at. Duis sit amet eros mollis, congue magna sit amet, euismod elit. Fusce laoreet felis non consectetur tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis condimentum egestas nisi, dictum porta nulla. Morbi rhoncus rhoncus urna non sagittis. Nulla sed accumsan metus. Proin semper massa quam, in bibendum arcu pulvinar vel.");
+        $news5->setPath("news1.jpg");
+        $news5->setDate(new \DateTime('09/03/2020'));
+        $news5->setSchool($school);
+        $news[] = $news5;
+        $em->persist($news5);
       
         // NOTICES
 
