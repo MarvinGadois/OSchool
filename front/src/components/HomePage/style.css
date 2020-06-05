@@ -92,17 +92,28 @@ align-content: center;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 2px 2px 2px #BDC3C7;}
-    
-.one_news_card{
+
+
+ .one_news_card_container {
     border: 1px solid #BDC3C7;
     width: 80%;
     margin: 4% auto;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: column;
     border-radius: 5px;
     box-shadow: 10px 5px 5px #BDC3C7;
-}
+ } 
+ .one_news_card_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+ }  
+ .one_news_card_hr{
+    width: 80%;
+    margin: 3% auto;
+ }
+
 .img_one_news{
     width: 100px;  
     padding: 4%;
@@ -112,6 +123,10 @@ align-content: center;
     margin-top: 15px;
     font-weight: bold;
 }
+.one_news_card_body{
+padding: 10px;
+}
+
 /* CSS POUR COMPOSANT OPINION */
 .opinion{
    width: 90%;

@@ -7,8 +7,8 @@ import {
     CONNECTED,
     DISCONNECTED,
     RESET_LOGIN_INPUT,
-
-    SET_NEWS,
+    SET_SCHOOL_NEWS,
+    SET_NEWS_SIMPLE,
 
 } from './actions';
 
@@ -19,7 +19,8 @@ const initialState = {
     password: '',
     connected: false,
     opinions: [],
-    news: [],
+    newsNoConnected: [],
+    schoolNews: [],
 };
 
 
@@ -72,10 +73,16 @@ export default (state = initialState, action = {}) => {
             };
         }
 
-        case SET_NEWS: {
+        case SET_SCHOOL_NEWS: {
             return {
                 ...state,
-                news: action.news,
+                schoolNews: action.news,
+            };
+        }
+        case SET_NEWS_SIMPLE: {
+            return {
+                ...state,
+                newsNoConnected: action.newsSimple,
             };
         }
         default: {

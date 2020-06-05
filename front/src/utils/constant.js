@@ -7,5 +7,9 @@ export const LOGIN_URL = 'login_check'
 // Route opinions
 export const GET_OPINIONS = 'unsecured/v1/opinion';
 
-// Route news
-export const GET_NEWS = 'secured/v1/news';
+// Route news connecté
+export const GET_SCHOOL_NEWS = 'secured/v1/news/school/';
+
+// Route news non connecté
+export const GET_NEWS_SIMPLE = 'unsecured/v1/oschool/news';
+

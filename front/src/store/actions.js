@@ -27,9 +27,13 @@ export const setUser = (user) => ({ type: SET_USER, user });
 export const SET_OPINIONS = 'actions/SET_OPINIONS';
 export const setOpinions = (opinions) => ({ type: SET_OPINIONS, opinions })
 
+// action set news accueil non connecté
+export const SET_NEWS_SIMPLE = 'actions/SET_NEWS_SIMPLE';
+export const setNewsSimple = (newsSimple) => ({ type: SET_NEWS_SIMPLE, newsSimple })
+
 // action set news
-export const SET_NEWS = 'actions/SET_NEWS';
-export const setNews = (news) => ({ type: SET_NEWS, news })
+export const SET_SCHOOL_NEWS = 'actions/SET_SCHOOL_NEWS';
+export const setSchoolNews = (news) => ({ type: SET_SCHOOL_NEWS, news })
 
 // action reset login input
 export const RESET_LOGIN_INPUT = 'actions/RESET_LOGIN_INPUT';
