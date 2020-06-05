@@ -28,7 +28,7 @@ class LessonRepository extends ServiceEntityRepository
             ->leftJoin('l.classroom', 'c')
             ->leftJoin('c.school', 's')
             ->leftJoin('l.user', 'u')
-            ->leftJoin('u.subjects', 'sub')
+            ->leftJoin('l.subject', 'sub')
         ;
         return $qb->getQuery()->getResult();
     }
@@ -42,7 +42,7 @@ class LessonRepository extends ServiceEntityRepository
             ->leftJoin('l.classroom', 'c')
             ->leftJoin('c.school', 's')
             ->leftJoin('l.user', 'u')
-            ->leftJoin('u.subjects', 'sub')
+            ->leftJoin('l.subject', 'sub')
             ->where('c.id = :id')
             ->setParameter('id', $id)
         ;
@@ -59,7 +59,7 @@ class LessonRepository extends ServiceEntityRepository
             ->leftJoin('l.classroom', 'c')
             ->leftJoin('c.school', 's')
             ->leftJoin('l.user', 'u')
-            ->leftJoin('u.subjects', 'sub')
+            ->leftJoin('l.subject', 'sub')
             ->where('l.id = :id')
             ->setParameter('id', $id)
         ;

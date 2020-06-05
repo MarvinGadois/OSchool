@@ -759,6 +759,7 @@ class AppFixtures extends Fixture
         $lesson1->setContent("All men must die. All men must die. Can a man still be brave if he’s afraid? That is the only time a man can be brave.More pigeon pie, please. The North remembers. As High as Honor. The Knight of Lemonwood.");
         $lesson1->setPath("");
         $lesson1->setClassroom($gryffondorD);
+        $lesson1->setSubject($potions);
         $lesson1->setUser($rogue);
         $lessons[] = $lesson1;
         $em->persist($lesson1);
@@ -768,6 +769,7 @@ class AppFixtures extends Fixture
         $lesson2->setContent("Words are like wind. The War of the 5 kings. The wolf and the lion. A dream of Spring. More pigeon pie, please.");
         $lesson2->setPath("manuels.jpeg");
         $lesson2->setClassroom($serdaigleA);
+        $lesson2->setSubject($histoire);
         $lesson2->setUser($binns);
         $lessons[] = $lesson2;
         $em->persist($lesson2);
@@ -777,6 +779,7 @@ class AppFixtures extends Fixture
         $lesson3->setContent("The North remembers. And now his watch is ended. House Tarly of Horn Hill The tourney of Ashford Meadows. The battle of the redgrass field.");
         $lesson3->setPath("");
         $lesson3->setClassroom($serdaigleA);
+        $lesson3->setSubject($moldus);
         $lesson3->setUser($burbage);
         $lessons[] = $lesson3;
         $em->persist($lesson3);
@@ -786,6 +789,7 @@ class AppFixtures extends Fixture
         $lesson4->setContent("Pay the iron price. The North remembers. It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters. The Dothraki do things in their own time, for their own reasons. Bastards are born of passion, aren't they? We don't despise them in Dorne.");
         $lesson4->setPath("manuels.jpeg");
         $lesson4->setClassroom($gryffondorD);
+        $lesson4->setSubject($metamarphose);
         $lesson4->setUser($mcgonagall);
         $lessons[] = $lesson4;
         $em->persist($lesson4);
@@ -795,6 +799,7 @@ class AppFixtures extends Fixture
         $lesson5->setContent("Our Sun Shines Bright. The tourney of Ashford Meadows. The War of the 5 kings. The Knight of Lemonwood. The rains of castamere.");
         $lesson5->setPath("manuels.jpeg");
         $lesson5->setClassroom($gryffondorD);
+        $lesson5->setSubject($sortileges);
         $lesson5->setUser($flitwick);
         $lessons[] = $lesson5;
         $em->persist($lesson5);

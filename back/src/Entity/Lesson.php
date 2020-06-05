@@ -60,6 +60,12 @@ class Lesson
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Subject::class, inversedBy="lessons")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $subject;
+
 
     public function __construct()
     {
@@ -152,6 +158,18 @@ class Lesson
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getSubject(): ?Subject
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?Subject $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }
