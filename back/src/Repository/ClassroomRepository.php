@@ -19,5 +19,50 @@ class ClassroomRepository extends ServiceEntityRepository
         parent::__construct($registry, Classroom::class);
     }
 
-  
+    public function getOneClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        $qb
+            ->addSelect('s, sh, u')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('c.school', 'sh')
+            ->leftJoin('c.users', 'u')
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function getClassroom()
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        $qb
+            ->addSelect('s, sh, u')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('c.school', 'sh')
+            ->leftJoin('c.users', 'u')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getClassroomBySchool($id)
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        $qb
+            ->addSelect('s, sh, u')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('c.school', 'sh')
+            ->leftJoin('c.users', 'u')
+            ->where('c.school = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
