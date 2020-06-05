@@ -63,6 +63,7 @@ class Lesson
     /**
      * @ORM\ManyToOne(targetEntity=Subject::class, inversedBy="lessons")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"lessons_subject"})
      */
     private $subject;
 
