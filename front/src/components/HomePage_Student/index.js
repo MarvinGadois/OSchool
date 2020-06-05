@@ -6,7 +6,7 @@ import './styles.scss';
 const HomePageStudent = () => {
     return (
         <div className="container--homeStudent">
-            <h1>Bienvenue</h1>
+            <h1>Bienvenue Home Page ETUDIANT</h1>
             <div className="container--homeStudent--info">
                 <p>ici toutes les infos student</p>
             </div>

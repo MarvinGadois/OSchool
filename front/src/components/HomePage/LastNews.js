@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
+
+// Import getNewsNoAuth
+import getNewsNoAuth from '../../utils/getNewsNoAuth';
 
 // Import style
 import './style.css';
 
 const LastNews = () => {
+    const { newsNoConnected } = useSelector((state) => state)
+    useEffect(getNewsNoAuth, []);
 
-    const news = lastNews.map((newOne) => (
-        <div key={newOne.id} className="one_news_card">
-            <h3>{newOne.titre}</h3>
-            <img className="img_one_news" src={newOne.image}></img>
+    const news = newsNoConnected.map((newOne) => (
+        <div key={newOne.id} className="one_news_card_container">
+            <div className="one_news_card_head">
+                <img className="img_one_news" src="https://via.placeholder.com/150"></img>
+                <h3>{newOne.title}</h3>
+            </div>
+            <hr className="one_news_card_hr"></hr >
+            <div className="one_news_card_body">
+                <p>{newOne.content}</p>
+            </div>
         </div>
     ))
 
@@ -20,26 +33,5 @@ const LastNews = () => {
     )
 };
 
-
-
-// FAKE DONNEE
-const lastNews = [
-    {
-        id: 1, titre: "Titre news", image: 'https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png',
-    },
-    {
-        id: 2, titre: "Titre news", image: 'https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png',
-    },
-    {
-        id: 3, titre: "Titre news", image: 'https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png',
-    },
-    {
-        id: 4, titre: "Titre news", image: 'https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png',
-    },
-    {
-        id: 5, titre: "Titre news", image: 'https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png',
-    },
-
-];
 
 export default LastNews;
