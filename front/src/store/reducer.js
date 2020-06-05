@@ -3,22 +3,23 @@ import {
     SYNC_EMAIL,
     SYNC_PASSWORD,
     SET_USER,
-    // SET_USER_TOKEN,
     SET_OPINIONS,
     CONNECTED,
     DISCONNECTED,
     RESET_LOGIN_INPUT,
-    SET_USER_TOKEN,
+
+    SET_NEWS,
+
 } from './actions';
 
 // State initial
 const initialState = {
     user: {},
-    //userToken: '',
     email: '',
     password: '',
     connected: false,
     opinions: [],
+    news: [],
 };
 
 
@@ -42,12 +43,6 @@ export default (state = initialState, action = {}) => {
                 user: action.user,
             };
         }
-        // case SET_USER_TOKEN: {
-        //     return {
-        //         ...state,
-        //         userToken: action.token,
-        //     };
-        // }
         case SET_OPINIONS: {
             return {
                 ...state,
@@ -66,7 +61,7 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 connected: false,
                 user: {},
-                // userToken: '',
+                news: [],
             };
         }
         case RESET_LOGIN_INPUT: {
@@ -76,10 +71,11 @@ export default (state = initialState, action = {}) => {
                 password: '',
             };
         }
-        case SET_OPINIONS: {
+
+        case SET_NEWS: {
             return {
                 ...state,
-                opinions: action.payload,
+                news: action.news,
             };
         }
         default: {

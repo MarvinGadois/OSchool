@@ -22,7 +22,6 @@ const App = () => {
   const dispatch = useDispatch();
   if (userToken) {
     dispatch(connected())
-    //dispatch(setUserToken(userToken))
   }
 
   return (

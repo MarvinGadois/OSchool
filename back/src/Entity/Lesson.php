@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\LessonRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=LessonRepository::class)
@@ -14,21 +15,25 @@ class Lesson
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"lessons"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"lessons"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"lessons"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"lessons"})
      */
     private $path;
 
@@ -45,11 +50,13 @@ class Lesson
     /**
      * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="lessons")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"lessons"})
      */
     private $classroom;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="lessons")
+     * @Groups({"lessons"})
      */
     private $user;
 

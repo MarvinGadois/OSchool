@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 class NewsController extends AbstractController
 {
     /**
-     * @Route("", name="browse")
+     * @Route("/", name="browse")
      */
     public function browse(SerializerInterface $serializer, NewsRepository $newsRepository)
     {

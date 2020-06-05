@@ -43,12 +43,18 @@ class Subject
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Homework::class, mappedBy="subject")
+     */
+    private $homework;
+
 
 
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->users = new ArrayCollection();
+        $this->homework = new ArrayCollection();
     }
     
 
@@ -116,6 +122,37 @@ class Subject
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
             $user->removeSubject($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Homework[]
+     */
+    public function getHomework(): Collection
+    {
+        return $this->homework;
+    }
+
+    public function addHomework(Homework $homework): self
+    {
+        if (!$this->homework->contains($homework)) {
+            $this->homework[] = $homework;
+            $homework->setSubject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHomework(Homework $homework): self
+    {
+        if ($this->homework->contains($homework)) {
+            $this->homework->removeElement($homework);
+            // set the owning side to null (unless already changed)
+            if ($homework->getSubject() === $this) {
+                $homework->setSubject(null);
+            }
         }
 
         return $this;

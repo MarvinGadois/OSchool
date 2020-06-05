@@ -3,6 +3,10 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
+use App\Entity\Grade;
+use App\Entity\Homework;
+use App\Entity\Notice;
+use App\Entity\Lesson;
 use App\Entity\Opinion;
 use App\Entity\Ressource;
 use App\Entity\School;
@@ -33,7 +37,8 @@ class AppFixtures extends Fixture
         $opinions = [];
         $ressources = [];
         $news = [];
-
+        $notices = [];
+        $lessons = [];
 
 
         // SCHOOL
@@ -41,6 +46,7 @@ class AppFixtures extends Fixture
         $school->setName("Poudlard");
         $schools[] = $school;
         $em->persist($school);
+
         $oschool = new School();
         $oschool->setName("Oschool");
         $schools[] = $oschool;
@@ -649,6 +655,9 @@ class AppFixtures extends Fixture
         $opinion3->setUser($rweasley);
         $opinions[] = $opinion3;
         $em->persist($opinion3);
+
+        // RESSOURCES
+  
         $ressource1 = new Ressource();
         $ressource1->setTitle("Boggarts lavender robes");
         $ressource1->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail.");
@@ -687,6 +696,154 @@ class AppFixtures extends Fixture
         $news[] = $news2;
         $em->persist($news2);
 
+        $news3 = new News();
+        $news3->setTitle("Quoi de neuf ?");
+        $news3->setContent("Praesent viverra fermentum nunc, in tempus dolor tincidunt at. Nullam tempor condimentum turpis, eget luctus arcu ornare eget. Integer ut lorem in urna vestibulum volutpat. Ut ac venenatis ipsum. Nam.");
+        $news3->setPath("news1.jpg");
+        $news3->setDate(new \DateTime('06/05/2020'));
+        $news3->setSchool($school);
+        $news[] = $news3;
+        $em->persist($news3);
+
+        $news4 = new News();
+        $news4->setTitle("Date de rentrée");
+        $news4->setContent("Vivamus auctor a ligula sit amet maximus. Curabitur congue risus quis turpis semper, et finibus sapien feugiat. Vestibulum vitae arcu eros. Donec ac dui molestie, hendrerit diam eu, blandit neque. Nunc nec scelerisque tortor. Proin congue ex est, varius mattis nulla sollicitudin eu. Sed augue.");
+        $news4->setPath("news1.jpg");
+        $news4->setDate(new \DateTime('08/24/2019'));
+        $news4->setSchool($school);
+        $news[] = $news4;
+        $em->persist($news4);
+
+        $news5 = new News();
+        $news5->setTitle("Rencontre avec le choixpeau");
+        $news5->setContent("Aliquam ornare augue ligula, et lobortis est dapibus at. Duis sit amet eros mollis, congue magna sit amet, euismod elit. Fusce laoreet felis non consectetur tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis condimentum egestas nisi, dictum porta nulla. Morbi rhoncus rhoncus urna non sagittis. Nulla sed accumsan metus. Proin semper massa quam, in bibendum arcu pulvinar vel.");
+        $news5->setPath("news1.jpg");
+        $news5->setDate(new \DateTime('09/03/2020'));
+        $news5->setSchool($school);
+        $news[] = $news5;
+        $em->persist($news5);
+      
+        // NOTICES
+
+        $notice1 = new Notice();
+        $notice1->setTitle("North bastard tourney Renly bastard");
+        $notice1->setContent("Nightswatch bastard raven Tarly Nightswatch maester Wildlings Stannis of riverlands raven Tully Winterfell Stannis Littlefinger Barratheon raven Tarly Tarly duel");
+        $notice1->setStatus(0);
+        $notice1->setAuthor($mcgonagall);
+        $notice1->setReceiver($hpotter);
+        $notices[] = $notice1;
+        $em->persist($notice1);
+
+        $notice2 = new Notice();
+        $notice2->setTitle("Direwolf Stannis in Dragon Stark.");
+        $notice2->setContent("Raven Dorne Winterfell Littlefinger Kingslanding the Kingslanding oath Littlefinger raven the Kingslanding of Barratheon raven Dorne giantsblood Winterfell Tully the");
+        $notice2->setStatus(0);
+        $notice2->setAuthor($chourave);
+        $notice2->setReceiver($llovegood);
+        $notices[] = $notice2;
+        $em->persist($notice2);
+
+        $notice3 = new Notice();
+        $notice3->setTitle("Giantsblood white walkers white walkers giantsblood Dragon.");
+        $notice3->setContent("Bastard Karstark Dragon Tarly oath Renly Melisandre south maester Wildlings bastard kingsblood the Karstark white walkers Kingslanding Stannis Stark Casterly rock Kingslanding");
+        $notice3->setStatus(0);
+        $notice3->setAuthor($rogue);
+        $notice3->setReceiver($rweasley);
+        $notices[] = $notice3;
+        $em->persist($notice3);
+
+        // LESSONS
+
+        $lesson1 = new Lesson();
+        $lesson1->setTitle("North Lannister Nightswatch Kingslanding oath Stark giantsblood of.");
+        $lesson1->setContent("All men must die. All men must die. Can a man still be brave if he’s afraid? That is the only time a man can be brave.More pigeon pie, please. The North remembers. As High as Honor. The Knight of Lemonwood.");
+        $lesson1->setPath("");
+        $lesson1->setClassroom($gryffondorD);
+        $lesson1->setUser($rogue);
+        $lessons[] = $lesson1;
+        $em->persist($lesson1);
+
+        $lesson2 = new Lesson();
+        $lesson2->setTitle("Nightswatch maester Kingslanding Casterly rock south.");
+        $lesson2->setContent("Words are like wind. The War of the 5 kings. The wolf and the lion. A dream of Spring. More pigeon pie, please.");
+        $lesson2->setPath("manuels.jpeg");
+        $lesson2->setClassroom($serdaigleA);
+        $lesson2->setUser($binns);
+        $lessons[] = $lesson2;
+        $em->persist($lesson2);
+
+        $lesson3 = new Lesson();
+        $lesson3->setTitle("Giantsblood north Winterfell Kingslanding south.");
+        $lesson3->setContent("The North remembers. And now his watch is ended. House Tarly of Horn Hill The tourney of Ashford Meadows. The battle of the redgrass field.");
+        $lesson3->setPath("");
+        $lesson3->setClassroom($serdaigleA);
+        $lesson3->setUser($burbage);
+        $lessons[] = $lesson3;
+        $em->persist($lesson3);
+
+        $lesson4 = new Lesson();
+        $lesson4->setTitle("Riverlands warden Karstark Dorne tourney.");
+        $lesson4->setContent("Pay the iron price. The North remembers. It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters. The Dothraki do things in their own time, for their own reasons. Bastards are born of passion, aren't they? We don't despise them in Dorne.");
+        $lesson4->setPath("manuels.jpeg");
+        $lesson4->setClassroom($gryffondorD);
+        $lesson4->setUser($mcgonagall);
+        $lessons[] = $lesson4;
+        $em->persist($lesson4);
+
+        $lesson5 = new Lesson();
+        $lesson5->setTitle("Stannis in Nightswatch Dragon Dorne.");
+        $lesson5->setContent("Our Sun Shines Bright. The tourney of Ashford Meadows. The War of the 5 kings. The Knight of Lemonwood. The rains of castamere.");
+        $lesson5->setPath("manuels.jpeg");
+        $lesson5->setClassroom($gryffondorD);
+        $lesson5->setUser($flitwick);
+        $lessons[] = $lesson5;
+        $em->persist($lesson5);
+
+
+        // HOMEWORK
+
+        $homework1 = new Homework();
+        $homework1->setCode("P-GD-1");
+        $homework1->setTitle("Devoir n°1");
+        $homework1->setContent("Ce devoir est à rendre pour le 10 juin 2020, faite le avec soin, il sera noté");
+        $homework1->setPath("homework/potion-d1-ennonce.txt");
+        $homework1->setClassroom($gryffondorD);
+        $homework1->setUser($rogue);
+        $homework1->setSubject($potions);
+        $homeworks[] = $homework1;
+        $em->persist($homework1);
+
+        $homework2 = new Homework();
+        $homework2->setCode("M-SA-1");
+        $homework2->setTitle("Controle n°1");
+        $homework2->setContent("Disertation sur : l'art de la méthamorphose. A rendre pour le 3 juin 2020");
+        $homework2->setPath("");
+        $homework2->setClassroom($serdaigleA);
+        $homework2->setUser($mcgonagall);
+        $homework2->setSubject($metamarphose);
+        $homeworks[] = $homework2;
+        $em->persist($homework2);
+
+        $homework3 = new Homework();
+        $homework3->setCode("P-GD-1");
+        $homework3->setTitle("Devoir n°1 rendu");
+        $homework3->setStatus(1);
+        $homework3->setContent("Merci de corriger mon devoir Monsieur Rogue");
+        $homework3->setPath("homework/potion-d1-granger.txt");
+        $homework3->setClassroom($gryffondorD);
+        $homework3->setUser($hgranger);
+        $homework3->setSubject($potions);
+        $homeworks[] = $homework3;
+        $em->persist($homework3);
+
+        $grade1 = new Grade();
+        $grade1->setTitle("Devoir 1 de potion");
+        $grade1->setGrade(18);
+        $grade1->setHomework($homework3);
+        $homework3->setStatus(2);
+        $homework3->setCorrectionPath("homework/potion-d1-granger-correction.txt");
+        $grades[] = $grade1;
+        $em->persist($grade1);
 
         $em->flush();
     }

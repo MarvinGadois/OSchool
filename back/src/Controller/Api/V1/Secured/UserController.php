@@ -24,7 +24,7 @@ class UserController extends AbstractController
 
             // On demande au Serializer de normaliser nos films (transformer nos objets en array)
             // De plus, on lui spécifie qu'on veut normaliser selon les groupes voulus
-            $array = $serializer->normalize($user, null, ['groups' => ['infos_user', 'school_user', 'school', 'classrooms_user', 'infos_classroom', 'infos_subject']]);
+            $array = $serializer->normalize($user, null, ['groups' => ['infos_user', 'school_user', 'school', 'classrooms_user', 'infos_classroom','user_subject', 'infos_subject']]);
 
             // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
             return $this->json($array);

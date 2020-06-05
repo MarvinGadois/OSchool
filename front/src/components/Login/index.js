@@ -18,7 +18,7 @@ const Login = () => {
     const passwordUser = useSelector((state) => state.password);
     return (
 
-        <div className="container">
+        <div className="container-login">
             <div className="img">
                 <img src={Logo_Stud} />
             </div>

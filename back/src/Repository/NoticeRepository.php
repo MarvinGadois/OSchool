@@ -19,32 +19,49 @@ class NoticeRepository extends ServiceEntityRepository
         parent::__construct($registry, Notice::class);
     }
 
-    // /**
-    //  * @return Notice[] Returns an array of Notice objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getNotices()
     {
-        return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('n.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('n');
 
-    /*
-    public function findOneBySomeField($value): ?Notice
-    {
-        return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
         ;
+        return $qb->getQuery()->getResult();
     }
-    */
+
+    public function getNoticesByUserId($id)
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
+            ->where('a.id = :id')
+            ->setParameter('id', $id)
+        ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getNotice($id)
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
+            ->where('n.id = :id')
+            ->setParameter('id', $id)
+        ;
+        return $qb->getQuery()->getResult();
+    }
 }

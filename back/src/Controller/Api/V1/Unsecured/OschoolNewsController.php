@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 class OschoolNewsController extends AbstractController
 {
     /**
-     * @Route("", name="browse")
+     * @Route("/", name="browse")
      */
     public function browse(SerializerInterface $serializer, NewsRepository $newsRepository)
     {
