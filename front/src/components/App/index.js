@@ -11,7 +11,7 @@ import Navbar from "src/components/Navbar";
 import Footer from "src/components/Footer";
 import HomePage from '../HomePage';
 import Login from '../Login';
-
+import TeacherClassroom from "src/components/Teacher_Classroom";
 // Import css
 import './styles.css';
 
@@ -30,9 +30,10 @@ const App = () => {
       <Switch>
         <Route exact path="/" ><HomePage /></Route>
         <Route exact path="/login"><Login /></Route>
+        <Route exact path="/professeur/classe/:id"><TeacherClassroom/></Route>
         <Route>404</Route>
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
