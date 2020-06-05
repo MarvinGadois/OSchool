@@ -817,7 +817,6 @@ class AppFixtures extends Fixture
         $grades[] = $grade1;
         $em->persist($grade1);
 
-
         $em->flush();
     }
 }

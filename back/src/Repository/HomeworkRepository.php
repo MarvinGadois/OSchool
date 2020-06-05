@@ -34,7 +34,7 @@ class HomeworkRepository extends ServiceEntityRepository
             ->setParameter('id', $id)
         ;
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
     public function getHomework()
