@@ -19,32 +19,175 @@ class HomeworkRepository extends ServiceEntityRepository
         parent::__construct($registry, Homework::class);
     }
 
-    // /**
-    //  * @return Homework[] Returns an array of Homework objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getOneHomework($id)
     {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('h.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('h');
 
-    /*
-    public function findOneBySomeField($value): ?Homework
-    {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.id = :id')
+            ->setParameter('id', $id)
         ;
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
-    */
+
+    public function getHomework()
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getHomeworkByClassroom($id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.classroom = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getHomeworkBySubject($id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.subject = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getHomeworkByClassroomAndSubject($class_id, $sub_id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.classroom = :class_id')
+            ->andWhere('h.subject = :sub_id')
+            ->setParameter('class_id', $class_id)
+            ->setParameter('sub_id', $sub_id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+
+    public function getHomeworkByUser($id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.user = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getHomeworkByClassroomAndUser($class_id, $user_id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.classroom = :class_id')
+            ->andWhere('h.user = :user_id')
+            ->setParameter('class_id', $class_id)
+            ->setParameter('user_id', $user_id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getHomeworkBySubjectAndUser($sub_id, $user_id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.subject = :sub_id')
+            ->andWhere('h.user = :user_id')
+            ->setParameter('sub_id', $sub_id)
+            ->setParameter('user_id', $user_id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+
+    public function getHomeworkByClassAndSubjectAndUser($class_id, $sub_id, $user_id)
+    {
+        $qb = $this->createQueryBuilder('h');
+
+        $qb
+            ->addSelect('c, s, g, u, sub')
+            ->leftJoin('h.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('h.grade', 'g')
+            ->leftJoin('h.user', 'u')
+            ->leftJoin('h.subject', 'sub')
+            ->where('h.classroom = :class_id')
+            ->andWhere('h.subject = :sub_id')
+            ->andWhere('h.user = :user_id')
+            ->setParameter('class_id', $class_id)
+            ->setParameter('sub_id', $sub_id)
+            ->setParameter('user_id', $user_id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }

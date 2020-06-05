@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\HomeworkRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=HomeworkRepository::class)
@@ -14,26 +15,31 @@ class Homework
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"homework"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"homework"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"homework"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"homework"})
      */
     private $status;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"homework"})
      */
     private $path;
 
@@ -50,18 +56,40 @@ class Homework
     /**
      * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="homeworks")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"homework_classroom"})
      */
     private $classroom;
 
     /**
      * @ORM\OneToOne(targetEntity=Grade::class, inversedBy="homework", cascade={"persist", "remove"})
+     * @Groups({"homework_grade"})
      */
     private $grade;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="homeworks")
+     * @Groups({"homework_user"})
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"homework"})
+     */
+    private $code;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"homework"})
+     */
+    private $correctionPath;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Subject::class, inversedBy="homework")
+     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"homework_subject"})
+     */
+    private $subject;
 
 
     public function __construct()
@@ -180,6 +208,42 @@ class Homework
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getCorrectionPath(): ?string
+    {
+        return $this->correctionPath;
+    }
+
+    public function setCorrectionPath(?string $correctionPath): self
+    {
+        $this->correctionPath = $correctionPath;
+
+        return $this;
+    }
+
+    public function getSubject(): ?Subject
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?Subject $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }

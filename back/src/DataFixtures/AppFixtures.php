@@ -3,6 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\Classroom;
+use App\Entity\Grade;
+use App\Entity\Homework;
 use App\Entity\Notice;
 use App\Entity\Lesson;
 use App\Entity\Opinion;
@@ -796,6 +798,52 @@ class AppFixtures extends Fixture
         $lesson5->setUser($flitwick);
         $lessons[] = $lesson5;
         $em->persist($lesson5);
+
+
+        // HOMEWORK
+
+        $homework1 = new Homework();
+        $homework1->setCode("P-GD-1");
+        $homework1->setTitle("Devoir n°1");
+        $homework1->setContent("Ce devoir est à rendre pour le 10 juin 2020, faite le avec soin, il sera noté");
+        $homework1->setPath("homework/potion-d1-ennonce.txt");
+        $homework1->setClassroom($gryffondorD);
+        $homework1->setUser($rogue);
+        $homework1->setSubject($potions);
+        $homeworks[] = $homework1;
+        $em->persist($homework1);
+
+        $homework2 = new Homework();
+        $homework2->setCode("M-SA-1");
+        $homework2->setTitle("Controle n°1");
+        $homework2->setContent("Disertation sur : l'art de la méthamorphose. A rendre pour le 3 juin 2020");
+        $homework2->setPath("");
+        $homework2->setClassroom($serdaigleA);
+        $homework2->setUser($mcgonagall);
+        $homework2->setSubject($metamarphose);
+        $homeworks[] = $homework2;
+        $em->persist($homework2);
+
+        $homework3 = new Homework();
+        $homework3->setCode("P-GD-1");
+        $homework3->setTitle("Devoir n°1 rendu");
+        $homework3->setStatus(1);
+        $homework3->setContent("Merci de corriger mon devoir Monsieur Rogue");
+        $homework3->setPath("homework/potion-d1-granger.txt");
+        $homework3->setClassroom($gryffondorD);
+        $homework3->setUser($hgranger);
+        $homework3->setSubject($potions);
+        $homeworks[] = $homework3;
+        $em->persist($homework3);
+
+        $grade1 = new Grade();
+        $grade1->setTitle("Devoir 1 de potion");
+        $grade1->setGrade(18);
+        $grade1->setHomework($homework3);
+        $homework3->setStatus(2);
+        $homework3->setCorrectionPath("homework/potion-d1-granger-correction.txt");
+        $grades[] = $grade1;
+        $em->persist($grade1);
 
         $em->flush();
     }

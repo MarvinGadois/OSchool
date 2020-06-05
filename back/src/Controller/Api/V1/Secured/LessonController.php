@@ -19,7 +19,7 @@ class LessonController extends AbstractController
     {
         $lessons = $lessonRepository->getLessons();
 
-        $array = $serializer->normalize($lessons, null, ['groups' => ['lessons', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($lessons, null, ['groups' => ['lessons', 'infos_classroom', 'school', 'infos_user', 'user_subject', 'infos_subject']]);
 
         return $this->json($array);
     }
@@ -31,7 +31,7 @@ class LessonController extends AbstractController
     {
         $lessons = $lessonRepository->getLessonsByClassroom($id);
 
-        $array = $serializer->normalize($lessons, null, ['groups' => ['lessons', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($lessons, null, ['groups' => ['lessons', 'infos_classroom', 'school', 'infos_user','user_subject', 'infos_subject']]);
 
         return $this->json($array);
     }
@@ -43,7 +43,7 @@ class LessonController extends AbstractController
     {
         $lessons = $lessonRepository->getLesson($id);
 
-        $array = $serializer->normalize($lessons, null, ['groups' => ['lessons', 'infos_classroom', 'school', 'infos_user', 'infos_subject']]);
+        $array = $serializer->normalize($lessons, null, ['groups' => ['lessons', 'infos_classroom', 'school', 'infos_user','user_subject', 'infos_subject']]);
 
         return $this->json($array);
     }
