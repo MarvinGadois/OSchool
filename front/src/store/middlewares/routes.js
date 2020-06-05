@@ -18,7 +18,7 @@ export default (store) => (next) => (action) => {
         }
         case DISCONNECTED: {
             action.history.push('/');
-            notyf.success('Au revoir ...');
+            notyf.success('A bientôt ...');
         }
         default: {
             next(action);

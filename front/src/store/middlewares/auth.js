@@ -36,18 +36,17 @@ export default (store) => (next) => (action) => {
             })
                 .then((response) => {
                     if (response.status === 200) {
-                        console.log(response.data)
                         localStorage.setItem('jwtToken', response.data.token);
                         setAuthorizationToken(response.data.token);
                         store.dispatch(setUser(jwtDecode(response.data.token)));
                         store.dispatch(resetLoginInput());
                         store.dispatch(connected());
                         store.dispatch(homePageConnected(action.history));
-                        notyf.success('Authentification réussie ;-)');
+                        notyf.success('Authentification réussie');
                     }
                 })
                 .catch((error) => {
-                    notyf.error('Authentification échoué ;-(');
+                    notyf.error('Authentification échoué !');
                     store.dispatch(resetLoginInput());
                     console.trace(error);
                 });

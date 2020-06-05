@@ -17,11 +17,11 @@ if (localStorage.jwtToken) {
 }
 
 const rootReactElement = (
-    <Provider store={store}>
-        <Router>
+    <Router>
+        <Provider store={store}>
             <App />
-        </Router>
-    </Provider>
+        </Provider>
+    </Router>
 );
 
 const target = document.getElementById('root');
