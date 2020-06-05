@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ScheduleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ScheduleRepository::class)
@@ -14,21 +15,25 @@ class Schedule
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"schedule"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"schedule"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"schedule"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"schedule"})
      */
     private $path;
 

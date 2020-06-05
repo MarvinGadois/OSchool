@@ -64,6 +64,7 @@ class Classroom
 
     /**
      * @ORM\OneToMany(targetEntity=Schedule::class, mappedBy="classroom", orphanRemoval=true)
+     * @Groups({"schedules_classroom"})
      */
     private $schedules;
 
@@ -84,8 +85,10 @@ class Classroom
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="classrooms")
+     * @Groups({"users_classroom"})
      */
     private $users;
+
 
     public function getId(): ?int
     {
