@@ -33,7 +33,7 @@ const App = () => {
         <Route exact path="/professeur/classe/:id"><TeacherClassroom/></Route>
         <Route>404</Route>
       </Switch>
-      <Footer />
+      <Footer /> 
     </div>
   );
 };
