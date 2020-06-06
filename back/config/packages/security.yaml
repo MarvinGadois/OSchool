@@ -45,6 +45,9 @@ security:
         - { path: ^/api/unsecured, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/secured/v1/homework/add/correction, roles: ROLE_TEACHER }
         - { path: ^/api/secured/v1/homework/delete, roles: ROLE_TEACHER }
+        - { path: ^/api/secured/v1/lessons/add, roles: ROLE_TEACHER }
+        - { path: ^/api/secured/v1/lessons/edit, roles: ROLE_TEACHER }
+        - { path: ^/api/secured/v1/lessons/delete, roles: ROLE_TEACHER }
         - { path: ^/api/secured, roles: IS_AUTHENTICATED_FULLY }
         
         # NOTE !!!! Comme le firewall api est là, on DOIT S'IDENTIFIER pour toute les routes qui commence par api si on met pas api devant ça marche (200 au lieu de 401)
