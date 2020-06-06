@@ -65,6 +65,7 @@ export default (state = initialState, action = {}) => {
                 connected: false,
                 user: {},
                 news: [],
+                classrooms: []
             };
         }
         case RESET_LOGIN_INPUT: {
