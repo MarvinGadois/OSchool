@@ -7,29 +7,18 @@ import { useSelector } from 'react-redux';
 import getSchoolNews from '../../utils/getSchoolNews';
 import './style.scss';
 
-
 const TeacherClassroom = () => {
-  const currentUser = useSelector((state) => state.user.user)
-  const currentClass = useSelector((state) => state.user.currentClass) //we need it for the display of the entire page since it's about the class itself
-  // useEffect(() => {
-  //     getSchoolNews(currentUser.schools[0].id);
-  // }, [])
-
-  // const currentClass = currentUser.classrooms.map(classe => {
-  //     return (
-  //         <tr key={classe.id}>
-  //             <th scope="row">1</th>
-  //             <td>{classe.name}</td>
-  //             <td>28</td>
-  //             <td>{classe.level}</td>
-  //             <td>{currentUser.schools[0].name}</td>
-
-  //         </tr>
-  //     )
-  // })
+  const currentUser = useSelector((state) => state.user.user);
+  const { classrooms } = useSelector((state) => state);
+  console.log('les classes:', classrooms);
+  // const membersList = classrooms.user.map(oneUser => {
+  
 
 
-  console.log("salut c'est aymeric");
+
+  //console.log("salut c'est aymeric");
+
+
 
   // return of the comosant to the page
   return (
@@ -45,14 +34,16 @@ const TeacherClassroom = () => {
 
       <h1>Votre classe</h1>
       <div className="container">
-        <div className="classrom-info">
+        <div className="classroomInfo">
           <h2>Information de la classe</h2>
-          <ul>
-            <li>Nombre d'élèves</li>
-            <li>Lorem Ipsum</li>
-            <li>Lorem Ipsum</li>
-            <img src="" alt="Emploi du temps"/>
-          </ul>
+          <div className="bordered">
+            <ul>
+              <li>Nombre d'élèves</li>
+              <li>Lorem Ipsum</li>
+              <li>Lorem Ipsum</li>
+              <img src="" alt="Emploi du temps" />
+            </ul>
+          </div>
         </div>
 
         <div className="membersList">
@@ -77,7 +68,7 @@ const TeacherClassroom = () => {
 
         <div className="lessons">
           <h2>Vos cours/lessons</h2>
-          <div>
+          <div className="cards">
             <p>Nom de la matière</p>
             <p>Nom du cours</p>
 
@@ -86,7 +77,7 @@ const TeacherClassroom = () => {
 
         <div className="homework">
           <h2>Vos devoirs</h2>
-          <div>
+          <div className="cards">
             <p>Nom du deovir</p>
             <p>Nom de la matière</p>
 
@@ -96,7 +87,7 @@ const TeacherClassroom = () => {
 
         <div className="correction">
           <h2>Vos corrections</h2>
-          <div>
+          <div className="cards">
             <p>Nom du devoir</p>
             <p>Nom de la matière</p>
 
@@ -105,6 +96,6 @@ const TeacherClassroom = () => {
       </div>
     </div>
   );
-}
+};
 
 export default TeacherClassroom;

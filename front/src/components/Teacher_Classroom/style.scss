@@ -5,27 +5,82 @@
 
 %cards{
   width: 50%;
+  margin: 20px 0 20px;
 }
 
-.wrapper h2{
-  @extend %title;
-  // display: inline-flex;
+%topcards{
+  margin-top: 50px ;
 }
 
 .wrapper{
-  
+  h1{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    font-size: 2em;
+    font-weight: bold;
+
+  }
 }
 
 .container-head {
   justify-content: space-around;
   display: flex;
+  h2{
+    @extend %title;
+  }
 }
-
-// .container-head--placeholder{ doesn't work yet
-//   justify-content: flex-end;
-// }
 
 .container{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.classroomInfo{
+  @extend %cards;
+  @extend %topcards;
+  color: red;
+  h2{
+    @extend %title;
+  }
+}
+
+
+
+.membersList{
+  @extend %topcards;
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}
+
+.subject{
+  @extend %cards;
+  h2 {
+    @extend %title;
+  }
+}
+
+
+.lessons{
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}
+
+.homework{
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}
+
+.correction{
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
 }
