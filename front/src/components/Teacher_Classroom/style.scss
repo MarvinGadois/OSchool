@@ -1,0 +1,31 @@
+%title{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+%cards{
+  width: 50%;
+}
+
+.wrapper h2{
+  @extend %title;
+  // display: inline-flex;
+}
+
+.wrapper{
+  
+}
+
+.container-head {
+  justify-content: space-around;
+  display: flex;
+}
+
+// .container-head--placeholder{ doesn't work yet
+//   justify-content: flex-end;
+// }
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
