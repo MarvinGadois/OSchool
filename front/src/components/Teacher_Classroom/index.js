@@ -11,7 +11,7 @@ import getSchoolNews from '../../utils/getSchoolNews';
 
 const TeacherClassroom = () => {
     const currentUser = useSelector((state) => state.user.user)
-    const currentClass = useSelector((state) =>state.user.currentClass) //we need it for the display of the entire page since it's about the class
+    const currentClass = useSelector((state) => state.user.currentClass) //we need it for the display of the entire page since it's about the class itself
     // useEffect(() => {
     //     getSchoolNews(currentUser.schools[0].id);
     // }, [])
