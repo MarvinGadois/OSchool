@@ -9,6 +9,7 @@ import {
     RESET_LOGIN_INPUT,
     SET_SCHOOL_NEWS,
     SET_NEWS_SIMPLE,
+    SET_CLASSROOM,
 
 } from './actions';
 
@@ -21,6 +22,7 @@ const initialState = {
     opinions: [],
     newsNoConnected: [],
     schoolNews: [],
+    classrooms: []
 };
 
 
@@ -83,6 +85,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 newsNoConnected: action.newsSimple,
+            };
+        }
+        case SET_CLASSROOM: {
+            return {
+                ...state,
+                classrooms: [...state.classrooms, action.Oneclass],
             };
         }
         default: {

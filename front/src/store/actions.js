@@ -38,3 +38,7 @@ export const setSchoolNews = (news) => ({ type: SET_SCHOOL_NEWS, news })
 // action reset login input
 export const RESET_LOGIN_INPUT = 'actions/RESET_LOGIN_INPUT';
 export const resetLoginInput = () => ({ type: RESET_LOGIN_INPUT });
+
+// action set classes
+export const SET_CLASSROOM = 'actions/SET_CLASSROOMS';
+export const setClassroom = (Oneclass) => ({ type: SET_CLASSROOM, Oneclass });
