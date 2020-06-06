@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 import getSchoolNews from '../../utils/getSchoolNews';
+import getClassById from '../../utils/getClassroomById';
 
 import './styles.scss';
 
@@ -12,34 +13,36 @@ import './styles.scss';
 const HomePageTeacher = () => {
     const currentUser = useSelector((state) => state.user.user)
     const { schoolNews } = useSelector((state) => state)
-    useEffect(() => {
-        getSchoolNews(currentUser.schools[0].id);
-    }, [])
+    const { classrooms } = useSelector((state) => state)
+    useEffect(() => { getSchoolNews(currentUser.schools[0].id) }, []);
 
-    const allclasses = currentUser.classrooms.map(classe => {
+    currentUser.classrooms.map(classe => { useEffect(() => { getClassById(classe.id) }, []); })
+
+    const DetailsClass = classrooms.map(oneClass => {
+        console.log(oneClass)
         return (
-            <tr key={classe.id}>
+            <tr key={oneClass.id}>
                 <th scope="row">1</th>
-                <td>{classe.name}</td>
-                <td>28</td>
-                <td>{classe.level}</td>
-                <td>{currentUser.schools[0].name}</td>
+                <td>{oneClass.name}</td>
+                <td>{oneClass.users.length}</td>
+                <td>{oneClass.level}</td>
+                <td>{oneClass.school.name}</td>
 
             </tr>
         )
     })
 
     const NewsSchoolConnected = schoolNews.map(schoolnew => {
+        const DateComment = new Date(schoolnew.date);
         return (
             <div key={schoolnew.id} className="container--homeTeacher--new--card">
                 <h4>{schoolnew.title}</h4>
                 <p>{schoolnew.content}</p>
-                <p>{schoolnew.date}</p>
+                <p>Posté le: {DateComment.toLocaleString(undefined)}</p>
             </div>
         )
     })
 
-    console.log(schoolNews)
 
     return (
         <div className="container">
@@ -65,7 +68,7 @@ const HomePageTeacher = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {allclasses}
+                                {classrooms.length >= 1 && ([DetailsClass])}
                             </tbody>
                         </table>
                     </div>

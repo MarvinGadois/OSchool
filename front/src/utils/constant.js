@@ -13,3 +13,6 @@ export const GET_SCHOOL_NEWS = 'secured/v1/news/school/';
 // Route news non connecté
 export const GET_NEWS_SIMPLE = 'unsecured/v1/oschool/news';
 
+// Route Recup info Classe par id
+export const GET_CLASS_BY_ID = 'secured/v1/classroom/'
+

@@ -10,6 +10,7 @@ import logo from "src/assets/O'school.png";
 
 
 const Description = () => {
+
   return (
     <div className="description">
       <div className="container-head">
@@ -44,14 +45,14 @@ const Description = () => {
           <div className="help-view">
 
 
-            <img className="icon" src={icon2} alt="icon inscription"/>
+            <img className="icon" src={icon2} alt="icon inscription" />
             <p>Accès facile et en direct de tous les documents</p>
 
           </div>
 
           <div className="help-view">
 
-            <img className="icon" src={icon3} alt="icon inscription"/>
+            <img className="icon" src={icon3} alt="icon inscription" />
 
             <p>Simple et intuitif</p>
 

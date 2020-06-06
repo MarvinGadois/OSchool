@@ -21,7 +21,6 @@ const getSchoolNews = (idSchool) => {
 
     axios.get(newsRequest + idSchool)
         .then((res) => {
-            console.log(res)
             const news = res.data;
             store.dispatch(setSchoolNews(news))
         })
