@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 import getSchoolNews from '../../utils/getSchoolNews';
 
 import './styles.scss';
 
 const AllNewsSchool = () => {
+    const history = useHistory();
     const currentUser = useSelector((state) => state.user.user);
     const { schoolNews } = useSelector((state) => state);
 
     useEffect(() => { getSchoolNews(currentUser.schools[0].id) }, []);
 
-
-
-    console.log(schoolNews);
     const AllNewsSchoolConnected = schoolNews.map(schoolnew => {
         const DateComment2 = new Date(schoolnew.date);
         return (
-            <div key={schoolnew.id} className="container-One-News">
+            <div onClick={() => history.push(`/new/${schoolnew.id}`)} key={schoolnew.id} className="container-One-News">
                 <h2>{schoolnew.title}</h2>
                 <p>{schoolnew.content}</p>
                 <div className="dateNews">
-                    <p>Posté le: {DateComment2.toLocaleString(undefined)}</p>
+                    <p className="spanGrey">Posté le: {DateComment2.toLocaleString(undefined)}</p>
                 </div>
                 <hr></hr>
             </div>

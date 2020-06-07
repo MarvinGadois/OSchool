@@ -11,6 +11,7 @@ import {
     SET_NEWS_SIMPLE,
     SET_CLASSROOM,
     SET_GRADES_BY_USER,
+    SET_ONE_NEW,
 } from './actions';
 
 // State initial
@@ -24,6 +25,7 @@ const initialState = {
     schoolNews: [],
     classrooms: [],
     gradesUser: [],
+    OneNewById: [],
 };
 
 
@@ -69,6 +71,7 @@ export default (state = initialState, action = {}) => {
                 classrooms: [],
                 gradesUser: [],
                 schoolNews: [],
+                OneNewById: [],
             };
         }
         case RESET_LOGIN_INPUT: {
@@ -101,6 +104,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 gradesUser: action.grades,
+            };
+        }
+        case SET_ONE_NEW: {
+            return {
+                ...state,
+                OneNewById: action.oneNewe,
             };
         }
         default: {
