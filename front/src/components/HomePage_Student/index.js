@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 
 //import imageFolders from '../../../../back/public/assets/images';
@@ -11,6 +12,7 @@ import './styles.scss';
 
 
 const HomePageStudent = () => {
+    const history = useHistory();
     const currentUser = useSelector((state) => state.user.user)
     const { schoolNews } = useSelector((state) => state)
     const { gradesUser } = useSelector((state) => state)
@@ -55,7 +57,7 @@ const HomePageStudent = () => {
                     <div className="container--homeStudent--new">
                         {NewsSchoolConnected.slice(0, 2)}
                     </div>
-                    <button>Toutes les news de l'établissement ...</button>
+                    <button onClick={() => history.push('/news')}>Toutes les news de l'établissement ...</button>
                 </div>
                 <div className="container--homeStudent--classes">
                     <h2>Dernières notes</h2>
