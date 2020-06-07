@@ -25,7 +25,7 @@ const getSchoolNews = (idSchool) => {
             store.dispatch(setSchoolNews(news))
         })
         .catch((error) => {
-            notyf.error('Erreur requête news');
+            //notyf.error('Erreur requête news');
             console.trace(error);
         });
 };

@@ -13,16 +13,17 @@ import './styles.scss';
 const HomePageTeacher = () => {
     const currentUser = useSelector((state) => state.user.user)
     const { schoolNews } = useSelector((state) => state)
+
     const { classrooms } = useSelector((state) => state)
+
     useEffect(() => { getSchoolNews(currentUser.schools[0].id) }, []);
 
     currentUser.classrooms.map(classe => { useEffect(() => { getClassById(classe.id) }, []); })
 
-    const DetailsClass = classrooms.map(oneClass => {
-        console.log(oneClass)
+    const DetailsClass = classrooms.map((oneClass, i) => {
         return (
             <tr key={oneClass.id}>
-                <th scope="row">1</th>
+                <th scope="row">{i + 1}</th>
                 <td>{oneClass.name}</td>
                 <td>{oneClass.users.length}</td>
                 <td>{oneClass.level}</td>
@@ -53,6 +54,7 @@ const HomePageTeacher = () => {
                     <div className="container--homeTeacher--new">
                         {NewsSchoolConnected.slice(0, 2)}
                     </div>
+                    <button>Toutes les news de l'établissement ...</button>
                 </div>
                 <div className="container--homeTeacher--classes">
                     <h2>Vos classes</h2>
