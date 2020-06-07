@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 
     h1{
         font-size: 2.5em;
@@ -15,7 +15,7 @@
 
 .container-One-News{
     margin:5% 0;
-    height: 40%;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,6 +23,7 @@
 
     h2{
         font-size: 2em;
+        margin-bottom: 2%;
     }
 }
 .dateNews{
