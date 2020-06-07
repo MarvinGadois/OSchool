@@ -1,0 +1,26 @@
+.container-AllSchollNews{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    h1{
+        font-size: 2.5em;
+        margin: 4% auto;
+    }
+}
+.container-All-News{
+    width: 80%;
+}
+
+.container-One-News{
+    margin:5% 0;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dateNews{
+    display: flex;
+    justify-content: flex-end;
+}
