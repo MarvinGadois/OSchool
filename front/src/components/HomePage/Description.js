@@ -60,13 +60,13 @@ const Description = () => {
         </div>
         <div className="paragraphs">
 
-          <div>
+          <div className="paragraphs-content">
             <h2>Administration</h2>
             <p>Notre système de gestion de vie scolaire réduit le travail administratif des écoles, des enseignants, mais aussi des élèves et des parents. Notamment avec la centralisation de tous les documents liés à l’éducation.
             </p>
           </div>
-
-          <div>
+          <hr className="paragraphs-hr"></hr>
+          <div className="paragraphs-content">
             <h2>Enseignants</h2>
             <p>O’school permet la gestion des enseignants, nous fournissons une interface pour consulter les
 
@@ -74,8 +74,8 @@ const Description = () => {
 
             </p>
           </div>
-
-          <div>
+          <hr className="paragraphs-hr"></hr>
+          <div className="paragraphs-content">
             <h2>Parents-Elèves</h2>
             <p>Cette plateforme est une solution très appréciée par la communauté parentale. Nous assurons le suivi scolaire de leurs enfants tout en veillant au respect de la confidentialité de leurs données personnelles.</p>
           </div>

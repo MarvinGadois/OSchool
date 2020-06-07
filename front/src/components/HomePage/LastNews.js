@@ -26,7 +26,7 @@ const LastNews = () => {
     ))
 
     return (
-        <div className="last_news">
+        <div className="last_news"  >
             <h2>Dernières actualités</h2>
             {news}
         </div>

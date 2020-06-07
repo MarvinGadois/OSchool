@@ -10,7 +10,7 @@ import {
     SET_SCHOOL_NEWS,
     SET_NEWS_SIMPLE,
     SET_CLASSROOM,
-
+    SET_GRADES_BY_USER,
 } from './actions';
 
 // State initial
@@ -22,7 +22,8 @@ const initialState = {
     opinions: [],
     newsNoConnected: [],
     schoolNews: [],
-    classrooms: []
+    classrooms: [],
+    gradesUser: [],
 };
 
 
@@ -65,7 +66,8 @@ export default (state = initialState, action = {}) => {
                 connected: false,
                 user: {},
                 news: [],
-                classrooms: []
+                classrooms: [],
+                gradesUser: [],
             };
         }
         case RESET_LOGIN_INPUT: {
@@ -92,6 +94,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 classrooms: [...state.classrooms, action.Oneclass],
+            };
+        }
+        case SET_GRADES_BY_USER: {
+            return {
+                ...state,
+                gradesUser: action.grades,
             };
         }
         default: {
