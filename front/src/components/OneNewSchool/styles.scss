@@ -1,0 +1,23 @@
+.container-one-new{
+    width: 90%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    h2{
+        font-size: 2.5em;
+    }
+   
+}
+.one-new-content{
+    text-align: left;
+    width: 60%;
+    margin: 3% auto;
+}
+
+.dateNews2{
+    display: flex;
+    justify-content: flex-end;
+}

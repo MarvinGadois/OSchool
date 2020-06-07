@@ -21,3 +21,6 @@ export const GET_CLASS_BY_ID = 'secured/v1/classroom/';
 export const GET_GRADES_BY_USER = 'secured/v1/grade/user/'
 // + on rajoute /id
 
+// Route recup une new par son id en secured
+export const GET_NEW_BY_ID = 'secured/v1/news/';
+// + on rajoute /id

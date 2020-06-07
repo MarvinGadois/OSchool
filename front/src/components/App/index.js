@@ -12,6 +12,7 @@ import Footer from "src/components/Footer";
 import HomePage from '../HomePage';
 import Login from '../Login';
 import AllNewsSchool from 'src/components/AllNewsSchool';
+import OneNewSchool from 'src/components/OneNewSchool';
 
 // Import css
 import './styles.css';
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/" ><HomePage /></Route>
         <Route exact path="/login"><Login /></Route>
         <Route exact path="/news"><AllNewsSchool /></Route>
+        <Route exact path="/new/:id"><OneNewSchool /></Route>
         <Route>404</Route>
       </Switch>
       <Footer />
