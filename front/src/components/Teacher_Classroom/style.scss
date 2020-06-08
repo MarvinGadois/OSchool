@@ -4,7 +4,7 @@
 }
 
 %cards{
-  width: 50%;
+  width: 45%;
   margin: 20px 0 20px;
 }
 
@@ -12,18 +12,22 @@
   margin-top: 50px ;
 }
 
-.wrapper{
+
   h1{
     display: flex;
     justify-content: center;
-    margin: 50px;
+    margin: 0;
     font-size: 2em;
     font-weight: bold;
 
   }
+
+.wrappered{
+  display: flex;
 }
 
-.container-head {
+
+.container-of-head {
   justify-content: space-around;
   display: flex;
   h2{
@@ -31,7 +35,7 @@
   }
 }
 
-.container{
+.containered{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

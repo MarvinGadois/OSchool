@@ -19,7 +19,9 @@
     max-height: 0;
     transition: max-height .2s ease-out;
 
-    li a {
+    li  {
+
+      a{
       display: inline-block;
       min-width: 75px;
       margin: .3em 0;
@@ -39,6 +41,7 @@
         transform: scale(1.2);
         color: #68c2e8;
         //color: #20232d
+      }
       }
     }
   }

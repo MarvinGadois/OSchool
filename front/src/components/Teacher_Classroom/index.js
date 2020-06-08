@@ -22,8 +22,8 @@ const TeacherClassroom = () => {
 
   // return of the comosant to the page
   return (
-    <div className="wrapper">
-      <div className="container-head">
+    <div className="wrappered">
+      <div className="container-of-head">
         <h2>{currentUser.schools[0].name}</h2>
 
         <h2>Nombre d'élèves 20</h2>
@@ -33,7 +33,7 @@ const TeacherClassroom = () => {
       </div>
 
       <h1>Votre classe</h1>
-      <div className="container">
+      <div className="containered">
         <div className="classroomInfo">
           <h2>Information de la classe</h2>
           <div className="bordered">
