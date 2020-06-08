@@ -34,6 +34,13 @@
   padding: 0;
 }
 
+.about-p{
+  cursor: pointer;
+}
+.about-p:hover{
+  color:#68c2e8 ;
+}
+
 .footer .footer-links a {
   display: inline-block;
   line-height: 1.8;
@@ -41,6 +48,7 @@
   color: inherit;
    &:hover {
      color: #e1d2b8;
+     transform: scale(1.2);
    }
 }
 
