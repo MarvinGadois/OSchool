@@ -31,8 +31,9 @@ const TeacherClassroom = () => {
           <input type="text" className=""/>
         </div>
       </div>
-
-      <h1>Votre classe</h1>
+      <div className="title-of-page">
+        <h1>Votre classe</h1>
+      </div>
       <div className="containered">
         <div className="classroomInfo">
           <h2>Information de la classe</h2>

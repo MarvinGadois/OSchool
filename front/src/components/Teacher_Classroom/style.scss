@@ -13,17 +13,14 @@
 }
 
 
+.wrappered{
   h1{
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin: 50px;
     font-size: 2em;
     font-weight: bold;
-
-  }
-
-.wrappered{
-  display: flex;
+    }
 }
 
 
@@ -34,6 +31,8 @@
     @extend %title;
   }
 }
+
+
 
 .containered{
   display: flex;
