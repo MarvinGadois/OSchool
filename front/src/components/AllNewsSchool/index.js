@@ -29,7 +29,7 @@ const AllNewsSchool = () => {
 
     return (
         <div className="container-AllSchollNews">
-            <h1>Les news de l'établissement<span className="badge badge-primary ml-3">{schoolNews.length}</span></h1>
+            <h1>Les news de l'établissement<span className="badge badge-primary ml-2">{schoolNews.length}</span></h1>
             <div className="container-All-News">
                 {AllNewsSchoolConnected}
             </div>
