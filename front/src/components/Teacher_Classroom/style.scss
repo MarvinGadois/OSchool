@@ -46,7 +46,6 @@
 .classroomInfo{
   @extend %cards;
   @extend %topcards;
-  color: red;
   h2{
     @extend %title;
   }
