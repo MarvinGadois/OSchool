@@ -2,42 +2,49 @@
 
 namespace App\Controller;
 
-use App\Entity\Lesson;
+use App\Entity\Homework;
 use App\Form\DeleteType;
-use App\Form\LessonType;
-use App\Repository\LessonRepository;
+use App\Form\HomeworkType;
+use App\Repository\HomeworkRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
- * @Route("/lesson", name="lesson_")
+ * @Route("/homework", name="homework_")
  */
-class LessonController extends AbstractController
+class HomeworkController extends AbstractController
 {
     /**
      * @Route("/user/{user_id}/add", name="add", requirements={"user_id": "\d+"})
      */
     public function add($user_id, Request $request, UserRepository $userRepository)
     {
-        $lesson = new Lesson();
+        $homework = new Homework();
         $user = $userRepository->find($user_id);
 
-        $form = $this->createForm(LessonType::class, $lesson);
+        $form = $this->createForm(HomeworkType::class, $homework);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $lesson->setUser($user);
+            $homework->setUser($user);
+
+            foreach ($user->getRoles() as $role){
+                if($role == "ROLE_STUDENT") {
+                    $homework->setStatus(1);
+                }
+            }
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($lesson);
+            $em->persist($homework);
             $em->flush();
         }
 
-        return $this->render('lesson/form.html.twig', [
+        return $this->render('homework/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -46,28 +53,32 @@ class LessonController extends AbstractController
     /**
      * @Route("/user/{user_id}/edit/{id}", name="edit", requirements={"user_id": "\d+", "id": "\d+"})
      */
-    public function edit($id, $user_id, Request $request, UserRepository $userRepository, LessonRepository $lessonRepository)
+    public function edit($user_id, $id, Request $request, UserRepository $userRepository, HomeworkRepository $homeworkRepository)
     {
-        $lesson = $lessonRepository->find($id);
+        $homework = $homeworkRepository->find($id);
         $user = $userRepository->find($user_id);
 
-        $form = $this->createForm(LessonType::class, $lesson);
+        $form = $this->createForm(HomeworkType::class, $homework);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if($user->getId() == $homework->getUser()->getId()) {
 
-            $lesson->setUpdatedAt(new \DateTime());
+            if($form->isSubmitted() && $form->isValid()) {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
+                // $homework->setUser($user);
+                $homework->setUpdatedAt(new \DateTime());
+    
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+            }
         }
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('lesson_delete', ['id' => $id])
+            'action' => $this->generateUrl('homework_delete', ['id' => $id])
         ]);
 
-        return $this->render('lesson/form.html.twig', [
+        return $this->render('homework/form.html.twig', [
             'form' => $form->createView(),
             'formDelete' => $formDelete->createView(),
         ]);
@@ -77,7 +88,7 @@ class LessonController extends AbstractController
     /**
      * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"})
      */
-    public function delete(Lesson $lesson, Request $request)
+    public function delete(Homework $homework, Request $request)
     {
         $formDelete = $this->createForm(DeleteType::class);
         $formDelete->handleRequest($request);
@@ -85,11 +96,11 @@ class LessonController extends AbstractController
         if ($formDelete->isSubmitted() && $formDelete->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $em->remove($lesson);
+            $em->remove($homework);
             $em->flush();
         }
 
-        return $this->render('lesson/form.html.twig', [
+        return $this->render('homework/form.html.twig', [
             'test'
         ]);
     }
