@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router';
 //import imageFolders from '../../../../back/public/assets/images';
-
 
 import getSchoolNews from '../../utils/getSchoolNews';
 import getClassById from '../../utils/getClassroomById';
@@ -11,18 +10,19 @@ import './styles.scss';
 
 
 const HomePageTeacher = () => {
+    const history = useHistory();
     const currentUser = useSelector((state) => state.user.user)
     const { schoolNews } = useSelector((state) => state)
     const { classrooms } = useSelector((state) => state)
+
     useEffect(() => { getSchoolNews(currentUser.schools[0].id) }, []);
 
-    currentUser.classrooms.map(classe => { useEffect(() => { getClassById(classe.id) }, []); })
+    currentUser.classrooms.map(classe => { useEffect(() => { classrooms != '' ? null : getClassById(classe.id) }, []); })
 
-    const DetailsClass = classrooms.map(oneClass => {
-        console.log(oneClass)
+    const DetailsClass = classrooms.map((oneClass, i) => {
         return (
             <tr key={oneClass.id}>
-                <th scope="row">1</th>
+                <th scope="row">{i + 1}</th>
                 <td>{oneClass.name}</td>
                 <td>{oneClass.users.length}</td>
                 <td>{oneClass.level}</td>
@@ -53,6 +53,7 @@ const HomePageTeacher = () => {
                     <div className="container--homeTeacher--new">
                         {NewsSchoolConnected.slice(0, 2)}
                     </div>
+                    <button onClick={() => history.push('/news')}>Toutes les news de l'établissement ...</button>
                 </div>
                 <div className="container--homeTeacher--classes">
                     <h2>Vos classes</h2>

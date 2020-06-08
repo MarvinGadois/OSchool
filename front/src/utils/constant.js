@@ -14,5 +14,13 @@ export const GET_SCHOOL_NEWS = 'secured/v1/news/school/';
 export const GET_NEWS_SIMPLE = 'unsecured/v1/oschool/news';
 
 // Route Recup info Classe par id
-export const GET_CLASS_BY_ID = 'secured/v1/classroom/'
+export const GET_CLASS_BY_ID = 'secured/v1/classroom/';
+// + on rajoute /id
 
+// Route Recup toutes les notes par utilisateur
+export const GET_GRADES_BY_USER = 'secured/v1/grade/user/'
+// + on rajoute /id
+
+// Route recup une new par son id en secured
+export const GET_NEW_BY_ID = 'secured/v1/news/';
+// + on rajoute /id

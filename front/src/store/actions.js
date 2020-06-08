@@ -42,3 +42,11 @@ export const resetLoginInput = () => ({ type: RESET_LOGIN_INPUT });
 // action set classes
 export const SET_CLASSROOM = 'actions/SET_CLASSROOMS';
 export const setClassroom = (Oneclass) => ({ type: SET_CLASSROOM, Oneclass });
+
+// action set grades par user id
+export const SET_GRADES_BY_USER = 'actions/SET_GRADES_BY_USER';
+export const setGradesByUserId = (grades) => ({ type: SET_GRADES_BY_USER, grades });
+
+// action set one new
+export const SET_ONE_NEW = 'actions/SET_ONE_NEW';
+export const setOneNew = (oneNewe) => ({ type: SET_ONE_NEW, oneNewe });
