@@ -6,6 +6,9 @@
 %cards{
   width: 45%;
   margin: 20px 0 20px;
+  height: 25vh;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 %topcards{
