@@ -33,7 +33,7 @@ class NoticeRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getNoticesByUserId($id)
+    public function getNoticesByAuthorId($id)
     {
         $qb = $this->createQueryBuilder('n');
 
@@ -45,6 +45,76 @@ class NoticeRepository extends ServiceEntityRepository
             ->leftJoin('r.subjects', 'subj')
             ->where('a.id = :id')
             ->setParameter('id', $id)
+        ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getNoticesByReceiverId($id)
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
+            ->where('r.id = :id')
+            ->setParameter('id', $id)
+        ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getNoticesByAuthorAndReceiver($author_id, $receiver_id)
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
+            ->where('a.id = :author_id')
+            ->andWhere('r.id = :receiver_id')
+            ->setParameter('author_id', $author_id)
+            ->setParameter('receiver_id', $receiver_id)
+        ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getNoticesByAuthorAndSubject($author_id, $sub_id)
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
+            ->where('a.id = :author_id')
+            ->andWhere('sub.id = :sub_id')
+            ->setParameter('author_id', $author_id)
+            ->setParameter('sub_id', $sub_id)
+        ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getNoticesByReceiverAndSubject($receiver_id, $sub_id)
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb
+            ->addSelect('a', 'r', 'sub', 'subj')
+            ->leftJoin('n.author', 'a')
+            ->leftJoin('a.subjects', 'sub')
+            ->leftJoin('n.receiver', 'r')
+            ->leftJoin('r.subjects', 'subj')
+            ->where('r.id = :receiver_id')
+            ->andWhere('sub.id = :sub_id')
+            ->setParameter('receiver_id', $receiver_id)
+            ->setParameter('sub_id', $sub_id)
         ;
         return $qb->getQuery()->getResult();
     }
@@ -62,6 +132,6 @@ class NoticeRepository extends ServiceEntityRepository
             ->where('n.id = :id')
             ->setParameter('id', $id)
         ;
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery()->getOneOrNullResult();
     }
 }
