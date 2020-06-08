@@ -196,6 +196,7 @@ class HomeworkController extends AbstractController
     public function edit($id, Request $request, HomeworkRepository $homeworkRepository, ClassroomRepository $classroomRepository, UserRepository $userRepository, SubjectRepository $subjectRepository)
     {
         $tokenUser = $this->container->get('security.token_storage')->getToken()->getUser();
+        
         $jsonData = json_decode($request->getContent());
         $classroom = $classroomRepository->find($jsonData->classroom);
         $user = $userRepository->find($jsonData->user);

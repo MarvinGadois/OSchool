@@ -48,6 +48,11 @@ class Classroom
         $this->homeworks = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
     
 
     /**
