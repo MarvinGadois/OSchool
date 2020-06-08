@@ -2,7 +2,7 @@
 export const API_URL = 'http://ec2-54-152-201-144.compute-1.amazonaws.com/api/';
 
 // Route Login
-export const LOGIN_URL = 'login_check'
+export const LOGIN_URL = 'login_check';
 
 // Route opinions
 export const GET_OPINIONS = 'unsecured/v1/opinion';
@@ -14,5 +14,16 @@ export const GET_SCHOOL_NEWS = 'secured/v1/news/school/';
 export const GET_NEWS_SIMPLE = 'unsecured/v1/oschool/news';
 
 // Route Recup info Classe par id
-export const GET_CLASS_BY_ID = 'secured/v1/classroom/'
+export const GET_CLASS_BY_ID = 'secured/v1/classroom/';
 
+// Route Lessons
+export const GET_LESSONS = 'secured/v1/lessons/user/';
+
+// Route Lesson par id
+export const GET_ONE_LESSON_BY_ID = 'secured/v1/lessons/';
+
+// Route Homeworks
+export const GET_HOMEWORKS = 'secured/v1/homework/user/';
+
+// Route Homework par id
+export const GET_ONE_HOMEWORK_BY_ID = 'secured/v1/homework/';
