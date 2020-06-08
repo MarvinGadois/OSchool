@@ -68,6 +68,20 @@ class AppFixtures extends Fixture
         $classrooms[] = $gryffondorD;
         $em->persist($gryffondorD);
 
+        $serpentardC = new Classroom();
+        $serpentardC->setName("Serpentard C");
+        $serpentardC->setLevel("Troisième Année");
+        $serpentardC->setSchool($school);
+        $classrooms[] = $serpentardC;
+        $em->persist($serpentardC);
+
+        $poufsouffleB = new Classroom();
+        $poufsouffleB->setName("Poufsouffle B");
+        $poufsouffleB->setLevel("Deuxième Année");
+        $poufsouffleB->setSchool($school);
+        $classrooms[] = $poufsouffleB;
+        $em->persist($poufsouffleB);
+
 
         // SUBJECT
         $astronomie = new Subject();
@@ -114,8 +128,84 @@ class AppFixtures extends Fixture
         $sortileges->setTitle("Sortilèges");
         $subjects[] = $sortileges;
         $em->persist($sortileges);
+
+        $francais = new Subject();
+        $francais->setTitle("Français");
+        $subjects[] = $francais;
+        $em->persist($francais);
+
+        $mathematiques = new Subject();
+        $mathematiques->setTitle("Mathématiques");
+        $subjects[] = $mathematiques;
+        $em->persist($mathematiques);
+
+        $sciences = new Subject();
+        $sciences->setTitle("Sciences");
+        $subjects[] = $sciences;
+        $em->persist($sciences);
+
+        $sport = new Subject();
+        $sport->setTitle("Sport");
+        $subjects[] = $sport;
+        $em->persist($sport);
         
         // USER TEACHER
+
+        $hagrid = new User();
+        $hagrid->setLastname("Hagrid");
+        $hagrid->setFirstname("Rubeus");
+        $hagrid->setEmail("rubeus.hagrid@poudlard.com");
+        $hagrid->setRoles(["ROLE_TEACHER"]);
+        $hagrid->setImage("");
+        $hagrid->setBirthday(new \DateTime('12/06/1928'));
+        $hagrid->setPassword($this->passwordEncoder->encodePassword($hagrid, 'rubeus'));
+        $hagrid->addSchool($school);
+        $hagrid->addSubject($sport);
+        $hagrid->addClassroom($poufsouffleB);
+        $users[] = $hagrid;
+        $em->persist($hagrid);
+
+        $ombrage = new User();
+        $ombrage->setLastname("Ombrage");
+        $ombrage->setFirstname("Dolores");
+        $ombrage->setEmail("dolores.ombrage@poudlard.com");
+        $ombrage->setRoles(["ROLE_TEACHER"]);
+        $ombrage->setImage("");
+        $ombrage->setBirthday(new \DateTime('08/26/1965'));
+        $ombrage->setPassword($this->passwordEncoder->encodePassword($ombrage, 'dolores'));
+        $ombrage->addSchool($school);
+        $ombrage->addSubject($sciences);
+        $ombrage->addClassroom($serpentardC);
+        $users[] = $ombrage;
+        $em->persist($ombrage);
+
+        $lupin = new User();
+        $lupin->setLastname("Lupin");
+        $lupin->setFirstname("Remus");
+        $lupin->setEmail("remus.lupin@poudlard.com");
+        $lupin->setRoles(["ROLE_TEACHER"]);
+        $lupin->setImage("");
+        $lupin->setBirthday(new \DateTime('03/10/1960'));
+        $lupin->setPassword($this->passwordEncoder->encodePassword($lupin, 'remus'));
+        $lupin->addSchool($school);
+        $lupin->addSubject($mathematiques);
+        $lupin->addClassroom($poufsouffleB);
+        $users[] = $lupin;
+        $em->persist($lupin);
+
+        $quirrell = new User();
+        $quirrell->setLastname("Quirrell");
+        $quirrell->setFirstname("Quirinus");
+        $quirrell->setEmail("quirinus.quirrell@poudlard.com");
+        $quirrell->setRoles(["ROLE_TEACHER"]);
+        $quirrell->setImage("");
+        $quirrell->setBirthday(new \DateTime('09/26/1952'));
+        $quirrell->setPassword($this->passwordEncoder->encodePassword($quirrell, 'quirinus'));
+        $quirrell->addSchool($school);
+        $quirrell->addSubject($francais);
+        $quirrell->addClassroom($serpentardC);
+        $users[] = $quirrell;
+        $em->persist($quirrell);
 
         $bibine = new User();
         $bibine->setLastname("Bibine");
@@ -212,6 +302,7 @@ class AppFixtures extends Fixture
         $rogue->addSchool($school);
         $rogue->addSubject($potions);
         $rogue->addClassroom($gryffondorD);
+        $rogue->addClassroom($serpentardC);
         $users[] = $rogue;
         $em->persist($rogue);
 
@@ -310,6 +401,19 @@ class AppFixtures extends Fixture
         $users[] = $cchang;
         $em->persist($cchang);
 
+        $cdiggory = new User();
+        $cdiggory->setLastname("Diggory");
+        $cdiggory->setFirstname("Cedric");
+        $cdiggory->setEmail("cedric.diggory@poudlard.com");
+        $cdiggory->setRoles(["ROLE_STUDENT"]);
+        $cdiggory->setImage("");
+        $cdiggory->setBirthday(new \DateTime('03/22/1977'));
+        $cdiggory->setPassword($this->passwordEncoder->encodePassword($cdiggory, 'cedric'));
+        $cdiggory->addSchool($school);
+        $cdiggory->addClassroom($poufsouffleB);
+        $users[] = $cdiggory;
+        $em->persist($cdiggory);
+
         $cmclaggen = new User();
         $cmclaggen->setLastname("McLaggen");
         $cmclaggen->setFirstname("Cormac");
@@ -335,6 +439,19 @@ class AppFixtures extends Fixture
         $dcrivey->addClassroom($gryffondorD);
         $users[] = $dcrivey;
         $em->persist($dcrivey);
+
+        $dmalefoy = new User();
+        $dmalefoy->setLastname("Malefoy");
+        $dmalefoy->setFirstname("Drago");
+        $dmalefoy->setEmail("drago.malefoy@poudlard.com");
+        $dmalefoy->setRoles(["ROLE_STUDENT"]);
+        $dmalefoy->setImage("");
+        $dmalefoy->setBirthday(new \DateTime('06/05/1980'));
+        $dmalefoy->setPassword($this->passwordEncoder->encodePassword($dmalefoy, 'drago'));
+        $dmalefoy->addSchool($school);
+        $dmalefoy->addClassroom($serpentardC);
+        $users[] = $dmalefoy;
+        $em->persist($dmalefoy);
 
         $eabercrombie = new User();
         $eabercrombie->setLastname("Abercrombie");
@@ -362,6 +479,19 @@ class AppFixtures extends Fixture
         $users[] = $ecarmichael;
         $em->persist($ecarmichael);
 
+        $emacmillan = new User();
+        $emacmillan->setLastname("Macmillan");
+        $emacmillan->setFirstname("Ernie");
+        $emacmillan->setEmail("ernie.macmillan@poudlard.com");
+        $emacmillan->setRoles(["ROLE_STUDENT"]);
+        $emacmillan->setImage("");
+        $emacmillan->setBirthday(new \DateTime('04/22/1980'));
+        $emacmillan->setPassword($this->passwordEncoder->encodePassword($emacmillan, 'ernie'));
+        $emacmillan->addSchool($school);
+        $emacmillan->addClassroom($poufsouffleB);
+        $users[] = $emacmillan;
+        $em->persist($emacmillan);
+
         $fweasley = new User();
         $fweasley->setLastname("Weasley");
         $fweasley->setFirstname("Fred");
@@ -375,6 +505,19 @@ class AppFixtures extends Fixture
         $users[] = $fweasley;
         $em->persist($fweasley);
 
+        $ggoyle = new User();
+        $ggoyle->setLastname("Goyle");
+        $ggoyle->setFirstname("Gregory");
+        $ggoyle->setEmail("gregory.goyle@poudlard.com");
+        $ggoyle->setRoles(["ROLE_STUDENT"]);
+        $ggoyle->setImage("");
+        $ggoyle->setBirthday(new \DateTime('05/08/1979'));
+        $ggoyle->setPassword($this->passwordEncoder->encodePassword($ggoyle, 'gregory'));
+        $ggoyle->addSchool($school);
+        $ggoyle->addClassroom($serpentardC);
+        $users[] = $ggoyle;
+        $em->persist($ggoyle);
+
         $gweasley = new User();
         $gweasley->setLastname("Weasley");
         $gweasley->setFirstname("Ginny");
@@ -387,6 +530,19 @@ class AppFixtures extends Fixture
         $gweasley->addClassroom($gryffondorD);
         $users[] = $gweasley;
         $em->persist($gweasley);
+
+        $habbot = new User();
+        $habbot->setLastname("Abbot");
+        $habbot->setFirstname("Hannah");
+        $habbot->setEmail("hannah.abbot@poudlard.com");
+        $habbot->setRoles(["ROLE_STUDENT"]);
+        $habbot->setImage("");
+        $habbot->setBirthday(new \DateTime('10/04/1979'));
+        $habbot->setPassword($this->passwordEncoder->encodePassword($habbot, 'hannah'));
+        $habbot->addSchool($school);
+        $habbot->addClassroom($poufsouffleB);
+        $users[] = $habbot;
+        $em->persist($habbot);
 
         $hgranger = new User();
         $hgranger->setLastname("Granger");
@@ -518,6 +674,19 @@ class AppFixtures extends Fixture
         $users[] = $medgecombe;
         $em->persist($medgecombe);
 
+        $mflint = new User();
+        $mflint->setLastname("Flint");
+        $mflint->setFirstname("Marcus");
+        $mflint->setEmail("marcus.flint@poudlard.com");
+        $mflint->setRoles(["ROLE_STUDENT"]);
+        $mflint->setImage("");
+        $mflint->setBirthday(new \DateTime('09/01/1974'));
+        $mflint->setPassword($this->passwordEncoder->encodePassword($mflint, 'marcus'));
+        $mflint->addSchool($school);
+        $mflint->addClassroom($serpentardC);
+        $users[] = $mflint;
+        $em->persist($mflint);
+
         $nlondubat = new User();
         $nlondubat->setLastname("Londubat");
         $nlondubat->setFirstname("Neville");
@@ -569,6 +738,19 @@ class AppFixtures extends Fixture
         $pdeauclaire->addClassroom($serdaigleA);
         $users[] = $pdeauclaire;
         $em->persist($pdeauclaire);
+
+        $phaywood = new User();
+        $phaywood->setLastname("Haywood");
+        $phaywood->setFirstname("Penny");
+        $phaywood->setEmail("penny.haywood@poudlard.com");
+        $phaywood->setRoles(["ROLE_STUDENT"]);
+        $phaywood->setImage("");
+        $phaywood->setBirthday(new \DateTime('09/14/1972'));
+        $phaywood->setPassword($this->passwordEncoder->encodePassword($phaywood, 'penny'));
+        $phaywood->addSchool($school);
+        $phaywood->addClassroom($poufsouffleB);
+        $users[] = $phaywood;
+        $em->persist($phaywood);
 
         $ppatil = new User();
         $ppatil->setLastname("Patil");
@@ -622,6 +804,19 @@ class AppFixtures extends Fixture
         $users[] = $rweasley;
         $em->persist($rweasley);
 
+        $sbones = new User();
+        $sbones->setLastname("Bones");
+        $sbones->setFirstname("Susan");
+        $sbones->setEmail("susan.bones@poudlard.com");
+        $sbones->setRoles(["ROLE_STUDENT"]);
+        $sbones->setImage("");
+        $sbones->setBirthday(new \DateTime('11/11/1980'));
+        $sbones->setPassword($this->passwordEncoder->encodePassword($sbones, 'susan'));
+        $sbones->addSchool($school);
+        $sbones->addClassroom($poufsouffleB);
+        $users[] = $sbones;
+        $em->persist($sbones);
+
         $tboot = new User();
         $tboot->setLastname("Boot");
         $tboot->setFirstname("Terry");
@@ -634,6 +829,34 @@ class AppFixtures extends Fixture
         $tboot->addClassroom($serdaigleA);
         $users[] = $tboot;
         $em->persist($tboot);
+
+        $tjedusor = new User();
+        $tjedusor->setLastname("Jedusor");
+        $tjedusor->setFirstname("Tom");
+        $tjedusor->setEmail("tom.jedusor@poudlard.com");
+        $tjedusor->setRoles(["ROLE_STUDENT"]);
+        $tjedusor->setImage("");
+        $tjedusor->setBirthday(new \DateTime('12/31/1926'));
+        $tjedusor->setPassword($this->passwordEncoder->encodePassword($tjedusor, 'yom'));
+        $tjedusor->addSchool($school);
+        $tjedusor->addClassroom($serpentardC);
+        $users[] = $tjedusor;
+        $em->persist($tjedusor);
+
+        $vcrabbe = new User();
+        $vcrabbe->setLastname("Crabbe");
+        $vcrabbe->setFirstname("Vincent");
+        $vcrabbe->setEmail("vincent.crabbe@poudlard.com");
+        $vcrabbe->setRoles(["ROLE_STUDENT"]);
+        $vcrabbe->setImage("");
+        $vcrabbe->setBirthday(new \DateTime('05/02/1979'));
+        $vcrabbe->setPassword($this->passwordEncoder->encodePassword($vcrabbe, 'vincent'));
+        $vcrabbe->addSchool($school);
+        $vcrabbe->addClassroom($serpentardC);
+        $users[] = $vcrabbe;
+        $em->persist($vcrabbe);
+
+        // OPINIONS
 
         $opinion1 = new Opinion();
         $opinion1->setContent("Si spectare poterat volucriter fabulae spectare multas licet flexeris nixus fabulae gyris suppetere usque nupsissent.");
@@ -696,6 +919,24 @@ class AppFixtures extends Fixture
         $news[] = $news2;
         $em->persist($news2);
 
+        $news6 = new News();
+        $news6->setTitle("Bientôt chez vous !");
+        $news6->setContent("Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion");
+        $news6->setPath("news1.jpg");
+        $news6->setDate(new \DateTime('06/07/2020'));
+        $news6->setSchool($oschool);
+        $news[] = $news6;
+        $em->persist($news6);
+
+        $news7 = new News();
+        $news7->setTitle("Faites attention à vous");
+        $news7->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey, keeper Godric’s Hollow telescope,");
+        $news7->setPath("news1.jpg");
+        $news7->setDate(new \DateTime('03/22/2020'));
+        $news7->setSchool($oschool);
+        $news[] = $news7;
+        $em->persist($news7);
+
         $news3 = new News();
         $news3->setTitle("Quoi de neuf ?");
         $news3->setContent("Praesent viverra fermentum nunc, in tempus dolor tincidunt at. Nullam tempor condimentum turpis, eget luctus arcu ornare eget. Integer ut lorem in urna vestibulum volutpat. Ut ac venenatis ipsum. Nam.");
@@ -722,6 +963,24 @@ class AppFixtures extends Fixture
         $news5->setSchool($school);
         $news[] = $news5;
         $em->persist($news5);
+
+        $news8 = new News();
+        $news8->setTitle("Tournoi de Quidditch de fin");
+        $news8->setContent("Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn.");
+        $news8->setPath("news1.jpg");
+        $news8->setDate(new \DateTime('06/23/2019'));
+        $news8->setSchool($school);
+        $news[] = $news8;
+        $em->persist($news8);
+
+        $news9 = new News();
+        $news9->setTitle("Résultats du tournoi de Quidditch");
+        $news9->setContent("Thestral dirigible plums, Viktor Krum hexed memory charm Animagus Invisibility Cloak three-headed Dog. Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle. Sirius Black Holyhead Harpies, you’ve got dirt on your nose.");
+        $news9->setPath("news1.jpg");
+        $news9->setDate(new \DateTime('06/30/2019'));
+        $news9->setSchool($school);
+        $news[] = $news9;
+        $em->persist($news9);
       
         // NOTICES
 
@@ -804,6 +1063,56 @@ class AppFixtures extends Fixture
         $lessons[] = $lesson5;
         $em->persist($lesson5);
 
+        $lesson6 = new Lesson();
+        $lesson6->setTitle("Alohamora wand elf parchment,");
+        $lesson6->setContent("Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. ");
+        $lesson6->setPath("manuels.jpeg");
+        $lesson6->setClassroom($serpentardC);
+        $lesson6->setSubject($sciences);
+        $lesson6->setUser($ombrage);
+        $lessons[] = $lesson6;
+        $em->persist($lesson6);
+
+        $lesson7 = new Lesson();
+        $lesson7->setTitle("Toad-like smile Flourish and Blotts");
+        $lesson7->setContent("Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven roaring lion hat. Unicorn blood crossbow mars is bright tonight,");
+        $lesson7->setPath("manuels.jpeg");
+        $lesson7->setClassroom($gryffondorD);
+        $lesson7->setSubject($metamarphose);
+        $lesson7->setUser($mcgonagall);
+        $lessons[] = $lesson7;
+        $em->persist($lesson7);
+
+        $lesson8 = new Lesson();
+        $lesson8->setTitle("Prefect’s bathroom Trelawney veela squashy armchairs,");
+        $lesson8->setContent("Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion.");
+        $lesson8->setPath("manuels.jpeg");
+        $lesson8->setClassroom($gryffondorD);
+        $lesson8->setSubject($potions);
+        $lesson8->setUser($rogue);
+        $lessons[] = $lesson8;
+        $em->persist($lesson8);
+
+        $lesson9 = new Lesson();
+        $lesson9->setTitle("Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall");
+        $lesson9->setContent("Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss? Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. Pumpkin juice Trevor wave your wand out glass orbs, a Grim knitted hats. Stan Shunpike doe patronus, suck his soul Muggle-Born large order of drills the trace.");
+        $lesson9->setPath("manuels.jpeg");
+        $lesson9->setClassroom($gryffondorD);
+        $lesson9->setSubject($potions);
+        $lesson9->setUser($rogue);
+        $lessons[] = $lesson9;
+        $em->persist($lesson9);
+
+        $lesson10 = new Lesson();
+        $lesson10->setTitle("Alohamora wand elf parchment");
+        $lesson10->setContent(" Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus.");
+        $lesson10->setPath("manuels.jpeg");
+        $lesson10->setClassroom($poufsouffleB);
+        $lesson10->setSubject($sport);
+        $lesson10->setUser($hagrid);
+        $lessons[] = $lesson10;
+        $em->persist($lesson10);
+
 
         // HOMEWORK
 
@@ -819,15 +1128,37 @@ class AppFixtures extends Fixture
         $em->persist($homework1);
 
         $homework2 = new Homework();
-        $homework2->setCode("M-SA-1");
+        $homework2->setCode("M-GR-1");
         $homework2->setTitle("Controle n°1");
         $homework2->setContent("Disertation sur : l'art de la méthamorphose. A rendre pour le 3 juin 2020");
         $homework2->setPath("");
-        $homework2->setClassroom($serdaigleA);
+        $homework2->setClassroom($gryffondorD);
         $homework2->setUser($mcgonagall);
         $homework2->setSubject($metamarphose);
         $homeworks[] = $homework2;
         $em->persist($homework2);
+
+        $homework4 = new Homework();
+        $homework4->setCode("P-GD-2");
+        $homework4->setTitle("Devoir n°2");
+        $homework4->setContent("Ce devoir est à rendre pour le 24 juin 2020, faites le avec soin, il sera noté");
+        $homework4->setPath("homework/potion-d2-ennonce.txt");
+        $homework4->setClassroom($gryffondorD);
+        $homework4->setUser($rogue);
+        $homework4->setSubject($potions);
+        $homeworks[] = $homework4;
+        $em->persist($homework4);
+
+        $homework5 = new Homework();
+        $homework5->setCode("P-SP-1");
+        $homework5->setTitle("Devoir n°1");
+        $homework5->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework5->setPath("homework/potion-d1-serp-ennonce.txt");
+        $homework5->setClassroom($serpentardC);
+        $homework5->setUser($rogue);
+        $homework5->setSubject($potions);
+        $homeworks[] = $homework5;
+        $em->persist($homework5);
 
         $homework3 = new Homework();
         $homework3->setCode("P-GD-1");
@@ -841,6 +1172,56 @@ class AppFixtures extends Fixture
         $homeworks[] = $homework3;
         $em->persist($homework3);
 
+        $homework6 = new Homework();
+        $homework6->setCode("P-GD-1");
+        $homework6->setTitle("Devoir n°1 rendu");
+        $homework6->setStatus(1);
+        $homework6->setContent("Merci de corriger mon devoir Monsieur Rogue");
+        $homework6->setPath("homework/potion-d1-potter.txt");
+        $homework6->setClassroom($gryffondorD);
+        $homework6->setUser($hpotter);
+        $homework6->setSubject($potions);
+        $homeworks[] = $homework6;
+        $em->persist($homework6);
+
+        $homework7 = new Homework();
+        $homework7->setCode("P-SP-1");
+        $homework7->setTitle("Devoir n°1 rendu");
+        $homework7->setStatus(1);
+        $homework7->setContent("Merci de corriger mon devoir Monsieur Rogue");
+        $homework7->setPath("homework/potion-d1-sp-malefoy.txt");
+        $homework7->setClassroom($serpentardC);
+        $homework7->setUser($dmalefoy);
+        $homework7->setSubject($potions);
+        $homeworks[] = $homework7;
+        $em->persist($homework7);
+
+        $homework8 = new Homework();
+        $homework8->setCode("M-GD-1");
+        $homework8->setTitle("Devoir n°1 rendu");
+        $homework8->setStatus(1);
+        $homework8->setContent("Merci de corriger mon devoir Madame");
+        $homework8->setPath("homework/meta-d1-weasley.txt");
+        $homework8->setClassroom($gryffondorD);
+        $homework8->setUser($rweasley);
+        $homework8->setSubject($metamarphose);
+        $homeworks[] = $homework8;
+        $em->persist($homework8);
+
+        $homework9 = new Homework();
+        $homework9->setCode("M-GD-1");
+        $homework9->setTitle("Devoir n°1 rendu");
+        $homework9->setStatus(1);
+        $homework9->setContent("Merci de corriger mon devoir Madame");
+        $homework9->setPath("homework/meta-d1-granger.txt");
+        $homework9->setClassroom($gryffondorD);
+        $homework9->setUser($hgranger);
+        $homework9->setSubject($metamarphose);
+        $homeworks[] = $homework9;
+        $em->persist($homework9);
+
+        // GRADES
+
         $grade1 = new Grade();
         $grade1->setTitle("Devoir 1 de potion");
         $grade1->setGrade(18);
@@ -849,6 +1230,35 @@ class AppFixtures extends Fixture
         $homework3->setCorrectionPath("homework/potion-d1-granger-correction.txt");
         $grades[] = $grade1;
         $em->persist($grade1);
+
+        $grade2 = new Grade();
+        $grade2->setTitle("Devoir 1 de potion");
+        $grade2->setGrade(9);
+        $grade2->setHomework($homework7);
+        $homework7->setStatus(2);
+        $homework7->setCorrectionPath("homework/potion-d1-sp-malefoy-correction.txt");
+        $grades[] = $grade2;
+        $em->persist($grade2);
+
+        $grade3 = new Grade();
+        $grade3->setTitle("Devoir 1 de potion");
+        $grade3->setGrade(20);
+        $grade3->setHomework($homework6);
+        $homework6->setStatus(2);
+        $homework6->setCorrectionPath("homework/potion-d1-potter-correction.txt");
+        $grades[] = $grade3;
+        $em->persist($grade3);
+
+        $grade4 = new Grade();
+        $grade4->setTitle("Devoir 1 de Métamorphose");
+        $grade4->setGrade(17);
+        $grade4->setHomework($homework9);
+        $homework9->setStatus(2);
+        $homework9->setCorrectionPath("homework/meta-d1-granger-correction.txt");
+        $grades[] = $grade4;
+        $em->persist($grade4);
+
+        // FLUSH
 
         $em->flush();
     }
