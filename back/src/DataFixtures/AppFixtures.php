@@ -898,7 +898,42 @@ class AppFixtures extends Fixture
         $ressource2->setUser($mcgonagall);
         $ressources[] = $ressource2;
         $em->persist($ressource2);
-      
+
+        $ressource3 = new Ressource();
+        $ressource3->setTitle("Thestral dirigible plums");
+        $ressource3->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey,");
+        $ressource3->setPath("manuels.jpeg");
+        $ressource3->setClassroom($gryffondorD);
+        $ressource3->setUser($mcgonagall);
+        $ressources[] = $ressource3;
+        $em->persist($ressource3);
+
+        $ressource4 = new Ressource();
+        $ressource4->setTitle("Alohamora wand elf parchment");
+        $ressource4->setContent("Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake,");
+        $ressource4->setPath("manuels.jpeg");
+        $ressource4->setClassroom($gryffondorD);
+        $ressource4->setUser($rogue);
+        $ressources[] = $ressource4;
+        $em->persist($ressource4);
+
+        $ressource5 = new Ressource();
+        $ressource5->setTitle("Squashy armchairs dirt on your nose brass scales");
+        $ressource5->setContent("Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar,");
+        $ressource5->setPath("manuels.jpeg");
+        $ressource5->setClassroom($serpentardC);
+        $ressource5->setUser($rogue);
+        $ressources[] = $ressource5;
+        $em->persist($ressource5);
+
+        $ressource6 = new Ressource();
+        $ressource6->setTitle("Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom.");
+        $ressource6->setContent("halice Hungarian Horntail, catherine wheels Essence of Dittany Gringotts Harry Potter. Prophecies Yaxley green eyes Remembrall horcrux hand of the servant. Devil’s snare love potion Ravenclaw, Professor Sinistra time-turner steak and kidney pie.");
+        $ressource6->setPath("manuels.jpeg");
+        $ressource6->setClassroom($poufsouffleB);
+        $ressource6->setUser($lupin);
+        $ressources[] = $ressource6;
+        $em->persist($ressource6);
       
         // NEWS
 

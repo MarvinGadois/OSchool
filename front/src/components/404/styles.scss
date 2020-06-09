@@ -4,21 +4,60 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    //justify-content:space-evenly ;
+    justify-content: space-around;
+    text-align: center;
+    color: #343434;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    
+    h1{
+        font-size: 11em;
+        margin: 0;
+        font-weight: 900;
+        letter-spacing: 1px;
+        background-image: linear-gradient(to right, #9374e9, #68C2E8, #9374e9);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
 
-    img{
-        width: 300px;
-        margin: -5% auto -5%;
+    h2{
+        font-weight: bold;
+        font-size:30px ;
+    }
+
+    // p{
+    //     font-size: 1.5em;
+    //     font-style: italic;
+    // }
+
+   img{
+        width: 200px;
+        margin: -4% auto -8%;
         cursor: pointer;
     }
 
-    h1{
-        font-size: 5em;
-        font-weight: bold;
-        margin-bottom: 5%;
-    }
-
-    p{
-        font-size: 3em;
-    }
+    .btn2 {
+    display: block;
+	width: 25%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #9374e9, #68C2E8, #9374e9);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
 }
+.btn2:hover{
+	background-position: right;
+}
+
+}
+                 

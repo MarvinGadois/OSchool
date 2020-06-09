@@ -62,6 +62,11 @@ class Subject
         $this->homework = new ArrayCollection();
         $this->lessons = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
     
 
     public function getId(): ?int

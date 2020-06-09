@@ -50,6 +50,42 @@ class RessourceRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getRessourcesByUser($id)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb
+            ->addSelect('c, s, u, sub')
+            ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
+            ->where('u.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getRessourcesByClassroomAndUser($class_id, $user_id)
+    {
+        $qb = $this->createQueryBuilder('r');
+
+        $qb
+            ->addSelect('c, s, u, sub')
+            ->leftJoin('r.classroom', 'c')
+            ->leftJoin('c.school', 's')
+            ->leftJoin('r.user', 'u')
+            ->leftJoin('u.subjects', 'sub')
+            ->where('u.id = :user_id')
+            ->andWhere('c.id = :class_id')
+            ->setParameter('class_id', $class_id)
+            ->setParameter('user_id', $user_id)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
     public function getRessource($id)
     {
         $qb = $this->createQueryBuilder('r');

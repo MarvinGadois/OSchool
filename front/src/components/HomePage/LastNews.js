@@ -12,7 +12,7 @@ const LastNews = () => {
     const { newsNoConnected } = useSelector((state) => state)
     useEffect(getNewsNoAuth, []);
 
-    const news = newsNoConnected.map((newOne) => (
+    const news = newsNoConnected.slice(0, 2).map((newOne) => (
         <div key={newOne.id} className="one_news_card_container">
             <div className="one_news_card_head">
                 <img className="img_one_news" src="https://via.placeholder.com/150"></img>

@@ -1,43 +1,48 @@
-import React, { Component } from "react";
+import React from "react";
+import { useHistory } from 'react-router';
+
 import "./footer.scss";
 
-class Footer extends Component {
-  render() {
-    return (
-      <footer className="footer">
-        <div className="footer-left">
-          <h3>O'School</h3>
-          <p className="footer-links">
-            <a href="/">Accueil</a>-<a href="/">A propos</a>-<a href="/">Faq</a>
-            -<a href="/">Contact</a>
-          </p>
-          <p className="footer-company-name">O'School © 2020</p>
-          <div className="footer-icons">
-            <a href="/">
-              <i className="fa fa-facebook" />
-            </a>
-            <a href="/">
-              <i className="fa fa-twitter" />
-            </a>
-            <a href="/">
-              <i className="fa fa-linkedin" />
-            </a>
-            <a href="/">
-              <i className="fa fa-github" />
-            </a>
-          </div>
+const Footer = () => {
+  const history = useHistory();
+
+  return (
+    <footer className="footer">
+      <div className="footer-left">
+        <h3>O'School</h3>
+        <div className="footer-links">
+          <p className="about-p" onClick={() => history.push('/')}>Accueil</p>
+          <p className="about-p" onClick={() => history.push('/about')}>A propos</p>
+          <p className="about-p">Faq</p>
+          <p className="about-p">Contact</p>
         </div>
-        <div className="footer-right">
-          <p>Contactez nous</p>
-          <form action="#" method="post">
-            <input type="text" name="email" placeholder="Email" />
-            <textarea name="message" placeholder="Message" defaultValue={""} />
-            <button>Envoyer</button>
-          </form>
+        <p className="footer-company-name">O'School © 2020</p>
+        <div className="footer-icons">
+          <a href="/">
+            <i className="fa fa-facebook" />
+          </a>
+          <a href="/">
+            <i className="fa fa-twitter" />
+          </a>
+          <a href="/">
+            <i className="fa fa-linkedin" />
+          </a>
+          <a href="/">
+            <i className="fa fa-github" />
+          </a>
         </div>
-      </footer>
-    );
-  }
+      </div>
+      <div className="footer-right">
+        <p>Contactez nous</p>
+        <form action="#" method="post">
+          <input type="text" name="email" placeholder="Email" />
+          <textarea name="message" placeholder="Message" defaultValue={""} />
+          <button>Envoyer</button>
+        </form>
+      </div>
+    </footer>
+  );
 }
+
 
 export default Footer;
