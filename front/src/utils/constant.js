@@ -27,3 +27,12 @@ export const GET_HOMEWORKS = 'secured/v1/homework/user/';
 
 // Route Homework par id
 export const GET_ONE_HOMEWORK_BY_ID = 'secured/v1/homework/';
+// + on rajoute /id
+
+// Route Recup toutes les notes par utilisateur
+export const GET_GRADES_BY_USER = 'secured/v1/grade/user/'
+// + on rajoute /id
+
+// Route recup une new par son id en secured
+export const GET_NEW_BY_ID = 'secured/v1/news/';
+// + on rajoute /id

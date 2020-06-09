@@ -42,11 +42,18 @@ class Grade
     private $updatedAt;
 
     /**
-     * @ORM\OneToOne(targetEntity=Homework::class, mappedBy="grade", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Homework::class, inversedBy="grade", cascade={"persist", "remove"})
      * @Groups({"grade_homework"})
      */
     private $homework;
-    
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Groups({"grade"})
+     */
+    private $content;
+
+
 
     public function __construct()
     {
@@ -116,12 +123,19 @@ class Grade
     {
         $this->homework = $homework;
 
-        // set (or unset) the owning side of the relation if necessary
-        $newGrade = null === $homework ? null : $this;
-        if ($homework->getGrade() !== $newGrade) {
-            $homework->setGrade($newGrade);
-        }
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(?string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }
+
 }

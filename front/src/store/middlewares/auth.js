@@ -13,7 +13,7 @@ import setAuthorizationToken from '../../utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 
 const notyf = new Notyf({
-    duration: 3000,
+    duration: 4000,
     position: {
         x: 'center',
         y: 'top',
@@ -24,13 +24,21 @@ const loginRequest = `${API_URL}${LOGIN_URL}`;
 
 export default (store) => (next) => (action) => {
     console.log('MW Auth');
+    const cleanEmail = store.getState().email.trim();
+    const cleanPassword = store.getState().password;
     switch (action.type) {
         case LOGIN: {
+
+            if (cleanEmail === '' || cleanPassword === '') {
+                notyf.error(`Authentification échoué ! Veuillez remplir tous les champs`);
+                return false
+            }
+
             axios({
                 method: 'post',
                 url: loginRequest,
                 data: {
-                    username: store.getState().email,
+                    username: store.getState().email.trim(),
                     password: store.getState().password,
                 },
             })

@@ -60,11 +60,6 @@ class Homework
      */
     private $classroom;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Grade::class, inversedBy="homework", cascade={"persist", "remove"})
-     * @Groups({"homework_grade"})
-     */
-    private $grade;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="homeworks")
@@ -90,6 +85,12 @@ class Homework
      * @Groups({"homework_subject"})
      */
     private $subject;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Grade::class, mappedBy="homework", cascade={"persist", "remove"})
+     * @Groups({"homework_grade"})
+     */
+    private $grade;
 
 
     public function __construct()
@@ -188,18 +189,6 @@ class Homework
         return $this;
     }
 
-    public function getGrade(): ?Grade
-    {
-        return $this->grade;
-    }
-
-    public function setGrade(?Grade $grade): self
-    {
-        $this->grade = $grade;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -244,6 +233,24 @@ class Homework
     public function setSubject(?Subject $subject): self
     {
         $this->subject = $subject;
+
+        return $this;
+    }
+
+    public function getGrade(): ?Grade
+    {
+        return $this->grade;
+    }
+
+    public function setGrade(?Grade $grade): self
+    {
+        $this->grade = $grade;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newHomework = null === $grade ? null : $this;
+        if ($grade->getHomework() !== $newHomework) {
+            $grade->setHomework($newHomework);
+        }
 
         return $this;
     }

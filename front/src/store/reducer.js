@@ -14,10 +14,17 @@ import {
   SET_HOMEWORKS,
   SET_ONE_LESSON,
   SET_ONE_HOMEWORK,
+  SET_GRADES_BY_USER,
+  SET_ONE_NEW,
 } from './actions';
 
 // State initial
 const initialState = {
+
+  lessons: [],
+  lesson: [],
+  homeworks: [],
+  homework: [],
   user: {},
   email: '',
   password: '',
@@ -26,14 +33,12 @@ const initialState = {
   newsNoConnected: [],
   schoolNews: [],
   classrooms: [],
-  lessons: [],
-  lesson: [],
-  homeworks: [],
-  homework: [],
-
+  gradesUser: [],
+  OneNewById: [],
 };
 
 export default (state = initialState, action = {}) => {
+
   switch (action.type) {
     case SYNC_EMAIL: {
       return {
@@ -113,6 +118,21 @@ export default (state = initialState, action = {}) => {
         ...state,
         lesson: action.lesson,
       };
+     case SET_GRADES_BY_USER: {
+            return {
+                ...state,
+                gradesUser: action.grades,
+            };
+        }
+     case SET_ONE_NEW: {
+            return {
+                ...state,
+                OneNewById: action.oneNewe,
+            };
+        }
+        default: {
+            return state;
+        }
     }
     case SET_HOMEWORKS: {
       return {

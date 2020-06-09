@@ -18,16 +18,16 @@ const notyf = new Notyf({
 const newsRequest = `${API_URL}${GET_SCHOOL_NEWS}`;
 
 const getSchoolNews = (idSchool) => {
-  axios
-    .get(newsRequest + idSchool)
-    .then((res) => {
-      const news = res.data;
-      store.dispatch(setSchoolNews(news));
-    })
-    .catch((error) => {
-      notyf.error('Erreur requête news');
-      console.trace(error);
-    });
+
+    axios.get(newsRequest + idSchool)
+        .then((res) => {
+            const news = res.data;
+            store.dispatch(setSchoolNews(news))
+        })
+        .catch((error) => {
+            //notyf.error('Erreur requête news');
+            console.trace(error);
+        });
 };
 
 export default getSchoolNews;

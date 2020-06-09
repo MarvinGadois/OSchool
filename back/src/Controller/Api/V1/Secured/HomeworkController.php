@@ -23,13 +23,14 @@ class HomeworkController extends AbstractController
 
     public function __construct(Render $render)
     {
-        $this->group = [
-            'homework', 
-            'homework_classroom', 'infos_classroom', 'school_classroom', 'school',
-            'homework_grade', 'grade',
-            'homework_user', 'infos_user',
-            'homework_subject', 'infos_subject'
-        ];
+        $this->group = 
+            [
+                'homework', 
+                'homework_classroom', 'infos_classroom', 'school_classroom', 'school',
+                'homework_grade', 'grade',
+                'homework_user', 'infos_user',
+                'homework_subject', 'infos_subject'
+            ];
 
         $this->render = $render;
     }
@@ -195,6 +196,7 @@ class HomeworkController extends AbstractController
     public function edit($id, Request $request, HomeworkRepository $homeworkRepository, ClassroomRepository $classroomRepository, UserRepository $userRepository, SubjectRepository $subjectRepository)
     {
         $tokenUser = $this->container->get('security.token_storage')->getToken()->getUser();
+        
         $jsonData = json_decode($request->getContent());
         $classroom = $classroomRepository->find($jsonData->classroom);
         $user = $userRepository->find($jsonData->user);
@@ -213,7 +215,6 @@ class HomeworkController extends AbstractController
                         if($user->getId() != $tokenUser->getId()) {
                             return $this->json(["A student can't edit someone else homework."], 401);
                         }
-
                     }
                 }
 

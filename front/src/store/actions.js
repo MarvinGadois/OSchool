@@ -58,3 +58,11 @@ export const setHomeworks = (homeworks) => ({ type: SET_HOMEWORKS, homeworks });
 // action set one homework
 export const SET_ONE_HOMEWORK = 'actions/SET_ONE_HOMEWORK';
 export const setOneHomework = (homework) => ({ type: SET_ONE_HOMEWORK, homework });
+
+// action set grades par user id
+export const SET_GRADES_BY_USER = 'actions/SET_GRADES_BY_USER';
+export const setGradesByUserId = (grades) => ({ type: SET_GRADES_BY_USER, grades });
+
+// action set one new
+export const SET_ONE_NEW = 'actions/SET_ONE_NEW';
+export const setOneNew = (oneNewe) => ({ type: SET_ONE_NEW, oneNewe });
