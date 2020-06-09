@@ -29,7 +29,7 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent ajouter des leçons.');
         } else {
 
             if($form->isSubmitted() && $form->isValid()) {
@@ -51,8 +51,10 @@ class LessonController extends AbstractController
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($lesson);
                 $em->flush();
+
             }
         }
+
         return $this->render('lesson/form.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -72,7 +74,7 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dump("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent modifier des leçons.');
         } else {
 
             if ($lesson) {
@@ -84,7 +86,12 @@ class LessonController extends AbstractController
                         $em->persist($lesson);
                         $em->flush();
                     }
+                    
+                } else {
+                    $this->addFlash('warning', 'Vous ne pouvez pas modifier cette leçon. Seul le propriétaire de la leçon peut la modifier.');
                 }
+            } else {
+                $this->addFlash('danger', 'Cette leçon n\'existe pas.');
             }
         }
 
@@ -111,7 +118,7 @@ class LessonController extends AbstractController
         $user = $userRepository->find($user_id);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent suprimer des leçons.');
         } else {
 
             if ($lesson) {
@@ -121,7 +128,11 @@ class LessonController extends AbstractController
                         $em->remove($lesson);
                         $em->flush();
                     }
+                } else {
+                    $this->addFlash('warning', 'Vous ne pouvez pas supprimer cette leçon. Seul le propriétaire de la leçon peut la supprimer.');
                 }
+            } else {
+                $this->addFlash('danger', 'Cette leçon n\'existe pas.');
             }
         }
 

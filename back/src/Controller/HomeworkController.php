@@ -30,7 +30,6 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($user->getId() == $homework->getUser()->getId()) {
             if ($form->isSubmitted() && $form->isValid()) {
                 $homework->setUser($user);
 
@@ -42,9 +41,6 @@ class HomeworkController extends AbstractController
                 $em->persist($homework);
                 $em->flush();
             }
-        } else {
-            dd("nop");
-        }
 
         return $this->render('homework/form.html.twig', [
             'form' => $form->createView(),
@@ -87,8 +83,10 @@ class HomeworkController extends AbstractController
                     $em->flush();
                 }
             } else {
-                dd("nop");
+                $this->addFlash('warning', 'Vous ne pouvez pas modifier ce devoir. Seul le propriétaire du devoir peut le modifier.');
             }
+        } else {
+            $this->addFlash('error', 'Ce devoir n\'existe pas.');
         }
 
         $formDelete = $this->createForm(DeleteType::class, null, [
@@ -115,7 +113,7 @@ class HomeworkController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dump("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas mettre de correction en ligne. Seuls les professeurs le peuvent.');
         } else {
                 
             if($form->isSubmitted() && $form->isValid()) {
@@ -163,7 +161,7 @@ class HomeworkController extends AbstractController
         $user = $userRepository->find($user_id);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dump("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas supprimer un devoir. Seuls les professeurs le peuvent.');
         } else {
 
             if ($homework) {
@@ -174,6 +172,8 @@ class HomeworkController extends AbstractController
                         $em->flush();
                     }
                 }
+            } else {
+                $this->addFlash('danger', 'Ce devoir n\'existe pas.');
             }
         }
 

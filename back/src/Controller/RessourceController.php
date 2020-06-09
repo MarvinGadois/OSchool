@@ -29,7 +29,7 @@ class RessourceController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('unauthorized', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent ajouter des ressources.');
         } else {
             if($form->isSubmitted() && $form->isValid()) {
             
@@ -59,7 +59,7 @@ class RessourceController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent modifier des ressources.');
         } else {
 
             if($ressource) {
@@ -83,10 +83,10 @@ class RessourceController extends AbstractController
                         $em->flush();
                     }
                 } else {
-                    dd("nop");
+                    $this->addFlash('warning', 'Vous ne pouvez pas modifier cette ressource. Seul le propriétaire de la ressource peut la modifier.');
                 }
             } else {
-                dd("nopnop");
+                $this->addFlash('danger', 'Cette ressources n\'existe pas.');
             }
         }
 
@@ -110,7 +110,7 @@ class RessourceController extends AbstractController
         $user = $userRepository->find($user_id);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent supprimer des ressources.');
         } else {
 
             if ($ressource) {
@@ -120,7 +120,11 @@ class RessourceController extends AbstractController
                         $em->remove($ressource);
                         $em->flush();
                     }
+                } else {
+                    $this->addFlash('warning', 'Vous ne pouvez pas supprimer cette ressource. Seul le propriétaire de la ressource peut la supprimer.');
                 }
+            } else {
+                $this->addFlash('danger', 'Cette ressources n\'existe pas.');
             }
         }
 

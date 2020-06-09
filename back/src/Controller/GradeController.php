@@ -30,7 +30,7 @@ class GradeController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas mettre de notes en ligne. Seuls les professeurs le peuvent.');
         } else {
 
             if($form->isSubmitted() && $form->isValid()) {
@@ -60,7 +60,7 @@ class GradeController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas modifier de notes. Seuls les professeurs le peuvent.');
         } else {
 
             if($form->isSubmitted() && $form->isValid()) {
@@ -91,7 +91,7 @@ class GradeController extends AbstractController
         $user = $userRepository->find($user_id);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas supprimer de notes. Seuls les professeurs le peuvent.');
         } else {
 
             if($formDelete->isSubmitted() && $formDelete->isValid()) {
