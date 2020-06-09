@@ -48,6 +48,9 @@ security:
         - { path: ^/api/secured/v1/lessons/add, roles: ROLE_TEACHER }
         - { path: ^/api/secured/v1/lessons/edit, roles: ROLE_TEACHER }
         - { path: ^/api/secured/v1/lessons/delete, roles: ROLE_TEACHER }
+        - { path: ^/api/secured/v1/ressources/add, roles: ROLE_TEACHER }
+        - { path: ^/api/secured/v1/ressources/edit, roles: ROLE_TEACHER }
+        - { path: ^/api/secured/v1/ressources/delete, roles: ROLE_TEACHER }
         - { path: ^/api/secured, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/lesson, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         
