@@ -1,30 +1,28 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router';
 //import imageFolders from '../../../../back/public/assets/images';
-
 
 import getSchoolNews from '../../utils/getSchoolNews';
 import getClassById from '../../utils/getClassroomById';
 
 import './styles.scss';
 
-
 const HomePageTeacher = () => {
+    const history = useHistory();
     const currentUser = useSelector((state) => state.user.user)
     const { schoolNews } = useSelector((state) => state)
-
     const { classrooms } = useSelector((state) => state)
 
     useEffect(() => { getSchoolNews(currentUser.schools[0].id) }, []);
 
-    currentUser.classrooms.map(classe => { useEffect(() => { getClassById(classe.id) }, []); })
+    currentUser.classrooms.map(classe => { useEffect(() => { classrooms != '' ? null : getClassById(classe.id) }, []); })
 
     const DetailsClass = classrooms.map((oneClass, i) => {
         return (
             <tr key={oneClass.id}>
                 <th scope="row">{i + 1}</th>
-                <td>{oneClass.name}</td>
+                <td><i onClick={() => history.push(`/professeur/classe/${oneClass.id}`)} className="fa fa-eye mr-3 teacher_i" aria-hidden="true"></i>{oneClass.name}</td>
                 <td>{oneClass.users.length}</td>
                 <td>{oneClass.level}</td>
                 <td>{oneClass.school.name}</td>
@@ -50,14 +48,14 @@ const HomePageTeacher = () => {
             <div className="container--homeTeacher">
                 <h1>Bienvenue {currentUser.firstname}</h1>
                 <div className="container--homeTeacher--news">
-                    <h2>Dernières infos de l'établissement</h2>
+                    <h2>Dernières infos de l'établissement<span className="badge badge-primary ml-2">{schoolNews.length}</span></h2>
                     <div className="container--homeTeacher--new">
                         {NewsSchoolConnected.slice(0, 2)}
                     </div>
-                    <button>Toutes les news de l'établissement ...</button>
+                    <button onClick={() => history.push('/news')}>Toutes les news de l'établissement ...</button>
                 </div>
                 <div className="container--homeTeacher--classes">
-                    <h2>Vos classes</h2>
+                    <h2>Vos classes<span className="badge badge-primary ml-2">{classrooms.length}</span></h2>
                     <div className="container--homeTeacher--classes-tableau">
                         <table className="table">
                             <thead className="thead-dark">
@@ -96,13 +94,11 @@ const HomePageTeacher = () => {
                                 <p>Etablissement: {currentUser.schools[0].name}</p>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default HomePageTeacher;

@@ -8,11 +8,11 @@ import { API_URL, GET_SCHOOL_NEWS } from './constant';
 import { setSchoolNews } from '../store/actions';
 
 const notyf = new Notyf({
-    duration: 3000,
-    position: {
-        x: 'center',
-        y: 'top',
-    }
+  duration: 3000,
+  position: {
+    x: 'center',
+    y: 'top',
+  },
 });
 
 const newsRequest = `${API_URL}${GET_SCHOOL_NEWS}`;

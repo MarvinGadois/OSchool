@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LessonController!{% endblock %}
+
+{% block body %}
+
+{# Get the current route #}
+{% set route = app.request.attributes.get('_route')%}
+
+{{ form_start(form) }}
+
+    <button type="submit" class="">{{ route == 'homework_edit' ? 'Modifier' : 'Ajouter' }}</button>
+
+{{ form_rest(form) }}
+{{ form_end(form) }}
+
+
+{% if(route == 'homework_edit')%}
+
+    {{ form_start(formDelete)}}
+
+        {{ form_widget(formDelete.deleteButton, {'attr': {'class': 'btn-danger'}}) }}
+
+    {{ form_end(formDelete) }}
+
+{% endif %}
+
+{% endblock %}

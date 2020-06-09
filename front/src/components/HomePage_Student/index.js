@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 
 //import imageFolders from '../../../../back/public/assets/images';
@@ -11,6 +12,7 @@ import './styles.scss';
 
 
 const HomePageStudent = () => {
+    const history = useHistory();
     const currentUser = useSelector((state) => state.user.user)
     const { schoolNews } = useSelector((state) => state)
     const { gradesUser } = useSelector((state) => state)
@@ -20,19 +22,18 @@ const HomePageStudent = () => {
     console.log('Mes notes:', gradesUser)
     //currentUser.classrooms.map(classe => { useEffect(() => { getClassById(classe.id) }, []); })
 
-    // const DetailsClass = classrooms.map(oneClass => {
-    //     console.log(oneClass)
-    //     return (
-    //         <tr key={oneClass.id}>
-    //             <th scope="row">1</th>
-    //             <td>{oneClass.name}</td>
-    //             <td>{oneClass.users.length}</td>
-    //             <td>{oneClass.level}</td>
-    //             <td>{oneClass.school.name}</td>
+    const DetailsNote = gradesUser.map((oneGrade, i) => {
+        return (
+            <tr key={oneGrade.id}>
+                <th scope="row">{i + 1}</th>
+                <td>{oneGrade.title}</td>
+                <td>x</td>
+                <td>{oneGrade.grade}</td>
+                <td>{oneGrade.content}</td>
 
-    //         </tr>
-    //     )
-    // })
+            </tr>
+        )
+    })
 
     const NewsSchoolConnected = schoolNews.map(schoolnew => {
         const DateComment = new Date(schoolnew.date);
@@ -51,27 +52,27 @@ const HomePageStudent = () => {
             <div className="container--homeStudent">
                 <h1>Bienvenue {currentUser.firstname}</h1>
                 <div className="container--homeStudent--news">
-                    <h2>Dernières infos de l'établissement</h2>
+                    <h2>Dernières infos de l'établissement<span className="badge badge-primary ml-2">{schoolNews.length}</span></h2>
                     <div className="container--homeStudent--new">
                         {NewsSchoolConnected.slice(0, 2)}
                     </div>
-                    <button>Toutes les news de l'établissement ...</button>
+                    <button onClick={() => history.push('/news')}>Toutes les news de l'établissement ...</button>
                 </div>
                 <div className="container--homeStudent--classes">
-                    <h2>Dernières notes</h2>
+                    <h2>Dernières notes<span className="badge badge-primary ml-2">{gradesUser.length}</span></h2>
                     <div className="container--homeStudent--classes-tableau">
                         <table className="table">
                             <thead className="thead-dark">
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Matière</th>
+                                    <th scope="col">Titre devoir</th>
                                     <th scope="col">Prof</th>
                                     <th scope="col">Notes</th>
                                     <th scope="col">Commentaires</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {classrooms.length >= 1 && ([DetailsClass])} */}
+                                {DetailsNote.length >= 1 && ([DetailsNote])}
                             </tbody>
                         </table>
                     </div>
