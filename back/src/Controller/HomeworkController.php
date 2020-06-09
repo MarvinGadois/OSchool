@@ -30,19 +30,20 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($user->getId() == $homework->getUser()->getId()) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $homework->setUser($user);
 
-            $homework->setUser($user);
-
-            foreach ($user->getRoles() as $role){
-                if($role == "ROLE_STUDENT") {
+                if ($user->getRoles()[0] == "ROLE_STUDENT") {
                     $homework->setStatus(1);
                 }
-            }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($homework);
-            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($homework);
+                $em->flush();
+            }
+        } else {
+            dd("nop");
         }
 
         return $this->render('homework/form.html.twig', [
@@ -63,20 +64,23 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($user->getId() == $homework->getUser()->getId()) {
-
-            if($form->isSubmitted() && $form->isValid()) {
+        if ($homework) {
+            if ($user->getId() == $homework->getUser()->getId()) {
+                if ($form->isSubmitted() && $form->isValid()) {
 
                 // $homework->setUser($user);
-                $homework->setUpdatedAt(new \DateTime());
+                    $homework->setUpdatedAt(new \DateTime());
     
-                $em = $this->getDoctrine()->getManager();
-                $em->flush();
+                    $em = $this->getDoctrine()->getManager();
+                    $em->flush();
+                }
+            } else {
+                dd("nop");
             }
         }
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('homework_delete', ['id' => $id])
+            'action' => $this->generateUrl('homework_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('homework/form.html.twig', [
@@ -98,23 +102,23 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        foreach ($user->getRoles() as $role){
-            if($role == "ROLE_TEACHER") {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dump("nop");
+        } else {
                 
-                if($form->isSubmitted() && $form->isValid()) {
+            if($form->isSubmitted() && $form->isValid()) {
 
-                    $homework->setStatus(2);
-                    $homework->setUpdatedAt(new \DateTime());
-        
-                    $em = $this->getDoctrine()->getManager();
-                    $em->flush();
-                }
+                $homework->setStatus(2);
+                $homework->setUpdatedAt(new \DateTime());
+    
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
             }
         }
         
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('homework_delete', ['id' => $id])
+            'action' => $this->generateUrl('homework_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('homework/form.html.twig', [
@@ -126,18 +130,27 @@ class HomeworkController extends AbstractController
 
 
     /**
-     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"})
+     * @Route("/user/{user_id}/delete/{id}", name="delete", requirements={"user_id": "\d+","id": "\d+"})
      */
-    public function delete(Homework $homework, Request $request)
+    public function delete($user_id, Homework $homework, Request $request, UserRepository $userRepository)
     {
         $formDelete = $this->createForm(DeleteType::class);
         $formDelete->handleRequest($request);
+        $user = $userRepository->find($user_id);
 
-        if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dump("nop");
+        } else {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($homework);
-            $em->flush();
+            if ($homework) {
+                if ($user->getId() == $homework->getUser()->getId()) {
+                    if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+                        $em = $this->getDoctrine()->getManager();
+                        $em->remove($homework);
+                        $em->flush();
+                    }
+                }
+            }
         }
 
         return $this->render('homework/form.html.twig', [

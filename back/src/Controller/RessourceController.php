@@ -28,13 +28,17 @@ class RessourceController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
+            if($form->isSubmitted() && $form->isValid()) {
             
-            $ressource->setUser($user);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($ressource);
-            $em->flush();
+                $ressource->setUser($user);
+    
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($ressource);
+                $em->flush();
+            }
         }
 
         return $this->render('ressource/form.html.twig', [
@@ -48,19 +52,33 @@ class RessourceController extends AbstractController
     public function edit($id, $user_id, Request $request, UserRepository $userRepository, RessourceRepository $ressourceRepository)
     {
         $ressource = $ressourceRepository->find($id);
+        $user = $userRepository->find($user_id);
 
         $form = $this->createForm(RessourceType::class, $ressource);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            $ressource->setUpdatedAt(new \DateTime());
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
+
+            if($ressource) {
+                if ($user->getId() == $ressource->getUser()->getId()) {
+                    if ($form->isSubmitted() && $form->isValid()) {
+                        $ressource->setUpdatedAt(new \DateTime());
+                        $em = $this->getDoctrine()->getManager();
+                        $em->flush();
+                    }
+                } else {
+                    dd("nop");
+                }
+            } else {
+                dd("nopnop");
+            }
         }
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('ressource_delete', ['id' => $id])
+            'action' => $this->generateUrl('ressource_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('ressource/form.html.twig', [
@@ -70,18 +88,27 @@ class RessourceController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"})
+     * @Route("/user/{user_id}/delete/{id}", name="delete", requirements={"user_id": "\d+", "id": "\d+"})
      */
-    public function delete(Ressource $ressource, Request $request)
+    public function delete($user_id, Ressource $ressource, Request $request, UserRepository $userRepository)
     {
         $formDelete = $this->createForm(DeleteType::class);
         $formDelete->handleRequest($request);
+        $user = $userRepository->find($user_id);
 
-        if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($ressource);
-            $em->flush();
+            if ($ressource) {
+                if ($user->getId() == $ressource->getUser()->getId()) {
+                    if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+                        $em = $this->getDoctrine()->getManager();
+                        $em->remove($ressource);
+                        $em->flush();
+                    }
+                }
+            }
         }
 
         return $this->render('ressource/form.html.twig', [

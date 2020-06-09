@@ -29,16 +29,15 @@ class GradeController extends AbstractController
 
         $form->handleRequest($request);
 
-        foreach ($user->getRoles() as $role){
-            
-            if($role == "ROLE_TEACHER") {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
 
-                if($form->isSubmitted() && $form->isValid()) {
+            if($form->isSubmitted() && $form->isValid()) {
 
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($grade);
-                    $em->flush();
-                }
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($grade);
+                $em->flush();
             }
         }
 
@@ -60,21 +59,19 @@ class GradeController extends AbstractController
 
         $form->handleRequest($request);
 
-        foreach ($user->getRoles() as $role){
-            
-            if($role == "ROLE_TEACHER") {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
 
-                if($form->isSubmitted() && $form->isValid()) {
+            if($form->isSubmitted() && $form->isValid()) {
 
-                    $em = $this->getDoctrine()->getManager();
-                    $em->flush();
-                }
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
             }
         }
 
-
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('grade_delete', ['id' => $id])
+            'action' => $this->generateUrl('grade_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('grade/form.html.twig', [
@@ -85,18 +82,24 @@ class GradeController extends AbstractController
 
 
     /**
-     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"})
+     * @Route("/user/{user_id}/delete/{id}", name="delete", requirements={"user_id": "\d+","id": "\d+"})
      */
-    public function delete(Grade $grade, Request $request)
+    public function delete($user_id, Grade $grade, Request $request, UserRepository $userRepository)
     {
         $formDelete = $this->createForm(DeleteType::class);
         $formDelete->handleRequest($request);
+        $user = $userRepository->find($user_id);
 
-        if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($grade);
-            $em->flush();
+            if($formDelete->isSubmitted() && $formDelete->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($grade);
+                $em->flush();
+            }
         }
 
         return $this->render('grade/form.html.twig', [
