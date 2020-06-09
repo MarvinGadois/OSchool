@@ -38,6 +38,9 @@ class GradeController extends AbstractController
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($grade);
                 $em->flush();
+
+                $this->addFlash('success', 'Note ajoutée avec succès.');
+
             }
         }
 
@@ -67,6 +70,9 @@ class GradeController extends AbstractController
 
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
+
+                $this->addFlash('success', 'Note modifiée avec succès.');
+
             }
         }
 
@@ -94,11 +100,12 @@ class GradeController extends AbstractController
             $this->addFlash('warning', 'Vous ne pouvez pas supprimer de notes. Seuls les professeurs le peuvent.');
         } else {
 
-            if($formDelete->isSubmitted() && $formDelete->isValid()) {
-
+            if ($formDelete->isSubmitted() && $formDelete->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->remove($grade);
                 $em->flush();
+                $this->addFlash('success', 'Note supprimée avec succès.');
+
             }
         }
 

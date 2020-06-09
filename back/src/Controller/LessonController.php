@@ -39,18 +39,24 @@ class LessonController extends AbstractController
                 // get the file to save
                 $pathFile = $form->get('path')->getData();
 
-                // new file name
-                $pathName = $pathFile->getClientOriginalName();
+                if($pathFile) {
 
-                // new file directory
-                $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
 
-                //move the file to save to the new directory
-                $pathFile->move($pathDirectory, $pathName);
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
 
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
+                }
+
+            
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($lesson);
                 $em->flush();
+
+                $this->addFlash('success', 'Leçon ajoutée avec succès.');
 
             }
         }
@@ -82,9 +88,27 @@ class LessonController extends AbstractController
                     if ($form->isSubmitted() && $form->isValid()) {
                         $lesson->setUpdatedAt(new \DateTime());
 
+                        // get the file to save
+                        $pathFile = $form->get('path')->getData();
+
+                        if($pathFile) {
+
+                            // new file name
+                            $pathName = $pathFile->getClientOriginalName();
+
+                            // new file directory
+                            $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
+
+                            //move the file to save to the new directory
+                            $pathFile->move($pathDirectory, $pathName);
+                        }
+
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($lesson);
                         $em->flush();
+
+                        $this->addFlash('success', 'Leçon modifiée avec succès.');
+
                     }
                     
                 } else {
@@ -127,7 +151,11 @@ class LessonController extends AbstractController
                         $em = $this->getDoctrine()->getManager();
                         $em->remove($lesson);
                         $em->flush();
+
+                        $this->addFlash('success', 'Leçon supprimée avec succès.');
+
                     }
+
                 } else {
                     $this->addFlash('warning', 'Vous ne pouvez pas supprimer cette leçon. Seul le propriétaire de la leçon peut la supprimer.');
                 }

@@ -37,9 +37,27 @@ class HomeworkController extends AbstractController
                     $homework->setStatus(1);
                 }
 
+                // get the file to save
+                $pathFile = $form->get('path')->getData();
+
+                if($pathFile) {
+
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
+
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
+                }
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($homework);
                 $em->flush();
+
+                $this->addFlash('success', 'Devoir ajoutée avec succès.');
+
             }
 
         return $this->render('homework/form.html.twig', [
@@ -64,24 +82,31 @@ class HomeworkController extends AbstractController
             if ($user->getId() == $homework->getUser()->getId()) {
                 if ($form->isSubmitted() && $form->isValid()) {
 
-                // $homework->setUser($user);
+                    // $homework->setUser($user);
                     $homework->setUpdatedAt(new \DateTime());
 
                     // get the file to save
                     $pathFile = $form->get('path')->getData();
 
-                    // new file name
-                    $pathName = $pathFile->getClientOriginalName();
+                    if($pathFile) {
 
-                    // new file directory
-                    $pathDirectory = __DIR__ . '/../../public/assets/homework/';
-
-                    //move the file to save to the new directory
-                    $pathFile->move($pathDirectory, $pathName);
+                        // new file name
+                        $pathName = $pathFile->getClientOriginalName();
+    
+                        // new file directory
+                        $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+    
+                        //move the file to save to the new directory
+                        $pathFile->move($pathDirectory, $pathName);
+                    }
     
                     $em = $this->getDoctrine()->getManager();
                     $em->flush();
+                
+                    $this->addFlash('success', 'Devoir modifié avec succès.');
+
                 }
+
             } else {
                 $this->addFlash('warning', 'Vous ne pouvez pas modifier ce devoir. Seul le propriétaire du devoir peut le modifier.');
             }
@@ -116,25 +141,30 @@ class HomeworkController extends AbstractController
             $this->addFlash('warning', 'Vous ne pouvez pas mettre de correction en ligne. Seuls les professeurs le peuvent.');
         } else {
                 
-            if($form->isSubmitted() && $form->isValid()) {
-
+            if ($form->isSubmitted() && $form->isValid()) {
                 $homework->setStatus(2);
                 $homework->setUpdatedAt(new \DateTime());
 
                 // get the file to save
                 $pathFile = $form->get('path')->getData();
 
-                // new file name
-                $pathName = $pathFile->getClientOriginalName();
+                if($pathFile) {
 
-                // new file directory
-                $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
 
-                //move the file to save to the new directory
-                $pathFile->move($pathDirectory, $pathName);
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
+                }
     
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
+            
+                $this->addFlash('success', 'Correction ajoutée avec succès.');
+
             }
         }
         
@@ -170,6 +200,9 @@ class HomeworkController extends AbstractController
                         $em = $this->getDoctrine()->getManager();
                         $em->remove($homework);
                         $em->flush();
+                    
+                        $this->addFlash('success', 'Devoir supprimé avec succès.');
+
                     }
                 }
             } else {
