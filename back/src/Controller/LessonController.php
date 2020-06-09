@@ -29,7 +29,7 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent ajouter des leçons.');
         } else {
 
             if($form->isSubmitted() && $form->isValid()) {
@@ -39,20 +39,28 @@ class LessonController extends AbstractController
                 // get the file to save
                 $pathFile = $form->get('path')->getData();
 
-                // new file name
-                $pathName = $pathFile->getClientOriginalName();
+                if($pathFile) {
 
-                // new file directory
-                $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
 
-                //move the file to save to the new directory
-                $pathFile->move($pathDirectory, $pathName);
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
 
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
+                }
+
+            
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($lesson);
                 $em->flush();
+
+                $this->addFlash('success', 'Leçon ajoutée avec succès.');
+
             }
         }
+
         return $this->render('lesson/form.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -72,7 +80,7 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dump("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent modifier des leçons.');
         } else {
 
             if ($lesson) {
@@ -80,11 +88,34 @@ class LessonController extends AbstractController
                     if ($form->isSubmitted() && $form->isValid()) {
                         $lesson->setUpdatedAt(new \DateTime());
 
+                        // get the file to save
+                        $pathFile = $form->get('path')->getData();
+
+                        if($pathFile) {
+
+                            // new file name
+                            $pathName = $pathFile->getClientOriginalName();
+
+                            // new file directory
+                            $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
+
+                            //move the file to save to the new directory
+                            $pathFile->move($pathDirectory, $pathName);
+                        }
+
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($lesson);
                         $em->flush();
+
+                        $this->addFlash('success', 'Leçon modifiée avec succès.');
+
                     }
+                    
+                } else {
+                    $this->addFlash('warning', 'Vous ne pouvez pas modifier cette leçon. Seul le propriétaire de la leçon peut la modifier.');
                 }
+            } else {
+                $this->addFlash('danger', 'Cette leçon n\'existe pas.');
             }
         }
 
@@ -111,7 +142,7 @@ class LessonController extends AbstractController
         $user = $userRepository->find($user_id);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent suprimer des leçons.');
         } else {
 
             if ($lesson) {
@@ -120,8 +151,16 @@ class LessonController extends AbstractController
                         $em = $this->getDoctrine()->getManager();
                         $em->remove($lesson);
                         $em->flush();
+
+                        $this->addFlash('success', 'Leçon supprimée avec succès.');
+
                     }
+
+                } else {
+                    $this->addFlash('warning', 'Vous ne pouvez pas supprimer cette leçon. Seul le propriétaire de la leçon peut la supprimer.');
                 }
+            } else {
+                $this->addFlash('danger', 'Cette leçon n\'existe pas.');
             }
         }
 

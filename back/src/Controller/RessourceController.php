@@ -29,15 +29,32 @@ class RessourceController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('unauthorized', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent ajouter des ressources.');
         } else {
             if($form->isSubmitted() && $form->isValid()) {
             
                 $ressource->setUser($user);
+
+                // get the file to save
+                $pathFile = $form->get('path')->getData();
+
+                if($pathFile) {
+
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
+
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/lessons/';
+
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
+                }
     
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($ressource);
                 $em->flush();
+                $this->addFlash('success', 'Ressource ajoutée avec succès.');
+
             }
         }
 
@@ -59,7 +76,7 @@ class RessourceController extends AbstractController
         $form->handleRequest($request);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent modifier des ressources.');
         } else {
 
             if($ressource) {
@@ -70,23 +87,30 @@ class RessourceController extends AbstractController
                         // get the file to save
                         $pathFile = $form->get('path')->getData();
 
-                        // new file name
-                        $pathName = $pathFile->getClientOriginalName();
+                        if($pathFile) {
 
-                        // new file directory
-                        $pathDirectory = __DIR__ . '/../../public/assets/ressources/';
-
-                        //move the file to save to the new directory
-                        $pathFile->move($pathDirectory, $pathName);
+                            // new file name
+                            $pathName = $pathFile->getClientOriginalName();
+        
+                            // new file directory
+                            $pathDirectory = __DIR__ . '/../../public/assets/ressources/';
+        
+                            //move the file to save to the new directory
+                            $pathFile->move($pathDirectory, $pathName);
+                        }
 
                         $em = $this->getDoctrine()->getManager();
                         $em->flush();
+
+                        $this->addFlash('success', 'Ressource modifiée avec succès.');
+
                     }
+
                 } else {
-                    dd("nop");
+                    $this->addFlash('warning', 'Vous ne pouvez pas modifier cette ressource. Seul le propriétaire de la ressource peut la modifier.');
                 }
             } else {
-                dd("nopnop");
+                $this->addFlash('danger', 'Cette ressources n\'existe pas.');
             }
         }
 
@@ -110,7 +134,7 @@ class RessourceController extends AbstractController
         $user = $userRepository->find($user_id);
 
         if($user->getRoles()[0] != "ROLE_TEACHER") {
-            dd("nop");
+            $this->addFlash('warning', 'Vous ne pouvez pas accéder à cette page. Seuls les professeurs peuvent supprimer des ressources.');
         } else {
 
             if ($ressource) {
@@ -119,8 +143,15 @@ class RessourceController extends AbstractController
                         $em = $this->getDoctrine()->getManager();
                         $em->remove($ressource);
                         $em->flush();
+
+                        $this->addFlash('success', 'Ressource supprimée avec succès.');
+
                     }
+                } else {
+                    $this->addFlash('warning', 'Vous ne pouvez pas supprimer cette ressource. Seul le propriétaire de la ressource peut la supprimer.');
                 }
+            } else {
+                $this->addFlash('danger', 'Cette ressources n\'existe pas.');
             }
         }
 
