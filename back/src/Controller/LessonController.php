@@ -28,15 +28,19 @@ class LessonController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
 
-            $lesson->setUser($user);
+            if($form->isSubmitted() && $form->isValid()) {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($lesson);
-            $em->flush();
+                $lesson->setUser($user);
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($lesson);
+                $em->flush();
+            }
         }
-
         return $this->render('lesson/form.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -55,16 +59,27 @@ class LessonController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dump("nop");
+        } else {
 
-            $lesson->setUpdatedAt(new \DateTime());
+            if ($lesson) {
+                if ($user->getId() == $lesson->getUser()->getId()) {
+                    if ($form->isSubmitted() && $form->isValid()) {
+                        $lesson->setUpdatedAt(new \DateTime());
 
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
+                        $em = $this->getDoctrine()->getManager();
+                        $em->persist($lesson);
+                        $em->flush();
+                    }
+                }
+            }
         }
 
+        
+
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('lesson_delete', ['id' => $id])
+            'action' => $this->generateUrl('lesson_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('lesson/form.html.twig', [
@@ -75,18 +90,27 @@ class LessonController extends AbstractController
 
 
     /**
-     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"})
+     * @Route("/user/{user_id}/delete/{id}", name="delete", requirements={"user_id": "\d+","id": "\d+"})
      */
-    public function delete(Lesson $lesson, Request $request)
+    public function delete($user_id, Lesson $lesson, Request $request, UserRepository $userRepository)
     {
         $formDelete = $this->createForm(DeleteType::class);
         $formDelete->handleRequest($request);
+        $user = $userRepository->find($user_id);
 
-        if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            dd("nop");
+        } else {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($lesson);
-            $em->flush();
+            if ($lesson) {
+                if ($user->getId() == $lesson->getUser()->getId()) {
+                    if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+                        $em = $this->getDoctrine()->getManager();
+                        $em->remove($lesson);
+                        $em->flush();
+                    }
+                }
+            }
         }
 
         return $this->render('lesson/form.html.twig', [
