@@ -30,20 +30,35 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $homework->setUser($user);
 
-            $homework->setUser($user);
-
-            foreach ($user->getRoles() as $role){
-                if($role == "ROLE_STUDENT") {
+                if ($user->getRoles()[0] == "ROLE_STUDENT") {
                     $homework->setStatus(1);
                 }
-            }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($homework);
-            $em->flush();
-        }
+                // get the file to save
+                $pathFile = $form->get('path')->getData();
+
+                if($pathFile) {
+
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
+
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
+                }
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($homework);
+                $em->flush();
+
+                $this->addFlash('success', 'Devoir ajoutée avec succès.');
+
+            }
 
         return $this->render('homework/form.html.twig', [
             'form' => $form->createView(),
@@ -63,20 +78,44 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($user->getId() == $homework->getUser()->getId()) {
+        if ($homework) {
+            if ($user->getId() == $homework->getUser()->getId()) {
+                if ($form->isSubmitted() && $form->isValid()) {
 
-            if($form->isSubmitted() && $form->isValid()) {
+                    // $homework->setUser($user);
+                    $homework->setUpdatedAt(new \DateTime());
 
-                // $homework->setUser($user);
-                $homework->setUpdatedAt(new \DateTime());
+                    // get the file to save
+                    $pathFile = $form->get('path')->getData();
+
+                    if($pathFile) {
+
+                        // new file name
+                        $pathName = $pathFile->getClientOriginalName();
     
-                $em = $this->getDoctrine()->getManager();
-                $em->flush();
+                        // new file directory
+                        $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+    
+                        //move the file to save to the new directory
+                        $pathFile->move($pathDirectory, $pathName);
+                    }
+    
+                    $em = $this->getDoctrine()->getManager();
+                    $em->flush();
+                
+                    $this->addFlash('success', 'Devoir modifié avec succès.');
+
+                }
+
+            } else {
+                $this->addFlash('warning', 'Vous ne pouvez pas modifier ce devoir. Seul le propriétaire du devoir peut le modifier.');
             }
+        } else {
+            $this->addFlash('error', 'Ce devoir n\'existe pas.');
         }
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('homework_delete', ['id' => $id])
+            'action' => $this->generateUrl('homework_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('homework/form.html.twig', [
@@ -98,23 +137,40 @@ class HomeworkController extends AbstractController
 
         $form->handleRequest($request);
 
-        foreach ($user->getRoles() as $role){
-            if($role == "ROLE_TEACHER") {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            $this->addFlash('warning', 'Vous ne pouvez pas mettre de correction en ligne. Seuls les professeurs le peuvent.');
+        } else {
                 
-                if($form->isSubmitted() && $form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $homework->setStatus(2);
+                $homework->setUpdatedAt(new \DateTime());
 
-                    $homework->setStatus(2);
-                    $homework->setUpdatedAt(new \DateTime());
-        
-                    $em = $this->getDoctrine()->getManager();
-                    $em->flush();
+                // get the file to save
+                $pathFile = $form->get('path')->getData();
+
+                if($pathFile) {
+
+                    // new file name
+                    $pathName = $pathFile->getClientOriginalName();
+
+                    // new file directory
+                    $pathDirectory = __DIR__ . '/../../public/assets/homework/';
+
+                    //move the file to save to the new directory
+                    $pathFile->move($pathDirectory, $pathName);
                 }
+    
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+            
+                $this->addFlash('success', 'Correction ajoutée avec succès.');
+
             }
         }
         
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('homework_delete', ['id' => $id])
+            'action' => $this->generateUrl('homework_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
         return $this->render('homework/form.html.twig', [
@@ -126,18 +182,32 @@ class HomeworkController extends AbstractController
 
 
     /**
-     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"})
+     * @Route("/user/{user_id}/delete/{id}", name="delete", requirements={"user_id": "\d+","id": "\d+"})
      */
-    public function delete(Homework $homework, Request $request)
+    public function delete($user_id, Homework $homework, Request $request, UserRepository $userRepository)
     {
         $formDelete = $this->createForm(DeleteType::class);
         $formDelete->handleRequest($request);
+        $user = $userRepository->find($user_id);
 
-        if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+        if($user->getRoles()[0] != "ROLE_TEACHER") {
+            $this->addFlash('warning', 'Vous ne pouvez pas supprimer un devoir. Seuls les professeurs le peuvent.');
+        } else {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($homework);
-            $em->flush();
+            if ($homework) {
+                if ($user->getId() == $homework->getUser()->getId()) {
+                    if ($formDelete->isSubmitted() && $formDelete->isValid()) {
+                        $em = $this->getDoctrine()->getManager();
+                        $em->remove($homework);
+                        $em->flush();
+                    
+                        $this->addFlash('success', 'Devoir supprimé avec succès.');
+
+                    }
+                }
+            } else {
+                $this->addFlash('danger', 'Ce devoir n\'existe pas.');
+            }
         }
 
         return $this->render('homework/form.html.twig', [

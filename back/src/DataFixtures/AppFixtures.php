@@ -1260,6 +1260,7 @@ class AppFixtures extends Fixture
         $grade1 = new Grade();
         $grade1->setTitle("Devoir 1 de potion");
         $grade1->setGrade(18);
+        $grade1->setContent("Très bon travail, continuez comme ça Miss Granger");
         $grade1->setHomework($homework3);
         $homework3->setStatus(2);
         $homework3->setCorrectionPath("homework/potion-d1-granger-correction.txt");
@@ -1269,6 +1270,7 @@ class AppFixtures extends Fixture
         $grade2 = new Grade();
         $grade2->setTitle("Devoir 1 de potion");
         $grade2->setGrade(9);
+        $grade1->setContent("Travail moyen. Il va falloir se ressaisir Drago");
         $grade2->setHomework($homework7);
         $homework7->setStatus(2);
         $homework7->setCorrectionPath("homework/potion-d1-sp-malefoy-correction.txt");
@@ -1278,6 +1280,7 @@ class AppFixtures extends Fixture
         $grade3 = new Grade();
         $grade3->setTitle("Devoir 1 de potion");
         $grade3->setGrade(20);
+        $grade1->setContent("Excellent travail");
         $grade3->setHomework($homework6);
         $homework6->setStatus(2);
         $homework6->setCorrectionPath("homework/potion-d1-potter-correction.txt");
@@ -1287,6 +1290,7 @@ class AppFixtures extends Fixture
         $grade4 = new Grade();
         $grade4->setTitle("Devoir 1 de Métamorphose");
         $grade4->setGrade(17);
+        $grade1->setContent("Très bon devoir");
         $grade4->setHomework($homework9);
         $homework9->setStatus(2);
         $homework9->setCorrectionPath("homework/meta-d1-granger-correction.txt");

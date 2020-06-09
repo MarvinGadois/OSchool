@@ -20,7 +20,7 @@ const LessonsPages = () => {
   const allLessons = lessons.map((lesson) => (
     <div
       key={lesson.id}
-      className="card border-success mb-3 card text-white bg-warning mb-3"
+      className="card border-success mb-3 card text-white bg-warning"
       style={{ maxWidth: "18rem" }}
     >
       <div className="card-header bg-transparent border-success">
@@ -66,7 +66,7 @@ const LessonsPages = () => {
           </a>
         </div>
       </div>
-      <div className="container-fluid d-flex flex-row justify-content-around ">
+      <div className="container-fluid d-flex flex-row justify-content-around flex-wrap ">
         {allLessons}
       </div>
     </>
