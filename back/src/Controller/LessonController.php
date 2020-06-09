@@ -31,7 +31,6 @@ class LessonController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
 
             $lesson->setUser($user);
-            $lesson->setUpdatedAt(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($lesson);
@@ -58,7 +57,6 @@ class LessonController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $lesson->setUser($user);
             $lesson->setUpdatedAt(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
@@ -66,7 +64,7 @@ class LessonController extends AbstractController
         }
 
         $formDelete = $this->createForm(DeleteType::class, null, [
-            'action' => $this->generateUrl('lesson_delete', ['id' => $user_id])
+            'action' => $this->generateUrl('lesson_delete', ['id' => $id])
         ]);
 
         return $this->render('lesson/form.html.twig', [
