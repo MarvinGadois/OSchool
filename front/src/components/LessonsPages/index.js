@@ -31,7 +31,7 @@ const LessonsPages = () => {
         <p className="card-text">{lesson.content}</p>
       </div>
       <div className="card-footer bg-transparent border-success">
-        <p
+        <p className="link_to_lesson"
           onClick={() => history.push(`/cours/${lesson.id}`)}
           className="badge badge-danger"
         >
@@ -66,9 +66,9 @@ const LessonsPages = () => {
           </a>
         </div>
       </div>
-    <div className="container-fluid d-flex flex-row justify-content-around ">
-      {allLessons}
-    </div>
+      <div className="container-fluid d-flex flex-row justify-content-around ">
+        {allLessons}
+      </div>
     </>
   );
 };

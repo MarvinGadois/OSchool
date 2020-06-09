@@ -22,7 +22,7 @@ const HomePageTeacher = () => {
         return (
             <tr key={oneClass.id}>
                 <th scope="row">{i + 1}</th>
-                <td><i onClick={() => history.push(`/classe/${oneClass.id}`)} className="fa fa-eye mr-3 teacher_i" aria-hidden="true"></i>{oneClass.name}</td>
+                <td><i onClick={() => history.push(`/professeur/classe/${oneClass.id}`)} className="fa fa-eye mr-3 teacher_i" aria-hidden="true"></i>{oneClass.name}</td>
                 <td>{oneClass.users.length}</td>
                 <td>{oneClass.level}</td>
                 <td>{oneClass.school.name}</td>
@@ -94,32 +94,11 @@ const HomePageTeacher = () => {
                                 <p>Etablissement: {currentUser.schools[0].name}</p>
                             </div>
                         </div>
-
-        <div className="container--homeTeacher--info">
-          <h2>Informations</h2>
-          <div className="container--homeTeacher--info--content">
-            <div className="container--homeTeacher--info--content--shedule">
-              <h3>Emploi du temps</h3>
-              <img src="https://i.pinimg.com/originals/a5/fb/2a/a5fb2ac484185792e81fa9fb2d2313b1.png"></img>
+                    </div>
+                </div>
             </div>
-
-            <div className="container--homeTeacher--info--content--perso">
-              <div className="container--homeTeacher--info--content--perso--head">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
-                <h5>Professeur {currentUser.lastname}</h5>
-              </div>
-              <hr></hr>
-              <div className="container--homeTeacher--info--content--perso--body">
-                <p>Email: {currentUser.email}</p>
-                <p>Role: {currentUser.roles[0].slice(5).toLowerCase()}</p>
-                <p>Etablissement: {currentUser.schools[0].name}</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default HomePageTeacher;
