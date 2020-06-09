@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 
 import getLessons from "../../utils/getLessons";
 import getHomeworks from "../../utils/getHomeworks";
-import getClassById from '../../utils/getClassroomById';
 import getCurrentClassById from "../../utils/getCurrentClassroom";
 import "./style.scss";
 
@@ -13,7 +12,6 @@ const TeacherClassroom = () => {
   const currentUser = useSelector((state) => state.user.user);
   const { currentClass } = useSelector((state) => state);
   const { lessons } = useSelector((state) => state);
-  const { classrooms } = useSelector((state) => state);
   useEffect(() => {
     getLessons(currentUser.id);
   }, []);
@@ -101,7 +99,12 @@ const TeacherClassroom = () => {
         </div>
 
         <div className="membersList">
-          <h2>Liste des membres</h2>
+          <h2>
+            Liste des membres{" "}
+            <span className="badge badge-primary ml-2">
+              {currentClass.users ? currentClassUserNb.length : null}
+            </span>
+          </h2>
           <ul>
             <li>{allMembers}</li>
           </ul>
