@@ -66,6 +66,19 @@ class RessourceController extends AbstractController
                 if ($user->getId() == $ressource->getUser()->getId()) {
                     if ($form->isSubmitted() && $form->isValid()) {
                         $ressource->setUpdatedAt(new \DateTime());
+
+                        // get the file to save
+                        $pathFile = $form->get('path')->getData();
+
+                        // new file name
+                        $pathName = $pathFile->getClientOriginalName();
+
+                        // new file directory
+                        $pathDirectory = __DIR__ . '/../../public/assets/ressources/';
+
+                        //move the file to save to the new directory
+                        $pathFile->move($pathDirectory, $pathName);
+
                         $em = $this->getDoctrine()->getManager();
                         $em->flush();
                     }
