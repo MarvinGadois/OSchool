@@ -16,7 +16,8 @@ import {
   SET_ONE_HOMEWORK,
   SET_GRADES_BY_USER,
   SET_ONE_NEW,
-} from './actions';
+  SET_CURRENT_CLASSROOM,
+} from "./actions";
 
 // State initial
 const initialState = {
@@ -35,6 +36,7 @@ const initialState = {
   classrooms: [],
   gradesUser: [],
   OneNewById: [],
+  currentClass: {},
 };
 
 export default (state = initialState, action = {}) => {
@@ -142,6 +144,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         homework: action.homework,
+      };
+    }
+    case SET_CURRENT_CLASSROOM: {
+      return {
+        ...state,
+        currentClass: action.CurrentClass,
       };
     }
     default: {

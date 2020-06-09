@@ -66,3 +66,7 @@ export const setGradesByUserId = (grades) => ({ type: SET_GRADES_BY_USER, grades
 // action set one new
 export const SET_ONE_NEW = 'actions/SET_ONE_NEW';
 export const setOneNew = (oneNewe) => ({ type: SET_ONE_NEW, oneNewe });
+
+// action set current class
+export const SET_CURRENT_CLASSROOM = 'actions/SET_CURRENT_CLASSROOM';
+export const setCurrentClassroom = (CurrentClass) => ({ type: SET_CURRENT_CLASSROOM, CurrentClass });

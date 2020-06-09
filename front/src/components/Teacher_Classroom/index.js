@@ -1,22 +1,72 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 
-//import imageFolders from '../../../../back/public/assets/images';
-
-
-import getSchoolNews from '../../utils/getSchoolNews';
-import './style.scss';
+import getLessons from "../../utils/getLessons";
+import getHomeworks from "../../utils/getHomeworks";
+import getClassById from '../../utils/getClassroomById';
+import getCurrentClassById from "../../utils/getCurrentClassroom";
+import "./style.scss";
 
 const TeacherClassroom = () => {
+  let { id } = useParams();
   const currentUser = useSelector((state) => state.user.user);
+  const { currentClass } = useSelector((state) => state);
+  const { lessons } = useSelector((state) => state);
   const { classrooms } = useSelector((state) => state);
-  console.log('les classes:', classrooms);
-  // const membersList = classrooms.user.map(oneUser => {
-  
+  useEffect(() => {
+    getLessons(currentUser.id);
+  }, []);
+
+  const { homeworks } = useSelector((state) => state);
+  useEffect(() => {
+    getHomeworks(currentUser.id);
+  }, []);
+
+  let allMembers;
+  let currentClassUserNb;
+  useEffect(() => {
+    getCurrentClassById(id);
+  }, []);
+
+  currentClass.users
+    ? (currentClassUserNb = currentClass.users.filter(
+        (user) => user.roles[0] === "ROLE_STUDENT"
+      ))
+    : null;
 
 
+  const LessonSubject = lessons.map((lesson) => (
+    <p key={lesson.id}>
+      {lesson.subject.title}
+    </p>
+  ));
 
-  //console.log("salut c'est aymeric");
+  const LessonTitle = lessons.map((lesson) => (
+    <div key={lesson.id}>
+      <h4>{lesson.subject.title}</h4>
+      <p>{lesson.title.slice(0, 10)}</p>
+    </div>
+  ));
+
+  currentClass.users
+    ? (allMembers = currentClass.users.map(
+      (user) => (
+        <div key={user.id}>
+        <p>
+          {user.lastname} {user.firstname} 
+        </p>
+        <p>moyenne 15/20</p>
+        </div>
+      )))
+    : null;
+
+    const allHomeworks = homeworks.map((homework) => (
+      <div key={homework.id}>
+        <p>{homework.title}</p>
+        <p>{homework.code}</p>
+      </div>
+    ));
 
 
 
@@ -25,10 +75,10 @@ const TeacherClassroom = () => {
     <div className="wrappered">
       <div className="container-of-head">
         <h2>{currentUser.schools[0].name}</h2>
-
-        <h2>Nombre d'élèves 20</h2>
+        Nombre d'élèves:
+        {currentClass.users ? currentClassUserNb.length : null}
         <div className="container-head--placeholder">
-          <input type="text" className=""/>
+          <input type="text" className="" />
         </div>
       </div>
       <div className="title-of-page">
@@ -39,10 +89,13 @@ const TeacherClassroom = () => {
           <h2>Information de la classe</h2>
           <div className="bordered">
             <ul>
-              <li>Nombre d'élèves</li>
-              <li>Lorem Ipsum</li>
-              <li>Lorem Ipsum</li>
-              <img src="" alt="Emploi du temps" />
+              <li>{currentUser.classrooms[0].name}</li>
+              <li>{currentUser.classrooms[0].level}</li>
+              <img
+                id="planning"
+                src="https://i.pinimg.com/originals/a5/fb/2a/a5fb2ac484185792e81fa9fb2d2313b1.png"
+                alt="Emploie du temps"
+              ></img>
             </ul>
           </div>
         </div>
@@ -50,10 +103,7 @@ const TeacherClassroom = () => {
         <div className="membersList">
           <h2>Liste des membres</h2>
           <ul>
-            <li>
-              <p>student</p>
-              <p>moyenne</p>
-            </li>
+            <li>{allMembers}</li>
           </ul>
         </div>
 
@@ -61,37 +111,27 @@ const TeacherClassroom = () => {
           <h2>liste des matières</h2>
           <ul>
             <li>
-              <p>matière</p>
+              {LessonSubject}
               <p>professeur</p>
+              <p>one lesson</p>
             </li>
           </ul>
         </div>
 
         <div className="lessons">
           <h2>Vos cours/lessons</h2>
-          <div className="cards">
-            <p>Nom de la matière</p>
-            <p>Nom du cours</p>
-
-          </div>
+          <div className="cards">{LessonTitle}</div>
         </div>
 
         <div className="homework">
           <h2>Vos devoirs</h2>
-          <div className="cards">
-            <p>Nom du deovir</p>
-            <p>Nom de la matière</p>
-
-          </div>
+          <div className="cards">{allHomeworks}</div>
         </div>
-
 
         <div className="correction">
           <h2>Vos corrections</h2>
           <div className="cards">
-            <p>Nom du devoir</p>
-            <p>Nom de la matière</p>
-
+            <p>Aucun devoir corrigé</p>
           </div>
         </div>
       </div>
