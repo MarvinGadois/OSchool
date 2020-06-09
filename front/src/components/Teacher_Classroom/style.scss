@@ -21,6 +21,10 @@
   margin-top: 50px ;
 }
 
+#planning {
+  width: 300px;
+  height: 200px;
+}
 
 .wrappered{
   h1{
@@ -95,3 +99,5 @@
     @extend %title;
   }
 }
+
+
