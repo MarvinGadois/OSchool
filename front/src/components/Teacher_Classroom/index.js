@@ -93,7 +93,7 @@ const TeacherClassroom = () => {
               <li>{currentUser.classrooms[0].level}</li>
               <img
                 id="planning"
-                src="https://i.pinimg.com/originals/a5/fb/2a/a5fb2ac484185792e81fa9fb2d2313b1.png"
+                src="https://charivari.edumoov.com/wp-content/uploads/2018/03/Emploidu-temps-2.png"
                 alt="Emploie du temps"
               ></img>
             </ul>
