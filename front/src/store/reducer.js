@@ -118,22 +118,20 @@ export default (state = initialState, action = {}) => {
         ...state,
         lesson: action.lesson,
       };
-     case SET_GRADES_BY_USER: {
-            return {
-                ...state,
-                gradesUser: action.grades,
-            };
-        }
-     case SET_ONE_NEW: {
-            return {
-                ...state,
-                OneNewById: action.oneNewe,
-            };
-        }
-        default: {
-            return state;
-        }
     }
+    case SET_GRADES_BY_USER: {
+      return {
+        ...state,
+        gradesUser: action.grades,
+      };
+    }
+    case SET_ONE_NEW: {
+      return {
+        ...state,
+        OneNewById: action.oneNewe,
+      };
+    }
+
     case SET_HOMEWORKS: {
       return {
         ...state,
@@ -151,3 +149,4 @@ export default (state = initialState, action = {}) => {
     }
   }
 };
+

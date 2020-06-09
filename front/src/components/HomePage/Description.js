@@ -26,7 +26,7 @@ const Description = () => {
       <div className="description_main">
         <p>O’school est une plateforme web facilitant les échanges en ligne entre
 
-        les différent parties de l’éducation.
+        les différentes parties de l’éducation.
         </p>
       </div>
 

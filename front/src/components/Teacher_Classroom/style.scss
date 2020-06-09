@@ -1,0 +1,97 @@
+%title{
+  font-size: 1.5em;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+%cards{
+  width: 50%;
+  margin: 20px 0 20px;
+  height: 25vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+%topcards{
+  margin-top: 50px ;
+}
+
+
+.wrappered{
+  h1{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    font-size: 2em;
+    font-weight: bold;
+    }
+}
+
+
+.container-of-head {
+  justify-content: space-around;
+  display: flex;
+  h2{
+    @extend %title;
+  }
+}
+
+
+
+.containered{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.classroomInfo{
+  @extend %cards;
+  @extend %topcards;
+  h2{
+    @extend %title;
+  }
+}
+
+
+
+.membersList{
+  @extend %topcards;
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}
+
+.subject{
+  @extend %cards;
+  h2 {
+    @extend %title;
+  }
+}
+
+
+.lessons{
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}
+
+.homework{
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}
+
+.correction{
+  @extend %cards;
+  h2{
+    @extend %title;
+  }
+}

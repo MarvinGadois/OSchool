@@ -29,7 +29,7 @@ const HomePageStudent = () => {
                 <td>{oneGrade.title}</td>
                 <td>x</td>
                 <td>{oneGrade.grade}</td>
-                <td>{oneGrade.homework.content}</td>
+                <td>{oneGrade.content}</td>
 
             </tr>
         )
