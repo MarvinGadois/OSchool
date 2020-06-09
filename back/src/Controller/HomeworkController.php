@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Homework;
+use App\Form\CorrectionHomeworkType;
 use App\Form\DeleteType;
 use App\Form\HomeworkType;
 use App\Repository\HomeworkRepository;
@@ -83,6 +84,45 @@ class HomeworkController extends AbstractController
             'formDelete' => $formDelete->createView(),
         ]);
     }
+
+
+    /**
+     * @Route("/user/{user_id}/correction/{id}", name="correction", requirements={"user_id": "\d+", "id": "\d+"})
+     */
+    public function correction($user_id, $id, Request $request, UserRepository $userRepository, HomeworkRepository $homeworkRepository)
+    {
+        $homework = $homeworkRepository->find($id);
+        $user = $userRepository->find($user_id);
+
+        $form = $this->createForm(CorrectionHomeworkType::class, $homework);
+
+        $form->handleRequest($request);
+
+        foreach ($user->getRoles() as $role){
+            if($role == "ROLE_TEACHER") {
+                
+                if($form->isSubmitted() && $form->isValid()) {
+
+                    $homework->setStatus(2);
+                    $homework->setUpdatedAt(new \DateTime());
+        
+                    $em = $this->getDoctrine()->getManager();
+                    $em->flush();
+                }
+            }
+        }
+        
+
+        $formDelete = $this->createForm(DeleteType::class, null, [
+            'action' => $this->generateUrl('homework_delete', ['id' => $id])
+        ]);
+
+        return $this->render('homework/form.html.twig', [
+            'form' => $form->createView(),
+            'formDelete' => $formDelete->createView(),
+        ]);
+    }
+
 
 
     /**
