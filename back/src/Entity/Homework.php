@@ -98,6 +98,12 @@ class Homework
         $this->createdAt = new \DateTime();
         $this->status = 0;
     }
+
+
+    public function __toString()
+    {
+        return $this->code . ' - ' . $this->title;
+    }
     
 
     public function getId(): ?int
