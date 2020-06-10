@@ -21,7 +21,7 @@ const LessonsPages = () => {
     <div
       key={lesson.id}
       className="card border-success mb-3 card text-white bg-warning"
-      style={{ maxWidth: "18rem" }}
+      style={{ maxWidth: "25rem" }}
     >
       <div className="card-header bg-transparent border-success">
         Cours de {lesson.subject.title}
@@ -31,7 +31,8 @@ const LessonsPages = () => {
         <p className="card-text">{lesson.content}</p>
       </div>
       <div className="card-footer bg-transparent border-success">
-        <p className="link_to_lesson"
+        <p
+          className="link_to_lesson"
           onClick={() => history.push(`/cours/${lesson.id}`)}
           className="badge badge-danger"
         >
