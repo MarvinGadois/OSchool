@@ -65,7 +65,7 @@ const Login = () => {
                             />
                         </div>
                     </div>
-                    <input type="submit" className="btn" value="Login" />
+                    <input type="submit" className="btn_login" value="Login" />
                 </form>
             </div>
         </div>
