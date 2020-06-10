@@ -1,18 +1,18 @@
 @import 'src/styles/variables.scss';
 
 .footer {
+
   background: $primary-color;
+
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   font: bold 16px sans-serif;
   left: 0;
   bottom: 0;
   width: 100%;
-  //height: 100px;
 }
 
 .footer-content{
-  //background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,77 +30,37 @@
   }
 }
 
-/* Footer left */
-
-// .footer .footer-left {
-//   float: left;
-// }
-
 /* O'school logo */
 
 .footer h3 {
-  color: #e1d2b8;
+  color: #ffffff;
   font: normal 36px 'Roboto', cursive;
-  //margin: 0 0 10px;
 }
 
 /* Footer links */
 
 .footer .footer-links {
   color: #ffffff;
-  //margin: 0 0 10px;
-  //padding: 0;
 }
 
 .about-p{
   cursor: pointer;
 }
 .about-p:hover{
-  color:#68c2e8 ;
+  color:#e1d2b8 ;
 }
-
-// .footer .footer-links a {
-//   display: inline-block;
-//   line-height: 1.8;
-//   text-decoration: none;
-//   color: inherit;
-//    &:hover {
-//      color: #e1d2b8;
-//      transform: scale(1.2);
-//    }
-// }
 
 .footer .footer-company-name {
   color: #8f9296;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: normal;
-  //margin: 0;
-}
+  margin-top: 10%;
 
-/* Footer social icons */
-
-
-
-/* Footer Right */
-
-.footer .footer-right {
-  //float: right;
-}
-
-.footer .footer-right p {
-  //display: inline-block;
-  //vertical-align: top;
-  //margin: 15px 42px 0 0;
-  color: #ffffff;
 }
 
 #footer_img{
   width: 150px;
 }
-
-
-
-
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
@@ -112,5 +72,34 @@
 @media (max-width: 800px) {
 
 
+
+}
+
+
+@media (max-width: 560px) {
+  .footer-content{
+    flex-direction: column;
+
+    h3{
+      display: none;
+    }
+    
+  }
+  .footer-links{
+    width: 100%;
+    align-items: center;
+    align-content: space-around;
+    justify-content:space-around ;
+    order: 1;
+    margin-bottom: 5%;
+
+  }
+  .footer .footer-company-name {
+    margin-top: 3%;
+  }
+  #footer_img{
+    order: 0;
+    margin: -15% auto;
+  }
 
 }
