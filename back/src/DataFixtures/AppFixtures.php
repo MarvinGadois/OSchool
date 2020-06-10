@@ -859,21 +859,21 @@ class AppFixtures extends Fixture
         // OPINIONS
 
         $opinion1 = new Opinion();
-        $opinion1->setContent("Si spectare poterat volucriter fabulae spectare multas licet flexeris nixus fabulae gyris suppetere usque nupsissent.");
+        $opinion1->setContent("Site très pratique et simple d’utilisation. Merci pour ce gain de temps !");
         $opinion1->setDate(new \DateTime('10/30/2019'));
         $opinion1->setUser($oquirke);
         $opinions[] = $opinion1;
         $em->persist($opinion1);
 
         $opinion2 = new Opinion();
-        $opinion2->setContent("Quarum incrementis defuisset quarum plerumque atque Fortuna Roma non venerat summitatem foedere sublimibus in dissidentes.");
+        $opinion2->setContent("Merci pour ce complément dans notre vie d’étudiant. Tout est bien optimisé pour nous simplifier la vie. Merci");
         $opinion2->setDate(new \DateTime('06/01/2020'));
         $opinion2->setUser($hpotter);
         $opinions[] = $opinion2;
         $em->persist($opinion2);
 
         $opinion3 = new Opinion();
-        $opinion3->setContent("Inpulsu funesti principem inpulsu nondum comitatum carnificis adulescens ut ex adulescens manu et et hos.");
+        $opinion3->setContent("Je peux accéder à tout ce dont j’ai besoin très rapidement. Très pratique");
         $opinion3->setDate(new \DateTime('01/14/2018'));
         $opinion3->setUser($rweasley);
         $opinions[] = $opinion3;
@@ -882,8 +882,8 @@ class AppFixtures extends Fixture
         // RESSOURCES
   
         $ressource1 = new Ressource();
-        $ressource1->setTitle("Boggarts lavender robes");
-        $ressource1->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail.");
+        $ressource1->setTitle("Exercice de magie");
+        $ressource1->setContent("Vous trouverez ici la page 255 sur laquelle se trouve l’exercice à faire");
         $ressource1->setPath("");
         $ressource1->setClassroom($serdaigleA);
         $ressource1->setUser($binns);
@@ -891,8 +891,8 @@ class AppFixtures extends Fixture
         $em->persist($ressource1);
 
         $ressource2 = new Ressource();
-        $ressource2->setTitle("Squashy armchairs dirt on your nose brass");
-        $ressource2->setContent("Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule,");
+        $ressource2->setTitle("Photo des compositions de potions ");
+        $ressource2->setContent("Voici une image avec les compositions des potions vues aujourd’hui");
         $ressource2->setPath("manuels.jpeg");
         $ressource2->setClassroom($gryffondorD);
         $ressource2->setUser($mcgonagall);
@@ -900,8 +900,8 @@ class AppFixtures extends Fixture
         $em->persist($ressource2);
 
         $ressource3 = new Ressource();
-        $ressource3->setTitle("Thestral dirigible plums");
-        $ressource3->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey,");
+        $ressource3->setTitle("Métamorphose");
+        $ressource3->setContent("Voici la vidéo de la métamorphose effectuée aujourd’hui en classe");
         $ressource3->setPath("manuels.jpeg");
         $ressource3->setClassroom($gryffondorD);
         $ressource3->setUser($mcgonagall);
@@ -909,8 +909,8 @@ class AppFixtures extends Fixture
         $em->persist($ressource3);
 
         $ressource4 = new Ressource();
-        $ressource4->setTitle("Alohamora wand elf parchment");
-        $ressource4->setContent("Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake,");
+        $ressource4->setTitle("Liste des objets à acheter");
+        $ressource4->setContent("Je vous donne la liste des plantes à acheter pour le prochain cours de botanique");
         $ressource4->setPath("manuels.jpeg");
         $ressource4->setClassroom($gryffondorD);
         $ressource4->setUser($rogue);
@@ -918,8 +918,8 @@ class AppFixtures extends Fixture
         $em->persist($ressource4);
 
         $ressource5 = new Ressource();
-        $ressource5->setTitle("Squashy armchairs dirt on your nose brass scales");
-        $ressource5->setContent("Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar,");
+        $ressource5->setTitle("Observation astronomique");
+        $ressource5->setContent("Le lien pour observer l'événement de ce soir");
         $ressource5->setPath("manuels.jpeg");
         $ressource5->setClassroom($serpentardC);
         $ressource5->setUser($rogue);
@@ -927,8 +927,8 @@ class AppFixtures extends Fixture
         $em->persist($ressource5);
 
         $ressource6 = new Ressource();
-        $ressource6->setTitle("Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom.");
-        $ressource6->setContent("halice Hungarian Horntail, catherine wheels Essence of Dittany Gringotts Harry Potter. Prophecies Yaxley green eyes Remembrall horcrux hand of the servant. Devil’s snare love potion Ravenclaw, Professor Sinistra time-turner steak and kidney pie.");
+        $ressource6->setTitle("Feuille d'entraînement");
+        $ressource6->setContent(" Vous trouverez ici la feuille des entraînements à effectuer pour le prochain cours de Quidditch");
         $ressource6->setPath("manuels.jpeg");
         $ressource6->setClassroom($poufsouffleB);
         $ressource6->setUser($lupin);
@@ -938,8 +938,8 @@ class AppFixtures extends Fixture
         // NEWS
 
         $news1 = new News();
-        $news1->setTitle("A quand O'shcool ?");
-        $news1->setContent("Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu adsimulato saepius replicando quod flagrantibus votis eum videre frater cuperet patruelis, siquid per inprudentiam gestum est remissurus ut mitis et clemens, participemque eum suae maiestatis adscisceret, futurum laborum quoque socium, quos Arctoae provinciae diu fessae poscebant.");
+        $news1->setTitle("A quand O'School ?");
+        $news1->setContent("Bonjour à tous ! Vous êtes nombreux et nombreuses à nous demander : ‘Quand est-ce que le site sera disponible et accessible à tous ?’. Alors il est enfin temps pour nous de vous donner la réponse ! Le site sera disponible pour vous à partir du 17 Juin !");
         $news1->setDate(new \DateTime('05/29/2020'));
         $news1->setSchool($oschool);
         $news[] = $news1;
@@ -947,7 +947,7 @@ class AppFixtures extends Fixture
 
         $news2 = new News();
         $news2->setTitle("Du nouveau !");
-        $news2->setContent("Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa decreverim, que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem quindecim dierum decrevi sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non erat exigua eadem gratulatio quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.");
+        $news2->setContent("Nous sommes actuellement en train de continuer à améliorer le site petit à petit afin qu’il soit complet lors de sa sortie");
         $news2->setPath("news1.jpg");
         $news2->setDate(new \DateTime('06/01/2020'));
         $news2->setSchool($oschool);
@@ -956,7 +956,7 @@ class AppFixtures extends Fixture
 
         $news6 = new News();
         $news6->setTitle("Bientôt chez vous !");
-        $news6->setContent("Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration. Magic Nagini bezoar, Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion");
+        $news6->setContent("Nous sommes plus proche que jamais de l’ouverture que vous attendez tous ! J-10");
         $news6->setPath("news1.jpg");
         $news6->setDate(new \DateTime('06/07/2020'));
         $news6->setSchool($oschool);
@@ -965,7 +965,7 @@ class AppFixtures extends Fixture
 
         $news7 = new News();
         $news7->setTitle("Faites attention à vous");
-        $news7->setContent("Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey, keeper Godric’s Hollow telescope,");
+        $news7->setContent("En raison de la situation actuelle dans le monde, nous vous demandons de prendre bien soin de vous et de vos proches et de respecter les gestes barrières à la lettre afin de ne pas prendre de risques.");
         $news7->setPath("news1.jpg");
         $news7->setDate(new \DateTime('03/22/2020'));
         $news7->setSchool($oschool);
@@ -974,7 +974,7 @@ class AppFixtures extends Fixture
 
         $news3 = new News();
         $news3->setTitle("Quoi de neuf ?");
-        $news3->setContent("Praesent viverra fermentum nunc, in tempus dolor tincidunt at. Nullam tempor condimentum turpis, eget luctus arcu ornare eget. Integer ut lorem in urna vestibulum volutpat. Ut ac venenatis ipsum. Nam.");
+        $news3->setContent("On espère que tout va bien pour vous en ce moment. Nous avons hâte de vous retrouver à la rentrée !");
         $news3->setPath("news1.jpg");
         $news3->setDate(new \DateTime('06/05/2020'));
         $news3->setSchool($school);
@@ -983,7 +983,7 @@ class AppFixtures extends Fixture
 
         $news4 = new News();
         $news4->setTitle("Date de rentrée");
-        $news4->setContent("Vivamus auctor a ligula sit amet maximus. Curabitur congue risus quis turpis semper, et finibus sapien feugiat. Vestibulum vitae arcu eros. Donec ac dui molestie, hendrerit diam eu, blandit neque. Nunc nec scelerisque tortor. Proin congue ex est, varius mattis nulla sollicitudin eu. Sed augue.");
+        $news4->setContent("Bonjour à tous. Il est l’heure de vous annoncer la date de rentrée pour Septembre prochain. La rentrée se fera pour tous les élèves le Lundi 7 Septembre à 8h30. Vous serez tous attendu dans la Grande Salle.");
         $news4->setPath("news1.jpg");
         $news4->setDate(new \DateTime('08/24/2019'));
         $news4->setSchool($school);
@@ -992,7 +992,7 @@ class AppFixtures extends Fixture
 
         $news5 = new News();
         $news5->setTitle("Rencontre avec le choixpeau");
-        $news5->setContent("Aliquam ornare augue ligula, et lobortis est dapibus at. Duis sit amet eros mollis, congue magna sit amet, euismod elit. Fusce laoreet felis non consectetur tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis condimentum egestas nisi, dictum porta nulla. Morbi rhoncus rhoncus urna non sagittis. Nulla sed accumsan metus. Proin semper massa quam, in bibendum arcu pulvinar vel.");
+        $news5->setContent("Bonjour à tous ! Il est temps pour nous d’annoncer à nos nouveaux élèves de l’année prochaine que leur rencontre avec le choixpeau se fera le Lundi 7 Septembre à 10h en même temps que la rentrée commune à tous les élèves.");
         $news5->setPath("news1.jpg");
         $news5->setDate(new \DateTime('09/03/2020'));
         $news5->setSchool($school);
@@ -1001,7 +1001,7 @@ class AppFixtures extends Fixture
 
         $news8 = new News();
         $news8->setTitle("Tournoi de Quidditch de fin");
-        $news8->setContent("Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn.");
+        $news8->setContent("Le tournoi de Quidditch de fin d’année aura lieu du Lundi 29 Juin au Vendredi 3 Juillet");
         $news8->setPath("news1.jpg");
         $news8->setDate(new \DateTime('06/23/2019'));
         $news8->setSchool($school);
@@ -1010,9 +1010,9 @@ class AppFixtures extends Fixture
 
         $news9 = new News();
         $news9->setTitle("Résultats du tournoi de Quidditch");
-        $news9->setContent("Thestral dirigible plums, Viktor Krum hexed memory charm Animagus Invisibility Cloak three-headed Dog. Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle. Sirius Black Holyhead Harpies, you’ve got dirt on your nose.");
+        $news9->setContent("Le tournoi de Quidditch de fin d’année s’est terminé hier et il est maintenant temps de vous annoncer les résultats finaux : La maison qui remporte le tournoi est *roulements de tambours* : GRYFFONDOR ! La suite du classement est le suivant : Serpentard en seconde position, Serdaigle en troisième position et Poufsouffle pour compléter ce classement final. Félicitations à tous les participants !");
         $news9->setPath("news1.jpg");
-        $news9->setDate(new \DateTime('06/30/2019'));
+        $news9->setDate(new \DateTime('07/04/2019'));
         $news9->setSchool($school);
         $news[] = $news9;
         $em->persist($news9);
@@ -1049,8 +1049,8 @@ class AppFixtures extends Fixture
         // LESSONS
 
         $lesson1 = new Lesson();
-        $lesson1->setTitle("North Lannister Nightswatch Kingslanding oath Stark giantsblood of.");
-        $lesson1->setContent("All men must die. All men must die. Can a man still be brave if he’s afraid? That is the only time a man can be brave.More pigeon pie, please. The North remembers. As High as Honor. The Knight of Lemonwood.");
+        $lesson1->setTitle("Cours de rentrée de potions");
+        $lesson1->setContent("Aujourd’hui nous avons fait connaissances avec les nouveaux qui nous ont rejoint cette année et je vous ai présenté le programme de cette année");
         $lesson1->setPath("");
         $lesson1->setClassroom($gryffondorD);
         $lesson1->setSubject($potions);
@@ -1059,8 +1059,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson1);
 
         $lesson2 = new Lesson();
-        $lesson2->setTitle("Nightswatch maester Kingslanding Casterly rock south.");
-        $lesson2->setContent("Words are like wind. The War of the 5 kings. The wolf and the lion. A dream of Spring. More pigeon pie, please.");
+        $lesson2->setTitle("Présentation de l’histoire de la magie");
+        $lesson2->setContent("Aujourd’hui nous avons vu ensemble le programme de cette année pour “L’Histoire de la magie” que je vais vous enseigner les prochaines semaines.");
         $lesson2->setPath("manuels.jpeg");
         $lesson2->setClassroom($serdaigleA);
         $lesson2->setSubject($histoire);
@@ -1069,8 +1069,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson2);
 
         $lesson3 = new Lesson();
-        $lesson3->setTitle("Giantsblood north Winterfell Kingslanding south.");
-        $lesson3->setContent("The North remembers. And now his watch is ended. House Tarly of Horn Hill The tourney of Ashford Meadows. The battle of the redgrass field.");
+        $lesson3->setTitle("Etude des moldus rentrée");
+        $lesson3->setContent("74 101 32 110 101 32 112 101 117 120 32 112 97 115 32 118 111 117 115 32 112 97 114 108 101 114 32 105 99 105 44 32 99 101 108 117 105 32 100 111 110 116 32 111 110 32 110 101 32 100 111 105 116 32 112 97 115 32 100 105 114 101 32 108 101 32 110 111 109 32 108 101 32 115 97 117 114 97 105 116");
         $lesson3->setPath("");
         $lesson3->setClassroom($serdaigleA);
         $lesson3->setSubject($moldus);
@@ -1079,8 +1079,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson3);
 
         $lesson4 = new Lesson();
-        $lesson4->setTitle("Riverlands warden Karstark Dorne tourney.");
-        $lesson4->setContent("Pay the iron price. The North remembers. It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters. The Dothraki do things in their own time, for their own reasons. Bastards are born of passion, aren't they? We don't despise them in Dorne.");
+        $lesson4->setTitle("Cours de métamorphose rentrée");
+        $lesson4->setContent("Nous avons vu le programme de cette année scolaire ainsi que quelques réussites des élèves des précédentes années");
         $lesson4->setPath("manuels.jpeg");
         $lesson4->setClassroom($gryffondorD);
         $lesson4->setSubject($metamarphose);
@@ -1089,8 +1089,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson4);
 
         $lesson5 = new Lesson();
-        $lesson5->setTitle("Stannis in Nightswatch Dragon Dorne.");
-        $lesson5->setContent("Our Sun Shines Bright. The tourney of Ashford Meadows. The War of the 5 kings. The Knight of Lemonwood. The rains of castamere.");
+        $lesson5->setTitle("Début des cours de sortilèges");
+        $lesson5->setContent("Ce matin nous avons vu ensemble à quoi ressemblait le manuel scolaire que vous avez tous et je vous ai également montré des vidéos de quelques sortilèges que nous avons effectué avec mes élèves l’année passée.");
         $lesson5->setPath("manuels.jpeg");
         $lesson5->setClassroom($gryffondorD);
         $lesson5->setSubject($sortileges);
@@ -1099,8 +1099,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson5);
 
         $lesson6 = new Lesson();
-        $lesson6->setTitle("Alohamora wand elf parchment,");
-        $lesson6->setContent("Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. ");
+        $lesson6->setTitle("Rentrée du cours de sciences");
+        $lesson6->setContent("Aujourd’hui je vous ai montré ce qu’on allait faire tout au long de cette année et nous avons commencé avec un petit quiz pour évaluer votre connaissance sur la matière en ce début d’année");
         $lesson6->setPath("manuels.jpeg");
         $lesson6->setClassroom($serpentardC);
         $lesson6->setSubject($sciences);
@@ -1109,8 +1109,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson6);
 
         $lesson7 = new Lesson();
-        $lesson7->setTitle("Toad-like smile Flourish and Blotts");
-        $lesson7->setContent("Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven roaring lion hat. Unicorn blood crossbow mars is bright tonight,");
+        $lesson7->setTitle("Deuxième cours de métamorphose");
+        $lesson7->setContent("Pour ce deuxième cours, nous nous sommes attaqués à la première métamorphose que vous devons effectuer dans le programme : Transformer une allumette en aiguille.");
         $lesson7->setPath("manuels.jpeg");
         $lesson7->setClassroom($gryffondorD);
         $lesson7->setSubject($metamarphose);
@@ -1119,8 +1119,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson7);
 
         $lesson8 = new Lesson();
-        $lesson8->setTitle("Prefect’s bathroom Trelawney veela squashy armchairs,");
-        $lesson8->setContent("Hippogriffs Headless Hunt giant squid petrified. Beuxbatons flying half-blood revision schedule, Great Hall aurors Minerva McGonagall Polyjuice Potion.");
+        $lesson8->setTitle("Deuxième cours de potions");
+        $lesson8->setContent("Pour ce deuxième cours, nous nous sommes attaqués à la première potion que vous devons effectuer dans le programme : Le philtre de mort vivante ");
         $lesson8->setPath("manuels.jpeg");
         $lesson8->setClassroom($gryffondorD);
         $lesson8->setSubject($potions);
@@ -1129,8 +1129,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson8);
 
         $lesson9 = new Lesson();
-        $lesson9->setTitle("Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall");
-        $lesson9->setContent("Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss? Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. Pumpkin juice Trevor wave your wand out glass orbs, a Grim knitted hats. Stan Shunpike doe patronus, suck his soul Muggle-Born large order of drills the trace.");
+        $lesson9->setTitle("Troisième cours de potions");
+        $lesson9->setContent("Aujourd’hui nous avons vu le “Béozard” qui est une pierre qui sert d’antidote à la plupart des potions et qui est de plus en plus rare à trouver");
         $lesson9->setPath("manuels.jpeg");
         $lesson9->setClassroom($gryffondorD);
         $lesson9->setSubject($potions);
@@ -1139,8 +1139,8 @@ class AppFixtures extends Fixture
         $em->persist($lesson9);
 
         $lesson10 = new Lesson();
-        $lesson10->setTitle("Alohamora wand elf parchment");
-        $lesson10->setContent(" Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus.");
+        $lesson10->setTitle("Cours de sport");
+        $lesson10->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
         $lesson10->setPath("manuels.jpeg");
         $lesson10->setClassroom($poufsouffleB);
         $lesson10->setSubject($sport);
