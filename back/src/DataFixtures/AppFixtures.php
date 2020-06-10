@@ -13,6 +13,7 @@ use App\Entity\School;
 use App\Entity\Subject;
 use App\Entity\User;
 use App\Entity\News;
+use App\Entity\Schedule;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -39,6 +40,7 @@ class AppFixtures extends Fixture
         $news = [];
         $notices = [];
         $lessons = [];
+        $schedules = [];
 
 
         // SCHOOL
@@ -81,6 +83,37 @@ class AppFixtures extends Fixture
         $poufsouffleB->setSchool($school);
         $classrooms[] = $poufsouffleB;
         $em->persist($poufsouffleB);
+
+
+        // SCHEDULES
+
+        $schedule1 = new Schedule();
+        $schedule1->setTitle("Emploi du temps de Serdaigle A");
+        $schedule1->setPath("edt-S-A.PNG");
+        $schedule1->setClassroom($gryffondorD);
+        $schedules[] = $schedule1;
+        $em->persist($schedule1);
+
+        $schedule2 = new Schedule();
+        $schedule2->setTitle("Emploi du temps de Gryffondor D");
+        $schedule2->setPath("edt-G-D.PNG");
+        $schedule2->setClassroom($serdaigleA);
+        $schedules[] = $schedule2;
+        $em->persist($schedule2);
+
+        $schedule3 = new Schedule();
+        $schedule3->setTitle("Emploi du temps de Serpentard C");
+        $schedule3->setPath("edt-Serp-C.PNG");
+        $schedule3->setClassroom($serpentardC);
+        $schedules[] = $schedule3;
+        $em->persist($schedule3);
+
+        $schedule4 = new Schedule();
+        $schedule4->setTitle("Emploi du temps de Poufsouffle B");
+        $schedule4->setPath("edt-P-B.PNG");
+        $schedule4->setClassroom($poufsouffleB);
+        $schedules[] = $schedule4;
+        $em->persist($schedule4);
 
 
         // SUBJECT
