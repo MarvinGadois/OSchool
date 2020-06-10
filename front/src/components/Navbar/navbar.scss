@@ -32,13 +32,15 @@
 
       &:link,
       &:visited {
-        color: #0d0d0d;
+        color: #335C81;
+        font-weight: bold;
+
       }
 
       &:focus,
       &:hover,
       &:active {
-        color: #68c2e8;
+        color: #6D9CC5;
         //color: #20232d
       }
       }
