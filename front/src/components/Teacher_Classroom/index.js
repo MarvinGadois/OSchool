@@ -29,8 +29,8 @@ const TeacherClassroom = () => {
 
   currentClass.users
     ? (currentClassUserNb = currentClass.users.filter(
-        (user) => user.roles[0] === "ROLE_STUDENT"
-      ))
+      (user) => user.roles[0] === "ROLE_STUDENT"
+    ))
     : null;
 
 
@@ -51,20 +51,20 @@ const TeacherClassroom = () => {
     ? (allMembers = currentClass.users.map(
       (user) => (
         <div key={user.id}>
-        <p>
-          {user.lastname} {user.firstname} 
-        </p>
-        <p>moyenne 15/20</p>
+          <p>
+            {user.lastname} {user.firstname}
+          </p>
+          <p>moyenne 15/20</p>
         </div>
       )))
     : null;
 
-    const allHomeworks = homeworks.map((homework) => (
-      <div key={homework.id}>
-        <p>{homework.title}</p>
-        <p>{homework.code}</p>
-      </div>
-    ));
+  const allHomeworks = homeworks.map((homework) => (
+    <div key={homework.id}>
+      <p>{homework.title}</p>
+      <p>{homework.code}</p>
+    </div>
+  ));
 
 
 
