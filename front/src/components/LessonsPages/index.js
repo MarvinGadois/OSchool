@@ -35,14 +35,14 @@ const LessonsPages = () => {
           onClick={() => history.push(`/cours/${lesson.id}`)}
           className="badge badge-danger"
         >
-          Telecharger ici
+          Accéder ici
         </p>
       </div>
     </div>
   ));
 
   return (
-    <>
+    <div className="container_lessons">
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -67,9 +67,9 @@ const LessonsPages = () => {
         </div>
       </div>
       <div className="container-fluid d-flex flex-row flex-wrap justify-content-around">
-      {allLessons}
+        {allLessons}
       </div>
-    </>
+    </div>
   );
 };
 

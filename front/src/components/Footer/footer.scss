@@ -33,21 +33,21 @@
 /* O'school logo */
 
 .footer h3 {
-  color: #ffffff;
+  color:#e1d2b8;
   font: normal 36px 'Roboto', cursive;
 }
 
 /* Footer links */
 
 .footer .footer-links {
-  color: #ffffff;
+  color:#e1d2b8;
 }
 
 .about-p{
   cursor: pointer;
 }
 .about-p:hover{
-  color:#e1d2b8 ;
+ color: #ffffff;
 }
 
 .footer .footer-company-name {
@@ -64,19 +64,7 @@
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
-@media (max-width: 1000px) {
-
-
-}
-
-@media (max-width: 800px) {
-
-
-
-}
-
-
-@media (max-width: 560px) {
+@media (max-width: 839px) {
   .footer-content{
     flex-direction: column;
 
