@@ -48,9 +48,9 @@ const Homeworks = () => {
     </div>
   ));
 
-  
+
   return (
-    <>
+    <div className="container_homeworks">
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -77,7 +77,7 @@ const Homeworks = () => {
       <div className="container-fluid d-flex flex-row flex-wrap justify-content-around ">
         {allHomeworks}
       </div>
-    </>
+    </div>
   );
 };
 
