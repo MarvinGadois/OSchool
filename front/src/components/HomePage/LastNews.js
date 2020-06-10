@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import getNewsNoAuth from '../../utils/getNewsNoAuth';
 
 // Import style
-import './style.css';
+import './style.scss';
 
 const LastNews = () => {
     const { newsNoConnected } = useSelector((state) => state)
@@ -28,7 +28,9 @@ const LastNews = () => {
     return (
         <div className="last_news"  >
             <h2>Dernières actualités</h2>
-            {news}
+            <div className="news_card_container">
+                {news}
+            </div>
         </div>
     )
 };
