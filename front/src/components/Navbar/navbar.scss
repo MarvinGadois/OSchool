@@ -22,15 +22,21 @@
 
       &:link,
       &:visited {
-        color: #335c81;
+
+        color: #335C81;
+        font-weight: bold;
+
+
       }
 
       &:focus,
       &:hover,
       &:active {
+
         
         color:#68c2e8;
         
+
       }
       }
     }
