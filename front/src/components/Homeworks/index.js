@@ -42,7 +42,7 @@ const Homeworks = () => {
           onClick={() => history.push(`/devoirs/${homework.id}`)}
           className="badge badge-danger"
         >
-          Telecharger ici
+          Accéder ici
         </p>
       </div>
     </div>
