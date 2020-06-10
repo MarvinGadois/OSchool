@@ -7,24 +7,15 @@
 {# Get the current route #}
 {% set route = app.request.attributes.get('_route')%}
 
-{% for key, flash in app.flashes %}
-    {% for message in flash %}
-        <div class="alert alert-{{ key }}" role="alert">
-            <p>{{ message }}</p>
-        </div>
-    {% endfor %}
-{% endfor %}
-
-
 {{ form_start(form) }}
 
-    <button type="submit" class="">{{ route == 'lesson_add' ? 'Ajouter' : 'Modifier' }}</button>
+    <button type="submit" class="">{{ route == 'grade_edit' ? 'Modifier' : 'Ajouter' }}</button>
 
 {{ form_rest(form) }}
 {{ form_end(form) }}
 
 
-{% if(route == 'lesson_edit')%}
+{% if(route == 'grade_edit')%}
 
     {{ form_start(formDelete)}}
 

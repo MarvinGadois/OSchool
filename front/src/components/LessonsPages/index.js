@@ -20,7 +20,7 @@ const LessonsPages = () => {
   const allLessons = lessons.map((lesson) => (
     <div
       key={lesson.id}
-      className="card border-success mb-3 card text-white bg-warning mb-3"
+      className="card border-success mb-3 card text-white bg-warning"
       style={{ maxWidth: "18rem" }}
     >
       <div className="card-header bg-transparent border-success">

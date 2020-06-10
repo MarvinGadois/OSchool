@@ -2,32 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Lesson;
+use App\Entity\Grade;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LessonType extends AbstractType
+class GradeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
+            ->add('grade')
             ->add('content')
-            ->add('path', FileType::class, [
-                'required' => false,
-                'mapped' => false
-            ])
-            ->add('classroom')
-            ->add('subject')
+            ->add('homework')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Lesson::class,
+            'data_class' => Grade::class,
         ]);
     }
 }
