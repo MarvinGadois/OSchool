@@ -4,9 +4,20 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"> </script>
+
+        <main>
+        
+            <div class="container p-0">
+
+                {% block body %}{% endblock %}
+
+            </div>
+           
+        </main>
+
     </body>
 </html>

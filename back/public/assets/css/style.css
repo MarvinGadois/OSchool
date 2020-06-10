@@ -1,0 +1,32 @@
+/* Custom file button */
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+
+.file-btn > label {
+    cursor: pointer;
+    color: #849293;
+    padding: 5px 15px;
+    margin-right: 20px;
+}
+
+.inputfile + label {
+    display: inline-block;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+}
+
+.inputfile + label:hover {
+    background-color: red;
+    color: white;
+}
+
+.file-name {
+    margin-top: 6px;
+}

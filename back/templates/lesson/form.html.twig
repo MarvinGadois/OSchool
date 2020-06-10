@@ -7,6 +7,9 @@
 {# Get the current route #}
 {% set route = app.request.attributes.get('_route')%}
 
+
+<div class="row">
+
 {% for key, flash in app.flashes %}
     {% for message in flash %}
         <div class="alert alert-{{ key }}" role="alert">
@@ -15,15 +18,58 @@
     {% endfor %}
 {% endfor %}
 
-
-{{ form_start(form) }}
-
-    <button type="submit" class="">{{ route == 'lesson_add' ? 'Ajouter' : 'Modifier' }}</button>
-
-{{ form_rest(form) }}
-{{ form_end(form) }}
+</div>
 
 
+<div class="row">
+
+    <h1>{{ route == 'lesson_add' ? 'Ajouter' : 'Modifier' }} une leçon</h1>
+
+    <form class="col-12">
+
+    {{ form_start(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.title, "Titre") }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.content, "Description") }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.path, "Fichier") }}
+            <br>
+            <div class="row m-0 file-btn">
+                {{ form_widget(form.path, {'attr': {'class': 'inputfile'}}) }}
+                {{ form_label(form.path, "Choisir un fichier") }}
+                <p class="file-name"></p>
+            </div>
+            
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.classroom, "Classe") }}
+            {{ form_widget(form.classroom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.subject, "Matière") }}
+            {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <button type="submit" class="btn submit-btn">{{ route == 'lesson_add' ? 'Ajouter' : 'Modifier' }}</button>
+
+    {{ form_end(form) }}
+
+    </form>
+
+</div>
+
+
+<div class="row">
 {% if(route == 'lesson_edit')%}
 
     {{ form_start(formDelete)}}
@@ -33,5 +79,19 @@
     {{ form_end(formDelete) }}
 
 {% endif %}
+</div>
+
+
+<script> 
+    $(document).ready(function() { 
+        $('input[type="file"]').change(function(e) { 
+            var file = e.target.files[0].name; 
+            $("p").text(file); 
+        }); 
+    });  
+</script>
 
 {% endblock %}
+
+
+
