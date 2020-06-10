@@ -66,8 +66,8 @@ const LessonsPages = () => {
           </a>
         </div>
       </div>
-      <div className="container-fluid d-flex flex-row justify-content-around flex-wrap ">
-        {allLessons}
+      <div className="container-fluid d-flex flex-row flex-wrap justify-content-around">
+      {allLessons}
       </div>
     </>
   );

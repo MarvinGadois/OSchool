@@ -74,7 +74,7 @@ const Homeworks = () => {
           </a>
         </div>
       </div>
-      <div className="container-fluid d-flex flex-row justify-content-around flex-wrap">
+      <div className="container-fluid d-flex flex-row flex-wrap justify-content-around ">
         {allHomeworks}
       </div>
     </>
