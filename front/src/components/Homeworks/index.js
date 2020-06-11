@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 import "./homeworks.scss";
 
 import getHomeworks from "../../utils/getHomeworks";
+import getClassById from "../../utils/getClassroomById";
 
 const Homeworks = () => {
 
@@ -15,6 +16,7 @@ const Homeworks = () => {
   useEffect(() => {
     getHomeworks(currentUser.id);
   }, []);
+  const { classrooms } = useSelector((state) => state);
 
   console.log(homeworks);
 
@@ -23,18 +25,14 @@ const Homeworks = () => {
     <div
       key={homework.id}
       className="card border-success mb-3 card text-white bg-dark mb-3"
-      style={{ maxWidth: "18rem" }}
+      style={{ maxWidth: "25rem" }}
     >
       <div className="card-header bg-transparent border-success">
-        Cours de {homework.subject.title}
+        Devoirs de {homework.subject.title}
       </div>
       <div className="card-body text-success">
-        <h2 className="card-title">
-          Classe {homework.classroom.name}
-        </h2>
-        <h2 className="card-title">
-          {homework.title}
-        </h2>
+        <h2 className="card-title">Classe {homework.classroom.name}</h2>
+        <h2 className="card-title">{homework.title}</h2>
         <p className="card-text">{homework.content}</p>
       </div>
       <div className="card-footer bg-transparent border-success">
