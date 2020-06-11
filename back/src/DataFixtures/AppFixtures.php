@@ -1278,6 +1278,61 @@ class AppFixtures extends Fixture
         $homeworks[] = $homework5;
         $em->persist($homework5);
 
+        $homework15 = new Homework();
+        $homework15->setCode("P-GD-3");
+        $homework15->setTitle("Devoir n°3");
+        $homework15->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework15->setPath("homework/potion-d3-ennonce.txt");
+        $homework15->setClassroom($gryffondorD);
+        $homework15->setUser($rogue);
+        $homework15->setSubject($potions);
+        $homeworks[] = $homework15;
+        $em->persist($homework15);
+
+        $homework16 = new Homework();
+        $homework16->setCode("P-GD-4");
+        $homework16->setTitle("Devoir n°4");
+        $homework16->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework16->setPath("homework/potion-d4-ennonce.txt");
+        $homework16->setClassroom($gryffondorD);
+        $homework16->setUser($rogue);
+        $homework16->setSubject($potions);
+        $homeworks[] = $homework16;
+        $em->persist($homework16);
+
+        $homework17 = new Homework();
+        $homework17->setCode("P-GD-5");
+        $homework17->setTitle("Devoir n°5");
+        $homework17->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework17->setPath("homework/potion-d5-ennonce.txt");
+        $homework17->setClassroom($gryffondorD);
+        $homework17->setUser($rogue);
+        $homework17->setSubject($potions);
+        $homeworks[] = $homework17;
+        $em->persist($homework17);
+
+        $homework18 = new Homework();
+        $homework18->setCode("P-GD-6");
+        $homework18->setTitle("Devoir n°6");
+        $homework18->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework18->setPath("homework/potion-d6-ennonce.txt");
+        $homework18->setClassroom($gryffondorD);
+        $homework18->setUser($rogue);
+        $homework18->setSubject($potions);
+        $homeworks[] = $homework18;
+        $em->persist($homework18);
+
+        $homework19 = new Homework();
+        $homework19->setCode("P-GD-7");
+        $homework19->setTitle("Devoir n°7");
+        $homework19->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework19->setPath("homework/potion-d7-ennonce.txt");
+        $homework19->setClassroom($gryffondorD);
+        $homework19->setUser($rogue);
+        $homework19->setSubject($potions);
+        $homeworks[] = $homework19;
+        $em->persist($homework19);
+
         $homework3 = new Homework();
         $homework3->setCode("P-GD-1");
         $homework3->setTitle("Devoir n°1 rendu");
