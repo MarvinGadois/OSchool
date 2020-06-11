@@ -42,15 +42,15 @@ const Homeworks = () => {
           onClick={() => history.push(`/devoirs/${homework.id}`)}
           className="badge badge-danger"
         >
-          Telecharger ici
+          Accéder ici
         </p>
       </div>
     </div>
   ));
 
-  
+
   return (
-    <>
+    <div className="container_homeworks">
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -77,7 +77,7 @@ const Homeworks = () => {
       <div className="container-fluid d-flex flex-row flex-wrap justify-content-around ">
         {allHomeworks}
       </div>
-    </>
+    </div>
   );
 };
 

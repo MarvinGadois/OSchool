@@ -54,16 +54,20 @@ const HomePageTeacher = () => {
         <div className="container--homeTeacher--news">
           <h2>
             Dernières infos de l'établissement
-              <span className="badge badge-primary ml-2">
+              {/* <span className="badge badge-primary ml-2">
               {schoolNews.length}
-            </span>
+            </span> */}
           </h2>
           <div className="container--homeTeacher--new">
             {NewsSchoolConnected.slice(0, 2)}
           </div>
-          <button onClick={() => history.push("/news")}>
-            Toutes les news de l'établissement ...
-            </button>
+
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => history.push("/news")}
+          >Toutes les news de l'établissement <span className="badge badge-light"> {schoolNews.length}</span>
+          </button>
         </div>
         <div className="container--homeTeacher--classes">
           <h2>
@@ -104,7 +108,10 @@ const HomePageTeacher = () => {
               <hr></hr>
               <div className="container--homeTeacher--info--content--perso--body">
                 <p>Email: {currentUser.email}</p>
-                <p>Role: {currentUser.roles[0].slice(5).toLowerCase()}</p>
+
+                <p>Role: {(currentUser.roles[0] === "ROLE_STUDENT") ? "Elève" : "Professeur"}</p>
+
+                {/* <p>Role: {currentUser.roles[0].slice(5).toLowerCase()}</p> */}
                 <p>Etablissement: {currentUser.schools[0].name}</p>
               </div>
             </div>

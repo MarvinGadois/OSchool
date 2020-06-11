@@ -21,7 +21,7 @@ const Homework = () => {
   console.log(homework);
 
   return (
-    <>
+    <div className="container_homework">
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -45,7 +45,7 @@ const Homework = () => {
           <p className="card-text">Lien du devoir: {homework.path}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

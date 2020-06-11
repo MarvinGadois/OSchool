@@ -21,7 +21,7 @@ console.log(idLesson);
   console.log(lesson);
 
   return (
-    <>
+    <div className='container_lesson'>
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -45,7 +45,7 @@ console.log(idLesson);
           <p className="card-text">Cours numero: {lesson.id}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

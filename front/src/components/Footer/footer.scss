@@ -1,208 +1,93 @@
+@import 'src/styles/variables.scss';
+
 .footer {
-  background: #4b2c20;
+
+  background: $primary-color;
+
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   font: bold 16px sans-serif;
-  text-align: left;
-  padding: 30px 40px 30px;
-  overflow: hidden;
-  // position: fixed; no fixed position needed for this footer
   left: 0;
   bottom: 0;
   width: 100%;
 }
 
-/* Footer left */
-
-.footer .footer-left {
-  float: left;
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:95% ;
+  margin: 0 auto;
+}
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  
+  p{
+    margin: 2px 0;
+    font-size: 1.2em;
+    letter-spacing: 0.04em;
+  }
 }
 
 /* O'school logo */
 
 .footer h3 {
-  color: #e1d2b8;
+  color:#e1d2b8;
   font: normal 36px 'Roboto', cursive;
-  margin: 0 0 10px;
 }
 
 /* Footer links */
 
 .footer .footer-links {
-  color: #ffffff;
-  margin: 0 0 10px;
-  padding: 0;
+  color:#e1d2b8;
 }
 
 .about-p{
   cursor: pointer;
 }
 .about-p:hover{
-  color:#68c2e8 ;
-}
-
-.footer .footer-links a {
-  display: inline-block;
-  line-height: 1.8;
-  text-decoration: none;
-  color: inherit;
-   &:hover {
-     color: #e1d2b8;
-     transform: scale(1.2);
-   }
+ color: #ffffff;
 }
 
 .footer .footer-company-name {
   color: #8f9296;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: normal;
-  margin: 0;
+  margin-top: 10%;
+
 }
 
-/* Footer social icons */
-
-.footer .footer-icons {
-  margin-top: 40px;
-}
-
-.footer .footer-icons a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  background-color: #33383b;
-  border-radius: 2px;
-
-  font-size: 20px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 35px;
-
-  margin-right: 3px;
-  margin-bottom: 5px;
-}
-
-/* Footer Right */
-
-.footer .footer-right {
-  float: right;
-}
-
-.footer .footer-right p {
-  display: inline-block;
-  vertical-align: top;
-  margin: 15px 42px 0 0;
-  color: #ffffff;
-}
-
-/* The contact form */
-
-.footer form {
-  display: inline-block;
-}
-
-.footer form input,
-.footer form textarea {
-  display: block;
-  border-radius: 3px;
-  box-sizing: border-box;
-  background-color: #1f2022;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  border: none;
-  resize: none;
-
-  font: inherit;
-  font-size: 14px;
-  font-weight: normal;
-  color: #d1d2d2;
-
-  width: 400px;
-  padding: 18px;
-}
-
-.footer ::-webkit-input-placeholder {
-  color: #5c666b;
-}
-
-.footer ::-moz-placeholder {
-  color: #5c666b;
-  opacity: 1;
-}
-
-.footer :-ms-input-placeholder {
-  color: #5c666b;
-}
-
-
-.footer form input {
-  height: 55px;
-  margin-bottom: 15px;
-}
-
-.footer form textarea {
-  height: 100px;
-  margin-bottom: 20px;
-}
-
-.footer form button {
-  border-radius: 3px;
-  background-color: #33383b;
-  color: #ffffff;
-  border: 0;
-  padding: 15px 50px;
-  font-weight: bold;
-  float: right;
+#footer_img{
+  width: 150px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
-@media (max-width: 1000px) {
+@media (max-width: 839px) {
+  .footer-content{
+    flex-direction: column;
 
-  .footer {
-    font: bold 14px sans-serif;
+    h3{
+      display: none;
+    }
+    
   }
+  .footer-links{
+    width: 100%;
+    align-items: center;
+    align-content: space-around;
+    justify-content:space-around ;
+    order: 1;
+    margin-bottom: 5%;
 
+  }
   .footer .footer-company-name {
-    font-size: 12px;
+    margin-top: 3%;
+  }
+  #footer_img{
+    order: 0;
+    margin: -15% auto;
   }
 
-  .footer form input,
-  .footer form textarea {
-    width: 250px;
-  }
-
-  .footer form button {
-    padding: 10px 35px;
-  }
-
-}
-
-@media (max-width: 800px) {
-
-  .footer {
-    padding: 30px;
-  }
-
-  .footer .footer-left,
-  .footer .footer-right {
-    float: none;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .footer .footer-left {
-    margin-bottom: 40px;
-  }
-
-  .footer form {
-    margin-top: 30px;
-  }
-
-  .footer form {
-    display: block;
-  }
-
-  .footer form button {
-    float: none;
-  }
 }

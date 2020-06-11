@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 // Import style
-import './style.css';
+import './style.scss';
 
 // Import components
 import Description from './Description';
@@ -41,12 +41,12 @@ const HomePage = () => {
 
 
     return (
-        <div className="homePage">
+        <div className="container">
             <div className="homePage_content">
                 <Description />
                 <LastNews />
+                <Opinion />
             </div>
-            <Opinion />
         </div>
     )
 

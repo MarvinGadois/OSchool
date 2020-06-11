@@ -1,35 +1,28 @@
  /* CSS POUR COMPOSANT HOMEPAGE */
 .homePage_content{
     display: flex;
-    width: 90%;
-    height: 90%;
-    margin:5% auto;
-    justify-content: space-between;  
-    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:100%;
 }
  /* CSS POUR COMPOSANT DESCRIPTION */
 .description{
-    border: 1px solid #BDC3C7;
-    box-shadow: 2px 2px 2px #BDC3C7;
-    width: 60%;
+    width: 100%;
     display: flex;  
     flex-direction: column;
-    justify-content: space-evenly;
-    border-radius: 10px;
-
+    justify-content: space-between;
 }
 .container-head{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 3% auto 5%;
 }
 
 .last-container-head{
   display: flex;
   align-content: center;
-  /* margin-top: 1em; */
 }
-
 
 .last-container-head img{
   object-position: 0px -1.9em ;
@@ -47,7 +40,6 @@
     font-weight: bold;
     font-size: 2.5em;
     margin: 1em 0 0 0;
-
 }
 
 .help-view{
@@ -61,40 +53,58 @@
 .help-view img{
   width: 25%  
 }
+
 .paragraphs{
     display: flex;
     flex-direction: column;
-margin-top: 5%;
+    margin-top: 5%;
 }
+
 .paragraphs-content{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5%;
 }
+
+.paragraphs-content h2 {
+font-size: 1.4em;
+color: #BDC3C7;
+}
+
+.paragraphs-content p {
+width: 90%;
+}
+
 .paragraphs-hr{
     width: 40%;
-    margin: 0 auto 2%;
+    margin: 2% auto 2%;
 }
+
 .description p{
     padding: 1em;
     text-align: center;
     display: flex;
 }
+
 .description_main p{
-    width: 50%;
+    width: 80%;
+    font-size: 1.6em;
     text-align: center;
+    margin: 8% auto 5%;
 }
+
 .description_main{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
+
 .img_description{
     width: 40%;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #BDC3C7;
-
 }
+
 .icon{
 width: 8%;
 align-content: center;
@@ -102,26 +112,31 @@ align-content: center;
 .catchphrase{
     display: flex;
     justify-content: space-around;
+    margin: 5% auto 8%;
 }
 
 
 /* CSS POUR COMPOSANT LASTNEWS */
 .last_news{
-    border: 1px solid #BDC3C7;
-    width: 30%;
-    min-width: 318px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px #BDC3C7;}
+    // border: 1px solid #BDC3C7;
+    // box-shadow: 2px 2px 2px #BDC3C7;
 
+    h2{
+        font-size: 2em;
+    }
+}
+.news_card_container{
+    display: flex;
+}
 
  .one_news_card_container {
     border: 1px solid #BDC3C7;
-    width: 80%;
+    flex-basis: 45%;
     margin: 4% auto;
-    display: flex;
-    flex-direction: column;
     border-radius: 5px;
     box-shadow: 10px 5px 5px #BDC3C7;
  } 
@@ -137,7 +152,7 @@ align-content: center;
  }
 
 .img_one_news{
-    width: 100px;  
+    width: 2;  
     padding: 4%;
 }
 .last_news h2 {
@@ -146,12 +161,13 @@ align-content: center;
     font-weight: bold;
 }
 .one_news_card_body{
-padding: 10px;
+padding: 12px;
 }
+
 
 /* CSS POUR COMPOSANT OPINION */
 .opinion{
-   width: 90%;
+   width: 100%;
    margin: 5% auto;
 }
 .opinion h2 {
@@ -167,7 +183,7 @@ padding: 10px;
 }
 .one_opinion{
     border: 1px solid #BDC3C7;
-    width: 60%;
+    width: 100%;
     padding: 15px;
     margin: 20px 0;
     box-shadow: 10px 5px 5px #BDC3C7;
@@ -176,6 +192,7 @@ padding: 10px;
 }
 .opinion_user_info{
     display: flex;
+    justify-content: center;
 }
 .opinion_user_info img {
     width: 70px;
@@ -188,10 +205,25 @@ padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     margin-left: 10px;
+
+    h4{
+        font-size: 1.6em;
+        margin-bottom: 2px;
+    }
+
+    p{
+        font-size: 1.2em;
+    }
 }
 .one_opinion_content p {
     text-align: center;
+}
+.opinionDate{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 
 /* CSS POUR LES HR SPAN ETC */
@@ -236,5 +268,12 @@ margin: 20px auto;
      }
      .one_opinion{
          width: 100%;
+     }
+ }
+
+ @media (max-width:840px) {
+
+     .news_card_container{
+         flex-direction: column;
      }
  }

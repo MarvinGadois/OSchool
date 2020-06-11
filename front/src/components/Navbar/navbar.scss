@@ -3,46 +3,48 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   transition: top .75s ease-in;
   background-color: #e1d2b8;
 
   .menu {
-    margin-right: 1em;
     list-style: none;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     width: 100%;
     max-height: 0;
     transition: max-height .2s ease-out;
 
     li  {
-
       a{
-      display: inline-block;
-      min-width: 75px;
-      margin: .3em 0;
-      padding: 0 10px;
       transition: .4s all;
       text-decoration: none;
-      font-size: 20px;
+      font-size:1.5em;
 
       &:link,
       &:visited {
-        color: #0d0d0d;
+
+        color: #335C81;
+        font-weight: bold;
+
+
       }
 
       &:focus,
       &:hover,
       &:active {
-        color: #68c2e8;
-        //color: #20232d
+
+        
+        color:#68c2e8;
+        
+
       }
       }
     }
+  }
+
+  #img_nabar_user{
+    width: 60px;
+    border-radius: 50%;
   }
 
   .logo {
@@ -113,19 +115,52 @@
   }
 }
 
+.navbar_user_info{
+  display: flex;
+  align-items: center;
+
+  p{
+    margin-right: 5px;
+  }
+
+  img{
+    cursor: pointer;
+  }
+}
+
+.student_deco{
+  display: none;
+}
+
 // DESKTOP MENU CSS
 @media (min-width: 840px) {
   .navbar li {
-    margin: 0 10px;
+    margin: 0 15px;
   }
 
   .navbar .menu {
     width: auto;
     max-height: none;
-    flex-direction: row;
   }
 
   .navbar .menu-icon {
     display: none;
+  }
+  .student_deco{
+    display: none;
+  }
+}
+
+@media (max-width: 839px){
+  .navbar_user_info{
+    display: none;
+  }
+  .menu{
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .student_deco{
+    display: block;
   }
 }
