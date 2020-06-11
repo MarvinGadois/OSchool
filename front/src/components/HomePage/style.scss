@@ -270,3 +270,10 @@ margin: 20px auto;
          width: 100%;
      }
  }
+
+ @media (max-width:840px) {
+
+     .news_card_container{
+         flex-direction: column;
+     }
+ }
