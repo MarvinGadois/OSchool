@@ -56,7 +56,7 @@ const Navbar = () => {
     );
   }
 
-
+  // Role etudiant
   if (roleUser[0] === 'ROLE_STUDENT') {
     return (
       <nav className="navbar">
@@ -96,7 +96,9 @@ const Navbar = () => {
         </div>
       </nav>
     )
-  } else if (roleUser[0] === 'ROLE_TEACHER') {
+  }
+  // Role professeur
+  else if (roleUser[0] === 'ROLE_TEACHER') {
     return (
       <nav className="navbar">
         <a href="/" className="logo">

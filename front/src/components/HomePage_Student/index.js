@@ -107,7 +107,8 @@ const HomePageStudent = () => {
               <hr></hr>
               <div className="container--homeStudent--info--content--perso--body">
                 <p>Email: {currentUser.email}</p>
-                <p>Role: {currentUser.roles[0].slice(5).toLowerCase()}</p>
+
+                <p>Role: {(currentUser.roles[0] === "ROLE_STUDENT") ? "Elève" : "Professeur"}</p>
                 <p>Etablissement: {currentUser.schools[0].name}</p>
               </div>
             </div>
