@@ -43,6 +43,7 @@ console.log(idLesson);
         <div className="card-body">
           <h5 className="card-title">{lesson.content}</h5>
           <p className="card-text">Cours numero: {lesson.id}</p>
+          <p className="card-footer">Lien: {lesson.path}</p>
         </div>
       </div>
     </div>

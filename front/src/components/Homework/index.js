@@ -42,7 +42,8 @@ const Homework = () => {
         <div className="card-header">{homework.title}</div>
         <div className="card-body">
           <h5 className="card-title">{homework.content}</h5>
-          <p className="card-text">Lien du devoir: {homework.path}</p>
+          <p className="card-text">Code {homework.code}</p>
+          <p className="card-footer">Lien du devoir: {homework.path}</p>
         </div>
       </div>
     </div>

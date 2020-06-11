@@ -16,18 +16,20 @@ const LessonsPages = () => {
   }, []);
 
   console.log(lessons);
+  console.log(currentUser);
 
   const allLessons = lessons.map((lesson) => (
     <div
       key={lesson.id}
       className="card border-success mb-3 card text-white bg-warning"
       style={{ maxWidth: "25rem" }}
+      
     >
       <div className="card-header bg-transparent border-success">
-        Cours de {lesson.subject.title}
+        Matière du cours: {lesson.subject.title}
       </div>
       <div className="card-body text-success">
-        <h2 className="card-title">Titre du cours: {lesson.title}</h2>
+        <h2 className="card-title">{lesson.title}</h2>
         <p className="card-text">{lesson.content}</p>
       </div>
       <div className="card-footer bg-transparent border-success">
