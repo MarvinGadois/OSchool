@@ -1181,6 +1181,56 @@ class AppFixtures extends Fixture
         $lessons[] = $lesson10;
         $em->persist($lesson10);
 
+        $lesson11 = new Lesson();
+        $lesson11->setTitle("Quatrième cours de potion");
+        $lesson11->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson11->setPath("manuels.jpeg");
+        $lesson11->setClassroom($gryffondorD);
+        $lesson11->setSubject($potions);
+        $lesson11->setUser($rogue);
+        $lessons[] = $lesson11;
+        $em->persist($lesson11);
+
+        $lesson12 = new Lesson();
+        $lesson12->setTitle("Cinquième cours de potion");
+        $lesson12->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson12->setPath("manuels.jpeg");
+        $lesson12->setClassroom($gryffondorD);
+        $lesson12->setSubject($potions);
+        $lesson12->setUser($rogue);
+        $lessons[] = $lesson12;
+        $em->persist($lesson12);
+
+        $lesson13 = new Lesson();
+        $lesson13->setTitle("Sixième cours de potion");
+        $lesson13->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson13->setPath("manuels.jpeg");
+        $lesson13->setClassroom($gryffondorD);
+        $lesson13->setSubject($potions);
+        $lesson13->setUser($rogue);
+        $lessons[] = $lesson13;
+        $em->persist($lesson13);
+
+        $lesson14 = new Lesson();
+        $lesson14->setTitle("Septième cours de potion");
+        $lesson14->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson14->setPath("manuels.jpeg");
+        $lesson14->setClassroom($gryffondorD);
+        $lesson14->setSubject($potions);
+        $lesson14->setUser($rogue);
+        $lessons[] = $lesson14;
+        $em->persist($lesson14);
+
+        $lesson15 = new Lesson();
+        $lesson15->setTitle("Huitième cours de potion");
+        $lesson15->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson15->setPath("manuels.jpeg");
+        $lesson15->setClassroom($gryffondorD);
+        $lesson15->setSubject($potions);
+        $lesson15->setUser($rogue);
+        $lessons[] = $lesson15;
+        $em->persist($lesson15);
+
 
         // HOMEWORK
 
@@ -1277,16 +1327,76 @@ class AppFixtures extends Fixture
         $em->persist($homework8);
 
         $homework9 = new Homework();
-        $homework9->setCode("M-GD-1");
-        $homework9->setTitle("Devoir n°1 rendu");
+        $homework9->setCode("P-GD-2");
+        $homework9->setTitle("Devoir n°2 rendu");
         $homework9->setStatus(1);
         $homework9->setContent("Merci de corriger mon devoir Madame");
-        $homework9->setPath("homework/meta-d1-granger.txt");
+        $homework9->setPath("homework/meta-d2-granger.txt");
         $homework9->setClassroom($gryffondorD);
         $homework9->setUser($hgranger);
-        $homework9->setSubject($metamarphose);
+        $homework9->setSubject($potions);
         $homeworks[] = $homework9;
         $em->persist($homework9);
+
+        $homework10 = new Homework();
+        $homework10->setCode("P-GD-3");
+        $homework10->setTitle("Devoir n°3 rendu");
+        $homework10->setStatus(1);
+        $homework10->setContent("Merci de corriger mon devoir Madame");
+        $homework10->setPath("homework/meta-d3-granger.txt");
+        $homework10->setClassroom($gryffondorD);
+        $homework10->setUser($hgranger);
+        $homework10->setSubject($potions);
+        $homeworks[] = $homework10;
+        $em->persist($homework10);
+
+        $homework11 = new Homework();
+        $homework11->setCode("P-GD-4");
+        $homework11->setTitle("Devoir n°4 rendu");
+        $homework11->setStatus(1);
+        $homework11->setContent("Merci de corriger mon devoir Madame");
+        $homework11->setPath("homework/meta-d4-granger.txt");
+        $homework11->setClassroom($gryffondorD);
+        $homework11->setUser($hgranger);
+        $homework11->setSubject($potions);
+        $homeworks[] = $homework11;
+        $em->persist($homework11);
+
+        $homework12 = new Homework();
+        $homework12->setCode("P-GD-5");
+        $homework12->setTitle("Devoir n°5 rendu");
+        $homework12->setStatus(1);
+        $homework12->setContent("Merci de corriger mon devoir Madame");
+        $homework12->setPath("homework/meta-d5-granger.txt");
+        $homework12->setClassroom($gryffondorD);
+        $homework12->setUser($hgranger);
+        $homework12->setSubject($potions);
+        $homeworks[] = $homework12;
+        $em->persist($homework12);
+
+        $homework13 = new Homework();
+        $homework13->setCode("P-GD-6");
+        $homework13->setTitle("Devoir n°6 rendu");
+        $homework13->setStatus(1);
+        $homework13->setContent("Merci de corriger mon devoir Madame");
+        $homework13->setPath("homework/meta-d6-granger.txt");
+        $homework13->setClassroom($gryffondorD);
+        $homework13->setUser($hgranger);
+        $homework13->setSubject($potions);
+        $homeworks[] = $homework13;
+        $em->persist($homework13);
+
+        $homework14 = new Homework();
+        $homework14->setCode("P-GD-7");
+        $homework14->setTitle("Devoir n°7 rendu");
+        $homework14->setStatus(1);
+        $homework14->setContent("Merci de corriger mon devoir Madame");
+        $homework14->setPath("homework/meta-d7-granger.txt");
+        $homework14->setClassroom($gryffondorD);
+        $homework14->setUser($hgranger);
+        $homework14->setSubject($potions);
+        $homeworks[] = $homework14;
+        $em->persist($homework14);
 
         // GRADES
 
