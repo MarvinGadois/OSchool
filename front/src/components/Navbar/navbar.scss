@@ -115,6 +115,23 @@
   }
 }
 
+.navbar_user_info{
+  display: flex;
+  align-items: center;
+
+  p{
+    margin-right: 5px;
+  }
+
+  img{
+    cursor: pointer;
+  }
+}
+
+.student_deco{
+  display: none;
+}
+
 // DESKTOP MENU CSS
 @media (min-width: 840px) {
   .navbar li {
@@ -129,6 +146,9 @@
   .navbar .menu-icon {
     display: none;
   }
+  .student_deco{
+    display: none;
+  }
 }
 
 @media (max-width: 840px){
@@ -139,5 +159,8 @@
     width: 95%;
     flex-direction: column;
     align-items: center;
+  }
+  .student_deco{
+    display: block;
   }
 }

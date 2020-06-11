@@ -17,6 +17,7 @@ import {
   SET_GRADES_BY_USER,
   SET_ONE_NEW,
   SET_CURRENT_CLASSROOM,
+  TOGGLE_MENU_NAVBAR,
 } from "./actions";
 
 // State initial
@@ -37,6 +38,7 @@ const initialState = {
   gradesUser: [],
   OneNewById: [],
   currentClass: {},
+  menuNavVisible: false,
 };
 
 export default (state = initialState, action = {}) => {
@@ -81,6 +83,7 @@ export default (state = initialState, action = {}) => {
         news: [],
         classrooms: [],
         lessons: [],
+        menuNavVisible: false,
       };
     }
     case RESET_LOGIN_INPUT: {
@@ -150,6 +153,12 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         currentClass: action.CurrentClass,
+      };
+    }
+    case TOGGLE_MENU_NAVBAR: {
+      return {
+        ...state,
+        menuNavVisible: !state.menuNavVisible,
       };
     }
     default: {

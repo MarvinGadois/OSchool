@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import Logo from "src/assets/O'school.png";
 
-
+import MenuNavbar from "./MenuNavbar/MenuNavbar";
 
 // Import action
-import { disconnected } from 'src/store/actions';
+import { disconnected, TOGGLE_MENU_NAVBAR } from 'src/store/actions';
 
 // Import scss
 import "./navbar.scss";
@@ -19,7 +19,8 @@ const Navbar = () => {
   const history = useHistory();
   const isAuthentified = useSelector((state) => state.connected);
   const roleUser = useSelector((state) => state.user.roles);
-
+  const currentUser = useSelector((state) => state.user.user)
+  const { menuNavVisible } = useSelector((state) => state);
 
   if (!isAuthentified) {
     return (
@@ -79,6 +80,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              className="student_deco"
               exact
               to={""}
               onClick={() => { dispatch(disconnected(history)) }}
@@ -88,12 +90,15 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="navbar_user_info">
-          <img id="img_nabar_user" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
           <div>
-            <p>Firstname</p>
-            <p>Lastname</p>
+            <p>{currentUser.firstname}</p>
+            <p>{currentUser.lastname}</p>
           </div>
+          <img
+            onClick={() => { dispatch({ type: TOGGLE_MENU_NAVBAR }) }}
+            id="img_nabar_user" src="https://www.nicepng.com/png/detail/804-8049853_med-boukrima-specialist-webmaster-php-e-commerce-web.png"></img>
         </div>
+        {menuNavVisible && <MenuNavbar />}
       </nav>
     )
   }
@@ -120,6 +125,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              className="student_deco"
               exact
               to={""}
               onClick={() => { dispatch(disconnected(history)) }}
@@ -129,12 +135,15 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="navbar_user_info">
-          <img id="img_nabar_user" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
           <div>
-            <p>Firstname</p>
-            <p>Lastname</p>
+            <p>{currentUser.firstname}</p>
+            <p>{currentUser.lastname}</p>
           </div>
+          <img
+            onClick={() => { dispatch({ type: TOGGLE_MENU_NAVBAR }) }}
+            id="img_nabar_user" src="https://mybluerobot.com/wp-content/uploads/2015/04/myAvatar-29.png"></img>
         </div>
+        {menuNavVisible && <MenuNavbar />}
       </nav>
     )
   }
