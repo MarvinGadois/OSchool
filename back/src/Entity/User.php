@@ -139,6 +139,14 @@ class User implements UserInterface
         $this->opinions = new ArrayCollection();
     }
 
+
+
+    public function __toString()
+    {
+        return $this->lastname . ' ' . $this->firstname;
+    }
+    
+
     /**
      * @Groups({"opinion_browse"})
      */

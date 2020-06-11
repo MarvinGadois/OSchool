@@ -20,13 +20,72 @@
     display: inline-block;
     border: 1px solid #CED4DA;
     border-radius: 4px;
-}
-
-.inputfile + label:hover {
-    background-color: red;
-    color: white;
+    /* background-color: #004385; */
 }
 
 .file-name {
-    margin-top: 6px;
+    margin-top: 8px;
+}
+
+/* Submit btn */
+
+.submit-btn {
+    background-color: #004385;
+    color: white;
+    display: block;
+}
+
+.submit-btn:hover,
+.inputfile + label:hover {
+    background-color: #6D9CC5;
+    color: #212529;
+}
+
+
+/* Delete form */
+
+.delete-form {
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 20px 15px;
+}
+
+.delete-form h2 {
+   font-size: 1.5em;
+}
+
+.delete-form p {
+    margin-bottom: 0;
+}
+
+
+/* flash */
+
+.flash .alert {
+    padding: 8px 12px;
+}
+
+.flash p {
+    margin-bottom: 0;
+}
+
+
+/* Others */
+
+.title,
+.delete-form h2 {
+    color: #004385;
+    font-weight: bold;
+}
+
+small {
+    font-size: 1em;
+}
+
+.return-back {
+    color: #004385;
+}
+
+.return-back:hover {
+    color: #6D9CC5;
 }

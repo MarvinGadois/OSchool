@@ -1,28 +1,71 @@
-{% extends 'base.html.twig' %}
+{% extends 'form_base.html.twig' %}
 
-{% block title %}Hello LessonController!{% endblock %}
-
-{% block body %}
+{% block form %}
 
 {# Get the current route #}
-{% set route = app.request.attributes.get('_route')%}
+    {% set route = app.request.attributes.get('_route')%}
 
-{{ form_start(form) }}
+{# Display the main form (but not if we are on delete route) #}
+    {% if(route != 'grade_delete')%}
 
-    <button type="submit" class="">{{ route == 'grade_edit' ? 'Modifier' : 'Ajouter' }}</button>
+    <div class="row mb-4 mx-auto mt-4 col-8">
+        <a class="return-back" href="http://ec2-54-152-201-144.compute-1.amazonaws.com/cours"><i class="fa fa-arrow-left pt-4" aria-hidden="true"></i></a>
+        <h1 class="mx-auto title">{{ route == 'grade_add' ? 'Ajouter' : 'Modifier' }} un devoir</h1>
+    </div>
 
-{{ form_rest(form) }}
-{{ form_end(form) }}
+
+    <div class="row">
+
+        {{ form_start(form, {'attr': {'class': 'col-8 mx-auto'}}) }}
+
+            <div class="form-group">
+                {{ form_label(form.homework, "Devoirs") }}
+                {{ form_widget(form.homework, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            
+            <div class="form-group">
+                {{ form_label(form.grade, "Note") }}
+                {{ form_widget(form.grade, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.title, "Titre") }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.content, "Commentaire") }}
+                {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button type="submit" class="btn submit-btn mx-auto mt-5">{{ route == 'grade_add' ? 'Ajouter' : 'Modifier' }}</button>
+
+        {{ form_end(form) }}
+
+    </div>
+
+    {% endif %}
 
 
-{% if(route == 'grade_edit')%}
+{# Display the delete form (but only if we are on edit route) #}
+    {% if(route == 'grade_edit')%}
 
-    {{ form_start(formDelete)}}
 
-        {{ form_widget(formDelete.deleteButton, {'attr': {'class': 'btn-danger'}}) }}
+    <div class="row delete-form col-5 mx-auto mt-5">
 
-    {{ form_end(formDelete) }}
+        <div class="col-9">
+            <h2>Suppression d'un devoir</h2>
+            <p>Attention, cette action est irréversible.</p>
+        </div>
 
-{% endif %}
+        {{ form_start(formDelete, {'attr': {'class': ''}})}}
+
+            {{ form_widget(formDelete.deleteButton, {'attr': {'class': 'btn btn-danger d-block mt-2'}}) }}
+
+        {{ form_end(formDelete) }}
+
+    {% endif %}
+
+    </div>
 
 {% endblock %}

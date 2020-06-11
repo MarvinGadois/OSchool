@@ -5,13 +5,14 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
     </head>
     <body>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"> </script>
 
         <main>
         
-            <div class="container p-0">
+            <div class="container p-0 mt-4">
 
                 {% block body %}{% endblock %}
 

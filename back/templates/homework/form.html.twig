@@ -1,28 +1,88 @@
-{% extends 'base.html.twig' %}
+{% extends 'form_base.html.twig' %}
 
-{% block title %}Hello LessonController!{% endblock %}
-
-{% block body %}
+{% block form %}
 
 {# Get the current route #}
-{% set route = app.request.attributes.get('_route')%}
+    {% set route = app.request.attributes.get('_route')%}
 
-{{ form_start(form) }}
+{# Display the main form (but not if we are on delete route) #}
+    {% if(route != 'homework_delete')%}
 
-    <button type="submit" class="">{{ route == 'homework_edit' ? 'Modifier' : 'Ajouter' }}</button>
+    <div class="row mb-4 mx-auto mt-4 col-8">
+        <a class="return-back" href="http://ec2-54-152-201-144.compute-1.amazonaws.com/cours"><i class="fa fa-arrow-left pt-4" aria-hidden="true"></i></a>
+        <h1 class="mx-auto title">{{ route == 'homework_add' ? 'Ajouter' : 'Modifier' }} un devoir</h1>
+    </div>
 
-{{ form_rest(form) }}
-{{ form_end(form) }}
+
+    <div class="row">
+
+        {{ form_start(form, {'attr': {'class': 'col-8 mx-auto'}}) }}
+
+            <div class="form-group">
+                {{ form_label(form.code, "Code du devoir") }}
+                {{ form_widget(form.code, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.title, "Titre") }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.content, "Description") }}
+                {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                <small id="contentHelp" class="form-text text-muted">Dans ce champ, vous pouvez mettre des informations suplémentaires à propos du devoir importée. Vous pouvez également, si vous le souhaitez, y mettre le devoir en entier sous forme de texte.</small>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.path, "Fichier") }}
+                <br>
+                <div class="row m-0 file-btn">
+                    {{ form_widget(form.path, {'attr': {'class': 'inputfile'}}) }}
+                    {{ form_label(form.path, "Choisir un fichier") }}
+                    <p class="file-name"></p>
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.classroom, "Classe") }}
+                {{ form_widget(form.classroom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.subject, "Matière") }}
+                {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button type="submit" class="btn submit-btn mx-auto mt-5">{{ route == 'homework_add' ? 'Ajouter' : 'Modifier' }}</button>
+
+        {{ form_end(form) }}
+
+    </div>
+
+    {% endif %}
 
 
-{% if(route == 'homework_edit')%}
+{# Display the delete form (but only if we are on edit route) #}
+    {% if(route == 'homework_edit')%}
 
-    {{ form_start(formDelete)}}
 
-        {{ form_widget(formDelete.deleteButton, {'attr': {'class': 'btn-danger'}}) }}
+    <div class="row delete-form col-5 mx-auto mt-5">
 
-    {{ form_end(formDelete) }}
+        <div class="col-9">
+            <h2>Suppression d'un devoir</h2>
+            <p>Attention, cette action est irréversible.</p>
+        </div>
 
-{% endif %}
+        {{ form_start(formDelete, {'attr': {'class': ''}})}}
+
+            {{ form_widget(formDelete.deleteButton, {'attr': {'class': 'btn btn-danger d-block mt-2'}}) }}
+
+        {{ form_end(formDelete) }}
+
+    {% endif %}
+
+    </div>
 
 {% endblock %}

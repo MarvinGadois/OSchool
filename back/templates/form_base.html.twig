@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LessonController!{% endblock %}
+
+{% block body %}
+
+{# Display messages flash #}
+    <div class="row flash mx-auto col-8">
+
+    {% for key, flash in app.flashes %}
+        {% for message in flash %}
+            <div class="alert alert-{{ key }} mx-auto" role="alert">
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    </div>
+
+
+    {# Load the custom form depending the controller #}
+    {% block form %}{% endblock %}
+
+
+{# A short jQuery script For get the upload file name #}
+    <script> 
+        $(document).ready(function() { 
+            $('input[type="file"]').change(function(e) { 
+                var file = e.target.files[0].name; 
+                $("p").text(file); 
+            }); 
+        });  
+    </script>
+
+{% endblock %}
