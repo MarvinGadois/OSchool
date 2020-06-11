@@ -102,7 +102,7 @@ class Homework
 
     public function __toString()
     {
-        return $this->code . ' - ' . $this->title;
+        return $this->status . ' - ' . $this->code . ' - ' . $this->user . ' ( ' . $this->title . ' ) ';
     }
     
 
