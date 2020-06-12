@@ -40,16 +40,25 @@ const TeacherClassroom = () => {
     getCurrentClassById(id);
   }, []);
 
-  // get the nb of students in the class 
-  let currentClassUserNb;
+  // get uset with students role
+  let currentStudent;
   currentClass.users
-    ? (currentClassUserNb = currentClass.users.filter(
+    ? (currentStudent = currentClass.users.filter(
       (user) => user.roles[0] === "ROLE_STUDENT"
     ))
     : null;
 
+  let allStudentCard;
+  if (currentClass.users) {
+    allStudentCard = currentStudent.map((student) => (
 
-    console.log(currentClassUserNb);
+      <div key={student.id} className="memberCard">
+        {student.lastname} {student.firstname}
+        <p className="average">Moyenne : 15/20</p>
+      </div>
+
+    ));
+  }
 
   // get the subjects of the current class
   let classroomSubject;
@@ -59,7 +68,7 @@ const TeacherClassroom = () => {
 
         user.subjects.map((subject) => (
           <p key={user.id}>
-            {subject.title}
+            {subject.title} - {user.lastname}  {user.firstname}
           </p>
         ))
     ));
@@ -107,12 +116,11 @@ const TeacherClassroom = () => {
       <div className="containered">
 
         <div className="classroomInfo">
-          <h2>Information de la classe</h2>
+          <h2>Information de {currentClass.name}</h2>
           <div>
             <ul>
-              <li><span>Classe : </span>{currentClass.name}</li>
               <li><span>Niveau : </span>{currentClass.level}</li>
-              <li><span>Nombre d'élèves : </span></li>
+              <li><span>Nombre d'élèves : </span>{currentClass.users ? currentStudent.length : null}</li>
               <li><span>Moyenne de la classe : </span>11/20</li>
             </ul><br/>
             
@@ -130,28 +138,25 @@ const TeacherClassroom = () => {
         </div>
 
         <div className="membersList">
-          <h2>
-            Liste des membres{" "}
-            <span className="badge badge-primary ml-2">
-              {currentClass.users ? currentClassUserNb.length : null}
-            </span>
-          </h2>
-          <ul>
-            <li>{allMembers}</li>
-          </ul>
+          <h2><a href={"/cours"}>Liste des membres</a></h2>
+          <div className="members">
+            {allStudentCard}
+          </div>
+          
+          
         </div>
 
-        <div className="subject">
+        {/* <div className="subject">
           <h2>liste des matières</h2>
           <ul>
             <li>
               {classroomSubject}
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="lessons">
-          <h2>Vos cours/lessons</h2>
+          <h2>Vos cours</h2>
           <div className="cards">{LessonTitle}</div>
         </div>
 
@@ -160,12 +165,12 @@ const TeacherClassroom = () => {
           <div className="cards">{allHomeworks}</div>
         </div>
 
-        <div className="correction">
+        {/* <div className="correction">
           <h2>Vos corrections</h2>
           <div className="cards">
             <p>Aucun devoir corrigé</p>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </div>

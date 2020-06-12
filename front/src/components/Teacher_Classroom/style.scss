@@ -1,17 +1,24 @@
 %title{
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: bolder;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
+  color: #335C81;
+}
+
+h2 a:hover{
+  color: #6D9CC5;
+  text-decoration: none;
 }
 
 %cards{
   border: 1px solid black;
   width: 46%;
-  margin: 2%;
+  margin: 0 2% 2%;
   padding: 10px;
-  height: 30vh;
+  height: 33vh;
   overflow: scroll;
   overflow-x: hidden;
   // display: flex;
@@ -27,8 +34,9 @@
     justify-content: center;
     margin: 50px;
     font-size: 2em;
-    font-weight: bold;
-    }
+    font-weight: bolder;
+    color: #335C81;
+  }
 }
 
 // title
@@ -80,6 +88,29 @@
   @extend %cards;
   h2{
     @extend %title;
+  }
+}
+
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+.memberCard {
+  border-radius: 10px;
+  width: 31%;
+  padding: 10px 10px;
+  margin: 0 1% 1.5%;
+  background-color: #6D9CC5;
+  color: white;
+  text-shadow: 2px 3px 7px rgba(150, 150, 150, 1);
+  text-align: center;
+
+  .average {
+    font-style: italic;
+    font-size: 0.9em;
   }
 }
 
