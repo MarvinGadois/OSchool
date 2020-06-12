@@ -42,7 +42,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink exact to={"/about"}>A propos</NavLink>
+            <NavLink exact to={"/about"}>À propos</NavLink>
           </li>
           <li>
             <NavLink
