@@ -11,6 +11,10 @@ const TeacherClassroom = () => {
   let { id } = useParams();
   const currentUser = useSelector((state) => state.user.user);
   const { currentClass } = useSelector((state) => state);
+
+  console.log('Ma classe courant:', currentClass)
+  // console.log('Ma classe courant:', currentClass.users)
+
   const { lessons } = useSelector((state) => state);
   useEffect(() => {
     getLessons(currentUser.id);
@@ -33,12 +37,20 @@ const TeacherClassroom = () => {
     ))
     : null;
 
+  let classroomSubject;
+  if (currentClass.users) {
+    console.log("ok");
+    classroomSubject = currentClass.users.map((user) => (
 
-  const LessonSubject = lessons.map((lesson) => (
-    <p key={lesson.id}>
-      {lesson.subject.title}
-    </p>
-  ));
+        user.subjects.map((subject) => (
+          <p key={user.id}>
+            {subject.title}
+          </p>
+        ))
+    ));
+  } else {
+    console.log("nop");
+  }
 
   const LessonTitle = lessons.map((lesson) => (
     <div key={lesson.id}>
@@ -71,14 +83,14 @@ const TeacherClassroom = () => {
   // return of the comosant to the page
   return (
     <div className="wrappered">
-      <div className="container-of-head">
+      {/* <div className="container-of-head">
         <h2>{currentUser.schools[0].name}</h2>
         Nombre d'élèves:
         {currentClass.users ? currentClassUserNb.length : null}
         <div className="container-head--placeholder">
           <input type="text" className="" />
         </div>
-      </div>
+      </div> */}
       <div className="title-of-page">
         <h1>Votre classe</h1>
       </div>
@@ -114,9 +126,7 @@ const TeacherClassroom = () => {
           <h2>liste des matières</h2>
           <ul>
             <li>
-              {LessonSubject}
-              <p>professeur</p>
-              <p>one lesson</p>
+              {classroomSubject}
             </li>
           </ul>
         </div>
