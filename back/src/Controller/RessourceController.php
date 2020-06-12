@@ -151,7 +151,7 @@ class RessourceController extends AbstractController
                     $this->addFlash('warning', 'Vous ne pouvez pas supprimer cette ressource. Seul le propriétaire de la ressource peut la supprimer.');
                 }
             } else {
-                $this->addFlash('danger', 'Cette ressources n\'existe pas.');
+                $this->addFlash('danger', 'Cette ressource n\'existe pas.');
             }
         }
 

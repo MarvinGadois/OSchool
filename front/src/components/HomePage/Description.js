@@ -59,7 +59,7 @@ const Description = () => {
             <h2>Enseignants</h2>
             <p>O’school permet la gestion des enseignants, nous fournissons une interface pour consulter les
 
-            emplois du temps, enregistrer les résultats des élèves et le cahier de correspondance.
+            emplois du temps, enregistrer les résultats des élèves et le carnet de correspondance.
 
             </p>
             <hr className="paragraphs-hr"></hr>
