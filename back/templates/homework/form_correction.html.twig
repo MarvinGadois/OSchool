@@ -17,7 +17,7 @@
     {{ form_start(form, {'attr': {'class': 'col-6 mx-auto'}}) }}
 
         <div class="form-group">
-            {{ form_label(form.correctionPath, "Fichier") }}
+            {{ form_label(form.correctionPath, "Fichier") }} <span>*</span>
             <br>
             <div class="row m-0 file-btn col-">
                 {{ form_widget(form.correctionPath, {'attr': {'class': 'inputfile'}}) }}
