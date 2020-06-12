@@ -80,7 +80,7 @@ const HomePageStudent = () => {
               <thead className="thead-dark">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Titre devoir</th>
+                  <th scope="col">Titre du devoir</th>
                   <th scope="col">Prof</th>
                   <th scope="col">Notes</th>
                   <th scope="col">Commentaires</th>
@@ -102,14 +102,14 @@ const HomePageStudent = () => {
             <div className="container--homeStudent--info--content--perso">
               <div className="container--homeStudent--info--content--perso--head">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
-                <h5>Elève: {currentUser.lastname}</h5>
+                <h5>Élève: {currentUser.lastname}</h5>
               </div>
               <hr></hr>
               <div className="container--homeStudent--info--content--perso--body">
                 <p>Email: {currentUser.email}</p>
 
-                <p>Role: {(currentUser.roles[0] === "ROLE_STUDENT") ? "Elève" : "Professeur"}</p>
-                <p>Etablissement: {currentUser.schools[0].name}</p>
+                <p>Rôle: {(currentUser.roles[0] === "ROLE_STUDENT") ? "Élève" : "Professeur"}</p>
+                <p>Établissement: {currentUser.schools[0].name}</p>
               </div>
             </div>
           </div>
