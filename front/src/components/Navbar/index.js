@@ -85,7 +85,7 @@ const Navbar = () => {
               to={""}
               onClick={() => { dispatch(disconnected(history)) }}
             >
-              Deconnexion
+              Déconnexion
             </NavLink>
           </li>
         </ul>
@@ -130,7 +130,7 @@ const Navbar = () => {
               to={""}
               onClick={() => { dispatch(disconnected(history)) }}
             >
-              Deconnexion
+              Déconnexion
             </NavLink>
           </li>
         </ul>

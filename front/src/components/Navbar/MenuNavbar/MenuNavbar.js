@@ -20,7 +20,7 @@ const MenuNavbar = () => {
             </div>
             <h3>Menu</h3>
             <div className="menu_navbar_container_content">
-                <p onClick={() => history.push('/about')}>A propos</p>
+                <p onClick={() => history.push('/about')}>À propos</p>
                 <p onClick={() => { dispatch(disconnected(history)) }}>Se déconnecter</p>
             </div>
         </div>

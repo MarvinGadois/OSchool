@@ -84,7 +84,7 @@ const TeacherClassroom = () => {
       </div>
       <div className="containered">
         <div className="classroomInfo">
-          <h2>Information de la classe</h2>
+          <h2>Informations de la classe</h2>
           <div className="bordered">
             <ul>
               <li>{currentUser.classrooms[0].name}</li>
@@ -92,7 +92,7 @@ const TeacherClassroom = () => {
               <img
                 id="planning"
                 src="https://charivari.edumoov.com/wp-content/uploads/2018/03/Emploidu-temps-2.png"
-                alt="Emploie du temps"
+                alt="Emploi du temps"
               ></img>
             </ul>
           </div>
@@ -111,18 +111,17 @@ const TeacherClassroom = () => {
         </div>
 
         <div className="subject">
-          <h2>liste des matières</h2>
+          <h2>Liste des matières</h2>
           <ul>
             <li>
               {LessonSubject}
-              <p>professeur</p>
-              <p>one lesson</p>
+              <p>Professeur</p>
             </li>
           </ul>
         </div>
 
         <div className="lessons">
-          <h2>Vos cours/lessons</h2>
+          <h2>Vos cours/leçons</h2>
           <div className="cards">{LessonTitle}</div>
         </div>
 

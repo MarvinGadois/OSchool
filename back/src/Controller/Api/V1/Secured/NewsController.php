@@ -20,7 +20,7 @@ class NewsController extends AbstractController
     {
         $news = $newsRepository->getNews();
 
-        // On demande au Serializer de normaliser nos films (transformer nos objets en array)
+        // On demande au Serializer de normaliser nos news (transformer nos objets en array)
         // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
 
@@ -36,12 +36,8 @@ class NewsController extends AbstractController
     {
         $news = $newsRepository->getNewsBySchool($id);
 
-        // On demande au Serializer de normaliser nos films (transformer nos objets en array)
-        // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
-        
 
-        // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
         return $this->json($array); 
     }
 
@@ -53,11 +49,8 @@ class NewsController extends AbstractController
     {
         $news = $newsRepository->getNew($id);
 
-        // On demande au Serializer de normaliser nos films (transformer nos objets en array)
-        // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
 
-        // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
         return $this->json($array);
     }
 }

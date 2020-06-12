@@ -56,7 +56,7 @@ class HomeworkController extends AbstractController
                 $em->persist($homework);
                 $em->flush();
 
-                $this->addFlash('success', 'Devoir ajoutée avec succès.');
+                $this->addFlash('success', 'Devoir ajouté avec succès.');
 
             }
 

@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-links">
           <p id="p_1" className="about-p" onClick={() => history.push('/')}>Accueil</p>
-          <p id="p_3" className="about-p" onClick={() => history.push('/about')}>A propos</p>
+          <p id="p_3" className="about-p" onClick={() => history.push('/about')}>À propos</p>
           <p className="footer-company-name">O'School © 2020</p>
         </div>
         <h3 className="about-p" onClick={() => history.push('/')}>O'School</h3>

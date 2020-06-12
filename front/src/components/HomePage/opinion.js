@@ -20,7 +20,7 @@ const Opinion = () => {
                     <div className="opinion_user_perso">
                         <h4><span className="spanGrey">{opinion.user.firstname} {opinion.user.lastname}</span></h4>
 
-                        <p><span className="spanGrey">{(opinion.user.roles[0] === "ROLE_STUDENT") ? "Eleve" : "Professeur"}</span></p>
+                        <p><span className="spanGrey">{(opinion.user.roles[0] === "ROLE_STUDENT") ? "Élève" : "Professeur"}</span></p>
 
                         {/* <p>Role: <span className="spanGrey">{opinion.user.roles.map(role => `${role.slice(5).toLowerCase()} `)}</span></p> */}
 
