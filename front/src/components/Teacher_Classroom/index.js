@@ -76,10 +76,12 @@ const TeacherClassroom = () => {
     console.log("nop");
   }
 
-  const LessonTitle = lessons.map((lesson) => (
-    <div key={lesson.id}>
-      <h4>{lesson.subject.title}</h4>
-      <p>{lesson.title.slice(0, 10)}</p>
+  const allLessonCard = lessons.map((lesson) => (
+
+    <div key={lesson.id} className="memberCard">
+      <p>{lesson.title}</p>
+      <p>{lesson.content}</p>
+      <p>{lesson.path}</p>
     </div>
   ));
 
@@ -139,7 +141,7 @@ const TeacherClassroom = () => {
 
         <div className="membersList">
           <h2><a href={"/cours"}>Liste des membres</a></h2>
-          <div className="members">
+          <div className="cards-group">
             {allStudentCard}
           </div>
           
@@ -157,7 +159,9 @@ const TeacherClassroom = () => {
 
         <div className="lessons">
           <h2>Vos cours</h2>
-          <div className="cards">{LessonTitle}</div>
+          <div className="cards-group">
+            {allLessonCard}
+          </div>
         </div>
 
         <div className="homework">
