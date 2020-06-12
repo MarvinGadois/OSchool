@@ -24,12 +24,12 @@
             </div>
             
             <div class="form-group">
-                {{ form_label(form.grade, "Note") }}
+                {{ form_label(form.grade, "Note") }} <span>*</span>
                 {{ form_widget(form.grade, {'attr': {'class': 'form-control'}}) }}
             </div>
 
             <div class="form-group">
-                {{ form_label(form.title, "Titre") }}
+                {{ form_label(form.title, "Titre") }} <span>*</span>
                 {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
             </div>
 
