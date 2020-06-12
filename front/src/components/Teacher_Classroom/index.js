@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { NavLink } from 'react-router-dom';
 
 import getLessons from "../../utils/getLessons";
 import getHomeworks from "../../utils/getHomeworks";
@@ -52,7 +53,7 @@ const TeacherClassroom = () => {
   if (currentClass.users) {
     allStudentCard = currentStudent.map((student) => (
 
-      <div key={student.id} className="memberCard">
+      <div key={student.id} className="memberCard student">
         {student.lastname} {student.firstname}
         <p className="average">Moyenne : 15/20</p>
       </div>
@@ -78,10 +79,10 @@ const TeacherClassroom = () => {
 
   const allLessonCard = lessons.map((lesson) => (
 
-    <div key={lesson.id} className="memberCard">
-      <p>{lesson.title}</p>
-      <p>{lesson.content}</p>
-      <p>{lesson.path}</p>
+    <div key={lesson.id} className="memberCard half">
+      <h3>{lesson.title}</h3>
+      <p>{lesson.content.slice(0, 50)} ...</p>
+      <button><a href=""></a>Accéder</button>
     </div>
   ));
 
@@ -101,9 +102,11 @@ const TeacherClassroom = () => {
 
   // get the last homework of the current user
   const allHomeworks = homeworks.map((homework) => (
-    <div key={homework.id}>
-      <p>{homework.title}</p>
-      <p>{homework.code}</p>
+
+    <div key={homework.id} className="memberCard half">
+      <h3>{homework.code} {homework.title}</h3>
+      <p>{homework.content.slice(0, 50)} ...</p>
+      <button><a href=""></a>Accéder</button>
     </div>
   ));
 
@@ -140,7 +143,7 @@ const TeacherClassroom = () => {
         </div>
 
         <div className="membersList">
-          <h2><a href={"/cours"}>Liste des membres</a></h2>
+          <h2>Liste des membres</h2>
           <div className="cards-group">
             {allStudentCard}
           </div>
@@ -148,17 +151,8 @@ const TeacherClassroom = () => {
           
         </div>
 
-        {/* <div className="subject">
-          <h2>liste des matières</h2>
-          <ul>
-            <li>
-              {classroomSubject}
-            </li>
-          </ul>
-        </div> */}
-
         <div className="lessons">
-          <h2>Vos cours</h2>
+          <h2><NavLink exact to={"/cours"}>Vos cours</NavLink></h2>
           <div className="cards-group">
             {allLessonCard}
           </div>
@@ -166,15 +160,10 @@ const TeacherClassroom = () => {
 
         <div className="homework">
           <h2>Vos devoirs</h2>
-          <div className="cards">{allHomeworks}</div>
-        </div>
-
-        {/* <div className="correction">
-          <h2>Vos corrections</h2>
-          <div className="cards">
-            <p>Aucun devoir corrigé</p>
+          <div className="cards-group">
+            {allHomeworks}
           </div>
-        </div> */}
+        </div>
 
       </div>
     </div>

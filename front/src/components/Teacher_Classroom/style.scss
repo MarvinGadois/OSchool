@@ -14,9 +14,9 @@ h2 a:hover{
 }
 
 %cards{
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 46%;
-  margin: 0 2% 2%;
+  margin: 0 2% 2.5%;
   padding: 10px;
   height: 33vh;
   overflow: scroll;
@@ -38,8 +38,6 @@ h2 a:hover{
     color: #335C81;
   }
 }
-
-// title
 
 
 // containered
@@ -80,7 +78,6 @@ h2 a:hover{
   }
 }
 
-
 // classroom members
 
 .membersList{
@@ -100,7 +97,6 @@ h2 a:hover{
 
 .memberCard {
   border-radius: 10px;
-  width: 31%;
   padding: 10px 10px;
   margin: 0 1% 1.5%;
   background-color: #6D9CC5;
@@ -112,16 +108,36 @@ h2 a:hover{
     font-style: italic;
     font-size: 0.9em;
   }
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px 5px;
+    border: none;
+    color: #335C81;
+  }
+
+  button:hover {
+    margin-top: 10px;
+    background-color: #6D9CC5;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+  }
 }
 
+.student {
+  width: 31%;
+}
 
-// classroom subjects
-
-.subject{
-  @extend %cards;
-  h2 {
-    @extend %title;
-  }
+.half {
+  width: 48%;
 }
 
 
@@ -138,16 +154,6 @@ h2 a:hover{
 // last homework
 
 .homework{
-  @extend %cards;
-  h2{
-    @extend %title;
-  }
-}
-
-
-// last homework correction
-
-.correction{
   @extend %cards;
   h2{
     @extend %title;
