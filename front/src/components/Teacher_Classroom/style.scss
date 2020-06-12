@@ -7,20 +7,17 @@
 }
 
 %cards{
-  width: 50%;
-  margin: 20px 0 20px;
-  height: 25vh;
+  border: 1px solid black;
+  width: 46%;
+  margin: 2%;
+  padding: 10px;
+  height: 30vh;
   overflow: scroll;
   overflow-x: hidden;
-  display: flex;
+  // display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
-
-%topcards{
-  margin-top: 50px ;
-}
-
 
 // wrappered
 
@@ -43,6 +40,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 0 2%;
 }
 
 
@@ -55,9 +53,22 @@
 
 .classroomInfo{
   @extend %cards;
-  @extend %topcards;
+
+  display: flex;
+
   h2{
     @extend %title;
+  }
+
+  div,
+  img {
+    width: 50%;
+    height: auto;
+    text-align: center;
+  }
+
+  div span {
+    font-weight: bold;
   }
 }
 
@@ -65,7 +76,7 @@
 // classroom members
 
 .membersList{
-  @extend %topcards;
+  // @extend %topcards;
   @extend %cards;
   h2{
     @extend %title;

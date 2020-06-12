@@ -17,8 +17,9 @@ const TeacherClassroom = () => {
   // the current class of the user connected
   const { currentClass } = useSelector((state) => state);
 
-  console.log(currentClass);
-  // console.log(currentClass.school.name);
+  // console.log(currentUser.schools[0].name);
+  // console.log(currentClass);
+  // console.log(currentClass.school);
 
   // get the lessons of a user
   const { lessons } = useSelector((state) => state);
@@ -46,6 +47,9 @@ const TeacherClassroom = () => {
       (user) => user.roles[0] === "ROLE_STUDENT"
     ))
     : null;
+
+
+    console.log(currentClassUserNb);
 
   // get the subjects of the current class
   let classroomSubject;
@@ -104,13 +108,23 @@ const TeacherClassroom = () => {
 
         <div className="classroomInfo">
           <h2>Information de la classe</h2>
-          <ul>
-            <li>{currentClass.name}</li>
-            <li>{currentClass.level}</li>
-          </ul>
+          <div>
+            <ul>
+              <li><span>Classe : </span>{currentClass.name}</li>
+              <li><span>Niveau : </span>{currentClass.level}</li>
+              <li><span>Nombre d'élèves : </span></li>
+              <li><span>Moyenne de la classe : </span>11/20</li>
+            </ul><br/>
+            
+            <ul>
+                <li><span>Matières :</span></li><br/>
+                {classroomSubject}
+            </ul>
+          </div>
+          
           <img
               id="planning"
-              src="https://charivari.edumoov.com/wp-content/uploads/2018/03/Emploidu-temps-2.png"
+              src="https://ahogwartsstudent.files.wordpress.com/2017/11/hogwarts-timetable1.jpg"
               alt="Emploi du temps"
             ></img>
         </div>
