@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Grade;
+use App\Form\CorrectionHomeworkType;
 use App\Form\DeleteType;
 use App\Form\GradeType;
 use App\Repository\GradeRepository;
@@ -40,7 +41,6 @@ class GradeController extends AbstractController
                 $em->flush();
 
                 $this->addFlash('success', 'Note ajoutée avec succès.');
-
             }
         }
 
@@ -67,6 +67,8 @@ class GradeController extends AbstractController
         } else {
 
             if($form->isSubmitted() && $form->isValid()) {
+
+                
 
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();

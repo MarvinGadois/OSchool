@@ -21,7 +21,7 @@ console.log(idLesson);
   console.log(lesson);
 
   return (
-    <div className='container_lesson'>
+    <div className="container_lesson">
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"
@@ -37,12 +37,13 @@ console.log(idLesson);
       </div>
       <div
         className="card text-white bg-success mb-3 container fluid"
-        style={{ maxWidth: "18rem" }}
+        style={{ maxWidth: "25rem" }}
       >
         <div className="card-header">{lesson.title}</div>
         <div className="card-body">
           <h5 className="card-title">{lesson.content}</h5>
           <p className="card-text">Cours numero: {lesson.id}</p>
+          <p className="card-footer">Lien: {lesson.path}</p>
         </div>
       </div>
     </div>
