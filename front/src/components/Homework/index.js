@@ -12,38 +12,35 @@ import getOneHomeworkById from "../../utils/getOneHomeworkById";
 const Homework = () => {
   const history = useHistory();
   let { id } = useParams();
-  console.log(id);
   const { homework } = useSelector((state) => state);
   useEffect(() => {
     getOneHomeworkById(id);
   }, []);
 
-  console.log(homework);
 
   return (
-    <div className="container_homework">
-      <div className="dropdown">
+    <div className="container" id="container-one-homework">
+      <div className="btn-group dropleft">
         <button
-          className="btn btn-secondary dropdown-toggle"
           type="button"
-          id="dropdownMenuButton"
+          className="btn btn-secondary dropdown-toggle"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
+          style={{ margin: "5px" }}
           onClick={() => history.push(`/devoirs`)}
         >
-          Cliquer ici pour revenir aux devoirs
+          Revenir aux devoirs
         </button>
       </div>
-      <div
-        className="card text-white bg-success mb-3 container fluid"
-        style={{ maxWidth: "25rem" }}
-      >
+      <div className="card borderdark" style={{ margin: "5px" , textAlign: "center" }}>
         <div className="card-header">{homework.title}</div>
         <div className="card-body">
-          <h5 className="card-title">{homework.content}</h5>
-          <p className="card-text">Code {homework.code}</p>
-          <p className="card-footer">Lien du devoir: {homework.path}</p>
+          <p className="card-title p-5">{homework.content}</p>
+          <p className="card-text p-2">Code {homework.code}</p>
+          <p className="card-footer">
+            Lien du devoir: {homework.path}
+          </p>
         </div>
       </div>
     </div>

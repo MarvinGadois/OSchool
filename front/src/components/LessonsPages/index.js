@@ -5,72 +5,66 @@ import { useHistory } from "react-router";
 // Import scss
 import "./lessonsPages.scss";
 
-import getLessons from "../../utils/getLessons";
+import getLessonsByClassroom from "../../utils/getLessonsByClassroom";
 
 const LessonsPages = () => {
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
-  const { lessons } = useSelector((state) => state);
+  const { lessons_by_classroom } = useSelector((state) => state);
   useEffect(() => {
-    getLessons(currentUser.id);
+    getLessonsByClassroom(currentUser.classrooms[0].id);
   }, []);
 
-  console.log(lessons);
-  console.log(currentUser);
-
-  const allLessons = lessons.map((lesson) => (
+  const mapLesson = (lessonClass) => (
     <div
-      key={lesson.id}
-      className="card border-success mb-3 card text-white bg-warning"
-      style={{ maxWidth: "25rem" }}
-      
+      key={lessonClass.id}
+      className="card border-dark m-4"
+      style={{ textAlign: "center" }}
     >
-      <div className="card-header bg-transparent border-success">
-        Matière du cours: {lesson.subject.title}
+      <div
+        className="card-header"
+        style={{ fontWeight: "bold" }}
+      >
+        Matière du cours: {lessonClass.subject.title}
       </div>
-      <div className="card-body text-success">
-        <h2 className="card-title">{lesson.title}</h2>
-        <p className="card-text">{lesson.content}</p>
+      <div className="card-body text-dark">
+        <h2 className="card-title">{lessonClass.title}</h2>
+        <p className="card-text p-3 m-2">{lessonClass.content}</p>
       </div>
-      <div className="card-footer bg-transparent border-success">
+      <div className="card-footer">
         <p
-          className="link_to_lesson"
-          onClick={() => history.push(`/cours/${lesson.id}`)}
+          onClick={() => history.push(`/cours/${lessonClass.id}`)}
           className="badge badge-danger"
+          style={{ backgroundColor: "#335C81", fontSize: "15px" }}
+          type="button"
         >
           Accéder ici
         </p>
       </div>
     </div>
-  ));
+  );
+
+  const allLessonsByClass =
+    lessons_by_classroom && lessons_by_classroom.length ? (
+      lessons_by_classroom.map(mapLesson)
+    ) : (
+      <div>Pas de cours</div>
+    );
 
   return (
-    <div className="container_lessons">
-      <div className="dropdown">
+    <div className="container">
+      <div className="btn-group dropleft">
         <button
-          className="btn btn-secondary dropdown-toggle"
           type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
+          className="btn btn-secondary dropdown-toggle m-4"
+          style={{ backgroundColor: "#335C81" }}
+          onClick={() => history.push(`/`)}
         >
-          Voir Catégories
+          Revenir à l'accueil
         </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a className="dropdown-item" href="#">
-            Notes
-          </a>
-          <a className="dropdown-item" href="#">
-            Devoirs
-          </a>
-          <a className="dropdown-item" href="#">
-            Cours
-          </a>
-        </div>
       </div>
-      <div className="container-fluid d-flex flex-row flex-wrap justify-content-around">
-        {allLessons}
+      <div className="">
+        {allLessonsByClass}
       </div>
     </div>
   );

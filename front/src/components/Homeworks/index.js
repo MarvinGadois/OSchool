@@ -5,75 +5,70 @@ import { useHistory } from "react-router";
 // Import scss
 import "./homeworks.scss";
 
-import getHomeworks from "../../utils/getHomeworks";
-import getClassById from "../../utils/getClassroomById";
+import getHomeworksByClassroom from "../../utils/getHomeworksByClassroom";
 
 const Homeworks = () => {
-
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
-  const { homeworks } = useSelector((state) => state);
-  useEffect(() => {
-    getHomeworks(currentUser.id);
-  }, []);
-  const { classrooms } = useSelector((state) => state);
+  const { homeworks_by_classroom } = useSelector((state) => state);
+    useEffect(() => {
+      getHomeworksByClassroom(currentUser.classrooms[0].id);
+    }, []);
 
-  console.log(homeworks);
-
-
-  const allHomeworks = homeworks.map((homework) => (
-    <div
-      key={homework.id}
-      className="card border-success mb-3 card text-white bg-dark mb-3"
-      style={{ maxWidth: "25rem" }}
-    >
-      <div className="card-header bg-transparent border-success">
-        Devoirs de {homework.subject.title}
-      </div>
-      <div className="card-body text-success">
-        <h2 className="card-title">Classe {homework.classroom.name}</h2>
-        <h2 className="card-title">{homework.title}</h2>
-        <p className="card-text">{homework.content}</p>
-      </div>
-      <div className="card-footer bg-transparent border-success">
-        <p
-          onClick={() => history.push(`/devoirs/${homework.id}`)}
-          className="badge badge-danger"
-        >
-          Accéder ici
-        </p>
-      </div>
+const mapHomeworks = (homeworkClass) => (
+  <div
+    key={homeworkClass.id}
+    className="card borderdark"
+    style={{ margin: "5px" }}
+  >
+    <div className="card-header">
+      Devoirs de {homeworkClass.subject.title}
     </div>
-  ));
+    <div className="card-body text-dark">
+      <h2 className="card-title">Classe {homeworkClass.classroom.name}</h2>
+      <h2 className="card-title">{homeworkClass.title}</h2>
+      <p className="card-text">{homeworkClass.content}</p>
+    </div>
+    <div className="card-footer">
+      <p
+        onClick={() => history.push(`/devoirs/${homeworkClass.id}`)}
+        className="badge badge-danger"
+      >
+        Accéder ici
+      </p>
+    </div>
+  </div>
+);
+
+
+
+
+  const allHomeworksByClass =
+    homeworks_by_classroom && homeworks_by_classroom.length ? (
+      homeworks_by_classroom.map(mapHomeworks)
+    ) : (
+      <div>Pas de devoirs</div>
+    );
+ 
 
 
   return (
-    <div className="container_homeworks">
-      <div className="dropdown">
+    <div className="container">
+      <div className="btn-group dropleft">
         <button
-          className="btn btn-secondary dropdown-toggle"
           type="button"
-          id="dropdownMenuButton"
+          className="btn btn-secondary dropdown-toggle"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
+          style={{ margin: "5px" }}
+          onClick={() => history.push(`/`)}
         >
-          Voir Catégories
+          Revenir à l'accueil
         </button>
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a className="dropdown-item" href="#">
-            Notes
-          </a>
-          <a className="dropdown-item" href="#">
-            Devoirs
-          </a>
-          <a className="dropdown-item" href="#">
-            Cours
-          </a>
-        </div>
       </div>
-      <div className="container-fluid d-flex flex-row flex-wrap justify-content-around ">
-        {allHomeworks}
+      <div className="">
+        {allHomeworksByClass}
       </div>
     </div>
   );
