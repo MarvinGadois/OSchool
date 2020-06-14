@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router';
-import Logo4 from "src/assets/O'school.png";
+import Logo4 from "src/assets/VersionClaire.png";
 
 
 import "./footer.scss";

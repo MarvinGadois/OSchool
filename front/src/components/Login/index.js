@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import Logo from "../../assets/O'school.png";
+import Logo from "../../assets/VersionFoncé.png";
 import Logo_Stud from "../../assets/bg.svg";
 
 // Import action
