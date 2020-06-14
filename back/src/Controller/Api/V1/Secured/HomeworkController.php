@@ -183,10 +183,10 @@ class HomeworkController extends AbstractController
 
             }
 
-            return $this->json(["This homework doesn't exist."], 404);        
+            return $this->json(["Ce devoir n'existe pas"], 404);        
         }
 
-        return $this->json(["This homework doesn't exist."], 404); 
+        return $this->json(["Ce devoir n'existe pas"], 404); 
     }
 
 
@@ -213,7 +213,7 @@ class HomeworkController extends AbstractController
                     if($role == "ROLE_STUDENT") {
 
                         if($user->getId() != $tokenUser->getId()) {
-                            return $this->json(["A student can't edit someone else homework."], 401);
+                            return $this->json(["Un élève ne peut pas modifier le devoir d'un autre élève"], 401);
                         }
                     }
                 }
@@ -235,10 +235,10 @@ class HomeworkController extends AbstractController
                 return $this->json($this->render->normalizeByGroup($homework, $this->group), 201);
             }
 
-            return $this->json(["This homework doesn't exist."], 404); 
+            return $this->json(["Ce devoir n'existe pas"], 404); 
         }
 
-        return $this->json(["This homework doesn't exist."], 404);        
+        return $this->json(["Ce devoir n'existe pas"], 404);        
     }
 
 
@@ -257,12 +257,12 @@ class HomeworkController extends AbstractController
                 $em->remove($homework);
                 $em->flush();
 
-                return $this->json(["Homework deleted."], 201);
+                return $this->json(["Devoir supprimé"], 201);
             }
 
-            return $this->json(["This homework doesn't exist."], 404); 
+            return $this->json(["Ce devoir n'existe pas"], 404); 
         }
 
-        return $this->json(["This homework doesn't exist."], 404);        
+        return $this->json(["Ce devoir n'existe pas"], 404);        
     }
 }

@@ -19,19 +19,19 @@
         {{ form_start(form, {'attr': {'class': 'col-8 mx-auto'}}) }}
 
             <div class="form-group">
-                {{ form_label(form.code, "Code du devoir") }}
+                {{ form_label(form.code, "Code du devoir") }} <span>*</span>
                 {{ form_widget(form.code, {'attr': {'class': 'form-control'}}) }}
             </div>
 
             <div class="form-group">
-                {{ form_label(form.title, "Titre") }}
+                {{ form_label(form.title, "Titre") }} <span>*</span>
                 {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
             </div>
 
             <div class="form-group">
                 {{ form_label(form.content, "Description") }}
                 {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
-                <small id="contentHelp" class="form-text text-muted">Dans ce champ, vous pouvez mettre des informations suplémentaires à propos du devoir importée. Vous pouvez également, si vous le souhaitez, y mettre le devoir en entier sous forme de texte.</small>
+                <small id="contentHelp" class="form-text text-muted">Dans ce champ, vous pouvez mettre des informations suplémentaires à propos du devoir importé. Vous pouvez également, si vous le souhaitez, y mettre le devoir en entier sous forme de texte.</small>
             </div>
 
             <div class="form-group">
@@ -46,12 +46,12 @@
             </div>
 
             <div class="form-group">
-                {{ form_label(form.classroom, "Classe") }}
+                {{ form_label(form.classroom, "Choisissez une classe") }} <span>*</span>
                 {{ form_widget(form.classroom, {'attr': {'class': 'form-control'}}) }}
             </div>
 
             <div class="form-group">
-                {{ form_label(form.subject, "Matière") }}
+                {{ form_label(form.subject, "Choisissez une matière") }} <span>*</span>
                 {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
             </div>
 

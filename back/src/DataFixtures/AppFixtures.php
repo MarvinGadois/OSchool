@@ -50,7 +50,7 @@ class AppFixtures extends Fixture
         $em->persist($school);
 
         $oschool = new School();
-        $oschool->setName("Oschool");
+        $oschool->setName("O'School");
         $schools[] = $oschool;
         $em->persist($oschool);
 
@@ -72,14 +72,14 @@ class AppFixtures extends Fixture
 
         $serpentardC = new Classroom();
         $serpentardC->setName("Serpentard C");
-        $serpentardC->setLevel("Troisième Année");
+        $serpentardC->setLevel("Troisième année");
         $serpentardC->setSchool($school);
         $classrooms[] = $serpentardC;
         $em->persist($serpentardC);
 
         $poufsouffleB = new Classroom();
         $poufsouffleB->setName("Poufsouffle B");
-        $poufsouffleB->setLevel("Deuxième Année");
+        $poufsouffleB->setLevel("Deuxième année");
         $poufsouffleB->setSchool($school);
         $classrooms[] = $poufsouffleB;
         $em->persist($poufsouffleB);
@@ -1083,7 +1083,7 @@ class AppFixtures extends Fixture
 
         $lesson1 = new Lesson();
         $lesson1->setTitle("Cours de rentrée de potions");
-        $lesson1->setContent("Aujourd’hui nous avons fait connaissances avec les nouveaux qui nous ont rejoint cette année et je vous ai présenté le programme de cette année");
+        $lesson1->setContent("Aujourd’hui nous avons fait connaissance avec les nouveaux qui nous ont rejoint cette année et je vous ai présenté le programme de cette année");
         $lesson1->setPath("");
         $lesson1->setClassroom($gryffondorD);
         $lesson1->setSubject($potions);
@@ -1183,7 +1183,7 @@ class AppFixtures extends Fixture
 
         $lesson11 = new Lesson();
         $lesson11->setTitle("Quatrième cours de potion");
-        $lesson11->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson11->setContent("Aujourd’hui nous avons vu le “Béozard” qui est une pierre qui sert d’antidote à la plupart des potions et qui est de plus en plus rare à trouver");
         $lesson11->setPath("manuels.jpeg");
         $lesson11->setClassroom($gryffondorD);
         $lesson11->setSubject($potions);
@@ -1193,7 +1193,7 @@ class AppFixtures extends Fixture
 
         $lesson12 = new Lesson();
         $lesson12->setTitle("Cinquième cours de potion");
-        $lesson12->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson12->setContent("Aujourd’hui nous avons vu le “Béozard” qui est une pierre qui sert d’antidote à la plupart des potions et qui est de plus en plus rare à trouver");
         $lesson12->setPath("manuels.jpeg");
         $lesson12->setClassroom($gryffondorD);
         $lesson12->setSubject($potions);
@@ -1203,7 +1203,7 @@ class AppFixtures extends Fixture
 
         $lesson13 = new Lesson();
         $lesson13->setTitle("Sixième cours de potion");
-        $lesson13->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson13->setContent("Aujourd’hui nous avons vu le “Béozard” qui est une pierre qui sert d’antidote à la plupart des potions et qui est de plus en plus rare à trouver");
         $lesson13->setPath("manuels.jpeg");
         $lesson13->setClassroom($gryffondorD);
         $lesson13->setSubject($potions);
@@ -1213,7 +1213,7 @@ class AppFixtures extends Fixture
 
         $lesson14 = new Lesson();
         $lesson14->setTitle("Septième cours de potion");
-        $lesson14->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson14->setContent("Aujourd’hui nous avons vu le “Béozard” qui est une pierre qui sert d’antidote à la plupart des potions et qui est de plus en plus rare à trouver");
         $lesson14->setPath("manuels.jpeg");
         $lesson14->setClassroom($gryffondorD);
         $lesson14->setSubject($potions);
@@ -1223,7 +1223,7 @@ class AppFixtures extends Fixture
 
         $lesson15 = new Lesson();
         $lesson15->setTitle("Huitième cours de potion");
-        $lesson15->setContent("Aujourd’hui nous avons décidé quels sports nous allons effectuer cette année en votant à la majorité. Les sports retenus sont : La course à pied, la musculation et le basket.");
+        $lesson15->setContent("Aujourd’hui nous avons vu le “Béozard” qui est une pierre qui sert d’antidote à la plupart des potions et qui est de plus en plus rare à trouver");
         $lesson15->setPath("manuels.jpeg");
         $lesson15->setClassroom($gryffondorD);
         $lesson15->setSubject($potions);
@@ -1237,7 +1237,7 @@ class AppFixtures extends Fixture
         $homework1 = new Homework();
         $homework1->setCode("P-GD-1");
         $homework1->setTitle("Devoir n°1");
-        $homework1->setContent("Ce devoir est à rendre pour le 10 juin 2020, faite le avec soin, il sera noté");
+        $homework1->setContent("Ce devoir est à rendre pour le 10 juin 2020, faites-le avec soin, il sera noté");
         $homework1->setPath("homework/potion-d1-ennonce.txt");
         $homework1->setClassroom($gryffondorD);
         $homework1->setUser($rogue);
@@ -1248,7 +1248,7 @@ class AppFixtures extends Fixture
         $homework2 = new Homework();
         $homework2->setCode("M-GR-1");
         $homework2->setTitle("Controle n°1");
-        $homework2->setContent("Disertation sur : l'art de la méthamorphose. A rendre pour le 3 juin 2020");
+        $homework2->setContent("Dissertation sur : l'art de la métamorphose. À rendre pour le 3 juin 2020");
         $homework2->setPath("");
         $homework2->setClassroom($gryffondorD);
         $homework2->setUser($mcgonagall);
@@ -1259,7 +1259,7 @@ class AppFixtures extends Fixture
         $homework4 = new Homework();
         $homework4->setCode("P-GD-2");
         $homework4->setTitle("Devoir n°2");
-        $homework4->setContent("Ce devoir est à rendre pour le 24 juin 2020, faites le avec soin, il sera noté");
+        $homework4->setContent("Ce devoir est à rendre pour le 24 juin 2020, faites-le avec soin, il sera noté");
         $homework4->setPath("homework/potion-d2-ennonce.txt");
         $homework4->setClassroom($gryffondorD);
         $homework4->setUser($rogue);
@@ -1270,7 +1270,7 @@ class AppFixtures extends Fixture
         $homework5 = new Homework();
         $homework5->setCode("P-SP-1");
         $homework5->setTitle("Devoir n°1");
-        $homework5->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework5->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites-le avec soin, il sera noté");
         $homework5->setPath("homework/potion-d1-serp-ennonce.txt");
         $homework5->setClassroom($serpentardC);
         $homework5->setUser($rogue);
@@ -1281,7 +1281,7 @@ class AppFixtures extends Fixture
         $homework15 = new Homework();
         $homework15->setCode("P-GD-3");
         $homework15->setTitle("Devoir n°3");
-        $homework15->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework15->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites-le avec soin, il sera noté");
         $homework15->setPath("homework/potion-d3-ennonce.txt");
         $homework15->setClassroom($gryffondorD);
         $homework15->setUser($rogue);
@@ -1292,7 +1292,7 @@ class AppFixtures extends Fixture
         $homework16 = new Homework();
         $homework16->setCode("P-GD-4");
         $homework16->setTitle("Devoir n°4");
-        $homework16->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework16->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites-le avec soin, il sera noté");
         $homework16->setPath("homework/potion-d4-ennonce.txt");
         $homework16->setClassroom($gryffondorD);
         $homework16->setUser($rogue);
@@ -1303,7 +1303,7 @@ class AppFixtures extends Fixture
         $homework17 = new Homework();
         $homework17->setCode("P-GD-5");
         $homework17->setTitle("Devoir n°5");
-        $homework17->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework17->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites-le avec soin, il sera noté");
         $homework17->setPath("homework/potion-d5-ennonce.txt");
         $homework17->setClassroom($gryffondorD);
         $homework17->setUser($rogue);
@@ -1314,7 +1314,7 @@ class AppFixtures extends Fixture
         $homework18 = new Homework();
         $homework18->setCode("P-GD-6");
         $homework18->setTitle("Devoir n°6");
-        $homework18->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework18->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites-le avec soin, il sera noté");
         $homework18->setPath("homework/potion-d6-ennonce.txt");
         $homework18->setClassroom($gryffondorD);
         $homework18->setUser($rogue);
@@ -1325,7 +1325,7 @@ class AppFixtures extends Fixture
         $homework19 = new Homework();
         $homework19->setCode("P-GD-7");
         $homework19->setTitle("Devoir n°7");
-        $homework19->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites le avec soin, il sera noté");
+        $homework19->setContent("Ce devoir est à rendre pour le 12 Juin 2020, faites-le avec soin, il sera noté");
         $homework19->setPath("homework/potion-d7-ennonce.txt");
         $homework19->setClassroom($gryffondorD);
         $homework19->setUser($rogue);
