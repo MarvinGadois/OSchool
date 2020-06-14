@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 // Import scss
-import "./homeworks.scss";
+import "./homeworksStudent.scss";
 
 import getHomeworksByClassroom from "../../utils/getHomeworksByClassroom";
 
-const Homeworks = () => {
+const Homeworks_Student = () => {
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
   const { homeworks_by_classroom } = useSelector((state) => state);
@@ -18,21 +18,22 @@ const Homeworks = () => {
 const mapHomeworks = (homeworkClass) => (
   <div
     key={homeworkClass.id}
-    className="card borderdark"
-    style={{ margin: "5px" }}
+    className="card border-dark m-4"
+    style={{ textAlign: "center" }}
   >
-    <div className="card-header">
-      Devoirs de {homeworkClass.subject.title}
+    <div className="card-header" style={{ fontWeight: "bold" }}>
+      Matière: {homeworkClass.subject.title}
     </div>
     <div className="card-body text-dark">
       <h2 className="card-title">Classe {homeworkClass.classroom.name}</h2>
       <h2 className="card-title">{homeworkClass.title}</h2>
-      <p className="card-text">{homeworkClass.content}</p>
+      <p className="card-text p-3 m-2">{homeworkClass.content}</p>
     </div>
     <div className="card-footer">
       <p
         onClick={() => history.push(`/devoirs/${homeworkClass.id}`)}
         className="badge badge-danger"
+        style={{ backgroundColor: "#335C81", fontSize: "15px" }}
       >
         Accéder ici
       </p>
@@ -57,21 +58,16 @@ const mapHomeworks = (homeworkClass) => (
       <div className="btn-group dropleft">
         <button
           type="button"
-          className="btn btn-secondary dropdown-toggle"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style={{ margin: "5px" }}
+          className="btn btn-secondary dropdown-toggle m-4"
+          style={{ backgroundColor: "#335C81" }}
           onClick={() => history.push(`/`)}
         >
           Revenir à l'accueil
         </button>
       </div>
-      <div className="">
-        {allHomeworksByClass}
-      </div>
+      <div className="">{allHomeworksByClass}</div>
     </div>
   );
 };
 
-export default Homeworks;
+export default Homeworks_Student;

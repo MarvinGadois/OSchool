@@ -118,10 +118,10 @@ const Navbar = () => {
             <NavLink exact to={"/"}>Accueil</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/cours"}>Cours</NavLink>
+            <NavLink exact to={"/coursprof"}>Cours</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/devoirs"}>Devoirs</NavLink>
+            <NavLink exact to={"/devoirsprof"}>Devoirs</NavLink>
           </li>
           <li>
             <NavLink

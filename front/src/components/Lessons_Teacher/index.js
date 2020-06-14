@@ -17,23 +17,24 @@ const Lessons_Teacher = () => {
 
 
   const mapLessonsTeacher = (lesson) => (
-    <div 
-      key={lesson.id} 
-      className="card border-dark" 
-      style={{ margin: "5px" }}
+    <div
+      key={lesson.id}
+      className="card border-dark m-4"
+      style={{ textAlign: "center" }}
     >
-      <div className="card-header">
-        Matière du cours: {lesson.subject.title}
+      <div className="card-header" style={{ fontWeight: "bold" }}>
+        Matière: {lesson.subject.title}
       </div>
       <div className="card-body text-dark">
         <h2 className="card-title">{lesson.title}</h2>
-        <p className="card-text">{lesson.content}</p>
+        <p className="card-text p-3 m-2">{lesson.content}</p>
       </div>
       <div className="card-footer">
         <p
-          className="link_to_lesson"
           onClick={() => history.push(`/coursprof/${lesson.id}`)}
           className="badge badge-danger"
+          style={{ backgroundColor: "#335C81", fontSize: "15px" }}
+          type="button"
         >
           Accéder ici
         </p>
@@ -53,19 +54,14 @@ const Lessons_Teacher = () => {
       <div className="btn-group dropleft">
         <button
           type="button"
-          className="btn btn-secondary dropdown-toggle"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style={{ margin: "5px" }}
+          className="btn btn-secondary dropdown-toggle m-4"
+          style={{ backgroundColor: "#335C81" }}
           onClick={() => history.push(`/`)}
         >
           Revenir à l'accueil
         </button>
       </div>
-      <div className="">
-        {allLessonsByTeacher}
-      </div>
+      <div className="">{allLessonsByTeacher}</div>
     </div>
   );
 };

@@ -14,12 +14,14 @@ import Login from '../Login';
 import TeacherClassroom from "src/components/Teacher_Classroom";
 import AllNewsSchool from 'src/components/AllNewsSchool';
 import OneNewSchool from 'src/components/OneNewSchool';
-import LessonsPages from "../LessonsPages";
+import Lessons_Student from "../Lessons_Student";
 import Lessons_Teacher from "../Lessons_Teacher";
-import Lesson from "../Lesson";
-import Homeworks from "../Homeworks";
+import OneHomeworkTeacher from "../OneHomeworkTeacher";
+import OneHomeworkStudent from "../OneHomeworkStudent";
+import OneLessonTeacher from "../OneLessonTeacher";
+import OneLessonStudent from "../OneLessonStudent";
+import Homeworks_Student from "../Homeworks_Student";
 import Homeworks_Teacher from "../Homeworks_Teacher";
-import Homework from "../Homework"
 import Page404 from 'src/components/404';
 import About from 'src/components/About';
 
@@ -38,21 +40,53 @@ const App = () => {
     <div className="app">
       <Navbar />
       <Switch>
-        <Route exact path="/" ><HomePage /></Route>
-        <Route exact path="/login"><Login /></Route>
-        <Route exact path="/professeur/classe/:id"><TeacherClassroom/></Route>    
-        <Route exact path="/news"><AllNewsSchool /></Route>
-        <Route exact path="/new/:id"><OneNewSchool /></Route>
-        <Route exact path="/cours"><LessonsPages /></Route>
-        <Route exact path="/cours/:idLesson"><Lesson /></Route>
-        <Route exact path="/devoirs"><Homeworks /></Route>
-        <Route exact path="/devoirs/:id"><Homework /></Route>
-        <Route exact path="/coursprof"><Lessons_Teacher /></Route>
-        <Route exact path="/devoirsprof"><Homeworks_Teacher /></Route>
-        <Route exact path="/about"><About /></Route>
-        <Route><Page404 /></Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/professeur/classe/:id">
+          <TeacherClassroom />
+        </Route>
+        <Route exact path="/news">
+          <AllNewsSchool />
+        </Route>
+        <Route exact path="/new/:id">
+          <OneNewSchool />
+        </Route>
+        <Route exact path="/cours">
+          <Lessons_Student />
+        </Route>
+        <Route exact path="/cours/:idLesson">
+          <OneLessonStudent />
+        </Route>
+        <Route exact path="/devoirs">
+          <Homeworks_Student />
+        </Route>
+        <Route exact path="/devoirs/:id">
+          <OneHomeworkStudent />
+        </Route>
+        <Route exact path="/coursprof">
+          <Lessons_Teacher />
+        </Route>
+        <Route exact path="/coursprof/:idLesson">
+          <OneLessonTeacher />
+        </Route>
+        <Route exact path="/devoirsprof">
+          <Homeworks_Teacher />
+        </Route>
+        <Route exact path="/devoirsprof/:id">
+          <OneHomeworkTeacher />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route>
+          <Page404 />
+        </Route>
       </Switch>
-      <Footer /> 
+      <Footer />
     </div>
   );
 };

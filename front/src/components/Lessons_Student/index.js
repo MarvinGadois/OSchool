@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
 // Import scss
-import "./lessonsPages.scss";
+import "./lessonsStudent.scss";
 
 import getLessonsByClassroom from "../../utils/getLessonsByClassroom";
 
-const LessonsPages = () => {
+const Lessons_Student = () => {
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
   const { lessons_by_classroom } = useSelector((state) => state);
@@ -25,7 +25,7 @@ const LessonsPages = () => {
         className="card-header"
         style={{ fontWeight: "bold" }}
       >
-        Matière du cours: {lessonClass.subject.title}
+        Matière: {lessonClass.subject.title}
       </div>
       <div className="card-body text-dark">
         <h2 className="card-title">{lessonClass.title}</h2>
@@ -70,4 +70,4 @@ const LessonsPages = () => {
   );
 };
 
-export default LessonsPages;
+export default Lessons_Student;

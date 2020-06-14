@@ -4,11 +4,11 @@ import { useParams } from "react-router";
 import { useHistory } from "react-router";
 
 // Import scss
-import "./lesson.scss";
+import "./onelessonteacher.scss";
 
 import getOneLessonById from "../../utils/getOneLessonById";
 
-const Lesson = () => {
+const OneLessonTeacher = () => {
   const history = useHistory();
   let { idLesson } = useParams();
   const { lesson } = useSelector((state) => state);
@@ -17,12 +17,12 @@ const Lesson = () => {
   }, []);
 
   return (
-    <div className="container" id="container-one-homework">
+    <div className="container" id="container-one-lesson">
       <div className="btn-group dropleft">
         <button
           type="button"
           className="btn btn-secondary dropdown-toggle m-4"
-          onClick={() => history.push(`/cours`)}
+          onClick={() => history.push(`/coursprof`)}
           style={{ backgroundColor: "#335C81" }}
         >
           Revenir aux cours
@@ -42,4 +42,4 @@ const Lesson = () => {
   );
 };
 
-export default Lesson;
+export default OneLessonTeacher;

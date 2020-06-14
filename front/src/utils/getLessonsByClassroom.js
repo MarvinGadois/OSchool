@@ -14,7 +14,6 @@ const getLessonsByClassroom = (idClass) => {
     .get(lessonClassByIdRequest + idClass)
     .then((res) => {
       const lessons_by_classroom = res.data;
-      console.log("getlessons", lessons_by_classroom);
       store.dispatch(setLessonClass(lessons_by_classroom));
     })
     .catch((error) => {
