@@ -56,7 +56,7 @@ class HomeworkController extends AbstractController
                 $em->persist($homework);
                 $em->flush();
 
-                $this->addFlash('success', 'Devoir ajoutée avec succès.');
+                $this->addFlash('success', 'Devoir ajouté avec succès.');
 
             }
 
@@ -126,7 +126,7 @@ class HomeworkController extends AbstractController
 
 
     /**
-     * @Route("/user/{user_id}/correction/{id}", name="correction", requirements={"user_id": "\d+", "id": "\d+"})
+     * @Route("/user/{user_id}/correction/{id}", name="correction", requirements={"user_id": "\d+"})
      */
     public function correction($user_id, $id, Request $request, UserRepository $userRepository, HomeworkRepository $homeworkRepository)
     {
@@ -164,7 +164,6 @@ class HomeworkController extends AbstractController
                 $em->flush();
             
                 $this->addFlash('success', 'Correction ajoutée avec succès.');
-
             }
         }
         
@@ -173,7 +172,7 @@ class HomeworkController extends AbstractController
             'action' => $this->generateUrl('homework_delete', ['user_id' => $user_id, 'id' => $id])
         ]);
 
-        return $this->render('homework/form.html.twig', [
+        return $this->render('homework/form_correction.html.twig', [
             'form' => $form->createView(),
             'formDelete' => $formDelete->createView(),
         ]);

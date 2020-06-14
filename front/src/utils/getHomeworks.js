@@ -12,7 +12,6 @@ const HomeworksRequest = `${API_URL}${GET_HOMEWORKS}`;
 const getHomeworks = (idUser) => {
   axios.get(HomeworksRequest + idUser).then((res) => {
     const homeworks = res.data;
-    console.log("devoirs axios", homeworks);
     store.dispatch(setHomeworks(homeworks));
   });
 };

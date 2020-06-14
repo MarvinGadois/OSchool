@@ -1,30 +1,32 @@
 %title{
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: bolder;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
+  color: #335C81;
+}
+
+h2 a:hover{
+  color: #6D9CC5;
+  text-decoration: none;
 }
 
 %cards{
-  width: 50%;
-  margin: 20px 0 20px;
-  height: 25vh;
+  // border: 1px solid black;
+  width: 46%;
+  margin: 0 2% 2.5%;
+  padding: 10px;
+  height: 33vh;
   overflow: scroll;
   overflow-x: hidden;
-  display: flex;
+  // display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
 
-%topcards{
-  margin-top: 50px ;
-}
-
-#planning {
-  width: 300px;
-  height: 200px;
-}
+// wrappered
 
 .wrappered{
   h1{
@@ -32,52 +34,118 @@
     justify-content: center;
     margin: 50px;
     font-size: 2em;
-    font-weight: bold;
-    }
-}
-
-
-.container-of-head {
-  justify-content: space-around;
-  display: flex;
-  h2{
-    @extend %title;
+    font-weight: bolder;
+    color: #335C81;
   }
 }
 
 
+// containered
 
 .containered{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 0 2%;
+}
+
+
+// classroom infos
+
+#planning {
+  width: 300px;
+  height: 200px;
 }
 
 .classroomInfo{
   @extend %cards;
-  @extend %topcards;
+
+  display: flex;
+
   h2{
     @extend %title;
   }
+
+  div,
+  img {
+    width: 50%;
+    height: auto;
+    text-align: center;
+  }
+
+  div span {
+    font-weight: bold;
+  }
 }
 
-
+// classroom members
 
 .membersList{
-  @extend %topcards;
+  // @extend %topcards;
   @extend %cards;
   h2{
     @extend %title;
   }
 }
 
-.subject{
-  @extend %cards;
-  h2 {
-    @extend %title;
+.cards-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+.memberCard {
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin: 0 1% 1.5%;
+  background-color: #6D9CC5;
+  color: white;
+  text-shadow: 2px 3px 7px rgba(150, 150, 150, 1);
+  text-align: center;
+
+  .average {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px 5px;
+    border: none;
+    color: #335C81;
+  }
+
+  button:hover {
+    margin-top: 10px;
+    background-color: #6D9CC5;
+    border: 1px solid white;
+    font-weight: bold;
+  }
+
+  button a:hover {
+    text-decoration: none;
+    color: white;
   }
 }
 
+.student {
+  width: 31%;
+}
+
+.half {
+  width: 48%;
+}
+
+
+// last lessons
 
 .lessons{
   @extend %cards;
@@ -86,18 +154,12 @@
   }
 }
 
+
+// last homework
+
 .homework{
   @extend %cards;
   h2{
     @extend %title;
   }
 }
-
-.correction{
-  @extend %cards;
-  h2{
-    @extend %title;
-  }
-}
-
-

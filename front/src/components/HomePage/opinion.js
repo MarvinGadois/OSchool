@@ -20,6 +20,8 @@ const Opinion = () => {
                     <div className="opinion_user_perso">
                         <h4><span >{opinion.user.firstname} {opinion.user.lastname}</span></h4>
                         <p><span className="spanGrey">{(opinion.user.roles[0] === "ROLE_STUDENT") ? "Eleve" : "Professeur"}</span></p>
+
+
                     </div>
                 </div>
                 <hr className="hrclasses" />

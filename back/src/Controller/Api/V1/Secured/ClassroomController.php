@@ -22,7 +22,7 @@ class ClassroomController extends AbstractController
             'infos_classroom',
             'school_classroom', 'school',
             'schedules_classroom', 'schedule',
-            'users_classroom', 'infos_user'
+            'users_classroom', 'infos_user', 'user_subject', 'infos_subject'
         ];
 
         $this->render = $render;

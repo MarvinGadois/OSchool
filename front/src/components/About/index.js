@@ -9,6 +9,7 @@ const About = () => {
         <div className="container_about">
             {/* <h1>About</h1> */}
             <div className="container_about_head">
+
                 <h2>Pourquoi ce projet</h2>
                 <div>
                     <p>L’idée du projet sur lequel nous travaillons nous est venu au cours du confinement lors duquel la scolarité est devenue compliquée pour bons nombres d’établissements scolaires. Ceux-ci se sont retrouvés dépassés par les événements, mais aussi par le manque de moyens pédagogiques mis à leur disposition.
@@ -17,6 +18,7 @@ const About = () => {
             </p>
 
                 </div>
+
             </div>
             <div className="container_about_content" >
                 <h2>Notre equipe</h2>
@@ -24,27 +26,27 @@ const About = () => {
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Sarah</p>
-                        <p>Role</p>
+                        <p>Rôle</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Marvin</p>
-                        <p>Role</p>
+                        <p>Rôle</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Ahmad</p>
-                        <p>Role</p>
+                        <p>Rôle</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Aymeric</p>
-                        <p>Role</p>
+                        <p>Rôle</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Samy</p>
-                        <p>Role</p>
+                        <p>Rôle</p>
                     </div>
                 </div>
                 <img id="img_about" src={Logo_about} />

@@ -21,7 +21,7 @@ const Description = () => {
       </div>
 
       <div className="description_main">
-        <p>O’school est une plateforme web facilitant les échanges en ligne entre
+        <p>O’School est une plateforme web facilitant les échanges en ligne entre
 
         les différentes parties de l’éducation.
         </p>
@@ -38,8 +38,10 @@ const Description = () => {
           </div>
 
           <div className="help-view">
+
             <img className="icon" src={icon3} alt="icon inscription" />
             <p>Simple et intuitif</p>
+
           </div>
 
           <div className="help-view">
@@ -58,9 +60,9 @@ const Description = () => {
           </div>
           <div className="paragraphs-content">
             <h2>Enseignants</h2>
-            <p>O’school permet la gestion des enseignants, nous fournissons une interface pour consulter les
+            <p>O’School permet la gestion des enseignants, nous fournissons une interface pour consulter les
 
-            emplois du temps, enregistrer les résultats des élèves et le cahier de correspondance.
+            emplois du temps, enregistrer les résultats des élèves et le carnet de correspondance.
 
             </p>
             <hr className="paragraphs-hr"></hr>

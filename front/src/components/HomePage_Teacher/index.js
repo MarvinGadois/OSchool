@@ -81,10 +81,10 @@ const HomePageTeacher = () => {
               <thead className="thead-dark">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nom classe</th>
-                  <th scope="col">Nb élèves</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Nombre d'élèves</th>
                   <th scope="col">Niveau</th>
-                  <th scope="col">Etablissement</th>
+                  <th scope="col">Établissement</th>
                 </tr>
               </thead>
               <tbody>{classrooms.length >= 1 && [DetailsClass]}</tbody>
@@ -109,10 +109,10 @@ const HomePageTeacher = () => {
               <div className="container--homeTeacher--info--content--perso--body">
                 <p>Email: {currentUser.email}</p>
 
-                <p>Role: {(currentUser.roles[0] === "ROLE_STUDENT") ? "Elève" : "Professeur"}</p>
+                <p>Rôle: {(currentUser.roles[0] === "ROLE_STUDENT") ? "Élève" : "Professeur"}</p>
 
                 {/* <p>Role: {currentUser.roles[0].slice(5).toLowerCase()}</p> */}
-                <p>Etablissement: {currentUser.schools[0].name}</p>
+                <p>Établissement: {currentUser.schools[0].name}</p>
               </div>
             </div>
           </div>

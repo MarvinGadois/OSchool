@@ -82,7 +82,9 @@ const HomePageStudent = () => {
               <thead className="thead-dark">
                 <tr>
                   <th scope="col">#</th>
+
                   <th scope="col">Titres devoirs</th>
+
                   <th scope="col">Notes</th>
                   <th scope="col">Commentaires</th>
                 </tr>
@@ -102,15 +104,19 @@ const HomePageStudent = () => {
 
             <div className="container--homeStudent--info--content--perso">
               <div className="container--homeStudent--info--content--perso--head">
+
                 <img src="https://www.nicepng.com/png/detail/804-8049853_med-boukrima-specialist-webmaster-php-e-commerce-web.png"></img>
                 <h5><span className="titlecardInfo">Elève: </span>{currentUser.lastname}</h5>
+
               </div>
               <hr></hr>
               <div className="container--homeStudent--info--content--perso--body">
                 <p><span className="titlecardInfo">Email:</span> {currentUser.email}</p>
 
+
                 <p><span className="titlecardInfo">Role:</span> {(currentUser.roles[0] === "ROLE_STUDENT") ? "Elève" : "Professeur"}</p>
                 <p><span className="titlecardInfo">Etablissement:</span> {currentUser.schools[0].name}</p>
+
               </div>
             </div>
           </div>

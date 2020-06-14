@@ -42,7 +42,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink exact to={"/about"}>A propos</NavLink>
+            <NavLink exact to={"/about"}>À propos</NavLink>
           </li>
           <li>
             <NavLink
@@ -85,7 +85,7 @@ const Navbar = () => {
               to={""}
               onClick={() => { dispatch(disconnected(history)) }}
             >
-              Deconnexion
+              Déconnexion
             </NavLink>
           </li>
         </ul>
@@ -118,10 +118,10 @@ const Navbar = () => {
             <NavLink exact to={"/"}>Accueil</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/cours"}>Cours</NavLink>
+            <NavLink exact to={"/coursprof"}>Cours</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/devoirs"}>Devoirs</NavLink>
+            <NavLink exact to={"/devoirsprof"}>Devoirs</NavLink>
           </li>
           <li>
             <NavLink
@@ -130,7 +130,7 @@ const Navbar = () => {
               to={""}
               onClick={() => { dispatch(disconnected(history)) }}
             >
-              Deconnexion
+              Déconnexion
             </NavLink>
           </li>
         </ul>

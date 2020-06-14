@@ -19,12 +19,9 @@ class OschoolNewsController extends AbstractController
     public function browse(SerializerInterface $serializer, NewsRepository $newsRepository)
     {
         $news = $newsRepository->getNewsBySchoolName("Oschool");
-        
-        // On demande au Serializer de normaliser nos films (transformer nos objets en array)
-        // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
+
         $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
 
-        // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
         return $this->json($array);
     }
 
@@ -36,11 +33,9 @@ class OschoolNewsController extends AbstractController
         $news = $newsRepository->getNew($id);
 
         if($news->getSchool()->getName() == "Oschool") {
-            // On demande au Serializer de normaliser nos films (transformer nos objets en array)
-            // De plus, on lui spécifie qu'on veut normaliser selon les groupes "news" et "school"
+
             $array = $serializer->normalize($news, null, ['groups' => ['news', 'school']]);
 
-            // La méthode json() retourne un objet JsonResponse qui est un objet Response particulier
             return $this->json($array);
         }
 
