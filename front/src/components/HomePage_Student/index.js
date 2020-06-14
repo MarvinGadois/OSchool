@@ -98,8 +98,8 @@ const HomePageStudent = () => {
           <h2>Informations</h2>
           <div className="container--homeStudent--info--content">
             <div className="container--homeStudent--info--content--shedule">
-              {/* <h3>Emploi du temps</h3> */}
-              <img src="https://charivari.edumoov.com/wp-content/uploads/2018/03/Emploidu-temps-2.png"></img>
+              <h3>Emploi du temps</h3>
+              <img src="https://ahogwartsstudent.files.wordpress.com/2017/11/hogwarts-timetable1.jpg"></img>
             </div>
 
             <div className="container--homeStudent--info--content--perso">
