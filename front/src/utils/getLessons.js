@@ -12,7 +12,6 @@ const LessonsRequest = `${API_URL}${GET_LESSONS}`;
 const getLessons = (idUser) => {
   axios.get(LessonsRequest + idUser).then((res) => {
     const lessons = res.data;
-    console.log('lecons axios', lessons );
     store.dispatch(setLessons(lessons));
   });
 };
