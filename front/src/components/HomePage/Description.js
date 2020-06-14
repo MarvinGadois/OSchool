@@ -5,7 +5,7 @@ import './style.scss';
 import icon1 from 'src/assets/icon-inscription.png';
 import icon2 from 'src/assets/icon-students.png';
 import icon3 from 'src/assets/icon-light.jpg';
-import logo from "src/assets/O'school.png";
+import logo from "src/assets/VersionFoncé.png";
 
 
 
