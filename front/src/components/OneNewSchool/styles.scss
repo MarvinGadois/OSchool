@@ -1,6 +1,9 @@
+.fixonenew{
+    height: 100vh;
+}
 .container-one-new{
     width: 90%;
-    height: 70vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,16 +11,50 @@
 
     h2{
         font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    p{
+        font-size: 1.6em;
     }
    
 }
 .one-new-content{
     text-align: left;
     width: 60%;
-    margin: 3% auto;
+    //margin: 1% auto;
 }
 
 .dateNews2{
     display: flex;
     justify-content: flex-end;
+}
+@media (max-width: 840px){
+    .dateNews2{
+
+        p{
+            text-align: center;
+        }
+    }
+    .container-one-new{
+
+        h2{
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 570px){
+    .dateNews2{
+
+        p{
+            text-align: center;
+        }
+    }
+    .container-one-new{
+
+        h2{
+            text-align: center;
+        }
+    }
 }

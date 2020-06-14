@@ -102,7 +102,7 @@ const HomePageTeacher = () => {
 
             <div className="container--homeTeacher--info--content--perso">
               <div className="container--homeTeacher--info--content--perso--head">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
+                <img src="https://mybluerobot.com/wp-content/uploads/2015/04/myAvatar-29.png"></img>
                 <h5>Professeur {currentUser.lastname}</h5>
               </div>
               <hr></hr>

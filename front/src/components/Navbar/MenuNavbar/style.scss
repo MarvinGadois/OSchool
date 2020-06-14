@@ -1,5 +1,5 @@
 .menu_navbar_container{
-    z-index: 999;
+    z-index: 999 ; 
     position: absolute;
     top:105%;
     right: 0.5%;
@@ -12,17 +12,21 @@
     border: 1px solid #BDC3C7;
     box-shadow: 2px 2px 2px #BDC3C7;
     border-radius: 10px;
+    opacity: 1;
+    background-color: #335C81;
+    
 
     h3{
-        font-size: 1.3em;
+        font-size: 1.5em;
         font-weight: bold;
+        color: white;
     }
 
     .menu_navbar_x{
         position: absolute;
         top:5px;
         right: 5px;
-        color:#BDC3C7;
+        color:white;
         cursor: pointer;
     }
 
@@ -33,11 +37,11 @@
 
         p{
             cursor: pointer;
-            color: #BDC3C7;
+            color: white;
             margin: 2px auto;
         }
         p:hover{
-            color: #335C81;
+            color:#6D9CC5;
         }
     }
 }
@@ -45,5 +49,6 @@
 @media (max-width: 840px){
     .menu_navbar_container{
         display: none;
+        opacity: 0;
     }
 }

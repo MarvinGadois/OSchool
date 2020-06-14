@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
 
     h1{
         font-size: 2.5em;
         margin: 4% auto;
+        color: #335C81;
+        font-weight: bold;
     }
 }
 .container-All-News{
@@ -15,7 +16,7 @@
 
 .container-One-News{
     margin:5% 0;
-    height: 150px;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,9 +25,24 @@
     h2{
         font-size: 2em;
         margin-bottom: 2%;
+        font-weight: bold;
+    }
+    p{
+        font-size: 1.2em;
     }
 }
 .dateNews{
     display: flex;
     justify-content: flex-end;
+    margin-top: 5%;
+}
+
+@media (max-width: 570px){
+    .dateNews{
+        justify-content: center;
+    }
+    .container-One-News{
+        align-items: center;
+    }
+ 
 }
