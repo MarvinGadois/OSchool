@@ -82,7 +82,7 @@ const TeacherClassroom = () => {
     <div key={lesson.id} className="memberCard half">
       <h3>{lesson.title}</h3>
       <p>{lesson.content.slice(0, 50)} ...</p>
-      <button><a href=""></a>Accéder</button>
+      <button><NavLink exact to={"/cours/" + lesson.id}>Accéder</NavLink></button>
     </div>
   ));
 
@@ -106,7 +106,7 @@ const TeacherClassroom = () => {
     <div key={homework.id} className="memberCard half">
       <h3>{homework.code} {homework.title}</h3>
       <p>{homework.content.slice(0, 50)} ...</p>
-      <button><a href=""></a>Accéder</button>
+      <button><NavLink exact to={"/devoirs/" + homework.id}>Accéder</NavLink></button>
     </div>
   ));
 
@@ -159,7 +159,7 @@ const TeacherClassroom = () => {
         </div>
 
         <div className="homework">
-          <h2>Vos devoirs</h2>
+          <h2><NavLink exact to={"/devoirs"}>Vos devoirs</NavLink></h2>
           <div className="cards-group">
             {allHomeworks}
           </div>
