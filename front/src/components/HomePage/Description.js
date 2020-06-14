@@ -38,14 +38,17 @@ const Description = () => {
           </div>
 
           <div className="help-view">
-            <img className="icon" src={icon2} alt="icon inscription" />
-            <p>Accès facile et en direct à tous les documents</p>
+
+            <img className="icon" src={icon3} alt="icon inscription" />
+            <p>Simple et intuitif</p>
+
           </div>
 
           <div className="help-view">
-            <img className="icon" src={icon3} alt="icon inscription" />
-            <p>Simple et intuitif</p>
+            <img className="icon" src={icon2} alt="icon inscription" />
+            <p>Accès facile et en direct de tous les documents</p>
           </div>
+
         </div>
 
         <div className="paragraphs">

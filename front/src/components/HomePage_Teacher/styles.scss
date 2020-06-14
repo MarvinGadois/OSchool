@@ -35,20 +35,21 @@
 }
 .container--homeTeacher--new{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    //justify-content: space-between;
     width: 100%;
 }
 .container--homeTeacher--new--card{
-    background-color:white ;
-    flex-basis: 40%;
+    background-color:red ;
+    //flex-basis: 0%;
     height:150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #BDC3C7;
-    box-shadow: 2px 2px 2px #BDC3C7;
-    border-radius: 10px;
+    //box-shadow: 2px 2px 2px #BDC3C7;
+    //border-radius: 10px;
 }
 
 // classes

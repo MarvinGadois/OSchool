@@ -24,6 +24,11 @@
       &:visited {
 
         color: #335C81;
+
+        //font-weight: bold;
+
+
+
       }
 
       &:focus,
@@ -31,7 +36,7 @@
       &:active {
 
         
-        color:#68c2e8;
+        color:#6D9CC5;
         
 
       }
@@ -115,9 +120,10 @@
 .navbar_user_info{
   display: flex;
   align-items: center;
-
+  
   p{
     margin-right: 5px;
+    font-size: 1.2em;
   }
 
   img{

@@ -11,6 +11,10 @@
     display: flex;  
     flex-direction: column;
     justify-content: space-between;
+
+    p{
+        font-size: 1.4em;
+    }
 }
 .container-head{
   display: flex;
@@ -70,6 +74,7 @@
 .paragraphs-content h2 {
 font-size: 1.4em;
 color: #BDC3C7;
+font-weight: bold;
 }
 
 .paragraphs-content p {
@@ -127,6 +132,7 @@ align-content: center;
 
     h2{
         font-size: 2em;
+        color: #335C81;
     }
 }
 .news_card_container{
@@ -139,6 +145,10 @@ align-content: center;
     margin: 4% auto;
     border-radius: 5px;
     box-shadow: 10px 5px 5px #BDC3C7;
+
+    p{
+        font-size: 1.4em;
+    }
  } 
  .one_news_card_head{
     display: flex;
@@ -154,6 +164,7 @@ align-content: center;
 .img_one_news{
     width: 2;  
     padding: 4%;
+    border-radius: 25px;
 }
 .last_news h2 {
     text-align: center;
@@ -175,6 +186,8 @@ padding: 12px;
     font-weight: bold;
     font-size: 2em;
     margin-bottom: 15px;
+    color: #335C81;
+
 }
 .opinion_container{
     display: flex;
@@ -188,6 +201,10 @@ padding: 12px;
     margin: 20px 0;
     box-shadow: 10px 5px 5px #BDC3C7;
     border-radius: 5px;
+
+    p{
+        font-size: 1.4em;
+    }
 
 }
 .opinion_user_info{
@@ -257,8 +274,11 @@ margin: 20px auto;
         margin:5% auto;
     }
     .one_opinion{
-        width: 80%;
+        width: 90%;
     }
+    .help-view img{
+        width: 30%;  
+      }
  }
 
  @media (max-width: 570px){
@@ -269,6 +289,30 @@ margin: 20px auto;
      .one_opinion{
          width: 100%;
      }
+     .help-view img{
+        width: 80%;  
+      }
+      .opinionDate{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+
+        p{
+            font-size: 1em;
+        }
+    }
+    .catchphrase{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //margin: 5% auto 8%;
+    }
+    .description_main{
+        margin-top: -8%;
+    }
+
+
+
  }
 
  @media (max-width:840px) {
@@ -276,4 +320,10 @@ margin: 20px auto;
      .news_card_container{
          flex-direction: column;
      }
+     .help-view img{
+        width: 50%;  
+      }
+      .one_opinion{
+        width: 90%;
+    }
  }
