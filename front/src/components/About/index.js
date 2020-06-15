@@ -58,7 +58,7 @@ const About = () => {
                         <img src={dumbledore}></img>
                         <p>Samy</p>
                         <p>Lead dev Frontend</p>
-                        <p>Backend</p>
+                        <p>Frontend</p>
                     </div>
                 </div>
                 <img id="img_about" src={Logo_about} />
