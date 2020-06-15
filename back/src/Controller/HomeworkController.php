@@ -62,6 +62,7 @@ class HomeworkController extends AbstractController
 
         return $this->render('homework/form.html.twig', [
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -121,6 +122,7 @@ class HomeworkController extends AbstractController
         return $this->render('homework/form.html.twig', [
             'form' => $form->createView(),
             'formDelete' => $formDelete->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -175,6 +177,7 @@ class HomeworkController extends AbstractController
         return $this->render('homework/form_correction.html.twig', [
             'form' => $form->createView(),
             'formDelete' => $formDelete->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -210,7 +213,7 @@ class HomeworkController extends AbstractController
         }
 
         return $this->render('homework/form.html.twig', [
-            'test'
+            'user' => $user,
         ]);
     }
 }

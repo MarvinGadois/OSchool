@@ -63,6 +63,7 @@ class LessonController extends AbstractController
 
         return $this->render('lesson/form.html.twig', [
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -128,6 +129,7 @@ class LessonController extends AbstractController
         return $this->render('lesson/form.html.twig', [
             'form' => $form->createView(),
             'formDelete' => $formDelete->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -165,7 +167,7 @@ class LessonController extends AbstractController
         }
 
         return $this->render('lesson/form.html.twig', [
-            'test'
+            'user' => $user,
         ]);
     }
 }
