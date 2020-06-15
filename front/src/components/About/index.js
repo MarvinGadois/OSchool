@@ -16,7 +16,7 @@ const About = () => {
             {/* <h1>About</h1> */}
             <div className="container_about_head">
 
-                <h2>Pourquoi ce projet</h2>
+                <h2>Pourquoi ce projet ?</h2>
                 <div>
                   <p>L’idée du projet sur lequel nous travaillons nous est venue au cours du confinement   lors duquel la scolarité est devenue compliquée pour bons nombres d’établissements scolaires. Ceux-ci se sont retrouvés dépassés par les événements, mais aussi par le manque de moyens pédagogiques mis à leur disposition. il est devenu compliqué de mener à bien la scolarité de leurs étudiants confinés loin des salles de classe traditionnelles.
                   </p>
@@ -27,7 +27,7 @@ const About = () => {
 
             </div>
             <div className="container_about_content" >
-                <h2>Notre equipe</h2>
+                <h2>Notre équipe</h2>
                 <div className="container_about_content_team">
                     <div className="container_about_content_team_card">
                         <img src={hermione}></img>
