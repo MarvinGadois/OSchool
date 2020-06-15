@@ -44,6 +44,18 @@ const Homeworks_Teacher = () => {
           type="button"
         >
           <a
+            href={`http://ec2-54-152-201-144.compute-1.amazonaws.com/homework/user/${currentUser.id}/correction/${homework.id}`}
+            style={{ color: 'white' }}
+          >
+            Ajouter une correction
+          </a>
+        </p>
+        <p
+          className="badge badge-danger"
+          style={{ backgroundColor: '#335C81', fontSize: '15px' }}
+          type="button"
+        >
+          <a
             href={`http://ec2-54-152-201-144.compute-1.amazonaws.com/homework/user/${currentUser.id}/edit/${homework.id}`}
             style={{ color: 'white' }}
           >
@@ -68,6 +80,20 @@ const Homeworks_Teacher = () => {
             onClick={() => history.push('/')}
           >
             Revenir à l'accueil
+          </button>
+        </div>
+        <div className="btn-group">
+          <button
+            type="button"
+            className="btn btn-secondary m-4"
+            style={{ backgroundColor: '#335C81' }}
+          >
+            <a
+              href={`http://ec2-54-152-201-144.compute-1.amazonaws.com/grade/user/${currentUser.id}/add`}
+              style={{ color: 'white' }}
+            >
+              Ajouter une note
+            </a>
           </button>
         </div>
         <div className="btn-group dropright">

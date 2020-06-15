@@ -68,8 +68,8 @@ const HomePageStudent = () => {
           </div>
           <div className="go_all_news">
             <p onClick={() => history.push("/news")}>
-              Lire les{" "}
-              <span className="badge badge-primary">{schoolNews.length}</span>{" "}
+              Lire les
+              <span className="badge badge-primary">{schoolNews.length}</span>
               articles suivants...
             </p>
           </div>
