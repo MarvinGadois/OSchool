@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
-
 //import imageFolders from '../../../../back/public/assets/images';
 
 
@@ -19,7 +18,6 @@ const HomePageStudent = () => {
   useEffect(() => { getSchoolNews(currentUser.schools[0].id) }, []);
   useEffect(() => { getGradesByUserId(currentUser.id) }, []);
 
-  console.log('Mes notes:', gradesUser)
   //currentUser.classrooms.map(classe => { useEffect(() => { getClassById(classe.id) }, []); })
 
   const DetailsNote = gradesUser.map((oneGrade, i) => {
