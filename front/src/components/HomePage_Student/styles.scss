@@ -1,8 +1,8 @@
-
 .container--homeStudent{
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   h1{
       font-size: 3em;
       margin: 2% auto;
@@ -19,6 +19,7 @@
         font-style: italic;
     }
 }
+
 .table{
 
     td{
@@ -29,7 +30,6 @@
 // news
 .container--homeStudent--news{
     width: 100%;
-    //height: 200px;
     margin: 8% 0;
     display: flex;
     flex-direction: column;
@@ -46,12 +46,7 @@
         font-size: 1.4em;
     }
 
-    // button {
-    //     margin-top: 2%;
-    //     border: 1px solid #BDC3C7;
-    //     padding: 5px;
-    //     border-radius: 5px;
-    // }
+ 
 }
 
 .newsDateConnected {
@@ -86,7 +81,6 @@
 
 // classes
 .container--homeStudent--classes{
-    //height: 200px;
     width: 100%;
     margin: 5% 0;
     display: flex;
@@ -108,7 +102,6 @@
 // info
 .container--homeStudent--info{
     margin: 2% 0;
-    //height: 200px;
     width: 100%;
     margin: 5% 0;
 
@@ -195,4 +188,9 @@
         }
     }
 
+}
+
+.articles:hover{
+  color: #6D9CC5;
+  text-decoration: none;
 }
