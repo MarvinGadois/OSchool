@@ -7,7 +7,7 @@
 
 
 <div class="row mb-4 mx-auto mt-4 col-8">
-    <a class="return-back" href="http://ec2-54-152-201-144.compute-1.amazonaws.com/cours"><i class="fa fa-arrow-left pt-4" aria-hidden="true"></i></a>
+    <a class="return-back" href="{{ user.roles[0] == 'ROLE_TEACHER' ? 'http://localhost:8080/devoirsprof' : 'http://localhost:8080/devoirs' }}"><i class="fa fa-arrow-left pt-4" aria-hidden="true"></i></a>
     <h1 class="mx-auto title">Ajouter une correction <br><span>xxx de xxx</span></h1>
 </div>
 
