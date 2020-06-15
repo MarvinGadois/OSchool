@@ -46,6 +46,7 @@ class GradeController extends AbstractController
 
         return $this->render('grade/form.html.twig', [
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -85,6 +86,7 @@ class GradeController extends AbstractController
         return $this->render('grade/form.html.twig', [
             'form' => $form->createView(),
             'formDelete' => $formDelete->createView(),
+            'user' => $user,
         ]);
     }
 
@@ -112,7 +114,7 @@ class GradeController extends AbstractController
         }
 
         return $this->render('grade/form.html.twig', [
-            'test'
+            'user' => $user,
         ]);
     }
 }
