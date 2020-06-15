@@ -19,6 +19,14 @@ export const GET_CLASS_BY_ID = 'secured/v1/classroom/';
 // Route Lessons
 export const GET_LESSONS = 'secured/v1/lessons/user/';
 
+// Route Lessons
+export const GET_LESSONS_BY_CLASSROOM = 'secured/v1/lessons/classroom/';
+// + on rajoute /id
+
+// Route Lessons
+export const GET_HOMEWORKS_BY_CLASSROOM = 'secured/v1/homework/classroom/';
+// + on rajoute /id
+
 // Route Lesson par id
 export const GET_ONE_LESSON_BY_ID = 'secured/v1/lessons/';
 

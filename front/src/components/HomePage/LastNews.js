@@ -15,7 +15,7 @@ const LastNews = () => {
     const news = newsNoConnected.slice(0, 2).map((newOne) => (
         <div key={newOne.id} className="one_news_card_container">
             <div className="one_news_card_head">
-                <img className="img_one_news" src="https://via.placeholder.com/150"></img>
+                <img className="img_one_news" src="https://www.expatica.com/app/uploads/sites/5/2018/11/shutterstock_251933845-new-1200x675.jpg"></img>
                 <h3>{newOne.title}</h3>
             </div>
             <hr className="one_news_card_hr"></hr >

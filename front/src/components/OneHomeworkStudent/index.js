@@ -4,45 +4,42 @@ import { useParams } from "react-router";
 import { useHistory } from "react-router";
 
 // Import scss
-import "./homework.scss";
+import "./onehomeworkstudent.scss";
 
 import getOneHomeworkById from "../../utils/getOneHomeworkById";
 
 
-const Homework = () => {
+const OneHomeworkStudent = () => {
   const history = useHistory();
   let { id } = useParams();
-  console.log(id);
   const { homework } = useSelector((state) => state);
   useEffect(() => {
     getOneHomeworkById(id);
   }, []);
 
-  console.log(homework);
 
   return (
-    <div className="container_homework">
-      <div className="dropdown">
+    <div className="container" id="container-one-homework">
+      <div className="btn-group dropleft">
         <button
-          className="btn btn-secondary dropdown-toggle"
           type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
+          className="btn btn-secondary dropdown-toggle m-4"
           onClick={() => history.push(`/devoirs`)}
+          style={{ backgroundColor: "#335C81" }}
         >
-          Cliquer ici pour revenir aux devoirs
+          Revenir aux devoirs
         </button>
       </div>
       <div
-        className="card text-white bg-success mb-3 container fluid"
-        style={{ maxWidth: "25rem" }}
+        className="card border-dark m-4"
+        style={{ margin: "5px", textAlign: "center" }}
       >
-        <div className="card-header">{homework.title}</div>
+        <div className="card-header" style={{ fontWeight: "bold" }}>
+          {homework.title}
+        </div>
         <div className="card-body">
-          <h5 className="card-title">{homework.content}</h5>
-          <p className="card-text">Code {homework.code}</p>
+          <p className="card-title p-5">{homework.content}</p>
+          <p className="card-text p-2">Code {homework.code}</p>
           <p className="card-footer">Lien du devoir: {homework.path}</p>
         </div>
       </div>
@@ -50,4 +47,4 @@ const Homework = () => {
   );
 };
 
-export default Homework;
+export default OneHomeworkStudent;

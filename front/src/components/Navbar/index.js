@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import Logo from "src/assets/O'school.png";
+import Logo from "src/assets/VersionFoncé.png";
 
 import MenuNavbar from "./MenuNavbar/MenuNavbar";
 
@@ -118,10 +118,10 @@ const Navbar = () => {
             <NavLink exact to={"/"}>Accueil</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/cours"}>Cours</NavLink>
+            <NavLink exact to={"/coursprof"}>Cours</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/devoirs"}>Devoirs</NavLink>
+            <NavLink exact to={"/devoirsprof"}>Devoirs</NavLink>
           </li>
           <li>
             <NavLink

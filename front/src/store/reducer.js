@@ -17,6 +17,8 @@ import {
   SET_GRADES_BY_USER,
   SET_ONE_NEW,
   SET_CURRENT_CLASSROOM,
+  SET_LESSONS_BY_CLASSROOM,
+  SET_HOMEWORKS_BY_CLASSROOM,
   TOGGLE_MENU_NAVBAR,
 } from "./actions";
 
@@ -24,6 +26,8 @@ import {
 const initialState = {
 
   lessons: [],
+  lessons_by_classroom: [],
+  homeworks_by_classroom: [],
   lesson: [],
   homeworks: [],
   homework: [],
@@ -122,6 +126,18 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         lesson: action.lesson,
+      };
+    }
+    case SET_LESSONS_BY_CLASSROOM: {
+      return {
+        ...state,
+        lessons_by_classroom: action.lessons_by_classroom,
+      };
+    }
+    case SET_HOMEWORKS_BY_CLASSROOM: {
+      return {
+        ...state,
+        homeworks_by_classroom: action.homeworks_by_classroom,
       };
     }
     case SET_GRADES_BY_USER: {

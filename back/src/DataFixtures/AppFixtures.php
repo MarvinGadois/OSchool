@@ -1084,7 +1084,7 @@ class AppFixtures extends Fixture
         $lesson1 = new Lesson();
         $lesson1->setTitle("Cours de rentrée de potions");
         $lesson1->setContent("Aujourd’hui nous avons fait connaissance avec les nouveaux qui nous ont rejoint cette année et je vous ai présenté le programme de cette année");
-        $lesson1->setPath("");
+        $lesson1->setPath("manuels.jpeg");
         $lesson1->setClassroom($gryffondorD);
         $lesson1->setSubject($potions);
         $lesson1->setUser($rogue);

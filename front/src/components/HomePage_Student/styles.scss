@@ -5,34 +5,61 @@
   align-items: center;
   h1{
       font-size: 3em;
-      margin: 2%;
+      margin: 2% auto;
   }
+}
+
+.go_all_news{
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+
+    p{
+        cursor: pointer;
+        font-style: italic;
+    }
+}
+.table{
+
+    td{
+        font-size: 1.1em;
+    }
 }
 
 // news
 .container--homeStudent--news{
     width: 100%;
-    height: 200px;
-    margin: 5% 0;
+    //height: 200px;
+    margin: 8% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     h2{
         margin: 2% 0;
-      font-size: 1.5em;
-      font-size: 1.5em;
-      color: #BDC3C7;
-
+      font-size: 1.6em;
+      color: #335C81;
+      font-weight: bold;
     }
 
-    button {
-        margin-top: 2%;
-        border: 1px solid #BDC3C7;
-        padding: 5px;
-        border-radius: 5px;
+    p{
+        font-size: 1.4em;
     }
+
+    // button {
+    //     margin-top: 2%;
+    //     border: 1px solid #BDC3C7;
+    //     padding: 5px;
+    //     border-radius: 5px;
+    // }
 }
+
+.newsDateConnected {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
 .container--homeStudent--new{
     display: flex;
     justify-content: space-between;
@@ -50,6 +77,12 @@
     box-shadow: 2px 2px 2px #BDC3C7;
     border-radius: 10px;
 }
+.one_news_card_head{
+    img{
+        width: 50%;
+    }
+}
+
 
 // classes
 .container--homeStudent--classes{
@@ -62,8 +95,9 @@
 
     h2{
       margin: 2% 0;
-      font-size: 1.5em;
-      color: #BDC3C7;
+      font-size: 1.6em;
+      color: #335C81;
+      font-weight: bold;
 
     }
 }
@@ -84,8 +118,9 @@
 
     h2{
         margin: 2% 0;
-      font-size: 1.5em;
-      color: #BDC3C7;
+        font-size: 1.6em;
+        color: #335C81;
+        font-weight: bold;
     }
 
 }
@@ -93,13 +128,13 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    box-shadow: 2px 2px 2px #BDC3C7;
-    border: 1px solid #BDC3C7;
-    border-radius: 10px;
     padding: 2%;
 }
+.titlecardInfo{
+    font-weight: bold;
+}
 .container--homeStudent--info--content--shedule{
-    flex-basis: 60%; 
+    flex-basis: 65%; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,6 +148,7 @@
 }
 .container--homeStudent--info--content--perso{
     flex-basis: 30%;
+    min-width: 300px;
     box-shadow: 2px 2px 2px #BDC3C7;
     border: 1px solid #BDC3C7;
     border-radius: 10px;
@@ -135,24 +171,28 @@
         padding: 4%;
     }
 }
-//////////////
-// .btn_login{
-// 	display: block;
-// 	width: 100%;
-// 	height: 50px;
-// 	border-radius: 5px;
-// 	outline: none;
-// 	border: none;
-// 	background-image: linear-gradient(to right, #9374e9, #68C2E8, #9374e9);
-// 	background-size: 200%;
-// 	font-size: 1.2rem;
-// 	color: #fff;
-// 	font-family: 'Poppins', sans-serif;
-// 	text-transform: uppercase;
-// 	margin: 1rem 0;
-// 	cursor: pointer;
-// 	transition: .5s;
-// }
-// .btn_login:hover{
-// 	background-position: right;
-// }
+
+@media (max-width: 1000px){
+    .container--homeStudent--info--content{
+        flex-direction: column;
+    }
+    .container--homeStudent--info--content--shedule{
+        margin: 5% auto;
+    }
+}
+
+@media (max-width: 570px){
+    .newsDateConnected {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .go_all_news{
+        justify-content: center;
+
+        p{
+       font-size: 1.2em;
+        }
+    }
+
+}

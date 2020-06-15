@@ -15,11 +15,13 @@ const OneNewSchool = () => {
 
     const DateComment3 = new Date(OneNewById.date);
     return (
-        <div className="container-one-new">
-            <h2>{OneNewById.title}</h2>
-            <p className="one-new-content">{OneNewById.content}</p>
-            <div className="dateNews2">
-                <p className="spanGrey">Posté le: {DateComment3.toLocaleString(undefined)}</p>
+        <div className="fixonenew">
+            <div className="container-one-new">
+                <h2>{OneNewById.title}</h2>
+                <p className="one-new-content">{OneNewById.content}</p>
+                <div className="dateNews2">
+                    <p className="spanGrey">Posté le: {DateComment3.toLocaleString(undefined)}</p>
+                </div>
             </div>
         </div>
     );

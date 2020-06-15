@@ -5,7 +5,7 @@ import './style.scss';
 import icon1 from 'src/assets/icon-inscription.png';
 import icon2 from 'src/assets/icon-students.png';
 import icon3 from 'src/assets/icon-light.jpg';
-import logo from "src/assets/O'school.png";
+import logo from "src/assets/VersionFoncé.png";
 
 
 
@@ -38,14 +38,17 @@ const Description = () => {
           </div>
 
           <div className="help-view">
-            <img className="icon" src={icon2} alt="icon inscription" />
-            <p>Accès facile et en direct à tous les documents</p>
+
+            <img className="icon" src={icon3} alt="icon inscription" />
+            <p>Simple et intuitif</p>
+
           </div>
 
           <div className="help-view">
-            <img className="icon" src={icon3} alt="icon inscription" />
-            <p>Simple et intuitif</p>
+            <img className="icon" src={icon2} alt="icon inscription" />
+            <p>Accès facile et en direct de tous les documents</p>
           </div>
+
         </div>
 
         <div className="paragraphs">

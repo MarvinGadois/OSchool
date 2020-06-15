@@ -4,45 +4,37 @@ import { useParams } from "react-router";
 import { useHistory } from "react-router";
 
 // Import scss
-import './lesson.scss';
+import "./onelessonstudent.scss";
 
 import getOneLessonById from "../../utils/getOneLessonById";
 
-
 const Lesson = () => {
   const history = useHistory();
-let { idLesson } = useParams();
-console.log(idLesson);
+  let { idLesson } = useParams();
   const { lesson } = useSelector((state) => state);
   useEffect(() => {
     getOneLessonById(idLesson);
   }, []);
 
-  console.log(lesson);
-
   return (
-    <div className="container_lesson">
-      <div className="dropdown">
+    <div className="container" id="container-one-lesson">
+      <div className="btn-group dropleft">
         <button
-          className="btn btn-secondary dropdown-toggle"
           type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
+          className="btn btn-secondary dropdown-toggle m-4"
           onClick={() => history.push(`/cours`)}
+          style={{ backgroundColor: "#335C81" }}
         >
-          Cliquer ici pour revenir aux cours
+          Revenir aux cours
         </button>
       </div>
-      <div
-        className="card text-white bg-success mb-3 container fluid"
-        style={{ maxWidth: "25rem" }}
-      >
-        <div className="card-header">{lesson.title}</div>
+      <div className="card borderdark m-4" style={{ textAlign: "center" }}>
+        <div className="card-header" style={{ fontWeight: "bold" }}>
+          {lesson.title}
+        </div>
         <div className="card-body">
-          <h5 className="card-title">{lesson.content}</h5>
-          <p className="card-text">Cours numero: {lesson.id}</p>
+          <h5 className="card-title p-5">{lesson.content}</h5>
+          <p className="card-text p-2">Cours numero: {lesson.id}</p>
           <p className="card-footer">Lien: {lesson.path}</p>
         </div>
       </div>
