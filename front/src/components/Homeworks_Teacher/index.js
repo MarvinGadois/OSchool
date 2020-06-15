@@ -64,8 +64,8 @@ const Homeworks_Teacher = () => {
           <button
             type="button"
             className="btn btn-secondary dropdown-toggle m-4"
-            style={{ backgroundColor: '#335C81' }}
-            onClick={() => history.push('/')}
+            style={{ backgroundColor: "#335C81" }}
+            onClick={() => history.push("/")}
           >
             Revenir à l'accueil
           </button>
@@ -74,11 +74,11 @@ const Homeworks_Teacher = () => {
           <button
             type="button"
             className="btn btn-secondary dropdown-toggle m-4"
-            style={{ backgroundColor: '#335C81' }}
+            style={{ backgroundColor: "#335C81", zIndex: "-1" }}
           >
             <a
               href={`http://ec2-54-152-201-144.compute-1.amazonaws.com/homework/user/${currentUser.id}/add`}
-              style={{ color: 'white' }}
+              style={{ color: "white" }}
             >
               Ajouter un devoir
             </a>
