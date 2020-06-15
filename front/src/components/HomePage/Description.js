@@ -15,7 +15,7 @@ const Description = () => {
     <div className="description">
       <div className="container-head">
         <div className="last-container-head">
-          <h1>Bienvenue sur </h1>
+          <h1>Bienvenue sur</h1>
           <img className="logo" src={logo} alt="logo O'school" />
         </div>
       </div>
