@@ -29,7 +29,6 @@ const Login = () => {
                         dispatch(login(history));
                     }}
                 >
-                    <img src={Logo} />
                     <h2 className="title">Bienvenue</h2>
                     <div className="input-div one">
                         <div className="i">

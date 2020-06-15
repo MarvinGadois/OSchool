@@ -63,7 +63,7 @@ const HomePageStudent = () => {
             {NewsSchoolConnected.slice(0, 2)}
           </div>
           <div className="go_all_news">
-            <p onClick={() => history.push("/news")}
+            <p onClick={() => history.push("/news")} className="articles"
             >Lire les <span className="badge badge-primary">{schoolNews.length}</span> articles suivants...
           </p>
           </div>
