@@ -12,10 +12,10 @@ const About = () => {
 
                 <h2>Pourquoi ce projet</h2>
                 <div>
-                    <p>L’idée du projet sur lequel nous travaillons nous est venu au cours du confinement lors duquel la scolarité est devenue compliquée pour bons nombres d’établissements scolaires. Ceux-ci se sont retrouvés dépassés par les événements, mais aussi par le manque de moyens pédagogiques mis à leur disposition.
-                    Pour mener à bien la scolarité de leurs étudiants confinés loin des salles de classe traditionnelles nous avons pour objectif de créer une plateforme qui faciliterait la communication et les échanges entre les différents acteurs des établissements scolaires ayant besoin d’un soutien dans la mise en place de l’instruction à distance.
-                    Cette solution permettrait aux professeurs de partager leurs ressources aux élèves qui pourront donc les récupérer facilement. De plus, les parents d’élèves pourront suivre la scolarité de leurs enfants simplement.
-            </p>
+                  <p>L’idée du projet sur lequel nous travaillons nous est venue au cours du confinement   lors duquel la scolarité est devenue compliquée pour bons nombres d’établissements scolaires. Ceux-ci se sont retrouvés dépassés par les événements, mais aussi par le manque de moyens pédagogiques mis à leur disposition. il est devenu compliqué de mener à bien la scolarité de leurs étudiants confinés loin des salles de classe traditionnelles.
+                  </p>
+                  <p> Nous avons pour objectif de créer une plateforme qui faciliterait la communication et les échanges entre les différents acteurs des établissements scolaires, Ayant besoin d’un soutien dans la mise en place de l’instruction à distance. Cette solution permettrait aux professeurs de partager leurs ressources aux élèves qui pourront donc les récupérer facilement. De plus, par la suite les parents d’élèves pourront suivre la scolarité de leurs enfants plus simplement.
+                  </p>
 
                 </div>
 
@@ -26,27 +26,33 @@ const About = () => {
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Sarah</p>
-                        <p>Rôle</p>
+                        <p>Product Owner</p>
+                        <p>Backend</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Marvin</p>
-                        <p>Rôle</p>
+                        <p>Lead dev Back</p>
+                        <p>Backend</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Ahmad</p>
-                        <p>Rôle</p>
+                        <p>QA</p>
+                        <p>Frontend</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Aymeric</p>
-                        <p>Rôle</p>
+                        <p>Git Master</p>
+                        <p>ScrumMaster</p>
+                        <p>Frontend</p>
                     </div>
                     <div className="container_about_content_team_card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
                         <p>Samy</p>
-                        <p>Rôle</p>
+                        <p>Lead dev Frontend</p>
+                        <p>Backend</p>
                     </div>
                 </div>
                 <img id="img_about" src={Logo_about} />
