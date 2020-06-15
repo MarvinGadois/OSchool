@@ -2,6 +2,12 @@ import React from 'react';
 import Logo_about from "../../assets/about.svg";
 
 import './styles.scss';
+import dumbledore from "../../assets/dumbledore.png";
+import ron from "../../assets/ron.jpeg";
+import hermione from "../../assets/hermione.jpeg";
+import harry from "../../assets/harry.png";
+import sirius from "../../assets/sirius.jpeg";
+
 
 
 const About = () => {
@@ -24,32 +30,32 @@ const About = () => {
                 <h2>Notre equipe</h2>
                 <div className="container_about_content_team">
                     <div className="container_about_content_team_card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
+                        <img src={hermione}></img>
                         <p>Sarah</p>
                         <p>Product Owner</p>
                         <p>Backend</p>
                     </div>
                     <div className="container_about_content_team_card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
+                        <img src={harry}></img>
                         <p>Marvin</p>
                         <p>Lead dev Back</p>
                         <p>Backend</p>
                     </div>
                     <div className="container_about_content_team_card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
+                        <img src={ron}></img>
                         <p>Ahmad</p>
                         <p>QA</p>
                         <p>Frontend</p>
                     </div>
                     <div className="container_about_content_team_card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
+                        <img src={sirius}></img>
                         <p>Aymeric</p>
                         <p>Git Master</p>
                         <p>ScrumMaster</p>
                         <p>Frontend</p>
                     </div>
                     <div className="container_about_content_team_card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"></img>
+                        <img src={dumbledore}></img>
                         <p>Samy</p>
                         <p>Lead dev Frontend</p>
                         <p>Backend</p>
