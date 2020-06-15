@@ -20,7 +20,7 @@ const About = () => {
                 <div>
                   <p>L’idée du projet sur lequel nous travaillons nous est venue au cours du confinement   lors duquel la scolarité est devenue compliquée pour bons nombres d’établissements scolaires. Ceux-ci se sont retrouvés dépassés par les événements, mais aussi par le manque de moyens pédagogiques mis à leur disposition. il est devenu compliqué de mener à bien la scolarité de leurs étudiants confinés loin des salles de classe traditionnelles.
                   </p>
-                  <p> Nous avons pour objectif de créer une plateforme qui faciliterait la communication et les échanges entre les différents acteurs des établissements scolaires, Ayant besoin d’un soutien dans la mise en place de l’instruction à distance. Cette solution permettrait aux professeurs de partager leurs ressources aux élèves qui pourront donc les récupérer facilement. De plus, par la suite les parents d’élèves pourront suivre la scolarité de leurs enfants plus simplement.
+                  <p> Nous avons pour objectif de créer une plateforme qui faciliterait la communication et les échanges entre les différents acteurs des établissements scolaires ayant besoin d’un soutien dans la mise en place de l’instruction à distance. Cette solution permettrait aux professeurs de partager leurs ressources aux élèves qui pourront donc les récupérer facilement. De plus, par la suite les parents d’élèves pourront suivre la scolarité de leurs enfants plus simplement.
                   </p>
 
                 </div>
