@@ -79,6 +79,9 @@ const Navbar = () => {
             <NavLink exact to={"/devoirs"}>Devoirs</NavLink>
           </li>
           <li>
+            <NavLink exact to={"/news"}>Actualité</NavLink>
+          </li>
+          <li>
             <NavLink
               className="student_deco"
               exact
@@ -115,20 +118,33 @@ const Navbar = () => {
         </label>
         <ul className="menu">
           <li>
-            <NavLink exact to={"/"}>Accueil</NavLink>
+            <NavLink exact to={"/"}>
+              Accueil
+            </NavLink>
           </li>
           <li>
-            <NavLink exact to={"/coursprof"}>Cours</NavLink>
+            <NavLink exact to={"/coursprof"}>
+              Cours
+            </NavLink>
           </li>
           <li>
-            <NavLink exact to={"/devoirsprof"}>Devoirs</NavLink>
+            <NavLink exact to={"/devoirsprof"}>
+              Devoirs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to={"/news"}>
+              Actualité
+            </NavLink>
           </li>
           <li>
             <NavLink
               className="student_deco"
               exact
               to={""}
-              onClick={() => { dispatch(disconnected(history)) }}
+              onClick={() => {
+                dispatch(disconnected(history));
+              }}
             >
               Déconnexion
             </NavLink>
@@ -140,12 +156,16 @@ const Navbar = () => {
             <p>{currentUser.lastname}</p>
           </div>
           <img
-            onClick={() => { dispatch({ type: TOGGLE_MENU_NAVBAR }) }}
-            id="img_nabar_user" src="https://mybluerobot.com/wp-content/uploads/2015/04/myAvatar-29.png"></img>
+            onClick={() => {
+              dispatch({ type: TOGGLE_MENU_NAVBAR });
+            }}
+            id="img_nabar_user"
+            src="https://mybluerobot.com/wp-content/uploads/2015/04/myAvatar-29.png"
+          ></img>
         </div>
         {menuNavVisible && <MenuNavbar />}
       </nav>
-    )
+    );
   }
 
 }

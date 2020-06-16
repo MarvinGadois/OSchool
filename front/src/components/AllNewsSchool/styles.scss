@@ -6,8 +6,8 @@
     h1{
         font-size: 2.5em;
         margin: 4% auto;
-        color: #335C81;
         font-weight: bold;
+        text-align: center;
     }
 }
 .container-All-News{
@@ -30,6 +30,13 @@
     p{
         font-size: 1.2em;
     }
+
+    img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
 }
 .dateNews{
     display: flex;

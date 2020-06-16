@@ -8,6 +8,7 @@ import getGradesByUserId from "../../utils/getGradesByUserId";
 
 import "./styles.scss";
 
+
 const HomePageStudent = () => {
   const history = useHistory();
   const currentUser = useSelector((state) => state.user.user);
@@ -33,14 +34,31 @@ const HomePageStudent = () => {
     );
   });
 
-  const NewsSchoolConnected = schoolNews.map((schoolnew) => {
+    const images = [
+      {
+        id: 1,
+        image:
+          "https://www.winjigo.com/wp-content/uploads/2016/09/design-classroom-layout.png",
+        title: "firstNews",
+        description: "news1",
+      },
+      {
+        id: 2,
+        image:
+          "https://sites.google.com/a/pennridge.us/pennridge-school-district/_/rsrc/1584377601007/home/school-tools.png",
+        title: "secondNews",
+        description: "news2",
+      },
+    ];
+
+  const NewsSchoolConnected = schoolNews.map((schoolnew, ix) => {
     const DateComment = new Date(schoolnew.date);
     return (
       <div key={schoolnew.id} className="one_news_card_container">
         <div className="one_news_card_head">
           <img
             className="img_one_news"
-            src="https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2020.2F04.2F14.2Fcc9a7052-4132-4ac9-9bd5-2d8bf381e784.2Ejpeg/750x375/background-color/ffffff/quality/70/retour-a-lecole-le-11-mai-le-gouvernement-est-alle-contre-lavis-du-conseil-scientifique-1368448.jpg"
+            src={images[ix < images.length ? ix : 1].image}
           ></img>
           <h3>{schoolnew.title}</h3>
         </div>
@@ -58,6 +76,7 @@ const HomePageStudent = () => {
   });
 
   return (
+    <div className='bg'>
     <div className="container">
       <div className="container--homeStudent">
         <h1>Bienvenue {currentUser.firstname}</h1>
@@ -133,6 +152,7 @@ const HomePageStudent = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

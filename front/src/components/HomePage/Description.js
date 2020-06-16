@@ -21,7 +21,7 @@ const Description = () => {
       </div>
 
       <div className="description_main">
-        <p>O’School est une plateforme web facilitant les échanges en ligne entre
+        <p className="description-main-title">O’School est une plateforme web facilitant les échanges en ligne entre
 
         les différentes parties de l’éducation.
         </p>
