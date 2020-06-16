@@ -57,12 +57,12 @@ const About = () => {
             <div className="container_about_content_team_card">
               <img src={ron}></img>
               <p>Ahmad</p>
-              <p>ScrumMaster</p>
               <p>Frontend</p>
             </div>
             <div className="container_about_content_team_card">
               <img src={sirius}></img>
               <p>Aymeric</p>
+              <p>ScrumMaster</p>
               <p>Git Master</p>
               <p>Frontend</p>
             </div>
