@@ -79,7 +79,7 @@ const Navbar = () => {
             <NavLink exact to={"/devoirs"}>Devoirs</NavLink>
           </li>
           <li>
-            <NavLink exact to={"/news"}>Actualité</NavLink>
+            <NavLink exact to={"/news"}>Actualités</NavLink>
           </li>
           <li>
             <NavLink
@@ -134,7 +134,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink exact to={"/news"}>
-              Actualité
+              Actualités
             </NavLink>
           </li>
           <li>
