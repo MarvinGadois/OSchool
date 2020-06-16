@@ -13,9 +13,14 @@
     justify-content: space-between;
 
     p{
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 }
+
+.description-main-title {
+    font-size: 1.4em;
+}
+
 .container-head{
   display: flex;
   justify-content: center;
@@ -52,10 +57,13 @@
   justify-content: center;
   align-items: center;
   width: 25%;
+   p {
+     font-weight: bold;
+   }
 }
 
 .help-view img{
-  width: 25%  
+  width: 25%
 }
 
 .paragraphs{
@@ -132,7 +140,6 @@ align-content: center;
 
     h2{
         font-size: 2em;
-        color: #335C81;
     }
 }
 .news_card_container{
@@ -147,7 +154,11 @@ align-content: center;
     box-shadow: 10px 5px 5px #BDC3C7;
 
     p{
+        font-size: 1.2em;
+    }
+    h3{
         font-size: 1.4em;
+        font-weight: bold;
     }
  } 
  .one_news_card_head{
@@ -186,8 +197,6 @@ padding: 12px;
     font-weight: bold;
     font-size: 2em;
     margin-bottom: 15px;
-    color: #335C81;
-
 }
 .opinion_container{
     display: flex;
@@ -203,7 +212,7 @@ padding: 12px;
     border-radius: 5px;
 
     p{
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 
 }
@@ -226,7 +235,7 @@ padding: 12px;
     margin-left: 10px;
 
     h4{
-        font-size: 1.6em;
+        font-size: 1.2em;
         margin-bottom: 2px;
     }
 
